@@ -87,6 +87,7 @@ GUIDES = [
 ]
 
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
+exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, uduo=url(BYID['duo']),
          pcream=rs(BYID['cream']['price']), mcream=rs(BYID['cream']['mrp']), pwash=rs(BYID['wash']['price']), mwash=rs(BYID['wash']['mrp']),
          pduo=rs(BYID['duo']['price']), mduo=rs(BYID['duo']['mrp']))
@@ -168,6 +169,8 @@ def hreflang_cluster(en_path):
     alts = [('en-IN', en_path)]
     if en_path in EN2HI:
         alts.append(('hi-IN', EN2HI[en_path]))
+    if en_path in EN2HL:
+        alts.append(('hi-Latn', EN2HL[en_path]))
     alts += [(r['code'], '/%s/%s/' % (r['lang'], r['slug'])) for r in REG if en_path == '/glutathione-cream/']
     if len(alts) < 2:
         return ''
@@ -246,6 +249,33 @@ page('/hi/', 'Glutathione Hindi Guide: ग्लूटाथियोन की 
      '<section style="padding-top:30px"><div class="wrap" lang="hi"><div class="guides">%s</div></div></section>' % ''.join(
          '<a class="reveal" href="/hi/%s/"><span class="eyebrow">गाइड</span><h3>%s</h3><p>%s</p></a>' % (x['slug'], x['title'], x['desc'].split(':', 1)[-1].strip()) for x in HI),
      lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/')])
+
+# ---------------- Hinglish pages (Hindi in English letters) ----------------
+for h in HL:
+    path = '/hinglish/%s/' % h['slug']
+    u = HL_UI
+    qa_html = ''.join('<h2>%s</h2><p class="answer">%s</p>%s' % (q, a, d) for q, a, d in h['qa'])
+    strip = lambda t: re.sub(r'<[^>]+>', '', t % P)
+    ld_qa = [(q, strip(a)) for q, a, d in h['qa']] + [(q, strip(a)) for q, a in h['faq']]
+    hi_link = (' · <a href="%s" lang="hi">हिंदी में पढ़ें</a>' % EN2HI[h['en']]) if h['en'] in EN2HI else ''
+    body = top(u['hub'], h['title'], h['desc'].split(':', 1)[0]) + \
+        '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">%s · <a href="%s" lang="en-IN">Read in English</a>%s</p>%s%s%s<p class="note">%s</p></div>' \
+        '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>Glutathione night cream · %s · Cash on Delivery</span><button class="btn block" type="button" data-buy="cream">%s</button></aside></div></section>' \
+        '<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>%s</h2></div><div class="guides">%s</div></div></section>' % (
+            u['by'], h['en'], hi_link, with_toc((qa_html + h['body']) % P, u['toc']), faq_block([(q, a % P) for q, a in h['faq']], u['faq']),
+            sources_block(['study', 'fda'], u['src']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'], u['more'],
+            ''.join('<a href="/hinglish/%s/"><span class="eyebrow">Hinglish</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HL if x is not h))
+    page(path, h['seo'], h['desc'], body, og='article', lang='hi-Latn', crumbs=[(u['hub'], '/hinglish/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
+         schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
+                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-Latn',
+                  'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.answer']}},
+                 faq_ld(ld_qa)])
+page('/hinglish/', 'Glutathione Ki Jaankari Hinglish Mein: Fayde, Nuksan, Use | GlutaNex',
+     'Glutathione ki poori jaankari aasan Hinglish mein: glutathione kya hai, cream ke fayde, nuksan, kaise lagaye, tablet, injection aur price.',
+     top('Hinglish guides', 'Glutathione ki jaankari <span class="gold">Hinglish mein</span>', 'Aasan bhasha mein sach aur kaam ki baatein.') +
+     '<section style="padding-top:30px"><div class="wrap"><div class="guides">%s</div></div></section>' % ''.join(
+         '<a class="reveal" href="/hinglish/%s/"><span class="eyebrow">Guide</span><h3>%s</h3><p>%s</p></a>' % (x['slug'], x['title'], html.escape(x['desc'].split(':', 1)[0])) for x in HL),
+     lang='hi-Latn', crumbs=[('Hinglish guides', '/hinglish/')])
 
 # ---------------- Regional language pages ----------------
 for r in REG:
