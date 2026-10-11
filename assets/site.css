@@ -641,3 +641,7 @@ footer a.mkt img{height:22px;width:auto;display:block}
 .langband b{font-size:1rem;color:var(--ink)}.langband div{display:flex;flex-wrap:wrap;gap:8px}
 .langband a{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid #F0D9C3;color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem}.langband a:hover{border-color:#E8742A}
 .srail,.rail-m{scroll-padding-inline:16px}
+.pinchk{margin-top:12px;display:flex;flex-direction:column;gap:8px}.pinchk label{font-size:.85rem;font-weight:700;color:var(--ink)}
+.pinchk div{display:flex;gap:8px}.pinchk input{flex:1;min-width:0;height:44px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font:inherit;font-size:1rem;letter-spacing:.08em}
+.pinchk input:focus{outline:2px solid #F7C08A;border-color:#E8742A}.pinchk .btn{height:44px;padding:0 18px}
+.pc-out{margin:0;font-size:.88rem;line-height:1.45}.pc-out.ok{color:var(--ok);font-weight:700}.pc-out.bad{color:#B4361B}.pc-out.meh,.pc-out.wait{color:var(--muted)}

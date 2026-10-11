@@ -300,6 +300,21 @@
       cards.forEach(function(c){var ok=!words.length||words.every(function(w){return c.getAttribute('data-k').indexOf(w)>-1;});c.hidden=!ok;if(ok){c.classList.add('in');n++;}});
       if(pill){pill.hidden=!!words.length;}cnt.textContent=words.length?(n?n+' guide'+(n===1?'':'s')+' found':'No guide found. Try "side effects", "tablets" or ask on WhatsApp.'):'';});})();
   /* delivery estimate on product pages: packed in 1-2 business days, delivered 3-7 business days later */
+  /* product page: delivery and COD check for the shopper's pincode (Shiprocket, via /api/pincode) */
+  (function(){var f=document.querySelector('[data-pinchk]');if(!f){return;}var inp=f.querySelector('input'),out=f.querySelector('.pc-out'),last='';
+    getConfig().then(function(c){if(!c||!c.shiprocket){return;}f.hidden=false;var sv=load(DETAILS,null);if(sv&&/^[1-9]\d{5}$/.test(sv.pin||'')){inp.value=sv.pin;check();}});
+    function say(cls,text){out.className='pc-out '+cls;out.textContent=text;out.hidden=false;}
+    function check(){var pin=inp.value.replace(/\D/g,'').slice(0,6);inp.value=pin;if(!/^[1-9]\d{5}$/.test(pin)){say('bad','Please enter a valid 6-digit pincode.');return;}if(pin===last){return;}last=pin;say('wait','Checking…');
+      fetch('/api/pincode?pin='+pin).then(function(r){return r.ok?r.json():{ok:false};}).then(function(d){if(inp.value!==pin){return;}
+        if(!d||!d.ok){say('meh','We ship across India. We could not check this pincode right now, but you can still order.');return;}
+        if(d.serviceable===false){say('bad','Sorry, couriers do not deliver to '+pin+' yet. Message us on WhatsApp and we will try to help.');return;}
+        var t='✓ Delivers to '+(d.city||pin);if(d.days){var by=new Date();by.setDate(by.getDate()+2+d.days);t+=' by '+by.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});}
+        var eta=document.querySelector('[data-eta]');if(eta&&d.days){eta.hidden=true;}t+=d.cod===false?' · Pay online (Cash on Delivery is not available here)':d.cod===true?' · Cash on Delivery available':'';say('ok',t);
+        var sv=load(DETAILS,null)||{};sv.pin=pin;if(d.city&&!sv.city){sv.city=d.city;}save(DETAILS,sv);
+      }).catch(function(){last='';say('meh','We ship across India. We could not check this pincode right now, but you can still order.');});}
+    f.addEventListener('submit',function(e){e.preventDefault();last='';check();});
+    inp.addEventListener('input',function(){if(inp.value.replace(/\D/g,'').length===6){check();}});
+  })();
   (function(){var e=document.querySelector('[data-eta]');if(!e){return;}
     function addBiz(d,n){var x=new Date(d);while(n>0){x.setDate(x.getDate()+1);if(x.getDay()!==0){n--;}}return x;}
     var now=new Date(),start=addBiz(now,4),end=addBiz(now,9),f=function(d){return d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});};
