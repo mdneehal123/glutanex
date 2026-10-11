@@ -123,7 +123,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <meta property="og:type" content="%(og)s"><meta property="og:site_name" content="GlutaNex"><meta property="og:title" content="%(title)s">
 <meta property="og:description" content="%(desc)s"><meta property="og:url" content="%(url)s"><meta property="og:image" content="%(site)s/assets/img/%(ogimg)s.jpg">
 <meta name="twitter:card" content="summary_large_image">
-%(extra)s<link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+%(extra)s<link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
@@ -491,7 +491,7 @@ open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
     'name': 'GlutaNex – Glutathione Skincare', 'short_name': 'GlutaNex', 'description': 'GlutaNex glutathione night cream and face wash. Free shipping and Cash on Delivery across India.',
     'id': '/', 'start_url': '/?source=app', 'scope': '/', 'display': 'standalone', 'orientation': 'portrait',
     'background_color': '#FBF7F1', 'theme_color': '#FBF7F1', 'lang': 'en-IN', 'categories': ['shopping', 'beauty', 'lifestyle'],
-    'icons': [{'src': '/icon-192.png', 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any'}, {'src': '/icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any'}],
+    'icons': [{'src': '/icon-192.png', 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any'}, {'src': '/icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any'}, {'src': '/icon-maskable-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'maskable'}],
     'shortcuts': [{'name': 'Shop', 'url': '/shop/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
                   {'name': 'Track order', 'url': '/track-order/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
                   {'name': 'Glutathione guide', 'url': '/glutathione/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]}]}, ensure_ascii=False, indent=1))
