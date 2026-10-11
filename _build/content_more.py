@@ -541,3 +541,22 @@ QA_EXTRA['glutathione-face-wash'] = [
      'A gentle glutathione face wash suits oily and acne-prone skin when used twice a day and followed by a light, non-greasy moisturiser. It helps clear oil and grime without over-drying. For active acne, pair it with proven acne care and see a dermatologist if breakouts persist.',
      '<p>Do not scrub hard or wash more than twice a day: it can trigger more oil.</p>'),
 ]
+
+# "best glutathione cream in india" (11 Oct 2026)
+QA_EXTRA['best-glutathione-cream-in-india'] = [
+    ('Which glutathione brand is best in India?',
+     'No single glutathione brand is best for everyone in India. The right one prints its full ingredient list, batch and expiry details and company address, makes realistic claims, offers returns, and suits your skin type. Use it nightly for 8 weeks with daily sunscreen before judging.',
+     '<p>Use the 7-point checklist below to compare any brand, including ours.</p>'),
+    ('Which cream is no. 1 for skin whitening in India?',
+     'There is no officially "no. 1" skin whitening cream in India, and no safe cream changes natural skin colour. For tan and uneven tone, look for gentle brightening ingredients such as glutathione, niacinamide and vitamin C, avoid creams that lighten within days, and use sunscreen daily.',
+     '<p>Creams that work "too fast" may contain steroids, hydroquinone or mercury. Read <a href="/glutathione-for-skin-whitening/">glutathione and skin whitening: what is true</a>.</p>'),
+    ('Is glutathione cream good for skin whitening?',
+     'Glutathione cream can help tan and uneven tone look lighter and more even over 8 to 12 weeks, especially with daily sunscreen, but it will not change your natural skin colour. Small studies show modest, gradual effects. Be wary of any cream promising fast or permanent whitening.',
+     '<p>More answers: <a href="/glutathione-cream-questions/">glutathione cream questions</a>.</p>'),
+    ('What brand of glutathione is best?',
+     'The best glutathione brand is one that is transparent and suits your needs: a full ingredient list, clear glutathione content, sealed packs with batch and expiry dates, honest claims and a contactable seller. For skin, a leave-on cream is the simplest choice; for supplements, ask a doctor.',
+     '<p>See also <a href="/glutathione-tablets/">glutathione tablets</a> and <a href="/glutathione-cream-price-in-india/">glutathione cream price in India</a>.</p>'),
+    ('Is there a good glutathione cream under ₹200?',
+     'Some basic glutathione creams cost under ₹200, but they are usually small tubes with short ingredient lists and little or unstated glutathione. Compare price per gram and the full formula, and avoid unbranded creams with no address or batch number, which may contain banned ingredients.',
+     '<p>How prices work: <a href="/glutathione-cream-price-in-india/">glutathione cream price in India</a>.</p>'),
+]
