@@ -143,7 +143,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 </main>
 <footer><div class="wrap">
   <div class="fgrid">
-    <div><a class="brand" href="/"><img src="/assets/img/glutanex-logo-light.png" alt="GlutaNex" width="515" height="150" style="height:44px;width:auto"></a>
+    <div><a class="brand" href="/"><img src="/assets/img/glutanex-logo-light.png" alt="GlutaNex" width="515" height="150" style="height:36px;width:auto"></a>
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
