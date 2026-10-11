@@ -1,5 +1,6 @@
-const { BRAND, keys, cartFrom } = require('./_shared');
+const { BRAND, keys, cartFrom, shipArgs } = require('./_shared');
 const shiprocket = require('./_shiprocket');
+const kv = require('./_kv');
 
 // Order tracking. Accepts mobile number + delivery pincode, a Payment ID (pay_...), an Order ID (order_...)
 // or a courier AWB. Returns status only: never a name, phone number or address.
@@ -61,11 +62,15 @@ module.exports = async (req, res) => {
     const n = o.notes || {};
     const cart = cartFrom(String(n.items || ''));
     const items = cart ? cart.lines.map((l) => l.name + (l.qty > 1 ? ' × ' + l.qty : '')).join(', ') : '';
-    const due = n.mode === 'advance' && cart ? cart.total - 99 : 0;
+    const sa = shipArgs(o);
+    const due = sa && sa.cod ? sa.collect : 0;
     const placed = o.created_at ? new Date(o.created_at * 1000).toISOString() : '';
     if (o.status !== 'paid') return res.status(200).json({ found: true, paid: false, items, placed, due });
     const t = await shiprocket.track('order', orderId);
-    return res.status(200).json(Object.assign({ paid: true, items, placed, due, others }, t.found ? t : { found: true, shipped: false }));
+    // packed-parcel photo, if the owner uploaded one (api/parcel-photo.js)
+    let photo = null, photo_at = null;
+    if (kv.cfg()) { try { const [img, at] = await kv.pipe([['GET', 'photo:' + orderId], ['GET', 'photo-at:' + orderId]]); if (img) { photo = img; photo_at = Number(at) || null; } } catch (e) { /* no photo */ } }
+    return res.status(200).json(Object.assign({ paid: true, items, placed, due, others, photo, photo_at }, t.found ? t : { found: true, shipped: false }));
   } catch (e) {
     return res.status(502).json({ error: 'lookup_failed' });
   }

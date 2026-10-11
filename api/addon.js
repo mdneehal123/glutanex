@@ -70,7 +70,7 @@ async function apply(k, o, off, how, addonOrderId) {
         const line = Object.assign({ id: off.item, qty: 1 }, PRODUCTS[off.item], { price: off.price });
         const cart = { lines: [line], total: off.price, kg: PRODUCTS[off.item].kg };
         const a = shipArgs(updated);
-        shipping = (await shiprocket.createOrder(Object.assign({}, a, { id: o.id + '-A', cart, cod: how === 'cod', discount: 0, collect: how === 'cod' ? off.price : 0,
+        shipping = (await shiprocket.createOrder(Object.assign({}, a, { id: o.id + '-A', cart, cod: how === 'cod', discount: 0, collect: how === 'cod' ? off.price : 0, paid: how === 'cod' ? null : off.price,
           comment: 'Add-on to website order ' + o.id }))).status === 'created' ? 'separate' : 'failed';
       }
     } catch (e) {
@@ -79,7 +79,7 @@ async function apply(k, o, off, how, addonOrderId) {
     }
   }
   const args = shipArgs(updated);
-  return { ok: true, item: off.item, name: off.name, total: off.after.total, collect: args ? args.collect : 0, shipping };
+  return { ok: true, item: off.item, name: off.name, total: off.after.total - Math.floor(Number(n.coupon_off || 0)), collect: args ? args.collect : 0, shipping };
 }
 
 module.exports = async (req, res) => {

@@ -151,13 +151,14 @@
     var saved=load(DETAILS,null);if(saved){Object.keys(F).forEach(function(k){if(typeof saved[k]==='string'){F[k].value=saved[k].slice(0,300);}});}
     var online=true;
     var leadsOn=false;
-    getConfig().then(function(c){if(c&&c.leads){leadsOn=true;$('consent-row').hidden=false;fit();var sv=load(DETAILS,null);if(sv&&sv.consent){$('co-consent').checked=true;}}if(c&&c.razorpay===false){online=false;
+    var cpn=null,cpnTried=false;
+    getConfig().then(function(c){if(c&&c.rewards){$('co-cpn').hidden=false;}if(c&&c.leads){leadsOn=true;$('consent-row').hidden=false;fit();var sv=load(DETAILS,null);if(sv&&sv.consent){$('co-consent').checked=true;}}if(c&&c.razorpay===false){online=false;
       document.querySelector('input[name=pay][value=online]').closest('label').classList.add('off');document.querySelector('input[name=pay][value=online]').disabled=true;
       document.querySelector('input[name=pay][value=cod]').closest('label').classList.add('off');document.querySelector('input[name=pay][value=cod]').disabled=true;
       document.querySelector('input[name=pay][value=wa]').checked=true;render();}});
     function fit(){var on=steps[step-1];stage.style.height=on.offsetHeight+'px';}
     function go(n){step=n;steps.forEach(function(s,i){s.classList.toggle('on',i===n-1);s.classList.toggle('past',i<n-1);});nav.forEach(function(s,i){s.classList.toggle('on',i===n-1);s.classList.toggle('done',i<n-1);});fit();
-      if(n===3){review();}var first=steps[n-1].querySelector('input,textarea');if(first&&n<3){setTimeout(function(){first.focus({preventScroll:true});},350);}
+      if(n===3){review();autoCode();}var first=steps[n-1].querySelector('input,textarea');if(first&&n<3){setTimeout(function(){first.focus({preventScroll:true});},350);}
       var top=stage.getBoundingClientRect().top+window.pageYOffset-120;if(window.pageYOffset>top){window.scrollTo({top:top,behavior:'smooth'});}}
     window.addEventListener('resize',fit);
     function mobile(v){var d=String(v).replace(/\D/g,'');if(d.length===12&&d.slice(0,2)==='91'){d=d.slice(2);}else if(d.length===11&&d.charAt(0)==='0'){d=d.slice(1);}return /^[6-9]\d{9}$/.test(d)&&!/^(\d)\1{9}$/.test(d)?d:'';}
@@ -177,16 +178,29 @@
     [].slice.call(document.querySelectorAll('[data-back]')).forEach(function(b){b.addEventListener('click',function(){go(step-1);});});
     function mode(){return document.querySelector('input[name=pay]:checked').value;}
     function review(){var r=$('co-review');r.textContent='';var a=el('div');a.appendChild(el('b',null,F.name.value.trim()+' · +91 '+mobile(F.phone.value)));r.appendChild(a);r.appendChild(el('div',null,F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim()));fit();}
+    function cpnMsg(text,cls){var p=$('cpn-msg');p.textContent=text||'';p.className='cpn-msg '+(cls||'');p.hidden=!text;}
+    function savedCodes(){var a=load('gn-codes',[]);return Array.isArray(a)?a.filter(function(x){return x&&x.code&&x.exp>Date.now();}):[];}
+    function applyCode(code,quiet){code=String(code||'').trim().toUpperCase();if(!code){return;}var ph=mobile(F.phone.value),t=totals();
+      if(!ph){if(!quiet){cpnMsg('Enter your mobile number first: codes are linked to it.','bad');}return;}
+      fetch('/api/coupon?code='+encodeURIComponent(code)+'&phone='+ph+'&total='+t.total).then(function(r){return r.json();}).then(function(v){
+        if(v&&v.ok){cpn={code:v.code,off:v.off};$('cpn-row').hidden=true;$('cpn-open').hidden=true;cpnMsg('✓ '+v.code+' applied: '+rs(v.off)+' off. ','ok');var rm=el('button','cpn-rm','Remove');rm.type='button';rm.addEventListener('click',function(){cpn=null;cpnMsg('');$('cpn-open').hidden=false;render();});$('cpn-msg').appendChild(rm);render();}
+        else if(!quiet){cpnMsg((v&&v.message)||'This code cannot be used.','bad');}fit();}).catch(function(){if(!quiet){cpnMsg('Could not check the code. Please try again.','bad');}});}
+    $('cpn-open').addEventListener('click',function(){$('cpn-row').hidden=false;$('cpn-open').hidden=true;$('cpn-in').focus();fit();});
+    $('cpn-apply').addEventListener('click',function(){applyCode($('cpn-in').value,false);});
+    $('cpn-in').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();applyCode($('cpn-in').value,false);}});
+    function autoCode(){if(cpn||cpnTried||$('co-cpn').hidden){return;}var c=savedCodes().sort(function(a,b){return b.off-a.off;})[0];if(c&&mobile(F.phone.value)){cpnTried=true;applyCode(c.code,true);}}
     function render(){
       var t=totals(),box=$('co-lines');box.textContent='';
       if(!t.lines.length){box.appendChild(el('p','muted','Your cart is empty.'));var s=el('a','btn','Shop now');s.href='/shop/';box.appendChild(s);btn.disabled=true;return;}
       t.lines.forEach(function(x){box.appendChild(lineNode(x,true,render));});btn.disabled=false;
-      var m=mode();$('amt-online').textContent=$('amt-cod').textContent=$('amt-wa').textContent=rs(t.total);
-      $('cod-note').textContent='Pay '+rs(ADVANCE)+' now (refundable), '+rs(Math.max(0,t.total-ADVANCE))+' at delivery';$('cod-terms').hidden=m!=='cod';
-      var rows=[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free']];
-      if(m==='cod'){rows.push(['Pay now (advance)',rs(ADVANCE),'total']);rows.push(['Pay at delivery',rs(t.total-ADVANCE)]);}else{rows.push([m==='wa'?'Order total':'You pay',rs(t.total),'total']);}
+      if(cpn&&t.total<399){cpn=null;cpnMsg('Codes work on orders of ₹399 or more.','bad');}
+      var off=cpn?Math.min(cpn.off,t.total-199):0,pay=t.total-off;
+      var m=mode();$('amt-online').textContent=$('amt-cod').textContent=$('amt-wa').textContent=rs(pay);
+      $('cod-note').textContent='Pay '+rs(ADVANCE)+' now (refundable), '+rs(Math.max(0,pay-ADVANCE))+' at delivery';$('cod-terms').hidden=m!=='cod';
+      var rows=[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free']];if(off){rows.push(['Reward code '+cpn.code,'− '+rs(off),'save']);}
+      if(m==='cod'){rows.push(['Pay now (advance)',rs(ADVANCE),'total']);rows.push(['Pay at delivery',rs(pay-ADVANCE)]);}else{rows.push([m==='wa'?'Order total':'You pay',rs(pay),'total']);}
       sumRows($('co-sum'),rows);
-      if(!busy){btn.textContent=m==='online'?'Pay '+rs(t.total)+' securely':m==='cod'?'Pay '+rs(ADVANCE)+' to confirm':'Send on WhatsApp';}
+      if(!busy){btn.textContent=m==='online'?'Pay '+rs(pay)+' securely':m==='cod'?'Pay '+rs(ADVANCE)+' to confirm':'Send on WhatsApp';}
       if(step===3){fit();}
     }
     [].slice.call(document.querySelectorAll('input[name=pay]')).forEach(function(r){r.addEventListener('change',render);});
@@ -205,19 +219,19 @@
     function stop(text){busy=false;render();if(text){err.textContent=text;err.hidden=false;fit();}}
     function pay(advance){
       var t=totals();lastMode=advance?'cod':'online';$('not-yet').hidden=true;err.hidden=true;busy=true;btn.textContent='Opening secure payment…';remember();
-      fetch('/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:t.lines.map(function(x){return {id:x.id,qty:x.qty};}),mode:advance?'advance':'full',name:F.name.value.trim(),phone:mobile(F.phone.value),address:F.address.value.trim(),city:F.city.value.trim(),pincode:F.pin.value.trim()})})
-      .then(function(r){return r.ok?r.json():Promise.reject(r.status);})
+      fetch('/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:t.lines.map(function(x){return {id:x.id,qty:x.qty};}),mode:advance?'advance':'full',coupon:cpn?cpn.code:'',name:F.name.value.trim(),phone:mobile(F.phone.value),address:F.address.value.trim(),city:F.city.value.trim(),pincode:F.pin.value.trim()})})
+      .then(function(r){return r.ok?r.json():r.json().catch(function(){return {};}).then(function(j){return Promise.reject(j);});})
       .then(function(o){loadRzp(function(){var done=false;
         var rz=new window.Razorpay({key:o.key_id,order_id:o.order_id,amount:o.amount,currency:o.currency,name:'GlutaNex',description:advance?'Advance for Cash on Delivery':'GlutaNex order',prefill:{name:F.name.value.trim(),contact:mobile(F.phone.value)},theme:{color:'#F07C1C'},
           handler:function(resp){done=true;try{localStorage.removeItem(PENDING);}catch(e){}fetch('/api/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(function(r){return r.json();}).then(function(v){thanks(resp.razorpay_payment_id,o,!!v.ok);}).catch(function(){thanks(resp.razorpay_payment_id,o,false);});},
           modal:{ondismiss:function(){stop();if(!done){save(PENDING,{at:Date.now()});$('ny-switch').textContent=lastMode==='cod'?'Pay the full amount online instead':'Switch to Cash on Delivery';$('not-yet').hidden=false;fit();}}}});
         rz.on('payment.failed',function(){stop('The payment did not go through. Please try again.');});rz.open();},function(){stop('The payment window could not load. Check your connection, or order on WhatsApp.');});})
-      .catch(function(){stop('Online payment is not available right now. Please try again in a few minutes, or order on WhatsApp.');});
+      .catch(function(e){if(e&&e.error==='coupon'){cpn=null;$('cpn-open').hidden=false;cpnMsg(e.message,'bad');stop(e.message);return;}stop('Online payment is not available right now. Please try again in a few minutes, or order on WhatsApp.');});
     }
     $('ny-retry').addEventListener('click',function(){pay(lastMode==='cod');});
     $('ny-switch').addEventListener('click',function(){var v=lastMode==='cod'?'online':'cod';document.querySelector('input[name=pay][value='+v+']').checked=true;render();pay(v==='cod');});
     $('co-form').addEventListener('submit',function(e){e.preventDefault();if(busy){return;}var p=check(1)||check(2);if(p){go(p[0]===F.name||p[0]===F.phone?1:2);show(p);return;}var m=mode();remember();
-      if(m==='wa'){lead('done');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(waText('\n\nName: '+F.name.value.trim()+'\nMobile: '+F.phone.value.trim()+'\nAddress: '+F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim())),'_blank','noopener');return;}
+      if(m==='wa'){lead('done');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(waText((cpn?'\nReward code: '+cpn.code+' (−'+rs(cpn.off)+')':'')+'\n\nName: '+F.name.value.trim()+'\nMobile: '+F.phone.value.trim()+'\nAddress: '+F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim())),'_blank','noopener');return;}
       if(!online){return;}pay(m==='cod');});
     /* after-payment add-on: the other half of the Glow Duo, same parcel, Duo price difference, 15 minutes */
     function addon(hold,sumBox,pid,o,t,cod){
@@ -250,8 +264,32 @@
         var no=el('button','ad-no','No thanks');no.type='button';no.addEventListener('click',function(){clearInterval(timer);card.remove();});acts.appendChild(no);
         hold.appendChild(card);}).catch(function(){});
     }
+    /* scratch card: a reward code for the next order, revealed by scratching (or tapping Reveal) */
+    function scratch(hold,pid,o){
+      fetch('/api/scratch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({order_id:o.order_id,payment_id:pid})}).then(function(r){return r.ok?r.json():null;}).then(function(v){if(!v||!v.ok){return;}
+        var wrap=el('div','scratch');wrap.appendChild(el('p','sc-h','🎁 A thank-you for your next order'));
+        var box=el('div','sc-box');var prize=el('div','sc-prize');prize.appendChild(el('b',null,rs(v.off)+' OFF'));prize.appendChild(el('span',null,'your next GlutaNex order'));
+        var cd=el('code',null,v.code);prize.appendChild(cd);
+        var exp=new Date(v.exp).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});prize.appendChild(el('small',null,'Valid till '+exp+' · for +91 ••••••'+v.phone+' · orders ₹399+'));box.appendChild(prize);
+        var cv=document.createElement('canvas');cv.className='sc-foil';cv.setAttribute('aria-hidden','true');box.appendChild(cv);wrap.appendChild(box);
+        var acts=el('div','sc-acts');var rv=el('button','sc-reveal','Tap to reveal instead');rv.type='button';acts.appendChild(rv);wrap.appendChild(acts);hold.appendChild(wrap);
+        try{var list=load('gn-codes',[]);if(!Array.isArray(list)){list=[];}if(!list.some(function(x){return x.code===v.code;})){list.push({code:v.code,off:v.off,exp:v.exp});save('gn-codes',list);}}catch(e){}
+        var done=false;function reveal(){if(done){return;}done=true;cv.classList.add('gone');acts.textContent='';var cp=el('button','btn sm','Copy code');cp.type='button';cp.addEventListener('click',function(){try{navigator.clipboard.writeText(v.code).then(function(){cp.textContent='Copied ✓';},function(){cp.textContent=v.code;});}catch(e){cp.textContent=v.code;}});acts.appendChild(cp);acts.appendChild(el('span','sc-note','Saved on this phone: it fills in by itself at your next checkout.'));}
+        rv.addEventListener('click',reveal);
+        var ctx=cv.getContext('2d'),W=0,H=0,dpr=Math.min(2,window.devicePixelRatio||1);
+        function paint(){var r=box.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+          var g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#E9C27A');g.addColorStop(.5,'#F7E2B0');g.addColorStop(1,'#D9A55A');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+          ctx.fillStyle='rgba(120,80,30,.12)';for(var i=0;i<140;i++){ctx.fillRect(Math.random()*W,Math.random()*H,2,2);}
+          ctx.fillStyle='#6B4A1E';ctx.font='700 17px Manrope, system-ui, sans-serif';ctx.textAlign='center';ctx.fillText('Scratch here ✦',W/2,H/2+6);ctx.globalCompositeOperation='destination-out';}
+        requestAnimationFrame(paint);
+        var down=false,moves=0;function at(e){var r=cv.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top];}
+        function rub(e){if(!down||done){return;}var p=at(e);ctx.beginPath();ctx.arc(p[0],p[1],22,0,Math.PI*2);ctx.fill();if(++moves%8===0){var d=ctx.getImageData(0,0,cv.width,cv.height).data,clear=0,n=0;for(var i=3;i<d.length;i+=64){n++;if(d[i]===0){clear++;}}if(clear/n>.45){reveal();}}}
+        cv.addEventListener('pointerdown',function(e){down=true;try{cv.setPointerCapture(e.pointerId);}catch(x){}rub(e);});cv.addEventListener('pointermove',rub);
+        cv.addEventListener('pointerup',function(){down=false;});cv.addEventListener('pointercancel',function(){down=false;});
+      }).catch(function(){});
+    }
     function thanks(pid,o,ok){
-      lead('done');var t=totals(),cod=o.balance>0;var past=load(ORDERS,[]).filter(function(x){return x&&x.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});
+      lead('done');if(o.off&&cpn){save('gn-codes',savedCodes().filter(function(x){return x.code!==cpn.code;}));}var t=totals(),cod=o.balance>0;var past=load(ORDERS,[]).filter(function(x){return x&&x.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});
       var wrap=$('checkout');wrap.textContent='';var box=el('div','panel thanks');box.style.gridColumn='1 / -1';
       box.appendChild(el('span','tick','✓'));box.appendChild(el('h2',null,ok?(cod?'Order confirmed. Thank you!':'Payment received. Thank you!'):'Payment submitted. We are confirming it.'));
       box.appendChild(el('p','muted','We will pack your order within 1 to 2 business days and ship it free.'));
@@ -259,9 +297,12 @@
       if(cod){rows.push(['Advance paid',rs(ADVANCE)]);rows.push(['Pay at delivery',rs(o.balance),'total']);}else{rows.push(['Paid online',rs(o.total),'total']);}
       rows.push(['Order number',pid]);sumRows(s,rows);box.appendChild(s);
       var hold=el('div');box.appendChild(hold);if(ok){addon(hold,s,pid,o,t,cod);}
+      var hold2=el('div');box.appendChild(hold2);if(ok){getConfig().then(function(c){if(c&&c.rewards){scratch(hold2,pid,o);}});}
       var tr=el('a','btn block','Track this order');tr.href='/track-order/?id='+encodeURIComponent(pid);box.appendChild(tr);
       var rm=el('a','btn ghost block','🔔 Turn on routine reminders');rm.href='/reminders/';box.appendChild(rm);
-      var wa=el('a','btn wa block','Get updates on WhatsApp');wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I placed an order. Order number: '+pid);wa.target='_blank';wa.rel='noopener';box.appendChild(wa);
+      if(t.lines.some(function(x){return x.id==='cream'||x.id==='duo';})){getConfig().then(function(c){if(!c||!c.rewards){return;}var st=el('a','btn ghost block','📅 Track your 56 nights · ₹200 reward');st.href='/routine/?o='+encodeURIComponent(pid);box.insertBefore(st,rm);});}
+      var ub=el('a','thanks-ub','🎬 Post your unboxing Reel and get ₹150 off your next order →');ub.href='/unboxing-reward/';
+      var wa=el('a','btn wa block','Get updates on WhatsApp');wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I placed an order. Order number: '+pid);wa.target='_blank';wa.rel='noopener';box.appendChild(wa);getConfig().then(function(c){if(c&&c.rewards){box.appendChild(ub);}});
       wrap.appendChild(box);window.scrollTo({top:0,behavior:'smooth'});
       if(typeof gtag==='function'){gtag('event','purchase',{transaction_id:pid,value:o.total,currency:'INR'});}
       if(typeof fbq==='function'){fbq('track','Purchase',{value:o.total,currency:'INR'},{eventID:pid});}
@@ -288,7 +329,7 @@
       if(byPhone){var ph=$('t-phone').value.replace(/\D/g,'').slice(-10),pn=$('t-pin').value.trim();if(!/^[6-9]\d{9}$/.test(ph)){return showNodes([el('p','oerr','Please enter the 10-digit mobile number used on the order.')]);}if(!/^[1-9]\d{5}$/.test(pn)){return showNodes([el('p','oerr','Please enter the 6-digit delivery pincode.')]);}u='/api/track?phone='+ph+'&pin='+pn;}
       else{var id=$('t-id').value.trim().replace(/\s+/g,'');if(id.length<8){return showNodes([el('p','oerr','Please enter your payment ID or tracking number.')]);}u='/api/track?id='+encodeURIComponent(id);}
       go.disabled=true;go.textContent='Checking…';
-      fetch(u).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(x){if(x.ok&&x.j.found){render(x.j);}else{showNodes([el('h2',null,'We could not find that order'),el('p','muted','Check the details, or message us.'),help()]);}})
+      fetch(u).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(x){if(x.ok&&x.j.found){render(x.j);if(x.j.photo){var f=el('figure','packed');var im=el('img');im.src=x.j.photo;im.alt='Your GlutaNex parcel, packed and sealed';f.appendChild(im);f.appendChild(el('figcaption',null,'📦 Your parcel, packed and sealed in Bhatkal'+(x.j.photo_at?' on '+new Date(x.j.photo_at).toLocaleDateString('en-IN',{day:'numeric',month:'short'}):'')));out.insertBefore(f,out.children[1]||null);}}else{showNodes([el('h2',null,'We could not find that order'),el('p','muted','Check the details, or message us.'),help()]);}})
       .catch(function(){showNodes([el('h2',null,'Tracking is not available right now'),help()]);}).then(function(){go.disabled=false;go.textContent='Track order';});}
     $('track-form').addEventListener('submit',function(e){e.preventDefault();run();});
     var q=new URLSearchParams(location.search).get('id');if(q){setMode(false);$('t-id').value=q;run();}

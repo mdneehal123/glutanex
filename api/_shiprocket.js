@@ -105,7 +105,7 @@ async function createOrder(order, update) {
       order_items: order.cart.lines.map((l) => ({ name: l.name, sku: l.sku, units: l.qty, selling_price: l.price })),
       payment_method: order.cod ? 'COD' : 'Prepaid',
       total_discount: order.discount || 0,
-      sub_total: order.cod ? order.collect : order.cart.total,
+      sub_total: order.cod ? order.collect : (order.paid != null ? order.paid : order.cart.total),
       length: box.length,
       breadth: box.breadth,
       height: box.height,

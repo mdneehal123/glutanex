@@ -193,7 +193,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p><a class="social" href="%(insta)s" target="_blank" rel="noopener">Instagram · @glutanexofficial</a></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/hinglish/">Hinglish guide</a><span class="langs"><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a></span><a href="/glutathione-guides/">All guides</a></div>
-    <div><h4>Help</h4><a href="/glutanex/">Brand facts</a><a href="/our-standards/">Our standards</a><a href="/image-licence/">Image licence</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
+    <div><h4>Help</h4><a href="/skin-quiz/">Skin quiz</a><a href="/wholesale/">Wholesale</a><a href="/glutanex/">Brand facts</a><a href="/our-standards/">Our standards</a><a href="/image-licence/">Image licence</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
   </div>
   <div class="markets"><span>Also available on</span>%(markets)s</div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
@@ -286,6 +286,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 <section id="shop"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">The collection</span><h2>Glutathione care, <span class="gold">made simple</span></h2><p>Two products, one ritual. Start with the Night Cream, add the Face Wash, or take the Glow Duo for the full routine.</p></div>
   <div class="grid rail-m">%(cards)s</div>
+  <a class="quizcta reveal" href="/skin-quiz/"><b>Not sure which one?</b><span>Take the 30-second skin quiz →</span></a>
 </div></section>
 <section class="promise-sec" style="padding-top:0"><div class="wrap"><ul class="promise reveal">
   <li><b>Clear ingredients</b><span>Know what goes on your skin: ingredients are printed on every pack.</span></li>
@@ -414,6 +415,7 @@ for p in PRODUCTS:
     <p class="eta" data-eta hidden></p>
     <form class="pinchk" data-pinchk hidden><label for="pc-pin">Check delivery to your pincode</label><div><input id="pc-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6-digit pincode"><button class="btn sm" type="submit">Check</button></div><p class="pc-out" aria-live="polite" hidden></p></form>
     <ul class="perks"><li>Cash on Delivery with a refundable %(adv)s advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
+    <a class="quizcta sm" href="/skin-quiz/"><b>Not sure it suits your skin?</b><span>Take the 30-second quiz →</span></a>
     <div class="tabs">%(tabs)s</div>
   </div>
 </div>
@@ -463,7 +465,7 @@ checkout = top('Secure checkout', 'Checkout') + '''<div class="wrap co" id="chec
   </div>
   </form>
 </div>
-<aside class="panel"><h2 style="font-size:1.6rem;margin-bottom:12px">Your order</h2><div id="co-lines"></div><div class="sum" id="co-sum" style="margin-top:12px"></div></aside>
+<aside class="panel"><h2 style="font-size:1.6rem;margin-bottom:12px">Your order</h2><div id="co-lines"></div><div class="sum" id="co-sum" style="margin-top:12px"></div><div class="cpn" id="co-cpn" hidden><button type="button" class="cpn-open" id="cpn-open">Have a reward code?</button><div class="cpn-row" id="cpn-row" hidden><input id="cpn-in" placeholder="GNX-XXXXXX" maxlength="12" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-label="Reward code"><button type="button" class="btn sm" id="cpn-apply">Apply</button></div><p class="cpn-msg" id="cpn-msg" hidden></p></div></aside>
 </div>'''
 page('/checkout/', 'Checkout | GlutaNex', 'Secure checkout for GlutaNex orders.', checkout, index=False)
 
@@ -587,7 +589,17 @@ open(os.path.join(ROOT, 'llms-full.txt'), 'w', encoding='utf-8').write('\n'.join
 page('/leads/', 'Unfinished checkouts | GlutaNex', 'Owner page.', top('Owner', 'Unfinished checkouts', 'Customers who started checkout, agreed to a WhatsApp follow-up, and did not finish. Entries disappear after 30 days.') + \
      '<section style="padding-top:20px"><div class="wrap"><form class="form leads-login" id="leads-login" autocomplete="off"><div class="f"><label for="owner-code">Owner code</label>'
      '<input id="owner-code" type="password" autocomplete="current-password" placeholder="Enter your owner code"></div><button class="btn" type="submit">Show list</button><p class="oerr" id="leads-err" hidden></p></form>'
-     '<div id="leads-out"></div></div></section>', index=False, js='store.js,leads.js')
+     '<div id="leads-out"></div>'
+     '<div class="otools" id="owner-tools"><div class="panel"><h2>Create a reward code</h2><p class="muted">For an unboxing Reel or to say sorry. Linked to the customer\'s mobile, single use, 60 days.</p>'
+     '<div class="f"><label for="ot-phone">Customer mobile</label><input id="ot-phone" type="tel" inputmode="numeric" maxlength="14"></div>'
+     '<div class="two"><div class="f"><label for="ot-off">Amount</label><select id="ot-off"><option value="150">₹150</option><option value="100">₹100</option><option value="200">₹200</option><option value="50">₹50</option></select></div>'
+     '<div class="f"><label for="ot-note">Reason</label><select id="ot-note"><option>Unboxing Reel</option><option>Sorry for the trouble</option><option>Other</option></select></div></div>'
+     '<button class="btn" type="button" id="ot-code-go">Create code</button><p class="ot-msg" id="ot-code-msg" hidden></p></div>'
+     '<div class="panel"><h2>Packed-parcel photo</h2><p class="muted">One photo of the sealed parcel. The customer sees it on the tracking page.</p>'
+     '<div class="f"><label for="ot-order">Order number</label><input id="ot-order" placeholder="pay_… or order_…" autocomplete="off" spellcheck="false"></div>'
+     '<div class="f"><label for="ot-file">Photo</label><input id="ot-file" type="file" accept="image/*" capture="environment"></div>'
+     '<button class="btn" type="button" id="ot-photo-go">Upload photo</button><p class="ot-msg" id="ot-photo-msg" hidden></p></div></div>'
+     '</div></section>', index=False, js='store.js,leads.js,owner-tools.js')
 
 # ---------------- App reminders page ----------------
 page('/reminders/', 'Routine reminders | GlutaNex', 'Turn on GlutaNex routine and refill reminders on your phone.', top('Reminders', 'Gentle <span class="gold">reminders</span>', 'A nudge on your phone at 9:30 pm on Night Cream nights, and when it is time to reorder. Turn them off any time.') +
@@ -599,13 +611,15 @@ page('/reminders/', 'Routine reminders | GlutaNex', 'Turn on GlutaNex routine an
   <div class="note" id="rem-ios" hidden><b>On iPhone:</b> reminders work in the GlutaNex app. Tap the Share button in Safari, then <b>Add to Home Screen</b>, open GlutaNex from your home screen, and come back to this page.</div>
 </div><p class="muted" style="font-size:.82rem;margin-top:14px">We only send what you choose here: no ads, no spam. Your phone's notification settings always come first.</p></div></section>''', index=False, js='store.js,reminders.js', crumbs=[('Reminders', '/reminders/')])
 
+exec(open(os.path.join(B, 'features.py'), encoding='utf-8').read())
+
 # ---------------- Offline page (shown by the app when there is no internet) ----------------
 page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('Offline', 'You are offline', 'Check your internet connection and try again. Pages you opened before still work.') +
      '<section style="padding-top:20px"><div class="wrap"><button class="btn" type="button" onclick="location.reload()">Try again</button></div></section>', index=False)
 
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
-for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js']:
+for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
