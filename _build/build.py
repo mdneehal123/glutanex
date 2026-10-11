@@ -73,13 +73,14 @@ POLICIES = [('/privacy-policy/', 'Privacy Policy'), ('/terms/', 'Terms'), ('/ref
 SVG_BAG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg>'
 SVG_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
 SVG_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+INSTAGRAM = 'https://www.instagram.com/glutanexofficial/'
 WA_IMG = '<img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="20">'
 
 pages = []
 
 
 def graph_base():
-    return [{'@type': 'Organization', '@id': SITE + '/#org', 'name': 'GlutaNex', 'url': SITE + '/', 'logo': SITE + '/assets/img/glutanex-logo-dark.png',
+    return [{'@type': 'Organization', '@id': SITE + '/#org', 'name': 'GlutaNex', 'url': SITE + '/', 'logo': SITE + '/assets/img/glutanex-logo-dark.png', 'sameAs': [INSTAGRAM], 'publishingPrinciples': SITE + '/our-standards/',
              'contactPoint': {'@type': 'ContactPoint', 'telephone': '+' + WA, 'contactType': 'customer service', 'areaServed': 'IN'}},
             {'@type': 'WebSite', '@id': SITE + '/#site', 'url': SITE + '/', 'name': 'GlutaNex', 'publisher': {'@id': SITE + '/#org'}}]
 
@@ -132,8 +133,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <meta property="og:description" content="%(desc)s"><meta property="og:url" content="%(url)s"><meta property="og:image" content="%(site)s%(ogsrc)s">
 <meta name="twitter:card" content="summary_large_image">
 %(extra)s<link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="/assets/fonts/manrope.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/assets/fonts/cormorant.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">%(ld)s</script>
 </head>
@@ -152,10 +152,10 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <footer><div class="wrap">
   <div class="fgrid">
     <div><a class="brand" href="/"><img src="/assets/img/glutanex-logo-light.png" alt="GlutaNex" width="515" height="150" style="height:36px;width:auto"></a>
-      <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p></div>
+      <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p><a class="social" href="%(insta)s" target="_blank" rel="noopener">Instagram · @glutanexofficial</a></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
-    <div><h4>Help</h4><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a>%(pol)s</div>
+    <div><h4>Help</h4><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a>%(pol)s</div>
   </div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
   <div class="legal"><span>© 2026 GlutaNex · %(owner)s · %(addr)s</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
@@ -170,7 +170,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 %(scripts)s
 </body>
 </html>
-''' % dict(lang=lang, ogsrc=im(ogimg, 'jpg'), title=html.escape(title), desc=html.escape(desc), robots=robots, url=full, og=og, site=SITE, ogimg=ogimg, extra=extra,
+''' % dict(lang=lang, insta=INSTAGRAM, ogsrc=im(ogimg, 'jpg'), title=html.escape(title), desc=html.escape(desc), robots=robots, url=full, og=og, site=SITE, ogimg=ogimg, extra=extra,
            ld=json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False),
            ribbon='<div class="preview-ribbon">PREVIEW · prices, business details and product facts are samples until confirmed</div>' if PREVIEW else '',
            nav=nav, menu=SVG_MENU, bag=SVG_BAG, x=SVG_X, body=body, owner=OWNER, addr=ADDR, wa=WA, waimg=WA_IMG,
@@ -512,6 +512,7 @@ sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
 vercel = {'cleanUrls': False, 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
+                                         {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
                                          {'source': '/(cart|checkout|reorder|leads|offline|reminders)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
                                          {'source': '/sw.js', 'headers': [{'key': 'Cache-Control', 'value': 'no-cache'}]},
                                          {'source': '/site.webmanifest', 'headers': [{'key': 'Content-Type', 'value': 'application/manifest+json'}]}]}
@@ -528,7 +529,7 @@ open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
                   {'name': 'Track order', 'url': '/track-order/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
                   {'name': 'Glutathione guide', 'url': '/glutathione/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]}]}, ensure_ascii=False, indent=1))
 PRECACHE = ['/', '/offline/', '/shop/', '/glutathione/', '/assets/site.css', '/assets/store.js', '/assets/jar3d.js', '/assets/products.json',
-            im('jar-cut'), '/assets/img/glutanex-logo-dark.png', '/assets/img/glutanex-logo-light.png', '/assets/whatsapp-glyph-green.svg', '/icon-192.png']
+            im('jar-cut'), '/assets/img/glutanex-logo-dark.png', '/assets/img/glutanex-logo-light.png', '/assets/whatsapp-glyph-green.svg', '/icon-192.png', '/assets/fonts/manrope.woff', '/assets/fonts/cormorant.woff']
 open(os.path.join(ROOT, 'sw.js'), 'w').write('''/* GlutaNex app: keeps the shop fast and usable on weak connections. Version %s */
 var V='gn-%s', CORE=%s;
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(CORE);}).then(function(){return self.skipWaiting();}));});

@@ -1,3 +1,5 @@
+@font-face{font-family:"Manrope";src:url(/assets/fonts/manrope.woff) format("woff");font-weight:400 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(/assets/fonts/cormorant.woff) format("woff");font-weight:500 700;font-style:normal;font-display:swap}
 :root{
   --bg:#FBF7F1;--bg2:#F3ECE1;--surface:#FFFFFF;--surface2:#FFFDFA;--line:#E7DDCF;--ink:#1B1713;--muted:#665D53;--dim:#968B7F;
   --accent:#E8711A;--accent2:#F5933F;--gold:#94702F;--gold2:#C9A05A;--ok:#2E9A5E;--err:#D2412F;--body-ink:#3A332C;
@@ -578,3 +580,4 @@ body.drawer-open .ask-fab{opacity:0;pointer-events:none}
 .rem-row input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:transform .2s}
 .rem-row input:checked{background:var(--accent)}.rem-row input:checked::after{transform:translateX(20px)}
 .prose .answer{font-size:1.06rem;color:var(--ink);background:#FFF9EF;border-left:3px solid var(--gold2);padding:12px 16px;border-radius:0 12px 12px 0;margin:6px 0 10px}
+footer .social{display:inline-block;margin-top:12px;color:var(--ink)!important;font-weight:700;font-size:.88rem}
