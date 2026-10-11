@@ -227,9 +227,9 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="badges"><span>Glutathione care</span><span>Night routine</span><span>Ships across India</span><span>7-day returns on sealed packs</span></div>
   </div>
   <div class="hero-stage">
-    <div class="jar3d" data-jar3d data-src="/assets/img/jar-cut.webp" data-alt="GlutaNex Glutathione Night Cream jar"><img class="j3-img j3-seed" src="/assets/img/jar-cut.webp" alt="GlutaNex Glutathione Night Cream jar" width="650" height="614" fetchpriority="high" decoding="async"></div>
+    <div class="jar3d" data-jar3d data-spots="%(spots)s" data-src="/assets/img/jar-cut.webp" data-alt="GlutaNex Glutathione Night Cream jar"><img class="j3-img j3-seed" src="/assets/img/jar-cut.webp" alt="GlutaNex Glutathione Night Cream jar" width="650" height="614" fetchpriority="high" decoding="async"></div>
     <div class="orbit" aria-hidden="true"><span class="o1"><b>✦</b> Glutathione</span><span class="o2">Night ritual <b>✦</b></span><span class="o3"><b>%(cprice)s</b> · COD</span></div>
-    <div class="jar-hint">Move or drag to tilt</div>
+    <div class="jar-hint">Tap the glowing dots · drag to tilt</div>
   </div>
 </div></section>
 <div class="marquee" aria-hidden="true"><div>%(mq)s%(mq)s</div></div>
@@ -282,7 +282,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="b2-cta"><button class="btn" type="button" data-buy="duo"><span class="l">Get the Glow Duo · </span><span class="s">Glow Duo · </span>%(dprice)s</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), ing=ing_html(), adv=rs(ADVANCE),
+</div></div></section>''' % dict(cprice=rs(c['price']), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)), adv=rs(ADVANCE),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
