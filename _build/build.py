@@ -659,6 +659,8 @@ for pth in pages:
     sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod>%s</url>' % (SITE, pth, _dates.get(pth, {}).get('mod', TODAY), _imgs(pth)))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
+# Google Search Console ownership file (HTML file method). Must stay at the site root.
+open(os.path.join(ROOT, 'google68c163c347b9f153.html'), 'w').write('google-site-verification: google68c163c347b9f153.html')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
 vercel = {'cleanUrls': False, 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
                                          {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
