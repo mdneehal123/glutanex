@@ -483,3 +483,42 @@ QA_EXTRA['glutathione-side-effects'] = [
      'On skin, glutathione creams can cause mild tingling, redness or dryness at first, especially when combined with retinol or acids, and rarely a rash. Patch test before use and stop if irritation lasts. Patchy loss of skin colour has been reported with injections, not creams.',
      '<p>How to patch test is explained below.</p>'),
 ]
+
+# "glutathione tablets" (11 Oct 2026): its own page, questions first
+NEW_GUIDES.append(dict(slug='glutathione-tablets', title='Glutathione tablets: benefits, safety, dose and do they work for skin?', short='Glutathione tablets',
+    blurb='What glutathione tablets can and cannot do for skin, what the studies used, safety, and how they compare with a cream.',
+    seo='Glutathione Tablets: Benefits, Safety, Dose & Do They Work for Skin?',
+    desc='Glutathione tablets explained: benefits for skin, what doses studies used, is it safe daily, kidneys and liver, 1000 mg tablets, how to spot originals, and tablets vs cream.',
+    refs=['oral', 'wesch', 'ijdvl', 'review', 'fda'],
+    body='''<h2>How glutathione tablets compare with a cream</h2><div class="tbl"><table><thead><tr><th></th><th>Tablets</th><th>Cream</th></tr></thead><tbody>
+<tr><td>How it reaches skin</td><td>Swallowed; much is broken down in digestion</td><td>Applied directly where you want it</td></tr>
+<tr><td>Evidence for skin</td><td>Small studies, mixed results (%(oral)s, %(wesch)s)</td><td>Small studies, modest gradual effect (%(review)s)</td></tr>
+<tr><td>Main risks</td><td>Stomach upset; ask a doctor first</td><td>Mild irritation in some people</td></tr>
+<tr><td>Who decides</td><td>Best with medical advice</td><td>Most adults, after a patch test</td></tr>
+</tbody></table></div>
+<h2>Who should not take glutathione tablets without a doctor</h2><ul><li>Pregnant or breastfeeding women.</li><li>People with liver or kidney disease, asthma, or on chemotherapy or other regular medicines.</li><li>Children and teenagers.</li></ul>
+<h2>A simpler option for skin</h2><p>If your goal is brighter, more even-looking skin, a leave-on cream puts glutathione where you want it, with no pills to swallow. %(cream)s pairs glutathione with niacinamide, vitamin C and hyaluronic acid. Use it at night with sunscreen every morning.</p>''',
+    faq=[]))
+QA_EXTRA['glutathione-tablets'] = [
+    ('What are the benefits of glutathione tablets?',
+     'Glutathione tablets are taken to support the body\'s antioxidant defences, and some people use them for skin tone. Small studies found modest drops in skin melanin with 250 to 500 mg a day over 4 to 12 weeks, but results were mixed. They do not permanently change skin colour.',
+     '<p>Studies: %(oral)s (500 mg/day, 4 weeks) and %(wesch)s (250 mg/day, 12 weeks).</p>'),
+    ('Is glutathione safe to take daily?',
+     'Short courses of daily glutathione tablets, 4 to 12 weeks in studies, were generally well tolerated, with mostly mild side effects. Long-term daily use has not been well studied. Speak to a doctor before taking it every day, especially if pregnant, on medicines or with a health condition.',
+     '<p>Glutathione creams can be used daily by most adults after a patch test.</p>'),
+    ('Which glutathione tablet is best for skin whitening?',
+     'No glutathione tablet is proven best for skin whitening, and none permanently whitens skin. Studies used 250 to 500 mg a day and found only modest changes in tone. If you consider tablets, choose a reputable brand with full labelling, and ask a doctor first.',
+     '<p>For tan and uneven tone, daily sunscreen and a leave-on cream are the simplest start. See <a href="/glutathione-for-skin-whitening/">glutathione and skin whitening: what is true</a>.</p>'),
+    ('Is glutathione safe for the kidneys and liver?',
+     'In short studies, oral glutathione was generally safe; one 12-week study saw temporary liver test rises in two people that settled. Kidney problems were not reported, but research is limited. If you have liver or kidney disease, do not take glutathione without your doctor\'s advice.',
+     '<p>Study: %(wesch)s. Creams are not linked to liver or kidney problems.</p>'),
+    ('Are glutathione tablets 1000 mg better for skin whitening?',
+     'There is no evidence that 1000 mg glutathione tablets work better for skin than lower doses. Published skin studies used 250 to 500 mg a day with modest results. Higher doses may increase side effects and cost. Ask a doctor before taking high-dose supplements.',
+     '<p>More is not faster: skin tone changes slowly whatever the dose.</p>'),
+    ('How do I choose glutathione tablets in India?',
+     'Choose tablets with an FSSAI licence number, the glutathione amount per tablet clearly stated, batch number, manufacturing and expiry dates, and the manufacturer\'s address. Avoid products promising "fair in 7 days". Buy from authorised sellers, and check with a doctor that tablets are right for you.',
+     '<p>Supplements in India are regulated as foods, not medicines, so labels matter.</p>'),
+    ('How can I tell if glutathione tablets are original?',
+     'Original glutathione tablets come sealed with a printed batch number, manufacturing and expiry dates, an FSSAI licence number and the manufacturer\'s address. Check that these match the brand\'s website. Very low prices, spelling mistakes and missing details are warning signs of fakes.',
+     '<p>Buy from the brand or an authorised seller.</p>'),
+]
