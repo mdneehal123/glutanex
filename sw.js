@@ -1,5 +1,5 @@
-/* GlutaNex app: keeps the shop fast and usable on weak connections. Version 0c0e5c50a2 */
-var V='gn-0c0e5c50a2', CORE=["/", "/offline/", "/shop/", "/glutathione/", "/assets/site.css", "/assets/store.js", "/assets/jar3d.js", "/assets/products.json", "/assets/img/glutanex-glutathione-night-cream-jar.webp", "/assets/img/glutanex-logo-dark.png", "/assets/img/glutanex-logo-light.png", "/assets/whatsapp-glyph-green.svg", "/icon-192.png", "/assets/fonts/manrope.woff", "/assets/fonts/cormorant.woff"];
+/* GlutaNex app: keeps the shop fast and usable on weak connections. Version a3ebd59c2c */
+var V='gn-a3ebd59c2c', CORE=["/", "/offline/", "/shop/", "/glutathione/", "/assets/site.css", "/assets/store.js", "/assets/jar3d.js", "/assets/products.json", "/assets/img/glutanex-glutathione-night-cream-jar.webp", "/assets/img/glutanex-logo-dark.png", "/assets/img/glutanex-logo-light.png", "/assets/whatsapp-glyph-green.svg", "/icon-192.png", "/assets/fonts/manrope.woff", "/assets/fonts/cormorant.woff"];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(CORE);}).then(function(){return self.skipWaiting();}));});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V;}).map(function(k){return caches.delete(k);}));}).then(function(){return self.clients.claim();}));});
 self.addEventListener('push',function(e){var d={};try{d=e.data?e.data.json():{};}catch(x){d={body:e.data?e.data.text():''};}

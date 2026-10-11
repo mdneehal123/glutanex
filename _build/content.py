@@ -117,7 +117,7 @@ def guide_url(g):
 
 
 def slugify(t):
-    return re.sub(r'[^a-z0-9\u0900-\u0963\u0966-\u097f]+', '-', re.sub(r'<[^>]+>', '', t).lower()).strip('-')[:80] or 'section'
+    return re.sub(r'[^a-z0-9\u0900-\u0963\u0966-\u0dff]+', '-', re.sub(r'<[^>]+>', '', t).lower()).strip('-')[:80] or 'section'
 
 
 def with_toc(body, label='On this page'):
@@ -142,6 +142,16 @@ def sources_block(refs, head='Sources'):
     if not refs:
         return ''
     return '<div class="sources"><b>%s</b><ol>%s</ol></div>' % (head, ''.join('<li>%s</li>' % html.escape(SOURCES[r]) for r in refs if r in SOURCES))
+
+
+def hreflang_cluster(en_path):
+    alts = [('en-IN', en_path)]
+    if en_path in EN2HI:
+        alts.append(('hi-IN', EN2HI[en_path]))
+    alts += [(r['code'], '/%s/%s/' % (r['lang'], r['slug'])) for r in REG if en_path == '/glutathione-cream/']
+    if len(alts) < 2:
+        return ''
+    return ''.join('<link rel="alternate" hreflang="%s" href="%s%s">\n' % (c, SITE, u) for c, u in alts) + '<link rel="alternate" hreflang="x-default" href="%s%s">\n' % (SITE, en_path)
 
 
 def hreflang(en_path, hi_path):
@@ -185,7 +195,7 @@ for i, g in enumerate(GUIDES):
         sch.append(faq_ld([(q, re.sub(r'<[^>]+>', '', a)) for q, a in faq]))
     hp = EN2HI.get(guide_url(g))
     page(guide_url(g), g['seo'], g['desc'], body, og='article', crumbs=[('Glutathione guides', '/glutathione-guides/'), (g['short'], guide_url(g))], schema=sch,
-         extra=hreflang(guide_url(g), hp) if hp else '')
+         extra=hreflang_cluster(guide_url(g)))
 
 # ---------------- Hindi pages ----------------
 for h in HI:
@@ -204,7 +214,7 @@ for h in HI:
             im('cream-square'), rs(BYID['cream']['price']),
             ''.join('<a href="/hi/%s/" lang="hi"><span class="eyebrow">हिंदी</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HI if x is not h) +
             '<a href="/glutathione/"><span class="eyebrow">English</span><h3>Glutathione: the complete guide</h3></a>')
-    page(path, h['seo'], h['desc'], body, og='article', lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/'), (h['short'], path)], extra=hreflang(h['en'], path),
+    page(path, h['seo'], h['desc'], body, og='article', lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN'},
                  faq_ld(_qa_ld + faq)])
@@ -213,6 +223,18 @@ page('/hi/', 'Glutathione Hindi Guide: ग्लूटाथियोन की 
      '<section style="padding-top:30px"><div class="wrap" lang="hi"><div class="guides">%s</div></div></section>' % ''.join(
          '<a class="reveal" href="/hi/%s/"><span class="eyebrow">गाइड</span><h3>%s</h3><p>%s</p></a>' % (x['slug'], x['title'], x['desc'].split(':', 1)[-1].strip()) for x in HI),
      lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/')])
+
+# ---------------- Regional language pages ----------------
+for r in REG:
+    path = '/%s/%s/' % (r['lang'], r['slug'])
+    u = r['ui']
+    body = top(u['guide'], r['title'], r['desc'].split(':', 1)[-1].strip()) + \
+        '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">%s · <a href="/glutathione-cream/" lang="en">%s</a></p>%s%s<p class="note">%s</p></div>' \
+        '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>%s · COD</span><button class="btn block" type="button" data-buy="cream">%s</button></aside></div></section>' % (
+            u['by'], u['en'], with_toc(r['body'], u['toc']), faq_block(r['faq'], u['faq']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'])
+    page(path, r['seo'], r['desc'], body, og='article', lang=r['code'], crumbs=[(u['guide'], path)], extra=hreflang_cluster('/glutathione-cream/'),
+         schema=[{'@type': 'Article', 'headline': r['title'], 'description': r['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
+                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': r['code']}, faq_ld(r['faq'])])
 
 # ---------------- Information pages ----------------
 page('/about/', 'About GlutaNex | Glutathione Skincare', 'About GlutaNex: glutathione skincare for a simple night routine, sold and shipped by %s.' % OWNER,
