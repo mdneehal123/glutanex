@@ -265,11 +265,14 @@ CREAM_USE = ('<p>Use at night only. Cleanse and pat your face dry, then smooth a
              '<p><b>Every morning, use a broad-spectrum sunscreen</b>, because retinol and acids make skin more sensitive to the sun.</p>'
              '<p>Do not use it on the same night as other retinol, AHA/BHA or peel products. Patch test on a small area for 24 hours before first use. Not for use during pregnancy or breastfeeding unless your doctor says it is fine.</p>')
 c, w, d = BYID['cream'], BYID['wash'], BYID['duo']
+HOME_STORIES = [('glutathione-benefits-for-skin', 'Glutathione for skin: 5 honest facts', ''), ('how-to-use-glutathione-cream', 'How to use glutathione cream', ''),
+                ('glutathione-side-effects', 'Glutathione side effects', ''), ('glutathione-before-wedding', 'Before your wedding: 12-week plan', ''),
+                ('glutathione-cream-vs-tablets-vs-injections', 'Cream vs tablets vs injections', ''), ('glutathione-cream-ke-fayde', 'ग्लूटाथियोन क्रीम के फायदे', 'hi')]
 home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
   <div class="reveal">
     <h1><span class="h1-brand">GlutaNex Glutathione Night Cream</span>Your skin's <span class="gold">night shift</span> starts here.</h1>
     <p class="lead">Glutathione night care that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
-    <div class="price-line"><b>%(cprice)s</b><span>Glutathione Night Cream · free shipping · Cash on Delivery</span></div>
+    <div class="price-line"><b>%(cprice)s</b><span>Glutathione Night Cream · about %(pernight)s a night · free shipping · Cash on Delivery</span></div>
     <div class="cta"><button class="btn" type="button" data-buy="cream">Buy the Night Cream</button><a class="btn ghost" href="/glutathione-cream/">What is glutathione cream?</a></div>
     <div class="badges"><span>Glutathione care</span><span>Night routine</span><span>Ships across India</span><span>7-day returns on sealed packs</span></div>
   </div>
@@ -282,10 +285,16 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 <div class="marquee" aria-hidden="true"><div>%(mq)s%(mq)s</div></div>
 <section id="shop"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">The collection</span><h2>Glutathione care, <span class="gold">made simple</span></h2><p>Two products, one ritual. Start with the Night Cream, add the Face Wash, or take the Glow Duo for the full routine.</p></div>
-  <div class="grid">%(cards)s</div>
+  <div class="grid rail-m">%(cards)s</div>
 </div></section>
+<section class="promise-sec" style="padding-top:0"><div class="wrap"><ul class="promise reveal">
+  <li><b>Clear ingredients</b><span>Know what goes on your skin: ingredients are printed on every pack.</span></li>
+  <li><b>Honest claims</b><span>Gradual results with sunscreen. No "fair in 7 days" promises.</span></li>
+  <li><b>COD + 7-day returns</b><span>Pay at your door; sealed packs can be returned within 7 days.</span></li>
+  <li><b>Real people on WhatsApp</b><span>Questions before or after you order, Monday to Saturday.</span></li>
+</ul></div></section>
 <section style="padding-top:0"><div class="wrap split">
-  <div class="reveal"><img src="%(img_marble)s" alt="GlutaNex glutathione cream jar on a marble stand" width="586" height="645" loading="lazy"></div>
+  <div class="reveal hide-m"><img src="%(img_marble)s" alt="GlutaNex glutathione cream jar on a marble stand" width="586" height="645" loading="lazy"></div>
   <div class="prose reveal"><span class="eyebrow">The ingredient</span><h2 style="font-size:clamp(2.2rem,4.4vw,3.2rem);margin-top:12px">What is a glutathione cream?</h2>
     <p>Glutathione is an antioxidant made of three amino acids that the body produces naturally. In skincare, it is added to creams and face washes made for <b>brighter-looking, more even skin</b>, often alongside ingredients like niacinamide.</p>
     <p>Research on glutathione applied to the skin is still limited but encouraging: a small 2014 placebo-controlled study of a 2%% glutathione lotion found a modest, gradual improvement in skin tone over 10 weeks. Consistent use and daily sunscreen matter more than any single product.</p>
@@ -300,19 +309,36 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
   <div class="sec-h reveal"><span class="eyebrow">The ritual</span><h2>Three steps, every night</h2></div>
   <ol class="ritual"><li class="reveal"><h3>Cleanse</h3><p>Massage Gluta Boost Face Wash onto damp skin and rinse. Pat dry.</p></li><li class="reveal"><h3>Apply</h3><p>Smooth a small amount of Glutathione Night Cream over face and neck.</p></li><li class="reveal"><h3>Protect</h3><p>Every morning, finish with a broad-spectrum sunscreen. It protects the work of the night.</p></li></ol>
 </div></section>
-<section style="padding-top:0"><div class="wrap"><div class="gallery">
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-h reveal"><span class="eyebrow">What to expect</span><h2>Your first <span class="gold">12 weeks</span></h2><p>Glutathione works gradually. Here is an honest timeline with nightly use and daily sunscreen.</p></div>
+  <ol class="timeline">
+    <li class="reveal"><span class="wk">Weeks 1–2</span><b>Start slowly</b><p>Use the Night Cream 2–3 nights a week. A little tingling at first is normal.</p></li>
+    <li class="reveal"><span class="wk">Weeks 3–4</span><b>Build up</b><p>Every other night. Skin feels smoother and looks fresher.</p></li>
+    <li class="reveal"><span class="wk">Weeks 5–8</span><b>Every night</b><p>Tan and dullness start to look lighter; tone looks more even.</p></li>
+    <li class="reveal"><span class="wk">Weeks 8–12</span><b>Keep it going</b><p>The most even-looking result, kept with sunscreen every morning.</p></li>
+  </ol>
+  <p class="muted reveal" style="margin-top:14px;font-size:.88rem">Results vary from person to person. Glutathione does not change your natural skin colour. <a href="/how-to-use-glutathione-cream/">Full routine</a></p>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><div class="gallery rail-m">
   <figure class="tilt reveal"><img src="%(img_night)s" alt="GlutaNex glutathione night cream on a black stone with a swatch of cream" width="1134" height="680" loading="lazy"></figure>
   <figure class="tilt reveal"><img src="%(img_hand)s" alt="Hand holding a GlutaNex glutathione night cream jar" width="1024" height="682" loading="lazy"></figure>
   <figure class="tilt reveal"><img src="%(img_bag)s" alt="GlutaNex glutathione night cream 30 g jar in a handbag" width="1024" height="684" loading="lazy"></figure>
 </div></div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Glutathione guides</span><h2>Know before you buy</h2></div>
-  <div class="guides">
+  <div class="guides rail-m">
     <a class="reveal" href="/glutathione-benefits-for-skin/"><span class="eyebrow">Guide</span><h3>Glutathione benefits for skin</h3><p>What it can and cannot do, and what the research says.</p></a>
     <a class="reveal" href="/glutathione-side-effects/"><span class="eyebrow">Guide</span><h3>Glutathione side effects</h3><p>Who should be careful, and how to use creams safely.</p></a>
     <a class="reveal" href="/glutathione-cream-vs-tablets-vs-injections/"><span class="eyebrow">Guide</span><h3>Cream vs tablets vs injections</h3><p>The honest differences, including the safety warnings.</p></a>
   </div>
 </div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-h reveal"><span class="eyebrow">Web Stories</span><h2>Glutathione in <span class="gold">one minute</span></h2></div>
+  <div class="srail">%(storycards)s</div>
+</div></section>
+<section style="padding-top:0"><div class="wrap"><div class="langband reveal"><b>Read about glutathione in your language</b><div>
+  <a href="/hi/" lang="hi">हिंदी</a><a href="/hinglish/">Hinglish</a><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a>
+</div></div></div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Questions</span><h2>Before you order</h2></div>%(faq)s
   <p style="margin-top:20px"><a class="btn ghost" href="/glutathione-cream-questions/">More glutathione cream questions answered</a></p>
@@ -330,7 +356,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="b2-cta"><button class="btn" type="button" data-buy="duo"><span class="l">Get the Glow Duo · </span><span class="s">Glow Duo · </span>%(dprice)s</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)), adv=rs(ADVANCE),
+</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)), adv=rs(ADVANCE),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)

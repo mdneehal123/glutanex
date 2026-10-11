@@ -616,3 +616,28 @@ footer a.mkt img{height:22px;width:auto;display:block}
 .addon .ad-time{font-size:.82rem;font-weight:700;color:#B4561B;margin:0;font-variant-numeric:tabular-nums}
 .addon .ad-acts{display:flex;flex-direction:column;gap:8px}.addon .ad-no{background:none;border:0;color:var(--muted);font:inherit;font-size:.86rem;text-decoration:underline;padding:6px;cursor:pointer}
 .addon .ad-msg{font-size:.86rem;color:var(--muted);margin:0}.addon.done{background:#F3FAF5;border-color:#CFE8D7}.addon.done b{color:var(--ok)}
+/* home: product rail on phones, promise strip, timeline, stories rail, language band */
+@media (max-width:640px){.hide-m{display:none}
+  .rail-m{display:flex!important;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -16px;padding:4px 16px 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .rail-m::-webkit-scrollbar{display:none}.rail-m>*{flex:0 0 82%;scroll-snap-align:center;min-width:0}
+  .guides.rail-m>*{flex-basis:74%}.gallery.rail-m>*{flex-basis:80%;grid-row:auto}.gallery.rail-m img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+  .timeline{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}.timeline li{padding:14px}.timeline p{font-size:.82rem}}
+.promise{list-style:none;margin:0;padding:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:22px}
+.promise li{display:flex;flex-direction:column;gap:4px;padding-left:28px;position:relative}.promise li::before{content:"✓";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:#E9F6EE;color:var(--ok);font-size:.75rem;font-weight:800;display:grid;place-items:center}
+.promise b{font-size:.95rem;color:var(--ink)}.promise span{font-size:.85rem;color:var(--muted);line-height:1.5}
+@media (max-width:900px){.promise{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:480px){.promise{grid-template-columns:minmax(0,1fr);padding:18px;gap:14px}}
+.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+.timeline li{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px;position:relative}
+.timeline li::after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;border-radius:3px;background:linear-gradient(90deg,#F7C08A,#E8742A);transform-origin:left;transform:scaleX(var(--f,.25))}
+.timeline li:nth-child(2)::after{--f:.5}.timeline li:nth-child(3)::after{--f:.75}.timeline li:nth-child(4)::after{--f:1}
+.timeline .wk{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#B4561B}.timeline b{font-size:1.05rem;color:var(--ink)}.timeline p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.55}
+@media (max-width:900px){.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:480px){.timeline{grid-template-columns:minmax(0,1fr)}}
+.srail{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.scard{display:flex;flex-direction:column;gap:8px;text-decoration:none;color:var(--ink);min-width:0}.scard img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:16px;box-shadow:0 10px 26px rgba(120,80,40,.14);outline:2px solid #F2C9A3;outline-offset:3px;transition:transform .25s}
+.scard:hover img{transform:translateY(-4px)}.scard span{font-size:.85rem;font-weight:700;line-height:1.35}
+@media (max-width:900px){.srail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:6px 16px 14px;scrollbar-width:none}.srail::-webkit-scrollbar{display:none}.scard{flex:0 0 38%;scroll-snap-align:start}}
+@media (max-width:480px){.scard{flex-basis:44%}}
+.langband{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding:20px 22px;border-radius:20px;background:linear-gradient(120deg,#FFF6EC,#FDEBDD);border:1px solid #F2D6BC}
+.langband b{font-size:1rem;color:var(--ink)}.langband div{display:flex;flex-wrap:wrap;gap:8px}
+.langband a{padding:8px 14px;border-radius:999px;background:#fff;border:1px solid #F0D9C3;color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem}.langband a:hover{border-color:#E8742A}
+.srail,.rail-m{scroll-padding-inline:16px}
