@@ -325,6 +325,15 @@ page('/glutanex/', 'GlutaNex: Official Brand Information | Glutathione Skincare 
               'mainEntity': {'@id': SITE + '/#org'}, 'about': {'@id': SITE + '/#brand'}, 'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.answer']}},
              faq_ld(_BRAND_FAQ)])
 
+page('/image-licence/', 'GlutaNex Image Licence: Using Our Glutathione Cream Photos', 'How you may use GlutaNex product photos: free for reviews, press and authorised sellers with credit to GlutaNex; other uses need permission.',
+     top('Image licence', 'Using <span class="gold">GlutaNex</span> photos', 'Product photos on this website belong to GlutaNex.') + """<section style="padding-top:24px"><div class="wrap prose">
+<p class="answer">GlutaNex product photos are © 2026 GlutaNex (%s). You may use them free of charge for product reviews, news and press, and for selling genuine GlutaNex products, as long as you credit <b>GlutaNex</b> and link to glutanex.co.in where possible.</p>
+<h2>Allowed with credit</h2><ul><li>Reviews, blog posts, news and press articles about GlutaNex</li><li>Listings by authorised sellers of genuine GlutaNex products</li><li>Social media posts about GlutaNex products</li></ul>
+<h2>Not allowed</h2><ul><li>Editing the photos to change the product, its label or its claims</li><li>Using them for other brands, look-alike or fake products</li><li>Using them to suggest GlutaNex endorses something it does not</li></ul>
+<h2>How to credit</h2><p>Write <b>Photo: GlutaNex</b>, with a link to <a href="/">glutanex.co.in</a> where you can.</p>
+<h2>Other uses</h2><p>For any other use, ask us first on WhatsApp at %s.</p>
+</div></section>""" % (OWNER, WA_SHOW), crumbs=[('Image licence', '/image-licence/')])
+
 page('/contact/', 'Contact GlutaNex | WhatsApp Support', 'Contact GlutaNex on WhatsApp at %s for help with orders, delivery and products.' % WA_SHOW,
      top('Contact', 'Contact us', 'The fastest way to reach us is WhatsApp.') + '''<section style="padding-top:24px"><div class="wrap prose">
 <p><a class="btn wa" href="https://wa.me/%s" target="_blank" rel="noopener">%s Chat on WhatsApp</a></p>

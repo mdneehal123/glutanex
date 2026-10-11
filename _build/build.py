@@ -114,9 +114,18 @@ def graph_base():
              'publisher': {'@id': SITE + '/#org'}}]
 
 
+def img_ld(u, caption=''):
+    # credit and licence details, so Google Images can show 'Licensable' and the credit line
+    d = {'@type': 'ImageObject', 'url': u, 'contentUrl': u, 'creator': {'@type': 'Organization', 'name': 'GlutaNex', '@id': SITE + '/#org'}, 'creditText': 'GlutaNex',
+         'copyrightNotice': '© 2026 GlutaNex (%s)' % OWNER, 'license': SITE + '/image-licence/', 'acquireLicensePage': SITE + '/image-licence/'}
+    if caption:
+        d['caption'] = caption
+    return d
+
+
 def product_ld(p):
     return {'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], 'sku': p['sku'], 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
-            'image': [SITE + im(i, 'jpg') for i in p['imgs']], 'description': p['desc'],
+            'image': [img_ld(SITE + im(i, 'jpg'), p['name']) for i in p['imgs']], 'description': p['desc'],
             'offers': {'@type': 'Offer', 'url': SITE + url(p), 'price': str(p['price']), 'priceCurrency': 'INR', 'availability': 'https://schema.org/InStock',
                        'itemCondition': 'https://schema.org/NewCondition', 'seller': {'@id': SITE + '/#org'},
                        'shippingDetails': {'@type': 'OfferShippingDetails', 'shippingRate': {'@type': 'MonetaryAmount', 'value': '0', 'currency': 'INR'},
@@ -184,7 +193,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p><a class="social" href="%(insta)s" target="_blank" rel="noopener">Instagram · @glutanexofficial</a></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/hinglish/">Hinglish guide</a><span class="langs"><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a></span><a href="/glutathione-guides/">All guides</a></div>
-    <div><h4>Help</h4><a href="/glutanex/">Brand facts</a><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
+    <div><h4>Help</h4><a href="/glutanex/">Brand facts</a><a href="/our-standards/">Our standards</a><a href="/image-licence/">Image licence</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
   </div>
   <div class="markets"><span>Also available on</span>%(markets)s</div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
@@ -573,6 +582,11 @@ for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
+# photo credit + licence data inside every image (Google Images shows it); lossless and only once per file
+import sys as _sys
+_sys.path.insert(0, B)
+import imgmeta
+imgmeta.stamp_dir(os.path.join(ROOT, 'assets', 'img'), SITE, OWNER)
 # copy the photos to their search-friendly names
 for _src, _dst in SEO_IMG.items():
     for _ext in ('webp', 'jpg', 'png'):
