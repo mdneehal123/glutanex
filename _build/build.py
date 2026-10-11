@@ -55,8 +55,16 @@ def pct(p):
     return round((p['mrp'] - p['price']) * 100 / p['mrp']) if p['mrp'] > p['price'] else 0
 
 
+# Search-friendly file names for Google Images (source files keep their short names in assets/img and are copied at build time)
+SEO_IMG = {'cream-square': 'glutanex-glutathione-night-cream-30g', 'jar-night': 'glutathione-night-cream-jar-glutanex',
+           'jar-hand': 'glutanex-glutathione-cream-in-hand', 'jar-bag': 'glutanex-glutathione-night-cream-travel',
+           'jar-marble': 'glutanex-glutathione-face-cream', 'facewash-square': 'glutanex-gluta-boost-glutathione-face-wash-100ml',
+           'facewash': 'glutathione-face-wash-glutanex', 'duo-square': 'glutanex-glow-duo-glutathione-cream-face-wash',
+           'night-shift-banner': 'glutathione-night-cream-routine-glutanex', 'jar-cut': 'glutanex-glutathione-night-cream-jar'}
+
+
 def im(name, ext='webp'):
-    return '/assets/img/%s.%s' % (name, ext)
+    return '/assets/img/%s.%s' % (SEO_IMG.get(name, name), ext)
 
 
 NAV = [('/', 'Home'), ('/shop/', 'Shop'), ('/glutathione/', 'Glutathione'), ('/glutathione-cream/', 'Glutathione Cream'), ('/glutathione-guides/', 'Guides'),
@@ -121,7 +129,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <link rel="canonical" href="%(url)s">
 <meta name="theme-color" content="#FBF7F1">
 <meta property="og:type" content="%(og)s"><meta property="og:site_name" content="GlutaNex"><meta property="og:title" content="%(title)s">
-<meta property="og:description" content="%(desc)s"><meta property="og:url" content="%(url)s"><meta property="og:image" content="%(site)s/assets/img/%(ogimg)s.jpg">
+<meta property="og:description" content="%(desc)s"><meta property="og:url" content="%(url)s"><meta property="og:image" content="%(site)s%(ogsrc)s">
 <meta name="twitter:card" content="summary_large_image">
 %(extra)s<link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,7 +170,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 %(scripts)s
 </body>
 </html>
-''' % dict(lang=lang, title=html.escape(title), desc=html.escape(desc), robots=robots, url=full, og=og, site=SITE, ogimg=ogimg, extra=extra,
+''' % dict(lang=lang, ogsrc=im(ogimg, 'jpg'), title=html.escape(title), desc=html.escape(desc), robots=robots, url=full, og=og, site=SITE, ogimg=ogimg, extra=extra,
            ld=json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False),
            ribbon='<div class="preview-ribbon">PREVIEW · prices, business details and product facts are samples until confirmed</div>' if PREVIEW else '',
            nav=nav, menu=SVG_MENU, bag=SVG_BAG, x=SVG_X, body=body, owner=OWNER, addr=ADDR, wa=WA, waimg=WA_IMG,
@@ -227,7 +235,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="badges"><span>Glutathione care</span><span>Night routine</span><span>Ships across India</span><span>7-day returns on sealed packs</span></div>
   </div>
   <div class="hero-stage">
-    <div class="jar3d" data-jar3d data-spots="%(spots)s" data-src="/assets/img/jar-cut.webp" data-alt="GlutaNex Glutathione Night Cream jar"><img class="j3-img j3-seed" src="/assets/img/jar-cut.webp" alt="GlutaNex Glutathione Night Cream jar" width="650" height="614" fetchpriority="high" decoding="async"></div>
+    <div class="jar3d" data-jar3d data-spots="%(spots)s" data-src="%(jarimg)s" data-alt="GlutaNex Glutathione Night Cream jar"><img class="j3-img j3-seed" src="%(jarimg)s" alt="GlutaNex Glutathione Night Cream jar" width="650" height="614" fetchpriority="high" decoding="async"></div>
     <div class="orbit" aria-hidden="true"><span class="o1"><b>✦</b> Glutathione</span><span class="o2">Night ritual <b>✦</b></span><span class="o3"><b>%(cprice)s</b> · COD</span></div>
     <div class="jar-hint">Tap the glowing dots · drag to tilt</div>
   </div>
@@ -254,9 +262,9 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
   <ol class="ritual"><li class="reveal"><h3>Cleanse</h3><p>Massage Gluta Boost Face Wash onto damp skin and rinse. Pat dry.</p></li><li class="reveal"><h3>Apply</h3><p>Smooth a small amount of Glutathione Night Cream over face and neck.</p></li><li class="reveal"><h3>Protect</h3><p>Every morning, finish with a broad-spectrum sunscreen. It protects the work of the night.</p></li></ol>
 </div></section>
 <section style="padding-top:0"><div class="wrap"><div class="gallery">
-  <figure class="tilt reveal"><img src="%(img_night)s" alt="GlutaNex Night Cream on a black stone with a swatch of cream" width="1134" height="680" loading="lazy"></figure>
-  <figure class="tilt reveal"><img src="%(img_hand)s" alt="Hand holding the GlutaNex jar" width="1024" height="682" loading="lazy"></figure>
-  <figure class="tilt reveal"><img src="%(img_bag)s" alt="GlutaNex jar in a handbag with pearls" width="1024" height="684" loading="lazy"></figure>
+  <figure class="tilt reveal"><img src="%(img_night)s" alt="GlutaNex glutathione night cream on a black stone with a swatch of cream" width="1134" height="680" loading="lazy"></figure>
+  <figure class="tilt reveal"><img src="%(img_hand)s" alt="Hand holding a GlutaNex glutathione night cream jar" width="1024" height="682" loading="lazy"></figure>
+  <figure class="tilt reveal"><img src="%(img_bag)s" alt="GlutaNex glutathione night cream 30 g jar in a handbag" width="1024" height="684" loading="lazy"></figure>
 </div></div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Glutathione guides</span><h2>Know before you buy</h2></div>
@@ -283,12 +291,12 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="b2-cta"><button class="btn" type="button" data-buy="duo"><span class="l">Get the Glow Duo · </span><span class="s">Glow Duo · </span>%(dprice)s</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)), adv=rs(ADVANCE),
+</div></div></section>''' % dict(cprice=rs(c['price']), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)), adv=rs(ADVANCE),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
 page('/', 'Glutathione Cream for Face | GlutaNex Night Cream & Face Wash', 'GlutaNex glutathione cream and face wash for a brighter-looking, more even complexion. Glutathione night cream from %s, free shipping, Cash on Delivery.' % rs(c['price']),
-     home, jar=True, extra='<link rel="preload" as="image" href="/assets/img/jar-cut.webp" type="image/webp" fetchpriority="high">\n', schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(p)} for i, p in enumerate(PRODUCTS)]}, faq_ld(HOME_FAQ)])
+     home, jar=True, extra='<link rel="preload" as="image" href="%s" type="image/webp" fetchpriority="high">\n' % im('jar-cut'), schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(p)} for i, p in enumerate(PRODUCTS)]}, faq_ld(HOME_FAQ)])
 
 # ---------------- Shop ----------------
 page('/shop/', 'Shop GlutaNex | Glutathione Night Cream, Face Wash & Duo', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
@@ -484,9 +492,22 @@ for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
-sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+# copy the photos to their search-friendly names
+for _src, _dst in SEO_IMG.items():
+    for _ext in ('webp', 'jpg', 'png'):
+        _a = os.path.join(ROOT, 'assets', 'img', '%s.%s' % (_src, _ext))
+        if os.path.exists(_a):
+            shutil.copy(_a, os.path.join(ROOT, 'assets', 'img', '%s.%s' % (_dst, _ext)))
+# sitemap with image entries, so Google Images can find the product photos
+IMG_FOR = {'/': ['jar-cut', 'jar-night', 'jar-hand', 'jar-bag', 'night-shift-banner'], '/shop/': ['cream-square', 'facewash-square', 'duo-square']}
+for _p in PRODUCTS:
+    IMG_FOR[url(_p)] = _p['imgs']
+def _imgs(pth):
+    names = IMG_FOR.get(pth, ['cream-square'] if pth.startswith('/glutathione') or pth.startswith('/hi/') or '-glutathione' in pth or 'glutathione-' in pth else [])
+    return ''.join('<image:image><image:loc>%s%s</image:loc></image:image>' % (SITE, im(n, 'jpg' if n != 'jar-cut' else 'png')) for n in names)
+sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
 for pth in pages:
-    sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (SITE, pth, TODAY))
+    sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod>%s</url>' % (SITE, pth, TODAY, _imgs(pth)))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
@@ -507,7 +528,7 @@ open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
                   {'name': 'Track order', 'url': '/track-order/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
                   {'name': 'Glutathione guide', 'url': '/glutathione/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]}]}, ensure_ascii=False, indent=1))
 PRECACHE = ['/', '/offline/', '/shop/', '/glutathione/', '/assets/site.css', '/assets/store.js', '/assets/jar3d.js', '/assets/products.json',
-            '/assets/img/jar-cut.webp', '/assets/img/glutanex-logo-dark.png', '/assets/img/glutanex-logo-light.png', '/assets/whatsapp-glyph-green.svg', '/icon-192.png']
+            im('jar-cut'), '/assets/img/glutanex-logo-dark.png', '/assets/img/glutanex-logo-light.png', '/assets/whatsapp-glyph-green.svg', '/icon-192.png']
 open(os.path.join(ROOT, 'sw.js'), 'w').write('''/* GlutaNex app: keeps the shop fast and usable on weak connections. Version %s */
 var V='gn-%s', CORE=%s;
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(CORE);}).then(function(){return self.skipWaiting();}));});
