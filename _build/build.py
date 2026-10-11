@@ -75,6 +75,18 @@ SVG_BAG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wid
 SVG_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
 SVG_X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>'
 INSTAGRAM = 'https://www.instagram.com/glutanexofficial/'
+# marketplace stores, shown in the footer. Logos: put the OFFICIAL file at assets/img/market-<name>.svg (or .png);
+# until a file is there, a text badge is shown. Never draw these logos by hand: they are the marketplaces' trademarks.
+MARKET_LINKS = [('Amazon', 'https://amzn.in/d/0a1LcDUz'), ('Flipkart', 'https://dl.flipkart.com/s/nLf9OfNNNN'),
+                ('Myntra', 'https://www.myntra.com/mailers/night-cream/glutanex/glutanex-skin-whitening-cream-with-glutathione-restore-your-youthful-glow--30g/30981116/buy')]
+
+
+def _market_badge(n, u):
+    for ext in ('svg', 'png', 'webp'):
+        f = 'assets/img/market-%s.%s' % (n.lower(), ext)
+        if os.path.exists(os.path.join(ROOT, f)):
+            return '<a class="mkt" href="%s" target="_blank" rel="noopener" aria-label="GlutaNex on %s"><img src="/%s" alt="%s" height="22" loading="lazy"></a>' % (html.escape(u), n, f, n)
+    return '<a class="mkt" href="%s" target="_blank" rel="noopener">%s</a>' % (html.escape(u), n)
 WA_IMG = '<img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="20">'
 
 pages = []
@@ -158,6 +170,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><span class="langs"><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a></span><a href="/glutathione-guides/">All guides</a></div>
     <div><h4>Help</h4><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
   </div>
+  <div class="markets"><span>Also available on</span>%(markets)s</div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
   <div class="legal"><span>© 2026 GlutaNex · %(owner)s · %(addr)s</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
 </div></footer>
@@ -177,7 +190,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
            nav=nav, menu=SVG_MENU, bag=SVG_BAG, x=SVG_X, body=body, owner=OWNER, addr=ADDR, wa=WA, waimg=WA_IMG,
            watext=urllib.parse.quote('Hi GlutaNex, I have a question.'),
            shop=''.join('<a href="%s">%s</a>' % (url(p), p['short']) for p in PRODUCTS),
-           pol=''.join('<a href="%s">%s</a>' % x for x in POLICIES), scripts=scripts)
+           pol=''.join('<a href="%s">%s</a>' % x for x in POLICIES), markets=''.join(_market_badge(n, u) for n, u in MARKET_LINKS), scripts=scripts)
     out = os.path.join(ROOT, '404.html') if path == '/404' else os.path.join(ROOT, path.strip('/'), 'index.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w').write(doc)
@@ -327,8 +340,6 @@ TABS = {
 SHIP_TAB = ('Shipping & returns', '<p>Free shipping across India. Pay online, or choose Cash on Delivery with a %s advance (refunded if the order is cancelled, refused or cannot be delivered). Orders are packed in 1 to 2 business days and delivered in 3 to 7 business days. Sealed packs can be returned within 7 days of delivery.</p>' % rs(ADVANCE))
 CREAM_FAQ = [('Can I use it during pregnancy?', 'The Night Cream contains retinol (vitamin A) and salicylic acid. Do not use it during pregnancy or breastfeeding unless your doctor says it is fine.'),
              ('Why start 2 to 3 nights a week?', 'Retinol and salicylic acid can cause mild dryness or tingling while skin gets used to them. Starting slowly and using sunscreen every morning keeps it comfortable.')]
-# where else each product is sold (text links only; marketplace logos are their trademarks)
-MARKETS = {'cream': [('Amazon', 'https://amzn.in/d/0a1LcDUz'), ('Flipkart', 'https://dl.flipkart.com/s/nLf9OfNNNN'), ('Myntra', 'https://www.myntra.com/mailers/night-cream/glutanex/glutanex-skin-whitening-cream-with-glutathione-restore-your-youthful-glow--30g/30981116/buy')]}
 PDP_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Pay %s online to confirm and the rest at delivery. The advance is refunded if the order is cancelled, refused or cannot be delivered.' % rs(ADVANCE)),
            ('When will I see results?', 'Use it every night with daily sunscreen for at least 6 to 8 weeks before judging. Results vary from person to person.'),
            ('Is it safe for sensitive skin?', 'Patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.')]
@@ -350,7 +361,7 @@ for p in PRODUCTS:
     <div class="qty-row"><div class="qty" data-qty><button type="button" data-dec aria-label="Less">−</button><output>1</output><button type="button" data-inc aria-label="More">+</button></div><span class="muted" style="font-size:.88rem">In stock</span></div>
     <div class="acts"><button class="btn ghost" type="button" data-add="%(id)s" data-useqty>Add to cart</button><button class="btn" type="button" data-buy="%(id)s" data-useqty>Buy now</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s Order on WhatsApp</a></div>
     <p class="eta" data-eta hidden></p>
-    <ul class="perks"><li>Cash on Delivery with a refundable %(adv)s advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>%(markets)s
+    <ul class="perks"><li>Cash on Delivery with a refundable %(adv)s advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
     <div class="tabs">%(tabs)s</div>
   </div>
 </div>
@@ -358,7 +369,7 @@ for p in PRODUCTS:
 <p style="margin-top:22px" class="muted">Learn more: <a href="/glutathione-cream/">Glutathione cream guide</a> · <a href="/glutathione-side-effects/">Side effects</a> · <a href="/how-to-use-glutathione-cream/">How to use</a></p></div></section>
 <section style="padding-top:10px"><div class="wrap"><div class="sec-h"><span class="eyebrow">Complete the ritual</span><h2>You may also like</h2></div><div class="grid">%(rel)s</div></div></section>
 <div class="buybar" id="buybar" aria-hidden="true"><img src="%(main)s" alt="" width="44" height="44"><div class="bb-t"><b>%(short)s</b><span>%(price)s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%(id)s" aria-label="Add to cart">%(bag)s</button><button class="btn" type="button" data-buy="%(id)s">Buy now</button></div>''' % dict(
-        main=im(p['imgs'][0]), markets=('<p class="also">Also available on ' + ' · '.join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (html.escape(u), n) for n, u in MARKETS[p['id']]) + '</p>') if MARKETS.get(p['id']) else '', short=html.escape(p['short']), bag=SVG_BAG, alt=html.escape(p['name']), thumbs=thumbs, tag=p['tag'], name=html.escape(p['name']), price=rs(p['price']),
+        main=im(p['imgs'][0]), short=html.escape(p['short']), bag=SVG_BAG, alt=html.escape(p['name']), thumbs=thumbs, tag=p['tag'], name=html.escape(p['name']), price=rs(p['price']),
         mrp='<s>MRP %s</s>' % rs(p['mrp']) if off else '', off='<span class="off">%d%% off</span>' % off if off else '', size=p['size'], summary=p['summary'], id=p['id'],
         wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG, adv=rs(ADVANCE),
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
