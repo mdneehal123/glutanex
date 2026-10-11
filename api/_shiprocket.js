@@ -77,20 +77,21 @@ function stamp(date) {
 // order: { id, cart, name, phone, address, city, pincode, cod, discount, collect }
 // Prepaid: item prices add up to what was paid. Cash on Delivery with advance: discount is the advance
 // already paid, and the courier collects the rest.
-async function createOrder(order) {
+async function createOrder(order, update) {
   const s = settings();
   if (!s) return { status: 'off' };
   const box = parcel(order.cart);
   const token = await login(s);
   const state = await stateFor(order.pincode, token);
-  const r = await fetch(BASE + '/orders/create/adhoc', {
+  // update: same order id, new contents (allowed by Shiprocket until a courier is assigned)
+  const r = await fetch(BASE + (update ? '/orders/update/adhoc' : '/orders/create/adhoc'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
     body: JSON.stringify({
       order_id: order.id,
       order_date: stamp(new Date()),
       pickup_location: s.pickup,
-      comment: 'GlutaNex website order',
+      comment: order.comment || 'GlutaNex website order',
       billing_customer_name: order.name,
       billing_last_name: '',
       billing_address: order.address,
@@ -116,11 +117,13 @@ async function createOrder(order) {
     // Shiprocket names the valid pickup locations when the nickname is wrong.
     const list = d && d.data && Array.isArray(d.data.data) ? d.data.data.map((x) => x.pickup_location).filter(Boolean) : undefined;
     const detail = { step: 'create', http: r.status, message: String(d.message || '').slice(0, 300), errors: d.errors, pickup_sent: s.pickup, pickup_available: list, state_sent: state };
-    console.error('shiprocket create failed', JSON.stringify(detail));
+    console.error('shiprocket ' + (update ? 'update' : 'create') + ' failed', JSON.stringify(detail));
     return { status: 'failed', reason: 'shiprocket_rejected', detail };
   }
-  return { status: 'created', shiprocket_order_id: d.order_id || null };
+  return { status: update ? 'updated' : 'created', shiprocket_order_id: d.order_id || null };
 }
+
+function updateOrder(order) { return createOrder(order, true); }
 
 // Tracking. kind: 'order' (our order id) or 'awb'. Returns a small, customer-safe summary.
 async function track(kind, value) {
@@ -189,4 +192,4 @@ async function pincode(pin) {
   return { ok: true, city, state, days, cod, serviceable };
 }
 
-module.exports = { createOrder, settings, track, pincode };
+module.exports = { createOrder, updateOrder, settings, track, pincode };

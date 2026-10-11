@@ -55,8 +55,10 @@ function shipArgs(o) {
   const cart = cartFrom(String(n.items || ''));
   if (!cart || !n.name) return null;
   const advance = n.mode === 'advance';
+  // extra_paid: money paid online after the order (the after-payment add-on), so the courier collects less
+  const extra = Math.max(0, Math.floor(Number(n.extra_paid || 0)));
   return { id: o.id, cart, name: n.name, phone: n.phone, address: n.address, city: n.city, pincode: n.pincode,
-    cod: advance, discount: advance ? ADVANCE : 0, collect: advance ? cart.total - ADVANCE : 0 };
+    cod: advance, discount: advance ? ADVANCE + extra : 0, collect: advance ? cart.total - ADVANCE - extra : 0 };
 }
 
 module.exports = { PRODUCTS, BRAND, ADVANCE, keys, clean, cartFrom, shipArgs };

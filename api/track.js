@@ -49,8 +49,14 @@ module.exports = async (req, res) => {
     } else {
       return res.status(400).json({ error: 'bad_id' });
     }
-    const r = await fetch('https://api.razorpay.com/v1/orders/' + orderId, { headers: auth });
-    const o = await r.json();
+    let r = await fetch('https://api.razorpay.com/v1/orders/' + orderId, { headers: auth });
+    let o = await r.json();
+    // an after-payment add-on is tracked as part of the order it was added to
+    if (r.ok && (o.notes || {}).kind === 'addon' && /^order_\w+$/.test(String(o.notes.parent || ''))) {
+      orderId = o.notes.parent;
+      r = await fetch('https://api.razorpay.com/v1/orders/' + orderId, { headers: auth });
+      o = await r.json();
+    }
     if (!r.ok || (o.notes || {}).brand !== BRAND) return res.status(404).json({ error: 'not_found' });
     const n = o.notes || {};
     const cart = cartFrom(String(n.items || ''));

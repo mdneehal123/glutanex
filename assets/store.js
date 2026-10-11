@@ -219,6 +219,37 @@
     $('co-form').addEventListener('submit',function(e){e.preventDefault();if(busy){return;}var p=check(1)||check(2);if(p){go(p[0]===F.name||p[0]===F.phone?1:2);show(p);return;}var m=mode();remember();
       if(m==='wa'){lead('done');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(waText('\n\nName: '+F.name.value.trim()+'\nMobile: '+F.phone.value.trim()+'\nAddress: '+F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim())),'_blank','noopener');return;}
       if(!online){return;}pay(m==='cod');});
+    /* after-payment add-on: the other half of the Glow Duo, same parcel, Duo price difference, 15 minutes */
+    function addon(hold,sumBox,pid,o,t,cod){
+      fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'offer',order_id:o.order_id,payment_id:pid})})
+      .then(function(r){return r.ok?r.json():null;}).then(function(f){if(!f||!f.ok){return;}
+        var pr=P[f.item]||{},card=el('div','addon');var top=el('div','ad-top');var im=el('img');im.src=pr.img||'';im.alt='';im.width=64;im.height=64;top.appendChild(im);
+        var tx=el('div');tx.appendChild(el('b',null,'Upgrade to the Glow Duo'));var sp=el('span');sp.appendChild(document.createTextNode('Add the '+(pr.short||f.name)+' to this parcel for '));sp.appendChild(el('b',null,rs(f.price)));sp.appendChild(document.createTextNode(' '));sp.appendChild(el('s',null,rs(f.regular)));sp.appendChild(document.createTextNode('. No extra shipping.'));tx.appendChild(sp);top.appendChild(tx);card.appendChild(top);
+        var tm=el('p','ad-time');card.appendChild(tm);var acts=el('div','ad-acts');card.appendChild(acts);var msg=el('p','ad-msg');msg.hidden=true;card.appendChild(msg);
+        var timer;function tick(){var left=Math.max(0,f.until-Date.now()),m=Math.floor(left/60000),sec=Math.floor(left%60000/1000);tm.textContent='Offer ends in '+m+':'+(sec<10?'0':'')+sec+' · before we pack your order';if(left<=0){clearInterval(timer);card.remove();}}
+        tick();timer=setInterval(tick,1000);
+        function busy(on){[].forEach.call(acts.querySelectorAll('button'),function(b){b.disabled=on;});}
+        function fail(text){busy(false);msg.textContent=text;msg.hidden=false;}
+        function added(res){clearInterval(timer);card.textContent='';card.classList.add('done');card.appendChild(el('b',null,'✓ Added: '+(pr.short||f.name)+' will come in the same parcel'));
+          var rows=[['Items',t.lines.map(function(x){return x.p.short+(x.qty>1?' ×'+x.qty:'');}).concat([(pr.short||f.name)]).join(', ')]];
+          if(cod){rows.push(['Paid online',rs(ADVANCE+(res.how==='online'?f.price:0))]);rows.push(['Pay at delivery',rs(res.collect),'total']);}else{rows.push(['Paid online',rs(res.total),'total']);}
+          rows.push(['Order number',pid]);sumRows(sumBox,rows);
+          if(typeof gtag==='function'){gtag('event','purchase',{transaction_id:pid+'-addon',value:f.price,currency:'INR'});}
+          if(typeof fbq==='function'){fbq('track','Purchase',{value:f.price,currency:'INR'},{eventID:pid+'-addon'});}}
+        function payOnline(){busy(true);msg.hidden=true;
+          fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'create',order_id:o.order_id,payment_id:pid})}).then(function(r){return r.json();}).then(function(a){
+            if(!a.ok){return fail(a.error==='expired'?'Sorry, this offer has ended.':'Could not start the payment. Please try again.');}
+            loadRzp(function(){var rz=new window.Razorpay({key:a.key_id,order_id:a.order_id,amount:a.amount,currency:a.currency,name:'GlutaNex',description:'Add-on: '+(pr.short||f.name),prefill:{name:F.name.value.trim(),contact:mobile(F.phone.value)},theme:{color:'#F07C1C'},
+              handler:function(resp){resp.action='confirm';fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(function(r){return r.json();}).then(function(v){if(v.ok){v.how='online';if(v.already){v.total=t.total+f.price;v.collect=cod?t.total+f.price-ADVANCE-f.price:0;}added(v);}else{fail('Payment received. We will add it to your parcel; message us on WhatsApp if you have questions.');}}).catch(function(){fail('Payment received. We will add it to your parcel.');});},
+              modal:{ondismiss:function(){busy(false);}}});rz.open();},function(){fail('The payment window could not load.');});
+          }).catch(function(){fail('Could not start the payment. Please try again.');});}
+        if(cod){var b1=el('button','btn block','Add · pay '+rs(f.price)+' at delivery');b1.type='button';b1.addEventListener('click',function(){busy(true);msg.hidden=true;
+            fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'cod',order_id:o.order_id,payment_id:pid})}).then(function(r){return r.json();}).then(function(v){if(v.ok){v.how='cod';added(v);}else{fail(v.error==='expired'?'Sorry, this offer has ended.':'Could not add it. Please try again.');}}).catch(function(){fail('Could not add it. Please try again.');});});acts.appendChild(b1);
+          var b2=el('button','btn ghost block','Pay '+rs(f.price)+' now instead');b2.type='button';b2.addEventListener('click',payOnline);acts.appendChild(b2);}
+        else{var b3=el('button','btn block','Add for '+rs(f.price));b3.type='button';b3.addEventListener('click',payOnline);acts.appendChild(b3);}
+        var no=el('button','ad-no','No thanks');no.type='button';no.addEventListener('click',function(){clearInterval(timer);card.remove();});acts.appendChild(no);
+        hold.appendChild(card);}).catch(function(){});
+    }
     function thanks(pid,o,ok){
       lead('done');var t=totals(),cod=o.balance>0;var past=load(ORDERS,[]).filter(function(x){return x&&x.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});
       var wrap=$('checkout');wrap.textContent='';var box=el('div','panel thanks');box.style.gridColumn='1 / -1';
@@ -227,6 +258,7 @@
       var s=el('div','sum'),rows=[['Items',t.lines.map(function(x){return x.p.short+(x.qty>1?' ×'+x.qty:'');}).join(', ')]];
       if(cod){rows.push(['Advance paid',rs(ADVANCE)]);rows.push(['Pay at delivery',rs(o.balance),'total']);}else{rows.push(['Paid online',rs(o.total),'total']);}
       rows.push(['Order number',pid]);sumRows(s,rows);box.appendChild(s);
+      var hold=el('div');box.appendChild(hold);if(ok){addon(hold,s,pid,o,t,cod);}
       var tr=el('a','btn block','Track this order');tr.href='/track-order/?id='+encodeURIComponent(pid);box.appendChild(tr);
       var rm=el('a','btn ghost block','🔔 Turn on routine reminders');rm.href='/reminders/';box.appendChild(rm);
       var wa=el('a','btn wa block','Get updates on WhatsApp');wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I placed an order. Order number: '+pid);wa.target='_blank';wa.rel='noopener';box.appendChild(wa);

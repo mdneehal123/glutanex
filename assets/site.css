@@ -610,3 +610,9 @@ footer a.mkt{display:inline-flex;align-items:center;justify-content:center;heigh
 footer a.mkt:hover{color:#16120E;transform:translateY(-2px)}
 footer a.mkt img{height:22px;width:auto;display:block}
 .tbl table.facts{min-width:0}.facts td:first-child{width:34%;font-weight:700;color:var(--ink)}.facts td{overflow-wrap:anywhere}
+.addon{margin:18px 0 4px;padding:16px;border:1.5px solid #F2C9A3;background:linear-gradient(160deg,#FFF8F0,#FFEFE0);border-radius:18px;display:flex;flex-direction:column;gap:12px;text-align:left}
+.addon .ad-top{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:center}.addon img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:#fff}
+.addon b{display:block;font-size:1rem;color:var(--ink)}.addon span{font-size:.9rem;color:var(--body-ink)}.addon span b{display:inline;font-size:inherit}.addon s{color:var(--dim)}
+.addon .ad-time{font-size:.82rem;font-weight:700;color:#B4561B;margin:0;font-variant-numeric:tabular-nums}
+.addon .ad-acts{display:flex;flex-direction:column;gap:8px}.addon .ad-no{background:none;border:0;color:var(--muted);font:inherit;font-size:.86rem;text-decoration:underline;padding:6px;cursor:pointer}
+.addon .ad-msg{font-size:.86rem;color:var(--muted);margin:0}.addon.done{background:#F3FAF5;border-color:#CFE8D7}.addon.done b{color:var(--ok)}
