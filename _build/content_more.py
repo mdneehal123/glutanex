@@ -910,3 +910,63 @@ TLDR = {
                               'Avoid retinol creams and glutathione injections; ask your doctor before any glutathione product.',
                               'Gentle cleanser, moisturiser and daily sunscreen are safe basics.'],
 }
+
+# ---------------- Seasonal pages (winter, wedding season) ----------------
+NEW_GUIDES += [
+    dict(slug='glutathione-cream-in-winter', title='Glutathione cream in winter: a routine for dry skin', short='Winter routine',
+         blurb='How to use a glutathione cream in cold, dry weather without flaking, and why sunscreen still matters.',
+         seo='Glutathione Cream in Winter: Dry Skin Routine & Sunscreen Tips', desc='Can you use glutathione cream in winter? Yes: how to adjust for dry skin, layering with a moisturiser, retinol in cold weather, and why winter sunscreen still matters in India.',
+         refs=['study'],
+         qa=[('Can I use glutathione cream in winter?', 'Yes. Winter is a good time to start a glutathione cream: the sun is milder, so tan fades more easily. Apply it at night on clean skin, add a moisturiser on top if your skin feels dry, and keep wearing SPF 30+ sunscreen every morning.', ''),
+             ('Do I need sunscreen in winter?', 'Yes. UVA rays, which drive tan and dark spots, stay strong through Indian winters and pass through haze, clouds and window glass. Use a broad-spectrum SPF 30 or higher with a good PA rating every morning, even on cool or foggy days.', '')],
+         body='''<h2>Why winter is a good season to start</h2><p>Milder sun means less new tan, so the tan you already have can fade with less fighting back. Starting now also means your skin has had 8–12 weeks of steady use by the end of winter, which is how long glutathione creams usually take to show a brighter, more even look.</p>
+<h2>Adjust for dry skin</h2><ul><li><b>Cleanse gently.</b> Lukewarm water, not hot. If your skin feels tight, use %(wash)s once a day at night and just rinse with water in the morning.</li><li><b>Apply on dry skin.</b> Wait a minute after washing; actives on damp skin can sting more in cold weather.</li><li><b>Layer a moisturiser.</b> Apply the night cream first, wait a minute, then a plain moisturiser if you need more comfort.</li><li><b>Go slower with retinol.</b> %(cream)s contains retinol and salicylic acid, which can feel stronger in dry air. Use it every other night if you see flaking, and build up again.</li></ul>
+<h2>A simple winter routine</h2><div class="tbl"><table><thead><tr><th>When</th><th>Steps</th></tr></thead><tbody><tr><td>Morning</td><td>Rinse or gentle cleanse, moisturiser, SPF 30+ sunscreen</td></tr><tr><td>Night</td><td>Cleanse, pat dry, pea-sized amount of night cream, moisturiser if dry</td></tr><tr><td>Weekly</td><td>Skip scrubs; if skin flakes, take one or two nights off actives</td></tr></tbody></table></div>
+<h2>What to avoid in winter</h2><p>Very hot showers on the face, harsh scrubs, alcohol-heavy toners and stacking several new actives at once. They strip the skin barrier, and a damaged barrier makes dullness and uneven tone look worse.</p>''',
+         faq=[('Is glutathione cream drying?', 'Glutathione itself is not drying, but creams that also contain retinol or salicylic acid, like the GlutaNex Night Cream, can feel drying in cold weather. Use it every other night and add a moisturiser.'),
+              ('Should I apply moisturiser before or after glutathione cream?', 'Apply the glutathione cream first on clean, dry skin, wait about a minute, then apply your moisturiser on top.')]),
+    dict(slug='glutathione-before-wedding', title='Glutathione before your wedding: an honest 12-week plan', short='Before the wedding',
+         blurb='When to start, a week-by-week plan, and why to skip pre-wedding glutathione injections.',
+         seo='Glutathione Before Wedding: 12-Week Bridal & Groom Glow Plan', desc='Planning glutathione before your wedding? When to start a glutathione cream, a 12-week bride and groom plan, what to stop before the day, and why to avoid glutathione injections.',
+         refs=['study', 'fda'],
+         qa=[('Is glutathione good before a wedding?', 'A glutathione cream can help tan and uneven tone look brighter if you start 8–12 weeks before the day and wear sunscreen daily. It will not change your natural skin colour, and glutathione injections, often sold as pre-wedding packages, are not recommended.', ''),
+             ('How many weeks before the wedding should I start glutathione cream?', 'Start 10–12 weeks before if you can. That leaves two weeks to build up slowly, about eight weeks for gradual results, and time to stop anything that irritates. Starting a new active cream in the last two weeks is risky.', ''),
+             ('Are glutathione injections safe before marriage?', 'There are no proper clinical trials showing glutathione injections are safe or effective for skin lightening, and health regulators have warned about them. Drips given outside a hospital can also carry infection risk. It is best to skip them, especially before a big day.', '<p>Read the warning: %(fda)s.</p>')],
+         body='''<h2>A week-by-week plan</h2><div class="tbl"><table><thead><tr><th>Weeks before</th><th>What to do</th></tr></thead><tbody>
+<tr><td>12–11</td><td>Patch test for 24 hours. Start the night cream 2–3 nights a week. Sunscreen every morning from now on.</td></tr>
+<tr><td>10–9</td><td>If your skin is comfortable, use it every other night.</td></tr>
+<tr><td>8–3</td><td>Every night if your skin is happy. Keep up sunscreen, sleep and water; avoid new products.</td></tr>
+<tr><td>2–1</td><td>Keep the same routine. No new creams, peels, bleach or threading experiments. Book your last facial at least a week before.</td></tr>
+<tr><td>The day</td><td>Your usual gentle routine. Let your makeup artist know which actives you use.</td></tr></tbody></table></div>
+<h2>For grooms too</h2><p>The same plan works for men. Shaving can make actives sting, so apply the night cream on shaved areas only once any razor irritation has settled, and use a fragrance-free moisturiser after shaving.</p>
+<h2>Only 4 weeks to go (or Diwali is close)?</h2><p>A cream can make skin look fresher and smoother within a few weeks, but tan and spots need longer. Focus on daily sunscreen, a gentle cleanser like %(wash)s, sleep and a steady routine rather than anything strong or new.</p>
+<h2>What to avoid before the wedding</h2><ul><li>Glutathione injections and IV "glow drips".</li><li>Bleach creams and unlabelled "fairness" creams, which may contain steroids or mercury.</li><li>A first-ever chemical peel in the final month.</li><li>Lemon, baking soda or toothpaste on the face.</li></ul>''',
+         faq=[('Can I use glutathione cream one week before my wedding?', 'If you already use it and your skin is comfortable, keep going. Do not start it for the first time in the final week; a new active can irritate.'),
+              ('Is glutathione cream good for grooms?', 'Yes. The same routine works for men; apply it at night and wait until any shaving irritation has settled.')]),
+]
+
+HI += [
+    dict(slug='shaadi-se-pehle-glutathione', en='/glutathione-before-wedding/',
+         title='शादी से पहले ग्लूटाथियोन: 12 हफ्तों का सच्चा प्लान', short='शादी से पहले',
+         seo='Shaadi Se Pehle Glutathione: दुल्हन और दूल्हे के लिए 12 हफ्ते का प्लान',
+         desc='शादी से पहले glutathione cream कब शुरू करें, हफ्ते-दर-हफ्ते प्लान, आखिरी दो हफ्तों में क्या न करें, और ग्लूटाथियोन इंजेक्शन से क्यों बचें।',
+         body='''<p><b>छोटा जवाब:</b> ग्लूटाथियोन क्रीम शादी से 10–12 हफ्ते पहले शुरू करें और रोज़ सुबह सनस्क्रीन लगाएं। इससे टैन और असमान रंगत धीरे-धीरे हल्की और एक-सी दिख सकती है। यह प्राकृतिक रंग नहीं बदलती, और प्री-वेडिंग ग्लूटाथियोन इंजेक्शन की सलाह नहीं दी जाती।</p>
+<h2>हफ्ते-दर-हफ्ते प्लान</h2><div class="tbl"><table><thead><tr><th>शादी से पहले</th><th>क्या करें</th></tr></thead><tbody>
+<tr><td>12–11 हफ्ते</td><td>24 घंटे का पैच टेस्ट। हफ्ते में 2–3 रात क्रीम। हर सुबह सनस्क्रीन।</td></tr>
+<tr><td>10–9 हफ्ते</td><td>त्वचा ठीक लगे तो एक दिन छोड़कर हर रात।</td></tr>
+<tr><td>8–3 हफ्ते</td><td>त्वचा आरामदायक हो तो हर रात। नए प्रोडक्ट न आज़माएं।</td></tr>
+<tr><td>आखिरी 2 हफ्ते</td><td>वही रूटीन। कोई नई क्रीम, पील या ब्लीच नहीं। आखिरी फेशियल कम से कम एक हफ्ता पहले।</td></tr></tbody></table></div>
+<h2>दूल्हों के लिए भी</h2><p>यही प्लान पुरुषों के लिए भी है। शेविंग के बाद जलन हो तो उसके ठीक होने तक उस जगह क्रीम न लगाएं।</p>
+<h2>शादी से पहले किन चीज़ों से बचें</h2><ul><li>ग्लूटाथियोन इंजेक्शन और IV "ग्लो ड्रिप"।</li><li>ब्लीच और बिना लेबल वाली "फेयरनेस" क्रीम, जिनमें स्टेरॉयड या पारा हो सकता है।</li><li>आखिरी महीने में पहली बार केमिकल पील।</li><li>चेहरे पर नींबू, बेकिंग सोडा या टूथपेस्ट।</li></ul>''',
+         faq=[('शादी से कितने हफ्ते पहले ग्लूटाथियोन क्रीम शुरू करें?', 'अगर हो सके तो 10–12 हफ्ते पहले। इससे धीरे-धीरे शुरू करने और नतीजे दिखने के लिए पूरा समय मिलता है। आखिरी दो हफ्तों में नई एक्टिव क्रीम शुरू न करें।'),
+              ('क्या शादी से पहले ग्लूटाथियोन इंजेक्शन सुरक्षित है?', 'त्वचा गोरी करने के लिए इंजेक्शन के सुरक्षित या असरदार होने का कोई ठीक क्लिनिकल ट्रायल नहीं है, और स्वास्थ्य नियामकों ने इनके बारे में चेतावनी दी है। इनसे बचना बेहतर है।')]),
+]
+
+TLDR.update({
+    'glutathione-cream-in-winter': ['Winter is a good time to start: milder sun lets existing tan fade more easily.',
+                                    'For dry skin, apply on dry skin, add a moisturiser on top and use retinol creams every other night if you flake.',
+                                    'Keep SPF 30+ sunscreen every morning; UVA stays strong in Indian winters.'],
+    'glutathione-before-wedding': ['Start a glutathione cream 10–12 weeks before the wedding, slowly at first, with daily sunscreen.',
+                                   'Do not start new products, peels or bleach in the final two weeks.',
+                                   'Skip glutathione injections and IV glow drips; they lack trials and carry warnings.'],
+})
