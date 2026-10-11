@@ -96,11 +96,24 @@
     else{mid.appendChild(el('span','sub','Qty '+x.qty));}
     row.appendChild(mid);var amt=el('div','amt',rs(x.sub));if(x.mrp>x.sub){amt.appendChild(el('s',null,rs(x.mrp)));}row.appendChild(amt);return row;
   }
+  /* cart upsell: one item away from the Glow Duo */
+  function upsellNode(after){
+    var c=cart(),d=P&&P.duo,need=null;if(!d||!P.cream||!P.wash){return null;}
+    if((c.cream||0)>(c.wash||0)){need='wash';}else if((c.wash||0)>(c.cream||0)){need='cream';}
+    if(!need){return null;}
+    var have=need==='wash'?'cream':'wash',extra=d.price-P[have].price,save=P.cream.price+P.wash.price-d.price;
+    var box=el('div','upsell');var img=el('img');img.src=P[need].img;img.alt='';img.width=56;img.height=56;box.appendChild(img);
+    var txt=el('div');txt.appendChild(el('b',null,'Add '+P[need].short+' for just '+rs(extra)+' more'));
+    txt.appendChild(el('span',null,'Your order becomes the Glow Duo'+(save>0?' · save '+rs(save):'')));box.appendChild(txt);
+    var btn=el('button','btn sm','Add');btn.type='button';btn.addEventListener('click',function(){add(need,1);badge(true);if(paired){paired=false;}after();});box.appendChild(btn);
+    return box;
+  }
   function waText(extra){var t=totals();return 'Hi GlutaNex, I would like to order:\n'+t.lines.map(function(x){return '- '+x.p.name+' x'+x.qty+' = '+rs(x.sub);}).join('\n')+'\nTotal: '+rs(t.total)+(extra||'');}
   function renderDrawer(){
     var box=$('drawer-lines');if(!box||!P){return;}var t=totals();box.textContent='';
     if(!t.lines.length){box.appendChild(el('div','empty','Your cart is empty.'));$('drawer-go').hidden=true;$('drawer-wa').hidden=true;sumRows($('drawer-sum'),[]);return;}
     t.lines.forEach(function(x){box.appendChild(lineNode(x,true,renderDrawer));});
+    var ud=upsellNode(renderDrawer);if(ud){box.appendChild(ud);}
     $('drawer-go').hidden=false;$('drawer-wa').hidden=false;$('drawer-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent(waText());
     sumRows($('drawer-sum'),[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free'],['Total',rs(t.total),'total']]);
   }
@@ -114,6 +127,9 @@
       if(a){var id=a.getAttribute('data-add'),q=qtyOf(a);fly(a,id,function(){add(id,q);badge(true);if(paired){paired=false;var dp=P.duo||{},sv=(P.cream&&P.wash&&dp.price)?(P.cream.price+P.wash.price-dp.price):0;toast('Upgraded to Glow Duo'+(sv>0?' · save '+rs(sv):''),['View cart',openCart]);}else{toast((P[id]||{}).short+' added to cart',['View cart',openCart]);}});}
       if(b){add(b.getAttribute('data-buy'),qtyOf(b));location.href='/checkout/';}
     });
+    var bb=$('buybar'),acts=document.querySelector('.pdp .acts');
+    if(bb&&acts){var bt=false;var chk=function(){bt=false;var r=acts.getBoundingClientRect(),f=document.querySelector('footer'),fr=f?f.getBoundingClientRect().top:1e9,on=r.bottom<0&&fr>innerHeight-20;bb.classList.toggle('on',on);document.body.classList.toggle('bar-on',on);};
+      window.addEventListener('scroll',function(){if(!bt){bt=true;requestAnimationFrame(chk);}},{passive:true});window.addEventListener('resize',chk);chk();}
     if($('cart-lines')){renderCart();}
     if($('checkout')){checkout();}
     if($('track-form')){trackPage();}
@@ -123,7 +139,7 @@
   function renderCart(){
     var box=$('cart-lines'),t=totals();box.textContent='';
     if(!t.lines.length){var e=el('div','empty');e.appendChild(el('p',null,'Your cart is empty.'));var s=el('a','btn','Shop now');s.href='/shop/';s.style.marginTop='16px';e.appendChild(s);box.appendChild(e);$('to-checkout').hidden=true;sumRows($('cart-sum'),[]);return;}
-    t.lines.forEach(function(x){box.appendChild(lineNode(x,true,renderCart));});$('to-checkout').hidden=false;
+    t.lines.forEach(function(x){box.appendChild(lineNode(x,true,renderCart));});var uc=upsellNode(renderCart);if(uc){box.appendChild(uc);}$('to-checkout').hidden=false;
     sumRows($('cart-sum'),[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free'],['Total',rs(t.total),'total']]);
   }
 
