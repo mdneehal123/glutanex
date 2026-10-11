@@ -458,3 +458,28 @@ QA_EXTRA = {
          '<p>In creams it may appear as glutathione or oxidised glutathione (GSSG). See <a href="/glutathione/">what is glutathione</a>.</p>'),
     ],
 }
+
+# "People also ask" / related searches for "glutathione side effects" (11 Oct 2026)
+QA_EXTRA['glutathione-side-effects'] = [
+    ('What are the serious side effects of glutathione?',
+     'Serious side effects are rare and usually signs of an allergic reaction: breathing problems or wheezing, a racing heart, rash or swelling, fever and swollen lymph nodes. The highest risk is with glutathione injections. Stop using it and get medical help straight away if these happen.',
+     '<p>People with asthma should not inhale glutathione, as it can trigger wheezing. Concerns reported with skin-lightening injections are covered by %(ijdvl)s.</p>'),
+    ('What are the risks of taking glutathione?',
+     'Glutathione creams and short courses of tablets are usually well tolerated. Possible risks include stomach upset, bloating and allergic reactions. Injections carry the biggest risks: unknown ingredients, infection and serious reactions. Long-term safety of high doses, and safety in pregnancy, are not well studied.',
+     '<p>The %(fda)s covers injectable skin-lightening products. Talk to a doctor before taking any supplement.</p>'),
+    ('Is glutathione safe for your liver?',
+     'Your liver naturally makes and uses glutathione, and short studies of oral glutathione found it generally safe. In one 12-week study, two people had temporary rises in liver tests that settled. Glutathione creams are not linked to liver problems. If you have liver disease, ask your doctor first.',
+     '<p>Study: %(wesch)s.</p>'),
+    ('What will happen if I take glutathione daily?',
+     'Daily use of a glutathione cream is fine for most people and may gradually help skin look brighter and more even, with sunscreen. Daily oral doses in studies were well tolerated for 4 to 12 weeks, but long-term effects are not well known, so check with a doctor.',
+     '<p>Results fade if you stop and skip sun protection. See <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>'),
+    ('What to avoid when taking glutathione?',
+     'Avoid glutathione injections from salons or unlicensed sellers, high-dose supplements without medical advice, and inhaled glutathione if you have asthma. With creams, avoid layering other retinol or acid products the same night and never skip sunscreen. Tell your doctor if you are pregnant or on chemotherapy.',
+     '<p>Smoking and heavy drinking also use up the body\'s own glutathione.</p>'),
+    ('What are the side effects of glutathione tablets?',
+     'Glutathione tablets usually cause no problems in short courses. When side effects happen they are mild: stomach cramps, bloating, loose stools or, rarely, an allergic reaction such as rash or itching. Stop taking them if you react, and speak to a doctor before starting.',
+     '<p>Compare forms: <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a>.</p>'),
+    ('What are the side effects of glutathione on skin?',
+     'On skin, glutathione creams can cause mild tingling, redness or dryness at first, especially when combined with retinol or acids, and rarely a rash. Patch test before use and stop if irritation lasts. Patchy loss of skin colour has been reported with injections, not creams.',
+     '<p>How to patch test is explained below.</p>'),
+]
