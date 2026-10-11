@@ -466,6 +466,41 @@ for q_, a_ in FAQ_ALL:
     KB.append({'t': 'GlutaNex FAQ', 'u': '/faq/', 's': q_, 'x': _txt(a_)})
 open(os.path.join(ROOT, 'api', '_kb.json'), 'w', encoding='utf-8').write(json.dumps(KB, ensure_ascii=False))
 
+# ---------------- Files for AI assistants (llmstxt.org format) ----------------
+def _g(slug):
+    return next(x for x in GUIDES if x['slug'] == slug)
+_core = ['glutathione', 'glutathione-cream-questions', 'glutathione-cream', 'glutathione-benefits-for-skin', 'glutathione-side-effects', 'is-glutathione-safe-for-skin',
+         'how-to-use-glutathione-cream', 'glutathione-for-skin-whitening', 'glutathione-cream-vs-tablets-vs-injections', 'glutathione-tablets']
+_line = lambda u, t, d: '- [%s](%s%s): %s' % (t, SITE, u, d)
+LLMS = ['# GlutaNex', '',
+        '> GlutaNex is an Indian skincare brand selling a glutathione night cream (30 g) and a glutathione face wash (100 ml) at glutanex.co.in, '
+        'sold and shipped by %s, %s. The site also publishes research-cited guides on glutathione for skin, written to be accurate: glutathione can help tan '
+        'and uneven tone look lighter and more even over 8 to 12 weeks with daily sunscreen; it does not change natural skin colour; injections for skin '
+        'lightening are not recommended.' % (OWNER, ADDR), '',
+        'Key facts:', '',
+        '- Products: ' + '; '.join('%s (%s) %s, MRP %s' % (x['name'], x['size'], rs(x['price']), rs(x['mrp'])) for x in PRODUCTS) + '. Prices include taxes.',
+        '- Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. Contains retinol and salicylic acid: night use, start 2-3 nights a week, sunscreen every morning, not for pregnancy or breastfeeding unless a doctor approves.',
+        '- Shipping: free across India; packed in 1-2 business days; delivered in 3-7 business days. Payment: online (UPI, cards), Cash on Delivery with a %s refundable advance, or WhatsApp order.' % rs(ADVANCE),
+        '- Returns: sealed products within 7 days of delivery; damaged or wrong items replaced or refunded. Contact: WhatsApp %s, Instagram @glutanexofficial.' % WA_SHOW, '',
+        '## Shop', '',
+        _line('/shop/', 'Shop', 'all GlutaNex products with prices')] + [_line(url(x), x['name'], x['desc']) for x in PRODUCTS] + [
+        '', '## Glutathione guides', ''] + [_line(guide_url(_g(sl)), _g(sl)['title'], _g(sl)['desc']) for sl in _core] + [
+        '', '## Policies', '', _line('/our-standards/', 'Our standards', 'how GlutaNex writes its guides and what it will and will not claim'),
+        _line('/refund-policy/', 'Returns and refunds', '7-day returns on sealed products'), _line('/shipping-policy/', 'Shipping', 'free shipping across India, delivery times'),
+        '', '## Optional', '', _line('/llms-full.txt', 'Full text', 'all product facts and guides as plain text')] + \
+       [_line(guide_url(x), x['title'], x['desc']) for x in GUIDES if x['slug'] not in _core] + \
+       [_line('/hi/%s/' % h['slug'], h['title'], h['desc']) for h in HI] + [_line('/%s/%s/' % (r['lang'], r['slug']), r['title'], r['desc']) for r in REG]
+open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write('\n'.join(LLMS) + '\n')
+_full = ['# GlutaNex: full text for AI assistants', '', 'Source: %s. Cosmetic skincare information, not medical advice.' % SITE, '']
+for c in KB:
+    _full.append('## %s%s' % (c['t'], (' — ' + c['s']) if c['s'] else ''))
+    _full.append('URL: %s%s' % (SITE, c['u']))
+    _full.append(c['x'])
+    _full.append('')
+_full.append('## Sources cited on this site')
+_full += ['- ' + v for v in SOURCES.values()]
+open(os.path.join(ROOT, 'llms-full.txt'), 'w', encoding='utf-8').write('\n'.join(_full) + '\n')
+
 # ---------------- Owner page: unfinished checkouts ----------------
 page('/leads/', 'Unfinished checkouts | GlutaNex', 'Owner page.', top('Owner', 'Unfinished checkouts', 'Customers who started checkout, agreed to a WhatsApp follow-up, and did not finish. Entries disappear after 30 days.') + \
      '<section style="padding-top:20px"><div class="wrap"><form class="form leads-login" id="leads-login" autocomplete="off"><div class="f"><label for="owner-code">Owner code</label>'
@@ -510,11 +545,12 @@ for pth in pages:
     sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod>%s</url>' % (SITE, pth, TODAY, _imgs(pth)))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
-open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
+open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
 vercel = {'cleanUrls': False, 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
                                          {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
                                          {'source': '/(cart|checkout|reorder|leads|offline|reminders)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
                                          {'source': '/sw.js', 'headers': [{'key': 'Cache-Control', 'value': 'no-cache'}]},
+                                         {'source': '/(llms.txt|llms-full.txt)', 'headers': [{'key': 'Content-Type', 'value': 'text/plain; charset=utf-8'}, {'key': 'Cache-Control', 'value': 'public, max-age=3600'}]},
                                          {'source': '/site.webmanifest', 'headers': [{'key': 'Content-Type', 'value': 'application/manifest+json'}]}]}
 open(os.path.join(ROOT, 'vercel.json'), 'w').write(json.dumps(vercel, indent=2) + '\n')
 # ---------------- Install as an app: manifest + service worker ----------------
