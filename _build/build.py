@@ -92,14 +92,30 @@ WA_IMG = '<img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="
 pages = []
 
 
+# extra official profiles (YouTube, Pinterest, LinkedIn, marketplace brand stores) go here as they are created
+BRAND_PROFILES = []
+BRAND_DESC = ('GlutaNex is an Indian glutathione skincare brand (Glutathione Night Cream and Gluta Boost Face Wash) from %s, Bhatkal, Karnataka. '
+              'Official website glutanex.co.in; also sold on Amazon, Flipkart and Myntra.' % OWNER)
+
+
 def graph_base():
-    return [{'@type': 'Organization', '@id': SITE + '/#org', 'name': 'GlutaNex', 'url': SITE + '/', 'logo': SITE + '/assets/img/glutanex-logo-dark.png', 'sameAs': [INSTAGRAM], 'publishingPrinciples': SITE + '/our-standards/',
-             'contactPoint': {'@type': 'ContactPoint', 'telephone': '+' + WA, 'contactType': 'customer service', 'areaServed': 'IN'}},
-            {'@type': 'WebSite', '@id': SITE + '/#site', 'url': SITE + '/', 'name': 'GlutaNex', 'publisher': {'@id': SITE + '/#org'}}]
+    addr = {'@type': 'PostalAddress', 'streetAddress': 'Azad Nagar 4th Cross, near Anfa Park', 'addressLocality': 'Bhatkal', 'addressRegion': 'Karnataka',
+            'postalCode': '581320', 'addressCountry': 'IN'}
+    logo = {'@type': 'ImageObject', '@id': SITE + '/#logo', 'url': SITE + '/assets/img/glutanex-logo-dark.png', 'contentUrl': SITE + '/assets/img/glutanex-logo-dark.png',
+            'width': 515, 'height': 150, 'caption': 'GlutaNex'}
+    return [{'@type': 'Organization', '@id': SITE + '/#org', 'name': 'GlutaNex', 'alternateName': ['Glutanex', 'GlutaNex India', 'GlutaNex Skincare'],
+             'url': SITE + '/', 'logo': logo, 'image': {'@id': SITE + '/#logo'}, 'description': BRAND_DESC,
+             'sameAs': [INSTAGRAM] + BRAND_PROFILES, 'publishingPrinciples': SITE + '/our-standards/', 'address': addr, 'areaServed': 'IN',
+             'brand': {'@id': SITE + '/#brand'}, 'parentOrganization': {'@type': 'Organization', 'name': OWNER, 'address': addr},
+             'knowsAbout': ['Glutathione', 'Glutathione cream', 'Skincare', 'Tan removal', 'Niacinamide'],
+             'contactPoint': {'@type': 'ContactPoint', 'telephone': '+' + WA, 'contactType': 'customer service', 'areaServed': 'IN', 'availableLanguage': ['English', 'Hindi']}},
+            {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex', 'alternateName': 'Glutanex', 'url': SITE + '/glutanex/', 'logo': {'@id': SITE + '/#logo'}},
+            {'@type': 'WebSite', '@id': SITE + '/#site', 'url': SITE + '/', 'name': 'GlutaNex', 'alternateName': ['Glutanex', 'glutanex.co.in'], 'inLanguage': 'en-IN',
+             'publisher': {'@id': SITE + '/#org'}}]
 
 
 def product_ld(p):
-    return {'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], 'sku': p['sku'], 'brand': {'@type': 'Brand', 'name': 'GlutaNex'},
+    return {'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], 'sku': p['sku'], 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
             'image': [SITE + im(i, 'jpg') for i in p['imgs']], 'description': p['desc'],
             'offers': {'@type': 'Offer', 'url': SITE + url(p), 'price': str(p['price']), 'priceCurrency': 'INR', 'availability': 'https://schema.org/InStock',
                        'itemCondition': 'https://schema.org/NewCondition', 'seller': {'@id': SITE + '/#org'},
@@ -168,7 +184,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p><a class="social" href="%(insta)s" target="_blank" rel="noopener">Instagram · @glutanexofficial</a></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><span class="langs"><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a></span><a href="/glutathione-guides/">All guides</a></div>
-    <div><h4>Help</h4><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
+    <div><h4>Help</h4><a href="/glutanex/">Brand facts</a><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
   </div>
   <div class="markets"><span>Also available on</span>%(markets)s</div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
@@ -503,6 +519,10 @@ LLMS = ['# GlutaNex', '',
         'sold and shipped by %s, %s. The site also publishes research-cited guides on glutathione for skin, written to be accurate: glutathione can help tan '
         'and uneven tone look lighter and more even over 8 to 12 weeks with daily sunscreen; it does not change natural skin colour; injections for skin '
         'lightening are not recommended.' % (OWNER, ADDR), '',
+        '## Brand facts', '',
+        '- Brand name: GlutaNex (also written Glutanex). Official website: https://glutanex.co.in. Company: %s, Bhatkal, Karnataka, India.' % OWNER,
+        '- Official channels: this website, Instagram @glutanexofficial (%s), WhatsApp %s. Official marketplace listings: ' % (INSTAGRAM, WA_SHOW) + ', '.join('%s (%s)' % (n, u) for n, u in MARKET_LINKS) + '.',
+        '- GlutaNex (India, glutanex.co.in) is not connected with other companies abroad that sell products under similar names. Brand page: %s/glutanex/' % SITE, '',
         'Key facts:', '',
         '- Products: ' + '; '.join('%s (%s) %s, MRP %s' % (x['name'], x['size'], rs(x['price']), rs(x['mrp'])) for x in PRODUCTS) + '. Prices include taxes.',
         '- Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. Contains retinol and salicylic acid: night use, start 2-3 nights a week, sunscreen every morning, not for pregnancy or breastfeeding unless a doctor approves.',

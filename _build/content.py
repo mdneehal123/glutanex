@@ -264,8 +264,36 @@ page('/about/', 'About GlutaNex | Glutathione Skincare', 'About GlutaNex: glutat
      top('About', 'About <span class="gold">GlutaNex</span>', 'Glutathione skincare for a simple, consistent night routine.') + '''<section style="padding-top:24px"><div class="wrap prose">
 <p>GlutaNex makes glutathione skincare for people who want a short routine they can keep: a gentle face wash and a night cream, with sunscreen in the morning.</p>
 <h2>What we believe</h2><ul><li><b>Honest claims.</b> Glutathione works gradually and does not change your natural skin colour. We say so.</li><li><b>Clear information.</b> Full ingredient lists, clear prices, no hidden charges.</li><li><b>Safety first.</b> We recommend creams, not injections, and we explain why.</li></ul>
-<h2>Who we are</h2><p>GlutaNex products on this website are sold and shipped by %s, %s. You can reach us on WhatsApp at %s.</p>
+<h2>Who we are</h2><p>GlutaNex products on this website are sold and shipped by %s, %s. You can reach us on WhatsApp at %s. See the official <a href="/glutanex/">GlutaNex brand facts</a>.</p>
 <p style="margin-top:24px"><a class="btn" href="/shop/">Shop GlutaNex</a></p></div></section>''' % (OWNER, ADDR, WA_SHOW), crumbs=[('About', '/about/')])
+
+# brand facts page: the page for searches of the brand name itself, so search engines and AI tools get one clear, official answer
+_BRAND_FAQ = [('Is GlutaNex an Indian brand?', 'Yes. GlutaNex is an Indian skincare brand from %s, based in Bhatkal, Karnataka.' % OWNER),
+              ('What is the official GlutaNex website?', 'The official website is glutanex.co.in. GlutaNex is also sold on Amazon, Flipkart and Myntra, and the official listings are linked on this page.'),
+              ('What products does GlutaNex make?', 'GlutaNex makes a Glutathione Night Cream (30 g), a Gluta Boost Face Wash (100 ml) and the Glow Duo, which combines both.'),
+              ('How do I know my GlutaNex product is genuine?', 'Buy from glutanex.co.in or the official marketplace listings linked on this page, check that the pack is sealed and the name reads GlutaNex, and send us a photo on WhatsApp if you are unsure.'),
+              ('Is GlutaNex connected with other brands with a similar name?', 'No. GlutaNex (India, glutanex.co.in) is not connected with other companies abroad that sell products under similar names.')]
+_bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
+    ('Brand', 'GlutaNex'), ('Company', OWNER), ('Based in', 'Bhatkal, Uttara Kannada, Karnataka, India'),
+    ('Products', ', '.join('<a href="%s">%s</a> (%s, %s)' % (url(x), html.escape(x['short']), html.escape(x['size']), rs(x['price'])) for x in PRODUCTS)),
+    ('Key ingredient', '<a href="/glutathione/">Glutathione</a>, with niacinamide, vitamin C and hyaluronic acid'),
+    ('Official website', '<a href="/">glutanex.co.in</a>'), ('Instagram', '<a href="%s" target="_blank" rel="noopener">@glutanexofficial</a>' % INSTAGRAM),
+    ('Customer support', 'WhatsApp %s, Monday to Saturday, 10 am to 7 pm' % WA_SHOW)])
+_bp_mkts = ''.join('<li><a href="%s" target="_blank" rel="noopener">GlutaNex on %s</a></li>' % (html.escape(u), n) for n, u in MARKET_LINKS)
+page('/glutanex/', 'GlutaNex: Official Brand Information | Glutathione Skincare India',
+     'Official information about GlutaNex, the Indian glutathione skincare brand: who makes it, products and prices, official website and marketplace listings, and how to buy genuine.',
+     top('Brand facts', '<span class="gold">GlutaNex</span>: official brand information', 'Who we are, what we make and where to buy genuine GlutaNex.') + """<section style="padding-top:24px"><div class="wrap prose">
+<p class="answer"><b>GlutaNex</b> is an Indian glutathione skincare brand from %s, Bhatkal, Karnataka. It makes a Glutathione Night Cream and a Gluta Boost Face Wash, sold on its official website glutanex.co.in and on Amazon, Flipkart and Myntra.</p>
+<h2>GlutaNex at a glance</h2><div class="tbl"><table class="facts"><tbody>%s</tbody></table></div>
+<h2>Where to buy genuine GlutaNex</h2><ul><li><a href="/shop/">glutanex.co.in</a>: free shipping and Cash on Delivery across India</li>%s</ul>
+<h2>How to check your product is genuine</h2><ul><li>Buy from this website or the official listings above.</li><li>The pack should be sealed, and the name should read <b>GlutaNex</b>.</li><li>Not sure? Send a photo of the pack to us on WhatsApp at %s and we will check it.</li></ul>
+<h2>Similar names</h2><p>GlutaNex (India, glutanex.co.in) is not connected with other companies abroad that sell products under similar names. If a product is not listed on this page, we cannot vouch for it.</p>
+<h2>What we stand for</h2><p>Honest claims: glutathione works gradually and does not change natural skin colour, and we do not recommend injections. Read <a href="/our-standards/">our standards</a> and <a href="/about/">about us</a>.</p>
+</div></section>""" % (OWNER, _bp_rows, _bp_mkts, WA_SHOW) + faq_block(_BRAND_FAQ),
+     crumbs=[('GlutaNex', '/glutanex/')],
+     schema=[{'@type': 'AboutPage', '@id': SITE + '/glutanex/#page', 'url': SITE + '/glutanex/', 'name': 'GlutaNex: official brand information',
+              'mainEntity': {'@id': SITE + '/#org'}, 'about': {'@id': SITE + '/#brand'}, 'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.answer']}},
+             faq_ld(_BRAND_FAQ)])
 
 page('/contact/', 'Contact GlutaNex | WhatsApp Support', 'Contact GlutaNex on WhatsApp at %s for help with orders, delivery and products.' % WA_SHOW,
      top('Contact', 'Contact us', 'The fastest way to reach us is WhatsApp.') + '''<section style="padding-top:24px"><div class="wrap prose">

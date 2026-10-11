@@ -609,3 +609,4 @@ footer .markets span{flex-basis:100%;font-size:.72rem;letter-spacing:.2em;text-t
 footer a.mkt{display:inline-flex;align-items:center;justify-content:center;height:40px;min-width:96px;padding:0 16px;background:#fff;border-radius:10px;color:#16120E;font-weight:800;font-size:.9rem;transition:transform .2s}
 footer a.mkt:hover{color:#16120E;transform:translateY(-2px)}
 footer a.mkt img{height:22px;width:auto;display:block}
+.tbl table.facts{min-width:0}.facts td:first-child{width:34%;font-weight:700;color:var(--ink)}.facts td{overflow-wrap:anywhere}
