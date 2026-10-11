@@ -16,6 +16,7 @@ OWNER = 'Beauty Mart Pvt Ltd'          # same seller as Fair N Pink
 ADDR = 'Azad Nagar 4th Cross, near Anfa Park, Bhatkal, Uttara Kannada, Karnataka 581320, India'
 ADVANCE = 99                           # Cash on Delivery advance, refunded if the order is cancelled, refused or undeliverable
 TODAY = '2026-10-11'
+INDEXNOW_KEY = 'a7f3c9e15b2d4086b1e8d3f0c62a97e4'
 
 PRODUCTS = [
     dict(id='cream', slug='glutanex-glutathione-night-cream', short='Night Cream', sku='GNX-CREAM',
@@ -551,13 +552,40 @@ for _p in PRODUCTS:
 def _imgs(pth):
     names = IMG_FOR.get(pth, ['cream-square'] if pth.startswith('/glutathione') or pth.startswith('/hi/') or '-glutathione' in pth or 'glutathione-' in pth else [])
     return ''.join('<image:image><image:loc>%s%s</image:loc></image:image>' % (SITE, im(n, 'jpg' if n != 'jar-cut' else 'png')) for n in names)
+# real per-page dates: a page's date only moves when its content changes (search engines ignore a lastmod that is always "today")
+import hashlib, re as _re, datetime as _dt
+_DATES_F = os.path.join(B, 'pagedates.json')
+try:
+    _dates = json.load(open(_DATES_F))
+except Exception:
+    _dates = {}
+_now = (_dt.datetime.now(_dt.timezone.utc) + _dt.timedelta(hours=5, minutes=30)).strftime('%Y-%m-%d')
+_DRE = _re.compile(r'"(datePublished|dateModified)": "\d{4}-\d{2}-\d{2}"')
+for pth in pages:
+    _f = os.path.join(ROOT, pth.strip('/'), 'index.html') if pth != '/' else os.path.join(ROOT, 'index.html')
+    if not os.path.exists(_f):
+        continue
+    _h = open(_f, encoding='utf-8').read()
+    _sig = hashlib.sha256(_DRE.sub('', _h).encode()).hexdigest()[:16]
+    _d = _dates.get(pth)
+    if not _d:
+        _d = _dates[pth] = {'h': _sig, 'pub': _now, 'mod': _now}
+    elif _d['h'] != _sig:
+        _d['h'] = _sig; _d['mod'] = _now
+    _h2 = _h.replace('"datePublished": "%s"' % TODAY, '"datePublished": "%s"' % _d['pub']).replace('"dateModified": "%s"' % TODAY, '"dateModified": "%s"' % _d['mod'])
+    if _h2 != _h:
+        open(_f, 'w', encoding='utf-8').write(_h2)
+open(_DATES_F, 'w').write(json.dumps(_dates, indent=1, sort_keys=True) + '\n')
+# page list + fingerprints for the IndexNow job (tells Bing/Yandex/Seznam/Naver which pages changed)
+open(os.path.join(ROOT, 'api', '_pages.json'), 'w').write(json.dumps({SITE + k: v['h'] for k, v in _dates.items() if k in pages}))
+open(os.path.join(ROOT, INDEXNOW_KEY + '.txt'), 'w').write(INDEXNOW_KEY)
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">']
 for pth in pages:
-    sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod>%s</url>' % (SITE, pth, TODAY, _imgs(pth)))
+    sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod>%s</url>' % (SITE, pth, _dates.get(pth, {}).get('mod', TODAY), _imgs(pth)))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
-vercel = {'cleanUrls': False, 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
+vercel = {'cleanUrls': False, 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
                                          {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
                                          {'source': '/(cart|checkout|reorder|leads|offline|reminders)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
                                          {'source': '/sw.js', 'headers': [{'key': 'Cache-Control', 'value': 'no-cache'}]},
