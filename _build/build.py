@@ -328,7 +328,7 @@ SHIP_TAB = ('Shipping & returns', '<p>Free shipping across India. Pay online, or
 CREAM_FAQ = [('Can I use it during pregnancy?', 'The Night Cream contains retinol (vitamin A) and salicylic acid. Do not use it during pregnancy or breastfeeding unless your doctor says it is fine.'),
              ('Why start 2 to 3 nights a week?', 'Retinol and salicylic acid can cause mild dryness or tingling while skin gets used to them. Starting slowly and using sunscreen every morning keeps it comfortable.')]
 # where else each product is sold (text links only; marketplace logos are their trademarks)
-MARKETS = {'cream': [('Myntra', 'https://www.myntra.com/mailers/night-cream/glutanex/glutanex-skin-whitening-cream-with-glutathione-restore-your-youthful-glow--30g/30981116/buy')]}
+MARKETS = {'cream': [('Amazon', 'https://amzn.in/d/0a1LcDUz'), ('Flipkart', 'https://dl.flipkart.com/s/nLf9OfNNNN'), ('Myntra', 'https://www.myntra.com/mailers/night-cream/glutanex/glutanex-skin-whitening-cream-with-glutathione-restore-your-youthful-glow--30g/30981116/buy')]}
 PDP_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Pay %s online to confirm and the rest at delivery. The advance is refunded if the order is cancelled, refused or cannot be delivered.' % rs(ADVANCE)),
            ('When will I see results?', 'Use it every night with daily sunscreen for at least 6 to 8 weeks before judging. Results vary from person to person.'),
            ('Is it safe for sensitive skin?', 'Patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.')]
