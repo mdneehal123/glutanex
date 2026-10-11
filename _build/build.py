@@ -156,7 +156,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p><a class="social" href="%(insta)s" target="_blank" rel="noopener">Instagram · @glutanexofficial</a></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><span class="langs"><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a></span><a href="/glutathione-guides/">All guides</a></div>
-    <div><h4>Help</h4><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a>%(pol)s</div>
+    <div><h4>Help</h4><a href="/our-standards/">Our standards</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
   </div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
   <div class="legal"><span>© 2026 GlutaNex · %(owner)s · %(addr)s</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
@@ -444,6 +444,7 @@ open(os.path.join(ROOT, 'feeds', 'products.xml'), 'w', encoding='utf-8').write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">\n<channel>\n<title>GlutaNex</title><link>%s/</link><description>GlutaNex product feed</description>\n%s\n</channel>\n</rss>\n' % (SITE, '\n'.join(_fi)))
 
 exec(open(os.path.join(B, 'content.py'), encoding='utf-8').read())
+exec(open(os.path.join(B, 'stories.py'), encoding='utf-8').read())
 
 # ---------------- Knowledge file for the question assistant (api/ask.js) ----------------
 def _txt(h):
