@@ -101,7 +101,9 @@ QA_PAGE['body'] = ''.join('<h2>%s</h2><p class="answer">%s</p>%s' % (q, a, d) fo
 QA_PAGE['faq_ld'] = [(q, a) for q, a, d in QA_PAGE['qa']]
 P['owner'] = OWNER
 # guides with a 'qa' list (exact Google questions): questions go first as H2s with a short answer, and into the FAQ schema
-for _g in [PILLAR]:
+for _g in [PILLAR] + GUIDES + NEW_GUIDES:
+    if QA_EXTRA.get(_g['slug']):
+        _g['qa'] = QA_EXTRA[_g['slug']]
     if _g.get('qa'):
         _g['body'] = ''.join('<h2>%s</h2><p class="answer">%s</p>%s' % (q, a, d) for q, a, d in _g['qa']) + _g['body']
         _g['faq_ld'] = [(q, a) for q, a, d in _g['qa']] + list(_g.get('faq', []))

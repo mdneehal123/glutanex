@@ -432,3 +432,29 @@ PILLAR['qa'] = [
      'Among everyday foods, spinach, avocado, asparagus and okra (bhindi) contain the most glutathione. Garlic, onion, broccoli, cabbage, eggs, lentils and dairy supply the sulphur and amino acids your body uses to make it, and vitamin C foods like amla help keep it active.',
      '<p>Cooking lowers glutathione in vegetables, so include some raw or lightly cooked options. Full list: <a href="/glutathione-rich-foods/">glutathione-rich foods</a>.</p>'),
 ]
+
+# "People also ask" / related searches for "glutathione benefits" (11 Oct 2026)
+QA_EXTRA = {
+    'glutathione-benefits-for-skin': [
+        ('What are the benefits of glutathione?',
+         'Glutathione is the body\'s main antioxidant: it protects cells from oxidative damage, recycles vitamins C and E, supports liver detoxification and immune cells. For skin, it can help tan, dullness and uneven tone look lighter and more even over weeks, used with daily sunscreen.',
+         '<p>The skin benefits are modest and gradual in studies (%(study)s, %(oral)s).</p>'),
+        ('Which diseases is glutathione good for?',
+         'Glutathione is not a proven cure for any disease. Researchers study it in conditions linked to oxidative stress, such as some liver conditions, and doctors sometimes give it under medical supervision. Do not use glutathione to self-treat an illness; speak to a doctor first.',
+         '<p>For skincare, glutathione is a cosmetic ingredient, not a medicine.</p>'),
+    ],
+    'glutathione-cream-vs-tablets-vs-injections': [
+        ('What is the best glutathione supplement for skin?',
+         'No glutathione supplement is proven best for skin. Small studies used 250 to 500 mg a day for 4 to 12 weeks and found modest, mixed changes in skin tone. Supplements are not regulated like medicines, so speak to a doctor before taking any, especially if pregnant.',
+         '<p>For skincare, a glutathione cream is the simpler, lower-risk option. Studies: %(oral)s; %(wesch)s.</p>'),
+        ('What is liposomal glutathione?',
+         'Liposomal glutathione is glutathione wrapped in tiny fat-like bubbles called liposomes, designed to protect it from digestion and improve absorption. It is usually more expensive, and evidence that it gives better skin results than ordinary glutathione is still limited.',
+         '<p>Ask a doctor before starting any supplement.</p>'),
+        ('What is the recommended dose of glutathione for skin whitening?',
+         'There is no officially recommended dose of glutathione for skin whitening. Published studies used 250 to 500 mg by mouth daily for 4 to 12 weeks, with only modest changes in skin tone. It does not permanently whiten skin. Ask a doctor before taking supplements, and avoid injections.',
+         '<p>Regulators have warned against skin-lightening injections (%(fda)s). See <a href="/glutathione-for-skin-whitening/">glutathione and skin whitening: what is true</a>.</p>'),
+        ('What is L-glutathione?',
+         'L-glutathione is simply the natural form of glutathione, the same one your body makes. The "L" refers to the form of the amino acids it is built from. Most products labelled L-glutathione or reduced glutathione contain this active form.',
+         '<p>In creams it may appear as glutathione or oxidised glutathione (GSSG). See <a href="/glutathione/">what is glutathione</a>.</p>'),
+    ],
+}
