@@ -146,7 +146,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
     <div><a class="brand" href="/"><img src="/assets/img/glutanex-logo-light.png" alt="GlutaNex" width="515" height="150" style="height:36px;width:auto"></a>
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p></div>
     <div><h4>Shop</h4>%(shop)s</div>
-    <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
+    <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream-questions/">Glutathione questions</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
     <div><h4>Help</h4><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a>%(pol)s</div>
   </div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
@@ -268,6 +268,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Questions</span><h2>Before you order</h2></div>%(faq)s
+  <p style="margin-top:20px"><a class="btn ghost" href="/glutathione-cream-questions/">More glutathione cream questions answered</a></p>
 </div></section>
 <section style="padding-top:0"><div class="wrap"><div class="band2 reveal">
   <div class="b2-copy">

@@ -96,7 +96,11 @@ for g in GUIDES:
     if ex:
         g['body'] += ex['body']; g['faq'] = ex['faq']
         g['refs'] = list(dict.fromkeys(g['refs'] + ex['refs']))
-GUIDES = [PILLAR] + GUIDES + NEW_GUIDES
+# the Q&A page: each question becomes an H2 with a short direct answer, and the FAQ schema
+QA_PAGE['body'] = ''.join('<h2>%s</h2><p class="answer">%s</p>%s' % (q, a, d) for q, a, d in QA_PAGE['qa'])
+QA_PAGE['faq_ld'] = [(q, a) for q, a, d in QA_PAGE['qa']]
+P['owner'] = OWNER
+GUIDES = [PILLAR] + GUIDES + NEW_GUIDES + [QA_PAGE]
 EN2HI = {h['en']: '/hi/%s/' % h['slug'] for h in HI}
 
 
@@ -150,7 +154,7 @@ hub = top('Glutathione guides', 'Everything about <span class="gold">glutathione
 page('/glutathione-guides/', 'Glutathione Guides: Benefits, Side Effects, Price & Use | GlutaNex', 'All GlutaNex glutathione guides: what glutathione is, benefits for skin, side effects, price in India, face wash, kojic acid, foods and Hindi guides.',
      hub, crumbs=[('Glutathione guides', '/glutathione-guides/')], schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + guide_url(g), 'name': g['title']} for i, g in enumerate(GUIDES)]}])
 
-RELATED = {'glutathione': ['glutathione-cream', 'glutathione-benefits-for-skin', 'is-glutathione-safe-for-skin']}
+RELATED = {'glutathione': ['glutathione-cream-questions', 'glutathione-cream', 'is-glutathione-safe-for-skin'], 'glutathione-cream-questions': ['glutathione', 'retinol-vs-glutathione', 'glutathione-night-cream']}
 for i, g in enumerate(GUIDES):
     if g['slug'] in RELATED:
         more = [x for x in GUIDES if x['slug'] in RELATED[g['slug']]]
@@ -167,7 +171,9 @@ for i, g in enumerate(GUIDES):
     sch = [{'@type': 'Article', 'headline': g['title'], 'description': g['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + guide_url(g),
             'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'en-IN',
             'about': {'@type': 'Thing', 'name': 'Glutathione', 'sameAs': 'https://en.wikipedia.org/wiki/Glutathione'}}]
-    if faq:
+    if g.get('faq_ld'):
+        sch.append(faq_ld([(q % P, re.sub(r'<[^>]+>', '', a % P)) for q, a in g['faq_ld']]))
+    elif faq:
         sch.append(faq_ld([(q, re.sub(r'<[^>]+>', '', a)) for q, a in faq]))
     hp = EN2HI.get(guide_url(g))
     page(guide_url(g), g['seo'], g['desc'], body, og='article', crumbs=[('Glutathione guides', '/glutathione-guides/'), (g['short'], guide_url(g))], schema=sch,

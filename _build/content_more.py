@@ -325,3 +325,94 @@ HI = [
          faq=[('ग्लूटाथियोन क्रीम कब लगानी चाहिए?', 'रात में, चेहरा धोने के बाद। सुबह सनस्क्रीन लगाएं।'),
               ('क्या ग्लूटाथियोन क्रीम रोज लगा सकते हैं?', 'हां, जब त्वचा इसकी आदी हो जाए। रेटिनॉल वाली क्रीम को पहले हफ्ते में 2–3 बार से शुरू करें।')]),
 ]
+
+# ---------------- "People also ask" pages ----------------
+# Each question is written exactly as Google shows it, followed by a short direct answer (what Google lifts into the box)
+# and then the detail. Rendered by content.py: qa items become H2 + answer, and FAQPage schema.
+QA_PAGE = dict(
+    slug='glutathione-cream-questions', title='Glutathione cream: answers to the most-asked questions', short='Glutathione cream questions',
+    blurb='Straight answers to what people ask Google about glutathione cream: does it work, daily use, whitening, the best one, retinol and more.',
+    seo='Glutathione Cream Questions Answered: Does It Work, Daily Use, Best One',
+    desc='Honest answers to the most-asked glutathione cream questions: what it is used for, does it work, can you use it daily, whitening, best brand, retinol vs glutathione.',
+    refs=['study', 'review', 'ijdvl', 'fda'],
+    qa=[
+        ('What is glutathione cream used for?',
+         'Glutathione cream is used to help skin look brighter and more even. It is applied to the face to support fading of tan, dullness and dark marks, and to add antioxidant protection against daily sun and pollution stress. It works gradually, alongside daily sunscreen.',
+         '<p>Most glutathione creams combine glutathione with partners such as niacinamide, vitamin C and hyaluronic acid. See <a href="/glutathione-cream/">glutathione cream: what it is and how to choose one</a>.</p>'),
+        ('Do glutathione creams really work?',
+         'They can help, modestly. In a 10-week placebo-controlled study, a 2%% glutathione lotion reduced skin melanin more than placebo and was well tolerated. Reviews call topical glutathione promising but say studies are small, so expect gradual change over 8 to 12 weeks, not dramatic results.',
+         '<p>Details: %(study)s; systematic review %(review)s. Daily sunscreen matters as much as the cream. Read <a href="/glutathione-benefits-for-skin/">glutathione benefits for skin</a>.</p>'),
+        ('Can I use glutathione cream daily?',
+         'Yes, most people can use a glutathione cream every day, usually at night on clean skin, with sunscreen every morning. If the cream also contains retinol or exfoliating acids, start 2 to 3 nights a week for two weeks, then increase if your skin is comfortable.',
+         '<p>Patch test first. The GlutaNex Night Cream contains retinol and salicylic acid, so it follows the start-slow plan. Step by step: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>'),
+        ('Is glutathione cream good for skin whitening?',
+         'Glutathione cream can help tan, dark marks and uneven tone look lighter over weeks, but it does not change your natural skin colour. Any honest product will say so. Results depend on regular use and daily sunscreen, and fade if sun protection stops.',
+         '<p>Avoid creams promising fast "whitening": some illegal fairness creams contain steroids, hydroquinone or mercury. Full guide: <a href="/glutathione-for-skin-whitening/">glutathione for skin whitening: what is true</a>.</p>'),
+        ('Which night cream is best for whitening?',
+         'No night cream safely changes natural skin colour. For tan and uneven tone, choose a night cream with proven brightening partners such as glutathione, niacinamide and vitamin C, a full ingredient list on the pack, realistic claims, and use sunscreen every morning.',
+         '<p>Be wary of night creams that lighten very fast or sting badly. Use our <a href="/best-glutathione-cream-in-india/">7-point checklist</a> to judge any cream.</p>'),
+        ('Which glutathione night cream is best?',
+         'The best glutathione night cream is one with glutathione clearly listed, supporting ingredients such as niacinamide, hyaluronic acid and ceramides, clear night-use directions, honest claims and a seller you can contact. Use it consistently for at least 8 weeks with daily sunscreen.',
+         '<p>%(cream)s combines glutathione with niacinamide, vitamin C, hyaluronic acid, retinol, ceramides, salicylic acid, peptides, aloe vera, turmeric and neem. Compare options with the <a href="/glutathione-night-cream/">glutathione night cream guide</a>.</p>'),
+        ('Which brand of glutathione cream is best?',
+         'There is no single best brand for everyone. Pick a brand that prints the full ingredient list, a batch number and expiry date, makes realistic claims, gives a real company address and return policy, and has a formula that suits your skin type.',
+         '<p>Price is not proof of quality; see <a href="/glutathione-cream-price-in-india/">glutathione cream price in India</a> and the <a href="/best-glutathione-cream-in-india/">buying checklist</a>.</p>'),
+        ('Which is better, retinol or glutathione?',
+         'They do different jobs. Retinol has stronger evidence for smoother texture, fine lines and acne marks but can irritate. Glutathione is a gentler antioxidant used for brighter, more even-looking tone. Many routines use both, introduced slowly, at night, with daily sunscreen.',
+         '<p>Full comparison: <a href="/retinol-vs-glutathione/">retinol vs glutathione</a>.</p>'),
+        ('Is glutathione cream safe?',
+         'Glutathione creams are generally well tolerated by most adults. Patch test first and stop if redness or burning lasts. Glutathione injections for skin lightening are different: they are not supported by clinical trials and regulators have issued warnings, so avoid them.',
+         '<p>More: <a href="/is-glutathione-safe-for-skin/">is glutathione safe for skin?</a> and <a href="/glutathione-side-effects/">side effects</a>.</p>'),
+        ('What do dermatologists say about glutathione cream?',
+         'Dermatology reviews describe topical glutathione as promising and reasonably safe in short-term studies, but say the evidence is still limited and not enough to treat pigment disorders like melasma. They advise against glutathione injections for skin lightening.',
+         '<p>Source: %(ijdvl)s and %(review)s. For melasma or patchy pigmentation, see a dermatologist.</p>'),
+        ('How do I know if a glutathione cream is original?',
+         'Buy from the brand\'s own website or an authorised seller, and check for a sealed pack, printed batch number, manufacturing and expiry dates, a full ingredient list and the manufacturer\'s address. Very low prices and blurry printing are warning signs of fakes.',
+         '<p>GlutaNex is sold directly on this website by %(owner)s and ships sealed.</p>'),
+        ('Is glutathione cream good for oily or sensitive skin?',
+         'Yes, with the right formula. Oily skin suits a light, non-greasy texture, often with niacinamide or salicylic acid. Sensitive skin should start slowly, patch test, and avoid using retinol or acids every night at first.',
+         '<p>See choosing by skin type in the <a href="/best-glutathione-cream-in-india/">buying guide</a>.</p>'),
+    ])
+
+NEW_GUIDES += [
+    dict(slug='retinol-vs-glutathione', title='Retinol vs glutathione: which is better for your skin?', short='Retinol vs glutathione',
+         blurb='What each one does, how they compare, and how to use both safely.',
+         seo='Retinol vs Glutathione: Which Is Better & Can You Use Both?',
+         desc='Retinol vs glutathione compared: what each does, evidence, irritation, who each suits, and how to use retinol and glutathione together safely at night.',
+         refs=['study', 'review'],
+         body='''<p><b>Short answer:</b> retinol and glutathione do different jobs. Retinol has stronger evidence for smoother texture, fine lines and acne marks, but it can irritate. Glutathione is a gentler antioxidant used for brighter, more even-looking tone. Many routines use both.</p>
+<div class="tbl"><table><thead><tr><th></th><th>Retinol (vitamin A)</th><th>Glutathione</th></tr></thead><tbody>
+<tr><td>Main use</td><td>Texture, fine lines, acne marks, clogged pores</td><td>Brighter, more even-looking tone; antioxidant support</td></tr>
+<tr><td>How it works</td><td>Speeds up skin cell turnover</td><td>Slows melanin production and neutralises free radicals</td></tr>
+<tr><td>Evidence</td><td>Strong, decades of research on retinoids</td><td>Promising but small studies (%(review)s)</td></tr>
+<tr><td>Irritation</td><td>Common at first: dryness, peeling, redness</td><td>Generally gentle</td></tr>
+<tr><td>When to use</td><td>Night only</td><td>Night or day, depending on the product</td></tr>
+<tr><td>Pregnancy</td><td>Avoid unless your doctor approves</td><td>Ask your doctor</td></tr>
+</tbody></table></div>
+<h2>Which should you choose?</h2><ul><li><b>Mainly dull skin, tan or uneven tone:</b> start with glutathione.</li><li><b>Mainly texture, fine lines or acne marks:</b> retinol is the stronger option.</li><li><b>Both:</b> a routine with both, introduced slowly.</li></ul>
+<h2>Using retinol and glutathione together</h2><ol><li>Use them at night, on clean dry skin.</li><li>Start 2 to 3 nights a week for two weeks, then every other night, then nightly if comfortable.</li><li>Moisturise if skin feels dry.</li><li>Sunscreen every morning: retinol makes skin more sun-sensitive.</li><li>Do not add another retinol or exfoliating acid product on the same night.</li></ol>
+<p>%(cream)s already combines glutathione with retinol, niacinamide and soothing ingredients, so you do not need separate products.</p>''',
+         faq=[('Can I use retinol and glutathione together?', 'Yes. Use them at night, start 2 to 3 nights a week, and use sunscreen every morning. Do not add another retinol product on the same night.'),
+              ('Is glutathione gentler than retinol?', 'Generally yes. Retinol often causes dryness and peeling at first, while glutathione is usually well tolerated.')]),
+    dict(slug='glutathione-night-cream', title='Glutathione night cream: how to choose and use one', short='Glutathione night cream',
+         blurb='Why night is the best time for glutathione, what to look for, and options for oily and sensitive skin.',
+         seo='Glutathione Night Cream: Benefits, How to Choose & Use (2026)',
+         desc='Glutathione night cream guide: why use it at night, ingredients to look for, choosing for oily or sensitive skin, how to apply, and what results to expect.',
+         refs=['study', 'review'],
+         body='''<p>A <b>glutathione night cream</b> is a leave-on cream with glutathione designed for your evening routine. Night is a good time for brightening care: there is no sun exposure, and creams with retinol or exfoliating acids must be used at night anyway.</p>
+<h2>Why use glutathione at night?</h2><ul><li>Skin repairs itself overnight, without sun and pollution.</li><li>Night creams can be richer and more nourishing.</li><li>Partners such as retinol and salicylic acid belong at night.</li></ul>
+<h2>What to look for</h2><div class="tbl"><table><thead><tr><th>Ingredient</th><th>Why it helps at night</th></tr></thead><tbody>
+<tr><td>Glutathione</td><td>Antioxidant for brighter, more even-looking tone</td></tr>
+<tr><td>Niacinamide</td><td>Even tone and a stronger skin barrier</td></tr>
+<tr><td>Hyaluronic acid and ceramides</td><td>Overnight hydration, less dryness from actives</td></tr>
+<tr><td>Retinol</td><td>Smoother texture; start slowly</td></tr>
+<tr><td>Peptides</td><td>Firmer, smoother-looking skin</td></tr>
+</tbody></table></div>
+<h2>Glutathione night cream for oily skin</h2><p>Choose a light, non-greasy texture. Niacinamide and salicylic acid help with shine and clogged pores. Apply a thin layer.</p>
+<h2>Glutathione night cream for sensitive skin</h2><p>Patch test, start 2 to 3 nights a week, and avoid layering other actives. A soothing ingredient such as aloe vera helps. Stop if burning lasts.</p>
+<h2>How to apply</h2><ol><li>Cleanse with a gentle face wash such as %(wash)s and pat dry.</li><li>Use a pea-sized amount on face and neck, avoiding eyes and lips.</li><li>Sunscreen every morning.</li></ol>
+<h2>Results to expect</h2><p>Softer skin within days; a brighter, more even look over 4 to 8 weeks; tan and marks lighter over 8 to 12 weeks with daily sunscreen. The topical study used a 2%% glutathione lotion for 10 weeks (%(study)s).</p>
+<p>Our pick: %(cream)s (30 g), made for night use.</p>''',
+         faq=[('Is glutathione cream better at night or in the day?', 'Night is usually best, especially if the cream contains retinol or acids. Use sunscreen every morning.'),
+              ('Which glutathione night cream is good for oily skin?', 'Look for a light texture with niacinamide or salicylic acid, applied as a thin layer.')]),
+]
