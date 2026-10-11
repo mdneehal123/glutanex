@@ -378,6 +378,47 @@ checkout = top('Secure checkout', 'Checkout') + '''<div class="wrap co" id="chec
 </div>'''
 page('/checkout/', 'Checkout | GlutaNex', 'Secure checkout for GlutaNex orders.', checkout, index=False)
 
+
+# ---------------- Google Merchant Center feed ----------------
+# Price is the regular price every customer pays (no sale_price / MRP games, to avoid misrepresentation flags).
+FEED_META = {
+    'cream': dict(cat='Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Lotion &amp; Moisturizer', ptype='Skin Care &gt; Night Cream', grams=120,
+                  desc='GlutaNex Glutathione Night Cream, 30 g jar. A night cream with glutathione, niacinamide (vitamin B3), vitamin C, hyaluronic acid, retinol, ceramides, salicylic acid, peptides, aloe vera, turmeric and neem, made for brighter-looking, more even-looking skin. Use at night, start 2 to 3 nights a week, and use sunscreen every morning. Not for use during pregnancy or breastfeeding unless a doctor approves. Patch test before use. Cosmetic product; results vary. Free shipping across India, Cash on Delivery available.'),
+    'wash': dict(cat='Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Facial Cleansers', ptype='Skin Care &gt; Face Wash', grams=140,
+                 desc='GlutaNex Gluta Boost Face Wash, 100 ml pump bottle. A gentle glutathione face wash for daily cleansing that cleans without stripping, the first step before a night cream. Use morning and night. Cosmetic product; results vary. Free shipping across India, Cash on Delivery available.'),
+    'duo': dict(cat='Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care', ptype='Skin Care &gt; Skin Care Sets', grams=260, bundle=True,
+                desc='GlutaNex Glow Duo: GlutaNex Glutathione Night Cream 30 g and Gluta Boost Face Wash 100 ml together. Cleanse with the face wash, then apply the night cream; use sunscreen every morning. The night cream contains retinol and salicylic acid: start 2 to 3 nights a week, and avoid during pregnancy or breastfeeding unless a doctor approves. Cosmetic products; results vary. Free shipping across India, Cash on Delivery available.'),
+}
+FEED_TITLES = {'cream': 'GlutaNex Glutathione Night Cream 30 g - with Niacinamide, Vitamin C and Hyaluronic Acid',
+               'wash': 'GlutaNex Gluta Boost Glutathione Face Wash 100 ml',
+               'duo': 'GlutaNex Glow Duo - Glutathione Night Cream 30 g + Face Wash 100 ml'}
+_fi = []
+for p in PRODUCTS:
+    m = FEED_META[p['id']]
+    imgs = [SITE + im(i, 'jpg') for i in p['imgs']]
+    _fi.append('''<item>
+  <g:id>%s</g:id>
+  <title>%s</title>
+  <description>%s</description>
+  <link>%s%s</link>
+  <g:image_link>%s</g:image_link>%s
+  <g:availability>in_stock</g:availability>
+  <g:price>%d.00 INR</g:price>
+  <g:brand>GlutaNex</g:brand>
+  <g:condition>new</g:condition>
+  <g:identifier_exists>no</g:identifier_exists>%s
+  <g:google_product_category>%s</g:google_product_category>
+  <g:product_type>%s</g:product_type>
+  <g:size>%s</g:size>
+  <g:shipping><g:country>IN</g:country><g:service>Standard</g:service><g:price>0.00 INR</g:price></g:shipping>
+  <g:shipping_weight>%d g</g:shipping_weight>
+</item>''' % (p['sku'], html.escape(FEED_TITLES[p['id']]), html.escape(m['desc']), SITE, url(p), imgs[0],
+                ''.join('\n  <g:additional_image_link>%s</g:additional_image_link>' % u for u in imgs[1:]), p['price'],
+                '\n  <g:is_bundle>yes</g:is_bundle>' if m.get('bundle') else '', m['cat'], m['ptype'], html.escape(p['size']), m['grams']))
+os.makedirs(os.path.join(ROOT, 'feeds'), exist_ok=True)
+open(os.path.join(ROOT, 'feeds', 'products.xml'), 'w', encoding='utf-8').write(
+    '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">\n<channel>\n<title>GlutaNex</title><link>%s/</link><description>GlutaNex product feed</description>\n%s\n</channel>\n</rss>\n' % (SITE, '\n'.join(_fi)))
+
 exec(open(os.path.join(B, 'content.py'), encoding='utf-8').read())
 
 # ---------------- Assets, sitemap, robots, vercel ----------------
