@@ -117,7 +117,7 @@ def guide_url(g):
 
 
 def slugify(t):
-    return re.sub(r'[^a-z0-9]+', '-', re.sub(r'<[^>]+>', '', t).lower()).strip('-')[:60] or 'section'
+    return re.sub(r'[^a-z0-9\u0900-\u0963\u0966-\u097f]+', '-', re.sub(r'<[^>]+>', '', t).lower()).strip('-')[:80] or 'section'
 
 
 def with_toc(body, label='On this page'):
@@ -190,7 +190,12 @@ for i, g in enumerate(GUIDES):
 # ---------------- Hindi pages ----------------
 for h in HI:
     path = '/hi/%s/' % h['slug']
+    _qa = HI_QA.get(h['slug'], [])
+    if _qa and not h.get('_qa_done'):
+        h['body'] = ''.join('<h2>%s</h2><p class="answer">%s</p>%s' % (q, a, d) for q, a, d in _qa) + h['body']
+        h['_qa_done'] = True
     faq = [(q % P, a % P) for q, a in h['faq']]
+    _qa_ld = [(q % P, re.sub(r'<[^>]+>', '', a % P)) for q, a, d in _qa]
     body = top('हिंदी गाइड', h['title'], h['desc'].split(':', 1)[-1].strip()) + \
         '<section style="padding-top:22px"><div class="wrap article"><div class="prose" lang="hi"><p class="byline">GlutaNex टीम द्वारा · अपडेट: 11 अक्टूबर 2026 · <a href="%s" lang="en">Read in English</a></p>%s%s%s<p class="note">यह सामान्य कॉस्मेटिक स्किनकेयर जानकारी है, चिकित्सा सलाह नहीं। परिणाम हर व्यक्ति में अलग हो सकते हैं।</p></div>' \
         '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>ग्लूटाथियोन नाइट क्रीम · %s · कैश ऑन डिलीवरी</span><button class="btn block" type="button" data-buy="cream">अभी खरीदें</button></aside></div></section>' \
@@ -202,7 +207,7 @@ for h in HI:
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/'), (h['short'], path)], extra=hreflang(h['en'], path),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN'},
-                 faq_ld(faq)])
+                 faq_ld(_qa_ld + faq)])
 page('/hi/', 'Glutathione Hindi Guide: ग्लूटाथियोन की पूरी जानकारी हिंदी में | GlutaNex', 'ग्लूटाथियोन की जानकारी हिंदी में: ग्लूटाथियोन क्रीम के फायदे, नुकसान और लगाने का सही तरीका।',
      top('हिंदी गाइड', 'ग्लूटाथियोन की जानकारी <span class="gold">हिंदी में</span>', 'आसान और सही जानकारी: फायदे, नुकसान और उपयोग का तरीका।') +
      '<section style="padding-top:30px"><div class="wrap" lang="hi"><div class="guides">%s</div></div></section>' % ''.join(
