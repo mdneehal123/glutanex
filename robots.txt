@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /reorder/
+Disallow: /api/
+Allow: /
+
+Sitemap: https://glutanex.co.in/sitemap.xml

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout | GlutaNex</title>
+<meta name="description" content="Secure checkout for GlutaNex orders.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://glutanex.co.in/checkout/">
+<meta name="theme-color" content="#FBF7F1">
+<meta property="og:type" content="website"><meta property="og:site_name" content="GlutaNex"><meta property="og:title" content="Checkout | GlutaNex">
+<meta property="og:description" content="Secure checkout for GlutaNex orders."><meta property="og:url" content="https://glutanex.co.in/checkout/"><meta property="og:image" content="https://glutanex.co.in/assets/img/night-shift-banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://glutanex.co.in/#org", "name": "GlutaNex", "url": "https://glutanex.co.in/", "logo": "https://glutanex.co.in/assets/img/glutanex-logo-dark.png", "contactPoint": {"@type": "ContactPoint", "telephone": "+919980881230", "contactType": "customer service", "areaServed": "IN"}}, {"@type": "WebSite", "@id": "https://glutanex.co.in/#site", "url": "https://glutanex.co.in/", "name": "GlutaNex", "publisher": {"@id": "https://glutanex.co.in/#org"}}]}</script>
+</head>
+<body><div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="strip">Free shipping across India<span> · </span><b>Cash on Delivery</b><span> · </span>WhatsApp support</div>
+<header class="head"><div class="wrap head-in">
+  <a class="brand" href="/" aria-label="GlutaNex home"><img src="/assets/img/glutanex-logo-dark.png" alt="GlutaNex – Restore your youthness" width="515" height="150"></a>
+  <nav class="nav" id="nav" aria-label="Main"><a href="/">Home</a><a href="/shop/">Shop</a><a href="/glutathione/">Glutathione</a><a href="/glutathione-cream/">Glutathione Cream</a><a href="/glutathione-guides/">Guides</a><a href="/about/">About</a><a href="/faq/">FAQ</a><a href="/track-order/">Track Order</a></nav>
+  <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <button class="icon-btn cart-btn" type="button" aria-label="Open cart" data-open-cart><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg><span class="cart-count" hidden>0</span></button>
+</div></header>
+<main id="main">
+<div class="wrap page-top"><span class="eyebrow">Secure checkout</span><h1>Checkout</h1></div><div class="wrap co" id="checkout">
+<div class="panel">
+  <div class="steps-nav" id="steps-nav"><span class="on">1 · Contact</span><span>2 · Address</span><span>3 · Payment</span></div>
+  <form class="form" id="co-form" novalidate>
+  <div class="stage3d" id="stage3d">
+    <div class="step on" data-step="1"><h2>Who is it for?</h2>
+      <div class="f"><label for="co-name">Full name</label><input id="co-name" autocomplete="name"></div>
+      <div class="f"><label for="co-phone">Mobile number</label><input id="co-phone" type="tel" inputmode="numeric" maxlength="16" autocomplete="tel"></div>
+      <div class="step-acts"><button class="btn" type="button" data-next>Continue to address</button></div></div>
+    <div class="step" data-step="2"><h2>Where should we deliver?</h2>
+      <div class="f"><label for="co-address">Full address (house no., street, area)</label><textarea id="co-address" rows="2" autocomplete="street-address"></textarea></div>
+      <div class="two"><div class="f"><label for="co-pin">Pincode</label><input id="co-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code"></div><div class="f"><label for="co-city">City</label><input id="co-city" autocomplete="address-level2"></div></div>
+      <p class="pinnote" id="pin-note" hidden></p>
+      <div class="step-acts"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue to payment</button></div></div>
+    <div class="step" data-step="3"><h2>How would you like to pay?</h2>
+      <div class="review" id="co-review"></div>
+      <fieldset class="pay"><legend class="muted" style="font-size:.82rem;margin-bottom:6px">Choose one</legend>
+        <label><em class="rec">Recommended</em><input type="radio" name="pay" value="online" checked><span>Pay online<small>UPI, cards, netbanking · nothing to pay at the door</small></span><b id="amt-online"></b></label>
+        <label><input type="radio" name="pay" value="cod"><span>Cash on Delivery<small id="cod-note">Pay a small refundable advance now, the rest at delivery</small></span><b id="amt-cod"></b></label>
+        <label><input type="radio" name="pay" value="wa"><span>Order on WhatsApp<small>Send your order, we confirm on chat</small></span><b id="amt-wa"></b></label>
+      </fieldset>
+      <p class="muted" id="cod-terms" style="font-size:.82rem" hidden>The advance is part of the price, not an extra charge. It is refunded in full if the order is cancelled, refused at delivery or cannot be delivered.</p>
+      <div class="notyet" id="not-yet" hidden><p><b>Your order isn't placed yet.</b> The payment window closed before it finished. Your details are saved.</p><button type="button" class="btn" id="ny-retry">Try payment again</button><button type="button" class="btn ghost" id="ny-switch">Switch to Cash on Delivery</button></div>
+      <p class="oerr" id="co-err" role="alert" hidden></p>
+      <div class="step-acts"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="submit" id="co-pay">Pay securely</button></div>
+      <p class="muted" style="font-size:.78rem;margin-top:8px">Your details are used only to deliver this order. See our <a href="/privacy-policy/">privacy policy</a>.</p></div>
+  </div>
+  </form>
+</div>
+<aside class="panel"><h2 style="font-size:1.6rem;margin-bottom:12px">Your order</h2><div id="co-lines"></div><div class="sum" id="co-sum" style="margin-top:12px"></div></aside>
+</div>
+</main>
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><a class="brand" href="/"><img src="/assets/img/glutanex-logo-light.png" alt="GlutaNex" width="515" height="150" style="height:44px;width:auto"></a>
+      <p class="about">Glutathione skincare for your night ritual. Sold and shipped by Beauty Mart Pvt Ltd, Azad Nagar 4th Cross, near Anfa Park, Bhatkal, Uttara Kannada, Karnataka 581320, India.</p></div>
+    <div><h4>Shop</h4><a href="/product/glutanex-glutathione-night-cream/">Night Cream</a><a href="/product/glutanex-gluta-boost-face-wash/">Face Wash</a><a href="/product/glutanex-glow-duo-night-cream-face-wash/">Glow Duo</a></div>
+    <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
+    <div><h4>Help</h4><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms</a><a href="/refund-policy/">Returns & Refunds</a><a href="/shipping-policy/">Shipping</a></div>
+  </div>
+  <div class="legal"><span>© 2026 GlutaNex · Beauty Mart Pvt Ltd · Azad Nagar 4th Cross, near Anfa Park, Bhatkal, Uttara Kannada, Karnataka 581320, India</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
+</div></footer>
+<div class="drawer-bg" data-close-cart></div>
+<div class="drawer-wrap" aria-hidden="true"><aside class="drawer" role="dialog" aria-label="Your cart">
+  <div class="drawer-h"><h2>Your cart</h2><button class="icon-btn" type="button" data-close-cart aria-label="Close cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="drawer-body" id="drawer-lines"></div>
+  <div class="drawer-foot"><div class="sum" id="drawer-sum"></div><a class="btn block" href="/checkout/" id="drawer-go">Checkout</a><a class="btn wa block" id="drawer-wa" href="https://wa.me/919980881230" target="_blank" rel="noopener"><img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="20"> Order on WhatsApp</a></div>
+</aside></div>
+<a class="wa-float" href="https://wa.me/919980881230?text=Hi%20GlutaNex%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with GlutaNex on WhatsApp"><img src="/assets/whatsapp-glyph-green.svg" alt="" width="58" height="58"></a>
+<script src="/assets/store.js" defer></script>
+</body>
+</html>
