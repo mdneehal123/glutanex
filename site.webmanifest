@@ -1,0 +1,64 @@
+{
+ "name": "GlutaNex – Glutathione Skincare",
+ "short_name": "GlutaNex",
+ "description": "GlutaNex glutathione night cream and face wash. Free shipping and Cash on Delivery across India.",
+ "id": "/",
+ "start_url": "/?source=app",
+ "scope": "/",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#FBF7F1",
+ "theme_color": "#FBF7F1",
+ "lang": "en-IN",
+ "categories": [
+  "shopping",
+  "beauty",
+  "lifestyle"
+ ],
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Shop",
+   "url": "/shop/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Track order",
+   "url": "/track-order/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  },
+  {
+   "name": "Glutathione guide",
+   "url": "/glutathione/",
+   "icons": [
+    {
+     "src": "/icon-192.png",
+     "sizes": "192x192"
+    }
+   ]
+  }
+ ]
+}

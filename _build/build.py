@@ -123,7 +123,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <meta property="og:type" content="%(og)s"><meta property="og:site_name" content="GlutaNex"><meta property="og:title" content="%(title)s">
 <meta property="og:description" content="%(desc)s"><meta property="og:url" content="%(url)s"><meta property="og:image" content="%(site)s/assets/img/%(ogimg)s.jpg">
 <meta name="twitter:card" content="summary_large_image">
-%(extra)s<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+%(extra)s<link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
@@ -149,6 +149,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
     <div><h4>Help</h4><a href="/contact/">Contact</a><a href="/track-order/">Track order</a>%(pol)s</div>
   </div>
+  <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
   <div class="legal"><span>© 2026 GlutaNex · %(owner)s · %(addr)s</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
 </div></footer>
 <div class="drawer-bg" data-close-cart></div>
@@ -354,6 +355,7 @@ checkout = top('Secure checkout', 'Checkout') + '''<div class="wrap co" id="chec
     <div class="step on" data-step="1"><h2>Who is it for?</h2>
       <div class="f"><label for="co-name">Full name</label><input id="co-name" autocomplete="name"></div>
       <div class="f"><label for="co-phone">Mobile number</label><input id="co-phone" type="tel" inputmode="numeric" maxlength="16" autocomplete="tel"></div>
+      <label class="consent" id="consent-row" hidden><input type="checkbox" id="co-consent"><span>If I don't finish my order, GlutaNex may message me on WhatsApp to help.</span></label>
       <div class="step-acts"><button class="btn" type="button" data-next>Continue to address</button></div></div>
     <div class="step" data-step="2"><h2>Where should we deliver?</h2>
       <div class="f"><label for="co-address">Full address (house no., street, area)</label><textarea id="co-address" rows="2" autocomplete="street-address"></textarea></div>
@@ -422,9 +424,52 @@ open(os.path.join(ROOT, 'feeds', 'products.xml'), 'w', encoding='utf-8').write(
 
 exec(open(os.path.join(B, 'content.py'), encoding='utf-8').read())
 
+# ---------------- Knowledge file for the question assistant (api/ask.js) ----------------
+def _txt(h):
+    h = re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', h, flags=re.S)
+    h = re.sub(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', r'\2', h)
+    h = re.sub(r'</(p|li|tr|h3|div)>', '\n', h)
+    h = re.sub(r'<(td|th)[^>]*>', ' | ', h)
+    return re.sub(r'[ \t]+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', h))).replace(' \n', '\n').strip()
+KB = [{'t': 'GlutaNex products, prices and policies', 'u': '/shop/', 's': '', 'always': True, 'x': '\n'.join([
+    '%s (%s): %s, MRP %s. %s' % (p['name'], p['size'], rs(p['price']), rs(p['mrp']), _txt(p['summary'])) for p in PRODUCTS] + [
+    'Glow Duo is %s, %s less than buying the Night Cream and Face Wash separately; the cart upgrades them automatically.' % (rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])),
+    'Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. The complete list is printed on the pack.',
+    'Night Cream use: ' + _txt(CREAM_USE),
+    'Shipping: free across India, packed in 1 to 2 business days, delivered in 3 to 7 business days. Track orders at /track-order/.',
+    'Payment: pay online (UPI, cards, netbanking), Cash on Delivery with a %s refundable advance, or order on WhatsApp at %s.' % (rs(ADVANCE), WA_SHOW),
+    'Returns: sealed products within 7 days of delivery; damaged or wrong items replaced or refunded if reported within 48 hours; opened products cannot be returned for hygiene reasons.',
+    'Seller: %s, %s.' % (OWNER, ADDR)])}]
+for g in GUIDES:
+    body = g['body'] % P
+    parts = re.split(r'<h2[^>]*>(.*?)</h2>', body)
+    intro = _txt(parts[0])
+    if intro:
+        KB.append({'t': g['title'], 'u': guide_url(g), 's': '', 'x': intro[:1500]})
+    for k in range(1, len(parts), 2):
+        KB.append({'t': g['title'], 'u': guide_url(g), 's': _txt(parts[k]), 'x': _txt(parts[k + 1])[:1500]})
+    for q_, a_ in g.get('faq', []):
+        KB.append({'t': g['title'], 'u': guide_url(g), 's': q_ % P, 'x': _txt(a_ % P)})
+for h_ in HI:
+    for q_, a_ in h_['faq']:
+        KB.append({'t': h_['title'], 'u': '/hi/%s/' % h_['slug'], 's': q_ % P, 'x': _txt(a_ % P)})
+for q_, a_ in FAQ_ALL:
+    KB.append({'t': 'GlutaNex FAQ', 'u': '/faq/', 's': q_, 'x': _txt(a_)})
+open(os.path.join(ROOT, 'api', '_kb.json'), 'w', encoding='utf-8').write(json.dumps(KB, ensure_ascii=False))
+
+# ---------------- Owner page: unfinished checkouts ----------------
+page('/leads/', 'Unfinished checkouts | GlutaNex', 'Owner page.', top('Owner', 'Unfinished checkouts', 'Customers who started checkout, agreed to a WhatsApp follow-up, and did not finish. Entries disappear after 30 days.') + \
+     '<section style="padding-top:20px"><div class="wrap"><form class="form leads-login" id="leads-login" autocomplete="off"><div class="f"><label for="owner-code">Owner code</label>'
+     '<input id="owner-code" type="password" autocomplete="current-password" placeholder="Enter your owner code"></div><button class="btn" type="submit">Show list</button><p class="oerr" id="leads-err" hidden></p></form>'
+     '<div id="leads-out"></div></div></section>', index=False, js='store.js,leads.js')
+
+# ---------------- Offline page (shown by the app when there is no internet) ----------------
+page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('Offline', 'You are offline', 'Check your internet connection and try again. Pages you opened before still work.') +
+     '<section style="padding-top:20px"><div class="wrap"><button class="btn" type="button" onclick="location.reload()">Try again</button></div></section>', index=False)
+
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
-for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js']:
+for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
@@ -433,9 +478,39 @@ for pth in pages:
     sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (SITE, pth, TODAY))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
-open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
+open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
 vercel = {'cleanUrls': False, 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
-                                         {'source': '/(cart|checkout|reorder)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]}]}
+                                         {'source': '/(cart|checkout|reorder|leads|offline)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
+                                         {'source': '/sw.js', 'headers': [{'key': 'Cache-Control', 'value': 'no-cache'}]},
+                                         {'source': '/site.webmanifest', 'headers': [{'key': 'Content-Type', 'value': 'application/manifest+json'}]}]}
 open(os.path.join(ROOT, 'vercel.json'), 'w').write(json.dumps(vercel, indent=2) + '\n')
+# ---------------- Install as an app: manifest + service worker ----------------
+import hashlib
+_ver = hashlib.md5(b''.join(open(os.path.join(ROOT, 'assets', f), 'rb').read() for f in ['site.css', 'store.js', 'jar3d.js', 'products.json'])).hexdigest()[:10]
+open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
+    'name': 'GlutaNex – Glutathione Skincare', 'short_name': 'GlutaNex', 'description': 'GlutaNex glutathione night cream and face wash. Free shipping and Cash on Delivery across India.',
+    'id': '/', 'start_url': '/?source=app', 'scope': '/', 'display': 'standalone', 'orientation': 'portrait',
+    'background_color': '#FBF7F1', 'theme_color': '#FBF7F1', 'lang': 'en-IN', 'categories': ['shopping', 'beauty', 'lifestyle'],
+    'icons': [{'src': '/icon-192.png', 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any'}, {'src': '/icon-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any'}],
+    'shortcuts': [{'name': 'Shop', 'url': '/shop/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
+                  {'name': 'Track order', 'url': '/track-order/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
+                  {'name': 'Glutathione guide', 'url': '/glutathione/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]}]}, ensure_ascii=False, indent=1))
+PRECACHE = ['/', '/offline/', '/shop/', '/glutathione/', '/assets/site.css', '/assets/store.js', '/assets/jar3d.js', '/assets/products.json',
+            '/assets/img/jar-cut.webp', '/assets/img/glutanex-logo-dark.png', '/assets/img/glutanex-logo-light.png', '/assets/whatsapp-glyph-green.svg', '/icon-192.png']
+open(os.path.join(ROOT, 'sw.js'), 'w').write('''/* GlutaNex app: keeps the shop fast and usable on weak connections. Version %s */
+var V='gn-%s', CORE=%s;
+self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(CORE);}).then(function(){return self.skipWaiting();}));});
+self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V;}).map(function(k){return caches.delete(k);}));}).then(function(){return self.clients.claim();}));});
+self.addEventListener('fetch',function(e){
+  var r=e.request,u=new URL(r.url);
+  if(r.method!=='GET'){return;}
+  if(u.origin===location.origin&&(u.pathname.indexOf('/api/')===0||/^\\/(checkout|leads)\\//.test(u.pathname))){return;}
+  if(u.origin!==location.origin&&!/fonts\\.(googleapis|gstatic)\\.com$/.test(u.hostname)){return;}
+  if(r.mode==='navigate'){
+    e.respondWith(fetch(r).then(function(res){var cp=res.clone();caches.open(V).then(function(c){c.put(r,cp);});return res;}).catch(function(){return caches.match(r).then(function(m){return m||caches.match('/offline/');});}));
+    return;}
+  e.respondWith(caches.match(r).then(function(m){var net=fetch(r).then(function(res){if(res&&(res.ok||res.type==='opaque')){var cp=res.clone();caches.open(V).then(function(c){c.put(r,cp);});}return res;}).catch(function(){return m;});return m||net;}));
+});
+''' % (_ver, _ver, json.dumps(PRECACHE)))
 open(os.path.join(ROOT, '.vercelignore'), 'w').write('_build\nREADME.md\n')
 print('built', len(pages), 'indexed pages', '(PREVIEW: noindex everywhere)' if PREVIEW else '')

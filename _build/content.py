@@ -237,6 +237,8 @@ POL = {
 <h2>How we use it</h2><p>Only to process, ship and support your order, send order updates and reply on WhatsApp. If a payment does not complete, we may contact you once to help. We do not sell your information.</p>
 <h2>Who we share it with</h2><p>Razorpay (payments), Shiprocket and courier partners (delivery), Vercel (hosting), and authorities when required by law.</p>
 <h2>Cookies and ads</h2><p>The site may use advertising and analytics tools such as Google or Meta to measure visits and orders. You can opt out of personalised ads at <a href="https://adssettings.google.com" rel="noopener">Google Ads Settings</a> and in your Facebook ad preferences.</p>
+<h2>Help with unfinished orders</h2><p>At checkout you can tick a box to let us message you on WhatsApp if you do not finish your order. Only if you tick it, we save your name, mobile number, address and cart for up to 30 days, and delete it as soon as you order or ask us to. If you do not tick it, nothing is saved.</p>
+<h2>Question assistant</h2><p>The "Ask" assistant answers questions using our guides. Your questions are sent to our AI provider (Anthropic) to write the answer and are not used to identify you; please do not type personal or medical details. We keep only a daily count of questions, not the questions themselves.</p>
 <h2>Saved on your device</h2><p>Your cart and checkout details are saved in your browser so you don't have to type them again. You can clear them any time.</p>
 <h2>Your choices</h2><p>To access, correct or delete your information, message us on WhatsApp. We respond within 30 days.</p>'''),
     '/terms/': ('Terms & Conditions', 'Terms for buying GlutaNex products on this website: orders, prices, payment, Cash on Delivery and product use.', '''

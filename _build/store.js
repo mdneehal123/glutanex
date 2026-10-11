@@ -2,6 +2,7 @@
   'use strict';
   var WA='919980881230', ADVANCE=99, KEY='gn-cart', DETAILS='gn-details', ORDERS='gn-orders', PENDING='gn-pending';
   var P=null, $=function(id){return document.getElementById(id);};
+  var CFG=null;function getConfig(){if(!CFG){CFG=fetch('/api/config').then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});}return CFG;}
   function rs(n){return '₹'+Number(n).toLocaleString('en-IN');}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls){e.className=cls;}if(text!=null){e.textContent=text;}return e;}
   function load(k,d){try{var v=JSON.parse(localStorage.getItem(k)||'null');return v==null?d:v;}catch(e){return d;}}
@@ -149,10 +150,11 @@
     var btn=$('co-pay'),err=$('co-err'),busy=false,lastMode='online',step=1,stage=$('stage3d'),steps=[].slice.call(document.querySelectorAll('.step')),nav=[].slice.call(document.querySelectorAll('#steps-nav span'));
     var saved=load(DETAILS,null);if(saved){Object.keys(F).forEach(function(k){if(typeof saved[k]==='string'){F[k].value=saved[k].slice(0,300);}});}
     var online=true;
-    fetch('/api/config').then(function(r){return r.ok?r.json():null;}).then(function(c){if(c&&!c.razorpay){online=false;
+    var leadsOn=false;
+    getConfig().then(function(c){if(c&&c.leads){leadsOn=true;$('consent-row').hidden=false;fit();var sv=load(DETAILS,null);if(sv&&sv.consent){$('co-consent').checked=true;}}if(c&&c.razorpay===false){online=false;
       document.querySelector('input[name=pay][value=online]').closest('label').classList.add('off');document.querySelector('input[name=pay][value=online]').disabled=true;
       document.querySelector('input[name=pay][value=cod]').closest('label').classList.add('off');document.querySelector('input[name=pay][value=cod]').disabled=true;
-      document.querySelector('input[name=pay][value=wa]').checked=true;render();}}).catch(function(){});
+      document.querySelector('input[name=pay][value=wa]').checked=true;render();}});
     function fit(){var on=steps[step-1];stage.style.height=on.offsetHeight+'px';}
     function go(n){step=n;steps.forEach(function(s,i){s.classList.toggle('on',i===n-1);s.classList.toggle('past',i<n-1);});nav.forEach(function(s,i){s.classList.toggle('on',i===n-1);s.classList.toggle('done',i<n-1);});fit();
       if(n===3){review();}var first=steps[n-1].querySelector('input,textarea');if(first&&n<3){setTimeout(function(){first.focus({preventScroll:true});},350);}
@@ -166,8 +168,12 @@
     function clearErr(){[].slice.call(document.querySelectorAll('.fielderr')).forEach(function(x){x.remove();});Object.keys(F).forEach(function(k){F[k].classList.remove('bad');});}
     function show(p){clearErr();p[0].classList.add('bad');var fe=el('p','fielderr',p[1]);p[0].insertAdjacentElement('afterend',fe);p[0].focus({preventScroll:true});fit();}
     Object.keys(F).forEach(function(k){F[k].addEventListener('input',function(){F[k].classList.remove('bad');var n=F[k].nextElementSibling;if(n&&n.className==='fielderr'){n.remove();fit();}});});
-    function remember(){var o={};Object.keys(F).forEach(function(k){o[k]=F[k].value.trim();});save(DETAILS,o);}
-    [].slice.call(document.querySelectorAll('[data-next]')).forEach(function(b){b.addEventListener('click',function(){var p=check(step);if(p){show(p);return;}clearErr();remember();go(step+1);});});
+    function remember(){var o={};Object.keys(F).forEach(function(k){o[k]=F[k].value.trim();});o.consent=!!($('co-consent')&&$('co-consent').checked);save(DETAILS,o);}
+    function lead(st){if(!leadsOn||!mobile(F.phone.value)){return;}var c=$('co-consent').checked;
+      if(!c&&!lead.sent){return;}lead.sent=lead.sent||c;
+      var body=st==='done'||!c?{phone:mobile(F.phone.value),status:'done'}:{phone:mobile(F.phone.value),consent:true,name:F.name.value.trim(),address:F.address.value.trim(),city:F.city.value.trim(),pin:F.pin.value.trim(),step:st,items:lines().map(function(x){return {id:x.id,qty:x.qty};})};
+      try{fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).catch(function(){});}catch(e){}}
+    [].slice.call(document.querySelectorAll('[data-next]')).forEach(function(b){b.addEventListener('click',function(){var p=check(step);if(p){show(p);return;}clearErr();remember();lead(step+1);go(step+1);});});
     [].slice.call(document.querySelectorAll('[data-back]')).forEach(function(b){b.addEventListener('click',function(){go(step-1);});});
     function mode(){return document.querySelector('input[name=pay]:checked').value;}
     function review(){var r=$('co-review');r.textContent='';var a=el('div');a.appendChild(el('b',null,F.name.value.trim()+' · +91 '+mobile(F.phone.value)));r.appendChild(a);r.appendChild(el('div',null,F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim()));fit();}
@@ -211,10 +217,10 @@
     $('ny-retry').addEventListener('click',function(){pay(lastMode==='cod');});
     $('ny-switch').addEventListener('click',function(){var v=lastMode==='cod'?'online':'cod';document.querySelector('input[name=pay][value='+v+']').checked=true;render();pay(v==='cod');});
     $('co-form').addEventListener('submit',function(e){e.preventDefault();if(busy){return;}var p=check(1)||check(2);if(p){go(p[0]===F.name||p[0]===F.phone?1:2);show(p);return;}var m=mode();remember();
-      if(m==='wa'){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(waText('\n\nName: '+F.name.value.trim()+'\nMobile: '+F.phone.value.trim()+'\nAddress: '+F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim())),'_blank','noopener');return;}
+      if(m==='wa'){lead('done');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(waText('\n\nName: '+F.name.value.trim()+'\nMobile: '+F.phone.value.trim()+'\nAddress: '+F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim())),'_blank','noopener');return;}
       if(!online){return;}pay(m==='cod');});
     function thanks(pid,o,ok){
-      var t=totals(),cod=o.balance>0;var past=load(ORDERS,[]).filter(function(x){return x&&x.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});
+      lead('done');var t=totals(),cod=o.balance>0;var past=load(ORDERS,[]).filter(function(x){return x&&x.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});
       var wrap=$('checkout');wrap.textContent='';var box=el('div','panel thanks');box.style.gridColumn='1 / -1';
       box.appendChild(el('span','tick','✓'));box.appendChild(el('h2',null,ok?(cod?'Order confirmed. Thank you!':'Payment received. Thank you!'):'Payment submitted. We are confirming it.'));
       box.appendChild(el('p','muted','We will pack your order within 1 to 2 business days and ship it free.'));
@@ -254,4 +260,42 @@
     $('track-form').addEventListener('submit',function(e){e.preventDefault();run();});
     var q=new URLSearchParams(location.search).get('id');if(q){setMode(false);$('t-id').value=q;run();}
   }
+
+  /* ---------------- GlutaNex assistant ---------------- */
+  function assistant(){
+    if(document.getElementById('checkout')||document.getElementById('leads-out')){return;}
+    var KEYC='gn-chat',hist=[];try{hist=JSON.parse(sessionStorage.getItem(KEYC)||'[]');}catch(e){hist=[];}
+    var fab=el('button','ask-fab');fab.type='button';fab.setAttribute('aria-label','Ask about glutathione');fab.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.4V14"/><path d="M12 17h.01"/></svg><span>Ask</span>';
+    var pan=el('div','ask-panel');pan.setAttribute('role','dialog');pan.setAttribute('aria-label','GlutaNex assistant');pan.hidden=true;
+    pan.innerHTML='<div class="ask-h"><div><b>Ask GlutaNex</b><span>Answers from our glutathione guides · not medical advice</span></div><button class="icon-btn" type="button" aria-label="Close">×</button></div><div class="ask-log" aria-live="polite"></div><div class="ask-chips"></div><form class="ask-f"><input type="text" maxlength="500" placeholder="Ask about glutathione, use, delivery…" aria-label="Your question"><button class="btn sm" type="submit">Send</button></form>';
+    document.body.appendChild(fab);document.body.appendChild(pan);
+    var log=pan.querySelector('.ask-log'),inp=pan.querySelector('input'),chips=pan.querySelector('.ask-chips'),busy=false;
+    ['What is glutathione?','How do I use the Night Cream?','Is glutathione safe?','Delivery and Cash on Delivery?','ग्लूटाथियोन के फायदे?'].forEach(function(q){var c=el('button','chip',q);c.type='button';c.addEventListener('click',function(){ask(q);});chips.appendChild(c);});
+    function md(t){var h=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      h=h.replace(/\[([^\]]{1,80})\]\((\/[a-z0-9\/\-]*)\)/gi,'<a href="$2">$1</a>').replace(/\*\*([^*]{1,120})\*\*/g,'<b>$1</b>');
+      return h.split(/\n{2,}/).map(function(par){if(/^\s*[-•*] /m.test(par)){return '<ul>'+par.split(/\n/).filter(Boolean).map(function(l){return '<li>'+l.replace(/^\s*[-•*] /,'')+'</li>';}).join('')+'</ul>';}return '<p>'+par.replace(/\n/g,'<br>')+'</p>';}).join('');}
+    function bubble(role,text){var b=el('div','msg '+role);if(role==='assistant'){b.innerHTML=md(text);}else{b.textContent=text;}log.appendChild(b);log.scrollTop=log.scrollHeight;return b;}
+    function persist(){try{sessionStorage.setItem(KEYC,JSON.stringify(hist.slice(-12)));}catch(e){}}
+    if(!hist.length){bubble('assistant','Hi! Ask me anything about glutathione, our Night Cream and Face Wash, how to use them, or delivery. You can ask in English or Hindi.');}else{hist.forEach(function(m){bubble(m.role,m.content);});chips.hidden=true;}
+    function ask(q){q=String(q||'').trim();if(!q||busy){return;}busy=true;chips.hidden=true;bubble('user',q);inp.value='';var w=bubble('assistant','');w.classList.add('typing');w.innerHTML='<i></i><i></i><i></i>';
+      fetch('/api/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:q,history:hist.slice(-6)})}).then(function(r){return r.json().then(function(j){return {ok:r.ok,status:r.status,j:j};});})
+      .then(function(x){var a=x.ok&&x.j.answer?x.j.answer:(x.status===429?'Lots of questions right now. Please message us on WhatsApp at +91 99808 81230 and we will help.':'Sorry, I could not answer that just now. Please message us on WhatsApp at +91 99808 81230.');
+        w.classList.remove('typing');w.innerHTML=md(a);if(x.ok&&x.j.answer){hist.push({role:'user',content:q},{role:'assistant',content:a});persist();}log.scrollTop=log.scrollHeight;})
+      .catch(function(){w.classList.remove('typing');w.innerHTML=md('Sorry, something went wrong. Please message us on WhatsApp at +91 99808 81230.');})
+      .then(function(){busy=false;});}
+    pan.querySelector('form').addEventListener('submit',function(e){e.preventDefault();ask(inp.value);});
+    function open(o){pan.hidden=!o;fab.classList.toggle('on',o);document.body.classList.toggle('ask-open',o);if(o){setTimeout(function(){inp.focus({preventScroll:true});},60);log.scrollTop=log.scrollHeight;}}
+    fab.addEventListener('click',function(){open(pan.hidden);});pan.querySelector('.ask-h button').addEventListener('click',function(){open(false);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pan.hidden){open(false);}});
+  }
+  getConfig().then(function(c){if(c&&c.ask){assistant();}});
+
+  /* ---------------- install as an app ---------------- */
+  if('serviceWorker' in navigator&&location.protocol==='https:'){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}
+  (function(){var box=$('install-app'),btn=$('install-btn'),deferred=null;if(!box){return;}
+    var standalone=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone;if(standalone){return;}
+    window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;box.hidden=false;});
+    btn.addEventListener('click',function(){if(deferred){deferred.prompt();deferred.userChoice.then(function(){deferred=null;box.hidden=true;});}else{$('install-hint').textContent='On iPhone: tap the Share button, then "Add to Home Screen".';btn.hidden=true;}});
+    var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;if(ios){box.hidden=false;}
+    window.addEventListener('appinstalled',function(){box.hidden=true;});})();
 })();

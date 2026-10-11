@@ -2,6 +2,8 @@ User-agent: *
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /reorder/
+Disallow: /leads/
+Disallow: /offline/
 Disallow: /api/
 Allow: /
 

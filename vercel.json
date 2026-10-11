@@ -11,11 +11,29 @@
       ]
     },
     {
-      "source": "/(cart|checkout|reorder)/(.*)",
+      "source": "/(cart|checkout|reorder|leads|offline)/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
           "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
         }
       ]
     }
