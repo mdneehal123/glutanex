@@ -1,12 +1,18 @@
 {
   "cleanUrls": false,
+  "rewrites": [
+    {
+      "source": "/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo)",
+      "destination": "/api/hub?fn=:fn"
+    }
+  ],
   "crons": [
     {
       "path": "/api/push-cron",
       "schedule": "0 16 * * *"
     },
     {
-      "path": "/api/indexnow",
+      "path": "/api/hub?fn=indexnow",
       "schedule": "30 3 * * *"
     }
   ],
