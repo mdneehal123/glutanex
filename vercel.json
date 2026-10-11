@@ -1,5 +1,11 @@
 {
   "cleanUrls": false,
+  "crons": [
+    {
+      "path": "/api/push-cron",
+      "schedule": "0 16 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)\\.(webp|jpg|png|svg)",
@@ -11,7 +17,7 @@
       ]
     },
     {
-      "source": "/(cart|checkout|reorder|leads|offline)/(.*)",
+      "source": "/(cart|checkout|reorder|leads|offline|reminders)/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",

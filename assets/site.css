@@ -570,3 +570,10 @@ body.drawer-open .ask-fab{opacity:0;pointer-events:none}
 @keyframes cardin{from{opacity:0;transform:translateY(6px)}}
 @media (prefers-reduced-motion:reduce){.j3-dot-spot::after{animation:none}}
 .orbit{transition:opacity .25s}.spot-open .orbit{opacity:0}
+/* reminders page */
+.rem{max-width:520px;display:grid;gap:14px}
+.rem-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.rem-row span{display:flex;flex-direction:column;gap:2px}.rem-row small{color:var(--muted);font-size:.84rem;line-height:1.45}
+.rem-row input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:50px;height:30px;border-radius:999px;background:var(--line);position:relative;cursor:pointer;transition:background .2s}
+.rem-row input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:transform .2s}
+.rem-row input:checked{background:var(--accent)}.rem-row input:checked::after{transform:translateX(20px)}

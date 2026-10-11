@@ -4,6 +4,7 @@ Disallow: /checkout/
 Disallow: /reorder/
 Disallow: /leads/
 Disallow: /offline/
+Disallow: /reminders/
 Disallow: /api/
 Allow: /
 

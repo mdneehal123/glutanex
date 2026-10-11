@@ -147,7 +147,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
       <p class="about">Glutathione skincare for your night ritual. Sold and shipped by %(owner)s, %(addr)s.</p></div>
     <div><h4>Shop</h4>%(shop)s</div>
     <div><h4>Glutathione guides</h4><a href="/glutathione/">What is glutathione?</a><a href="/glutathione-cream/">Glutathione cream</a><a href="/glutathione-benefits-for-skin/">Benefits for skin</a><a href="/glutathione-side-effects/">Side effects</a><a href="/how-to-use-glutathione-cream/">How to use</a><a href="/hi/">हिंदी गाइड</a><a href="/glutathione-guides/">All guides</a></div>
-    <div><h4>Help</h4><a href="/contact/">Contact</a><a href="/track-order/">Track order</a>%(pol)s</div>
+    <div><h4>Help</h4><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a>%(pol)s</div>
   </div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
   <div class="legal"><span>© 2026 GlutaNex · %(owner)s · %(addr)s</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
@@ -463,13 +463,23 @@ page('/leads/', 'Unfinished checkouts | GlutaNex', 'Owner page.', top('Owner', '
      '<input id="owner-code" type="password" autocomplete="current-password" placeholder="Enter your owner code"></div><button class="btn" type="submit">Show list</button><p class="oerr" id="leads-err" hidden></p></form>'
      '<div id="leads-out"></div></div></section>', index=False, js='store.js,leads.js')
 
+# ---------------- App reminders page ----------------
+page('/reminders/', 'Routine reminders | GlutaNex', 'Turn on GlutaNex routine and refill reminders on your phone.', top('Reminders', 'Gentle <span class="gold">reminders</span>', 'A nudge on your phone at 9:30 pm on Night Cream nights, and when it is time to reorder. Turn them off any time.') +
+     '''<section style="padding-top:20px"><div class="wrap"><div class="panel rem" id="rem">
+  <label class="rem-row"><span><b>Night routine</b><small>Weeks 1–2: 2–3 nights a week. Then every other night, then nightly. Ends after 8 weeks.</small></span><input type="checkbox" id="rem-routine" checked></label>
+  <label class="rem-row"><span><b>Refill reminder</b><small id="rem-refill-note">One message about 40 days after your order, when a 30 g jar is running low.</small></span><input type="checkbox" id="rem-refill" checked></label>
+  <button class="btn block" type="button" id="rem-save">Turn on reminders</button>
+  <p class="muted" id="rem-status" role="status" style="font-size:.88rem"></p>
+  <div class="note" id="rem-ios" hidden><b>On iPhone:</b> reminders work in the GlutaNex app. Tap the Share button in Safari, then <b>Add to Home Screen</b>, open GlutaNex from your home screen, and come back to this page.</div>
+</div><p class="muted" style="font-size:.82rem;margin-top:14px">We only send what you choose here: no ads, no spam. Your phone's notification settings always come first.</p></div></section>''', index=False, js='store.js,reminders.js', crumbs=[('Reminders', '/reminders/')])
+
 # ---------------- Offline page (shown by the app when there is no internet) ----------------
 page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('Offline', 'You are offline', 'Check your internet connection and try again. Pages you opened before still work.') +
      '<section style="padding-top:20px"><div class="wrap"><button class="btn" type="button" onclick="location.reload()">Try again</button></div></section>', index=False)
 
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
-for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js']:
+for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
@@ -478,9 +488,9 @@ for pth in pages:
     sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (SITE, pth, TODAY))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
-open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
-vercel = {'cleanUrls': False, 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
-                                         {'source': '/(cart|checkout|reorder|leads|offline)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
+open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
+vercel = {'cleanUrls': False, 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
+                                         {'source': '/(cart|checkout|reorder|leads|offline|reminders)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
                                          {'source': '/sw.js', 'headers': [{'key': 'Cache-Control', 'value': 'no-cache'}]},
                                          {'source': '/site.webmanifest', 'headers': [{'key': 'Content-Type', 'value': 'application/manifest+json'}]}]}
 open(os.path.join(ROOT, 'vercel.json'), 'w').write(json.dumps(vercel, indent=2) + '\n')
@@ -501,6 +511,10 @@ open(os.path.join(ROOT, 'sw.js'), 'w').write('''/* GlutaNex app: keeps the shop 
 var V='gn-%s', CORE=%s;
 self.addEventListener('install',function(e){e.waitUntil(caches.open(V).then(function(c){return c.addAll(CORE);}).then(function(){return self.skipWaiting();}));});
 self.addEventListener('activate',function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.filter(function(k){return k!==V;}).map(function(k){return caches.delete(k);}));}).then(function(){return self.clients.claim();}));});
+self.addEventListener('push',function(e){var d={};try{d=e.data?e.data.json():{};}catch(x){d={body:e.data?e.data.text():''};}
+  e.waitUntil(self.registration.showNotification(d.title||'GlutaNex',{body:d.body||'',icon:'/icon-192.png',badge:'/icon-192.png',tag:d.tag||'gn',data:{url:d.url||'/'}}));});
+self.addEventListener('notificationclick',function(e){e.notification.close();var url=(e.notification.data&&e.notification.data.url)||'/';
+  e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(function(cs){for(var i=0;i<cs.length;i++){if('focus' in cs[i]){cs[i].navigate(url);return cs[i].focus();}}return clients.openWindow(url);}));});
 self.addEventListener('fetch',function(e){
   var r=e.request,u=new URL(r.url);
   if(r.method!=='GET'){return;}

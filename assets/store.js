@@ -228,6 +228,7 @@
       if(cod){rows.push(['Advance paid',rs(ADVANCE)]);rows.push(['Pay at delivery',rs(o.balance),'total']);}else{rows.push(['Paid online',rs(o.total),'total']);}
       rows.push(['Order number',pid]);sumRows(s,rows);box.appendChild(s);
       var tr=el('a','btn block','Track this order');tr.href='/track-order/?id='+encodeURIComponent(pid);box.appendChild(tr);
+      var rm=el('a','btn ghost block','🔔 Turn on routine reminders');rm.href='/reminders/';box.appendChild(rm);
       var wa=el('a','btn wa block','Get updates on WhatsApp');wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I placed an order. Order number: '+pid);wa.target='_blank';wa.rel='noopener';box.appendChild(wa);
       wrap.appendChild(box);window.scrollTo({top:0,behavior:'smooth'});
       if(typeof gtag==='function'){gtag('event','purchase',{transaction_id:pid,value:o.total,currency:'INR'});}
