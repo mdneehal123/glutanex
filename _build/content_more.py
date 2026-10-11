@@ -416,3 +416,19 @@ NEW_GUIDES += [
          faq=[('Is glutathione cream better at night or in the day?', 'Night is usually best, especially if the cream contains retinol or acids. Use sunscreen every morning.'),
               ('Which glutathione night cream is good for oily skin?', 'Look for a light texture with niacinamide or salicylic acid, applied as a thin layer.')]),
 ]
+
+# "People also ask" for the search "glutathione" (11 Oct 2026), placed at the top of the pillar page.
+PILLAR['qa'] = [
+    ('What is glutathione used for?',
+     'Glutathione is the body\'s own antioxidant. It protects cells from oxidative stress, recycles vitamins C and E, and helps the liver process toxins. In skincare it is used in creams and face washes for brighter, more even-looking skin, alongside daily sunscreen.',
+     '<p>It is made from three amino acids: glutamic acid, cysteine and glycine. Levels fall with age, stress, smoking and sun exposure.</p>'),
+    ('What does glutathione do for the skin?',
+     'Glutathione slows tyrosinase, the enzyme that makes melanin, shifts pigment towards lighter forms and adds antioxidant protection. With regular use and sunscreen it can help tan, dullness and uneven tone look lighter over 8 to 12 weeks, but it does not change natural skin colour.',
+     '<p>A 10-week study of a 2%% glutathione lotion found a modest drop in melanin index versus placebo (%(study)s). More: <a href="/glutathione-benefits-for-skin/">glutathione benefits for skin</a>.</p>'),
+    ('Is glutathione permanent skin whitening?',
+     'No. Glutathione does not permanently whiten skin. Any lightening of tan or uneven tone is gradual and fades if you stop or skip sunscreen, because skin keeps making melanin. Claims of permanent whitening, especially from injections, are not supported by clinical trials.',
+     '<p>Regulators have warned against skin-lightening injections (%(fda)s). Read <a href="/glutathione-for-skin-whitening/">glutathione for skin whitening: what is true</a>.</p>'),
+    ('What food is highest in glutathione?',
+     'Among everyday foods, spinach, avocado, asparagus and okra (bhindi) contain the most glutathione. Garlic, onion, broccoli, cabbage, eggs, lentils and dairy supply the sulphur and amino acids your body uses to make it, and vitamin C foods like amla help keep it active.',
+     '<p>Cooking lowers glutathione in vegetables, so include some raw or lightly cooked options. Full list: <a href="/glutathione-rich-foods/">glutathione-rich foods</a>.</p>'),
+]
