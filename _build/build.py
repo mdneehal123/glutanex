@@ -301,7 +301,17 @@ page('/', 'Glutathione Cream for Face | GlutaNex Night Cream & Face Wash', 'Glut
 # ---------------- Shop ----------------
 page('/shop/', 'Shop GlutaNex | Glutathione Night Cream, Face Wash & Duo', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
      top('Shop', 'Shop <span class="gold">GlutaNex</span>', 'Glutathione skincare for your night routine. Free shipping and Cash on Delivery on every order.') +
-     '<section style="padding-top:30px"><div class="wrap"><div class="grid">%s</div></div></section>' % ''.join(card(p, 'h2') for p in PRODUCTS), crumbs=[('Shop', '/shop/')])
+     '<section style="padding-top:30px"><div class="wrap"><div class="grid">%s</div>'
+     '<div class="sec-h" style="margin-top:56px"><span class="eyebrow">Compare</span><h2>Which one is right for you?</h2></div>'
+     '<div class="tbl"><table class="cmp"><thead><tr><th></th><th>Night Cream</th><th>Face Wash</th><th>Glow Duo</th></tr></thead><tbody>'
+     '<tr><td>Size</td><td>30 g jar</td><td>100 ml pump</td><td>30 g + 100 ml</td></tr>'
+     '<tr><td>Price</td><td>%s</td><td>%s</td><td>%s <span class="save">save %s</span></td></tr>'
+     '<tr><td>What it does</td><td>Night care for a brighter, more even-looking tone</td><td>Gentle daily cleansing</td><td>The full routine: cleanse, then treat</td></tr>'
+     '<tr><td>Key ingredients</td><td>Glutathione, niacinamide, vitamin C, hyaluronic acid, retinol, ceramides</td><td>Glutathione</td><td>Both</td></tr>'
+     '<tr><td>When to use</td><td>Night (start 2–3 nights a week)</td><td>Morning and night</td><td>Wash morning and night, cream at night</td></tr>'
+     '<tr><td>Best for</td><td>Tan, dullness, uneven tone</td><td>Clean, fresh skin before your cream</td><td>Best value and best results</td></tr>'
+     '<tr><td></td><td><button class="btn sm" type="button" data-add="cream">Add</button></td><td><button class="btn sm" type="button" data-add="wash">Add</button></td><td><button class="btn sm" type="button" data-add="duo">Add</button></td></tr>'
+     '</tbody></table></div></div></section>' % (''.join(card(p, 'h2') for p in PRODUCTS), rs(BYID['cream']['price']), rs(BYID['wash']['price']), rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])), crumbs=[('Shop', '/shop/')])
 
 # ---------------- Product pages ----------------
 TABS = {
@@ -336,6 +346,7 @@ for p in PRODUCTS:
     <p class="summary">%(summary)s</p>
     <div class="qty-row"><div class="qty" data-qty><button type="button" data-dec aria-label="Less">−</button><output>1</output><button type="button" data-inc aria-label="More">+</button></div><span class="muted" style="font-size:.88rem">In stock</span></div>
     <div class="acts"><button class="btn ghost" type="button" data-add="%(id)s" data-useqty>Add to cart</button><button class="btn" type="button" data-buy="%(id)s" data-useqty>Buy now</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s Order on WhatsApp</a></div>
+    <p class="eta" data-eta hidden></p>
     <ul class="perks"><li>Cash on Delivery with a refundable %(adv)s advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
     <div class="tabs">%(tabs)s</div>
   </div>

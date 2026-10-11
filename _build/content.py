@@ -134,6 +134,26 @@ def with_toc(body, label='On this page'):
     return toc + body
 
 
+NO_CARD = {'glutathione-in-pregnancy', 'glutathione-vs-hydroquinone'}
+def mid_card(slug, body):
+    if slug in NO_CARD:
+        return body
+    idx = [m.start() for m in re.finditer(r'<h2 ', body)]
+    if len(idx) < 4:
+        return body
+    card = ('<aside class="midcard"><img src="%s" alt="GlutaNex Glutathione Night Cream 30 g" width="80" height="80" loading="lazy"><div><b>Try it: GlutaNex Night Cream</b>'
+            '<span>Glutathione + niacinamide + vitamin C · 30 g · %s · free shipping · COD</span></div><a class="btn sm" href="%s">View</a></aside>') % (im('cream-square'), rs(BYID['cream']['price']), url(BYID['cream']))
+    k = idx[len(idx) // 2]
+    return body[:k] + card + body[k:]
+
+
+def tldr_box(slug):
+    pts = TLDR.get(slug)
+    if not pts:
+        return ''
+    return '<div class="tldr"><b>Key takeaways</b><ul>%s</ul></div>' % ''.join('<li>%s</li>' % html.escape(x) for x in pts)
+
+
 def faq_block(items, head='Frequently asked questions'):
     return '<h2 id="faq">%s</h2>' % head + faq_html(items) if items else ''
 
@@ -161,9 +181,10 @@ def hreflang(en_path, hi_path):
 
 
 def gcard(g):
-    return '<a class="reveal" href="%s"><span class="eyebrow">Guide</span><h3>%s</h3><p>%s</p></a>' % (guide_url(g), g['title'], g['blurb'])
+    keys = ' '.join([g['title'], g['blurb'], g.get('short', '')] + [q for q, a, d in g.get('qa', [])] + [q for q, a in g.get('faq', [])])
+    return '<a class="reveal" href="%s" data-k="%s"><span class="eyebrow">Guide</span><h3>%s</h3><p>%s</p></a>' % (guide_url(g), html.escape(re.sub(r'<[^>]+>', '', keys).lower()), g['title'], g['blurb'])
 hub = top('Glutathione guides', 'Everything about <span class="gold">glutathione</span>', 'Plain, accurate guides on glutathione for skin: what it does, how to use it, and how to stay safe.') + \
-    '<section style="padding-top:30px"><div class="wrap"><a class="pillar-card reveal" href="/glutathione/"><span class="eyebrow">Start here</span><h2>%s</h2><p>%s</p><span class="btn sm">Read the complete guide</span></a>' \
+    '<section style="padding-top:30px"><div class="wrap"><div class="gsearch"><input type="search" id="guide-search" placeholder="Search guides: side effects, tablets, price, men, pregnancy…" aria-label="Search glutathione guides"><p class="muted" id="guide-count" aria-live="polite"></p></div><a class="pillar-card reveal" href="/glutathione/"><span class="eyebrow">Start here</span><h2>%s</h2><p>%s</p><span class="btn sm">Read the complete guide</span></a>' \
     '<div class="guides" style="margin-top:22px">%s</div>' \
     '<div class="sec-h" style="margin-top:48px"><span class="eyebrow">हिंदी में पढ़ें</span><h2>Hindi guides</h2></div><div class="guides">%s</div>' \
     '<p class="note">These guides are general information about cosmetic skincare and do not replace advice from a dermatologist.</p></div></section>' % (
@@ -184,11 +205,13 @@ for i, g in enumerate(GUIDES):
         '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">By the GlutaNex team · Updated 11 October 2026 · %d sources cited</p>%s%s%s<p class="note">General information about cosmetic skincare, not medical advice. Results vary from person to person. See a dermatologist for persistent or changing pigmentation.</p></div>' \
         '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>Glutathione + niacinamide + vitamin C · %s · Cash on Delivery</span><button class="btn block" type="button" data-buy="cream">Buy now</button><a class="btn ghost block sm" href="%s">View product</a></aside></div></section>' \
         '<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><span class="eyebrow">Keep reading</span><h2>More glutathione guides</h2></div><div class="guides">%s</div></div></section>' % (
-            len(g['refs']), with_toc(g['body'] % P), faq_block(faq), sources_block(g['refs']), im('cream-square'), rs(BYID['cream']['price']), url(BYID['cream']),
+            len(g['refs']), mid_card(g['slug'], tldr_box(g['slug']) + with_toc(g['body'] % P)), faq_block(faq), sources_block(g['refs']), im('cream-square'), rs(BYID['cream']['price']), url(BYID['cream']),
             ''.join(gcard(m) for m in more))
     sch = [{'@type': 'Article', 'headline': g['title'], 'description': g['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + guide_url(g),
             'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'en-IN',
-            'about': {'@type': 'Thing', 'name': 'Glutathione', 'sameAs': 'https://en.wikipedia.org/wiki/Glutathione'}}]
+            'about': {'@type': 'Thing', 'name': 'Glutathione', 'sameAs': 'https://en.wikipedia.org/wiki/Glutathione'},
+            'citation': [{'@type': 'CreativeWork', 'name': SOURCES[r], 'url': re.search(r'href="([^"]+)"', (REFS.get(r) or (FDA if r == 'fda' else ''))).group(1)} for r in g['refs'] if r in SOURCES and re.search(r'href="([^"]+)"', (REFS.get(r) or (FDA if r == 'fda' else '')))],
+            'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.tldr', '.answer']}}]
     if g.get('faq_ld'):
         sch.append(faq_ld([(q % P, re.sub(r'<[^>]+>', '', a % P)) for q, a in g['faq_ld']]))
     elif faq:

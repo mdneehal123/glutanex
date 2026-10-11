@@ -262,6 +262,17 @@
     var q=new URLSearchParams(location.search).get('id');if(q){setMode(false);$('t-id').value=q;run();}
   }
 
+  /* guide search on the guides hub */
+  (function(){var inp=$('guide-search');if(!inp){return;}var cards=[].slice.call(document.querySelectorAll('.guides a[data-k]')),cnt=$('guide-count'),pill=document.querySelector('.pillar-card');
+    inp.addEventListener('input',function(){var q=inp.value.toLowerCase().trim(),words=q.split(/\s+/).filter(Boolean),n=0;
+      cards.forEach(function(c){var ok=!words.length||words.every(function(w){return c.getAttribute('data-k').indexOf(w)>-1;});c.hidden=!ok;if(ok){c.classList.add('in');n++;}});
+      if(pill){pill.hidden=!!words.length;}cnt.textContent=words.length?(n?n+' guide'+(n===1?'':'s')+' found':'No guide found. Try "side effects", "tablets" or ask on WhatsApp.'):'';});})();
+  /* delivery estimate on product pages: packed in 1-2 business days, delivered 3-7 business days later */
+  (function(){var e=document.querySelector('[data-eta]');if(!e){return;}
+    function addBiz(d,n){var x=new Date(d);while(n>0){x.setDate(x.getDate()+1);if(x.getDay()!==0){n--;}}return x;}
+    var now=new Date(),start=addBiz(now,4),end=addBiz(now,9),f=function(d){return d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});};
+    e.innerHTML='';var b=document.createElement('b');b.textContent='Order today: ';e.appendChild(b);e.appendChild(document.createTextNode('delivered between '+f(start)+' and '+f(end)+' · free shipping'));e.hidden=false;})();
+
   /* ---------------- GlutaNex assistant ---------------- */
   function assistant(){
     if(document.getElementById('checkout')||document.getElementById('leads-out')){return;}
