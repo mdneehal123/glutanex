@@ -522,3 +522,22 @@ QA_EXTRA['glutathione-tablets'] = [
      'Original glutathione tablets come sealed with a printed batch number, manufacturing and expiry dates, an FSSAI licence number and the manufacturer\'s address. Check that these match the brand\'s website. Very low prices, spelling mistakes and missing details are warning signs of fakes.',
      '<p>Buy from the brand or an authorised seller.</p>'),
 ]
+
+# "glutathione face wash" (11 Oct 2026)
+QA_EXTRA['glutathione-face-wash'] = [
+    ('Is glutathione face wash good for skin?',
+     'Yes, a gentle glutathione face wash is good for most skin types. It cleans away oil, sweat and pollution without stripping, and prepares skin for a leave-on cream. Because it is rinsed off quickly, it mainly cleans and refreshes; visible brightening needs a cream and daily sunscreen.',
+     '<p>Our %(wash)s (100 ml) is designed as the first step before the Night Cream.</p>'),
+    ('Which glutathione face wash is best for skin whitening?',
+     'No face wash can whiten skin, because it stays on for under a minute. Choose a gentle, non-drying glutathione face wash with a clear ingredient list, then follow with a leave-on glutathione cream at night and sunscreen every morning for tan and uneven tone.',
+     '<p>Avoid washes that leave skin tight or squeaky: over-cleansing can make dullness and marks worse. See <a href="/glutathione-for-skin-whitening/">glutathione and skin whitening: what is true</a>.</p>'),
+    ('Is glutathione good for your face?',
+     'Yes. Glutathione is a gentle antioxidant that suits facial skin. Used in a cream with daily sunscreen, it can help tan, dullness and uneven tone look lighter and more even over 8 to 12 weeks. Patch test first, and avoid injections.',
+     '<p>More: <a href="/glutathione-benefits-for-skin/">glutathione benefits for skin</a>.</p>'),
+    ('How to use glutathione for skin whitening?',
+     'Use glutathione as a routine, not a quick fix: cleanse with a gentle face wash, apply a glutathione cream at night, and use SPF 30 or higher every morning. Give it 8 to 12 weeks. It can lighten tan and uneven tone, but it does not change natural skin colour.',
+     '<p>Step by step: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>. If your cream contains retinol, start 2 to 3 nights a week.</p>'),
+    ('Is glutathione face wash good for oily and acne-prone skin?',
+     'A gentle glutathione face wash suits oily and acne-prone skin when used twice a day and followed by a light, non-greasy moisturiser. It helps clear oil and grime without over-drying. For active acne, pair it with proven acne care and see a dermatologist if breakouts persist.',
+     '<p>Do not scrub hard or wash more than twice a day: it can trigger more oil.</p>'),
+]
