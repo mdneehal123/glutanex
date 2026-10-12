@@ -56,6 +56,27 @@
     q.addEventListener('input',draw);q.addEventListener('keydown',function(e){if(e.key==='Enter'){var f=res.querySelector('a');if(f){location.href=f.href;}}});
   })();
 
+  /* time of day and festivals: the top strip speaks to the moment; Diwali lights diyas in the home hero */
+  (function(){var d=document.documentElement,strip=document.querySelector('.strip');if(!strip){return;}var cls=d.className,today=d.getAttribute('data-today')||'';
+    function say(t){strip.textContent=t;strip.classList.add('live');}
+    var hm=new Date().toLocaleTimeString('en-IN',{hour:'numeric',minute:'2-digit'});
+    if(/fest-diwali/.test(cls)){say(today<'2026-11-08'?'🪔 Diwali is on Sun, 8 Nov · Gift a glow: Glow Duo ₹2,699 · free shipping':'🪔 Happy Diwali from GlutaNex · May your days glow ✨');}
+    else if(/fest-christmas/.test(cls)){say('🎄 Merry Christmas from GlutaNex · free shipping · Cash on Delivery');}
+    else if(/fest-newyear/.test(cls)){say('✨ Happy New Year · a fresh routine for a fresh year');}
+    else if(/fest-sankranti/.test(cls)){say('🪁 Happy Makar Sankranti & Pongal from GlutaNex');}
+    else if(/t-night/.test(cls)){say('🌙 It is '+hm+' · Night Cream time: cleanse, a pea-sized amount, rest');}
+    else if(/t-morning/.test(cls)){say('☀️ Good morning · sunscreen first, every day · free shipping · COD');}
+    var fest=document.querySelector('.hero .fest');
+    if(fest&&/fest-diwali/.test(cls)){var row=document.createElement('div');row.className='diyas';
+      for(var i=0;i<7;i++){var dy=document.createElement('span');dy.className='diya';dy.style.animationDelay=(i*.37)+'s';
+        dy.innerHTML='<svg viewBox="0 0 64 56" width="64" height="56"><defs><radialGradient id="dg'+i+'" cx="50%" cy="70%" r="60%"><stop offset="0" stop-color="#FFF4C2"/><stop offset=".45" stop-color="#FFB547"/><stop offset="1" stop-color="#FF7A1A" stop-opacity="0"/></radialGradient></defs><ellipse class="glow" cx="32" cy="20" rx="20" ry="20" fill="url(#dg'+i+')"/><path class="flame" d="M32 6c5 7 7 11 7 15a7 7 0 0 1-14 0c0-4 2-8 7-15z" fill="#FFC23A"/><path class="flame in" d="M32 13c2.5 3.5 3.5 6 3.5 8a3.5 3.5 0 0 1-7 0c0-2 1-4.5 3.5-8z" fill="#FFF6D6"/><path d="M6 32h52c0 10-11.6 18-26 18S6 42 6 32z" fill="#C0602A"/><path d="M6 32h52c-1.5 3-4 5.5-7.5 7.5H13.5C10 37.5 7.5 35 6 32z" fill="#E08A3C"/><circle cx="20" cy="41" r="1.6" fill="#F3C36B"/><circle cx="32" cy="43" r="1.6" fill="#F3C36B"/><circle cx="44" cy="41" r="1.6" fill="#F3C36B"/></svg>';row.appendChild(dy);}
+      fest.appendChild(row);
+      var g=document.createElement('div');g.className='lights';var svg='<svg viewBox="0 0 1000 70" preserveAspectRatio="none" width="100%" height="70"><path d="M0 6 Q125 52 250 10 T500 10 T750 10 T1000 6" fill="none" stroke="#8A5A2B" stroke-width="1.6" opacity=".7"/></svg>';g.innerHTML=svg;
+      var pts=[[4,14],[10,30],[17,40],[25,30],[31,16],[38,30],[45,40],[52,28],[58,16],[64,30],[71,40],[78,30],[84,16],[90,28],[96,14]];
+      pts.forEach(function(pt,j){var bl=document.createElement('i');bl.className='bulb b'+(j%3);bl.style.left=pt[0]+'%';bl.style.top=pt[1]+'px';bl.style.animationDelay=(j*0.23)+'s';g.appendChild(bl);});fest.appendChild(g);
+      for(var k=0;k<14;k++){var sp=document.createElement('i');sp.className='fsp';sp.style.left=(Math.random()*100)+'%';sp.style.top=(Math.random()*80)+'%';sp.style.animationDelay=(Math.random()*4)+'s';fest.appendChild(sp);}}
+  })();
+
   /* reveal on scroll */
   var rv=[].slice.call(document.querySelectorAll('.reveal'));
   if('IntersectionObserver' in window&&!still){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});rv.forEach(function(x,i){x.style.transitionDelay=(i%3)*90+'ms';io.observe(x);});}

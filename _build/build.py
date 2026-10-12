@@ -168,6 +168,11 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <html lang="%(lang)s">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var d=document.documentElement,q=location.search,n=new Date(),h=n.getHours(),p=function(x){return (x<10?'0':'')+x;},
+t=(/[?&]theme=(night|morning|day)/.exec(q)||[])[1]||(h>=19||h<5?'night':h<11?'morning':'day'),ds=n.getFullYear()+'-'+p(n.getMonth()+1)+'-'+p(n.getDate()),md=ds.slice(5),
+F=[['diwali','2026-10-29','2026-11-12'],['sankranti','2027-01-13','2027-01-16']],f=(/[?&]fest=(diwali|christmas|newyear|sankranti)/.exec(q)||[])[1]||'';
+if(!f){F.forEach(function(x){if(ds>=x[1]&&ds<=x[2]){f=x[0];}});if(!f&&md>='12-23'&&md<='12-26'){f='christmas';}if(!f&&(md==='12-31'||md==='01-01')){f='newyear';}}
+d.className+=' t-'+t+(f?' fest-'+f:'');d.setAttribute('data-today',ds);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
@@ -288,7 +293,7 @@ c, w, d = BYID['cream'], BYID['wash'], BYID['duo']
 HOME_STORIES = [('glutathione-benefits-for-skin', 'Glutathione for skin: 5 honest facts', ''), ('how-to-use-glutathione-cream', 'How to use glutathione cream', ''),
                 ('glutathione-side-effects', 'Glutathione side effects', ''), ('glutathione-before-wedding', 'Before your wedding: 12-week plan', ''),
                 ('glutathione-cream-vs-tablets-vs-injections', 'Cream vs tablets vs injections', ''), ('glutathione-cream-ke-fayde', 'ग्लूटाथियोन क्रीम के फायदे', 'hi')]
-home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
+home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="sky" aria-hidden="true"><i class="orb"></i></div><div class="fest" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
   <div class="reveal">
     <h1><span class="h1-brand">GlutaNex Glutathione Night Cream</span>Your skin's <span class="gold">night shift</span> starts here.</h1>
     <p class="lead">Glutathione night care that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
