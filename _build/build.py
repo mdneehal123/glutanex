@@ -116,11 +116,14 @@ def graph_base():
             'postalCode': '581320', 'addressCountry': 'IN'}
     logo = {'@type': 'ImageObject', '@id': SITE + '/#logo', 'url': SITE + '/assets/img/glutanex-logo-dark.png', 'contentUrl': SITE + '/assets/img/glutanex-logo-dark.png',
             'width': 515, 'height': 150, 'caption': 'GlutaNex'}
-    return [{'@type': 'Organization', '@id': SITE + '/#org', 'name': 'GlutaNex', 'alternateName': ['Glutanex', 'GlutaNex India', 'GlutaNex Skincare'],
+    return [{'@type': 'OnlineStore', '@id': SITE + '/#org', 'name': 'GlutaNex', 'alternateName': ['Glutanex', 'GlutaNex India', 'GlutaNex Skincare'],
              'url': SITE + '/', 'logo': logo, 'image': {'@id': SITE + '/#logo'}, 'description': BRAND_DESC,
              'sameAs': [INSTAGRAM] + BRAND_PROFILES, 'publishingPrinciples': SITE + '/our-standards/', 'address': addr, 'areaServed': 'IN',
              'brand': {'@id': SITE + '/#brand'}, 'parentOrganization': {'@type': 'Organization', 'name': OWNER, 'address': addr},
              'knowsAbout': ['Glutathione', 'Glutathione cream', 'Skincare', 'Tan removal', 'Niacinamide'],
+             'hasMerchantReturnPolicy': {'@type': 'MerchantReturnPolicy', 'applicableCountry': 'IN', 'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                                         'merchantReturnDays': 7, 'returnMethod': 'https://schema.org/ReturnByMail', 'returnFees': 'https://schema.org/ReturnFeesCustomerResolution',
+                                         'merchantReturnLink': SITE + '/refund-policy/'},
              'contactPoint': {'@type': 'ContactPoint', 'telephone': '+' + WA, 'contactType': 'customer service', 'areaServed': 'IN', 'availableLanguage': ['English', 'Hindi']}},
             {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex', 'alternateName': 'Glutanex', 'url': SITE + '/glutanex/', 'logo': {'@id': SITE + '/#logo'}},
             {'@type': 'WebSite', '@id': SITE + '/#site', 'url': SITE + '/', 'name': 'GlutaNex', 'alternateName': ['Glutanex', 'glutanex.co.in'], 'inLanguage': 'en-IN',
@@ -137,16 +140,19 @@ def img_ld(u, caption=''):
 
 
 def product_ld(p):
-    return {'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], 'sku': p['sku'], 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
+    extra_p = {'cream': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': ', '.join(n for n, d in INGREDIENTS)}, {'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Night'}]},
+               'wash': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Morning and night'}]},
+               'duo': {'isRelatedTo': [{'@id': SITE + url(BYID['cream']) + '#product'}, {'@id': SITE + url(BYID['wash']) + '#product'}]}}.get(p['id'], {})
+    return dict({'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], 'sku': p['sku'], 'mpn': p['sku'], 'size': p['size'], 'category': 'Health & Beauty > Personal Care > Cosmetics > Skin Care', 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
             'image': [img_ld(SITE + im(i, 'jpg'), p['name']) for i in p['imgs']], 'description': p['desc'],
-            'offers': {'@type': 'Offer', 'url': SITE + url(p), 'price': str(p['price']), 'priceCurrency': 'INR', 'availability': 'https://schema.org/InStock',
+            'offers': {'@type': 'Offer', 'url': SITE + url(p), 'price': str(p['price']), 'priceCurrency': 'INR', 'priceValidUntil': '2027-12-31', 'availability': 'https://schema.org/InStock',
                        'itemCondition': 'https://schema.org/NewCondition', 'seller': {'@id': SITE + '/#org'},
                        'shippingDetails': {'@type': 'OfferShippingDetails', 'shippingRate': {'@type': 'MonetaryAmount', 'value': '0', 'currency': 'INR'},
                                            'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'IN'},
                                            'deliveryTime': {'@type': 'ShippingDeliveryTime', 'handlingTime': {'@type': 'QuantitativeValue', 'minValue': 1, 'maxValue': 2, 'unitCode': 'DAY'},
                                                             'transitTime': {'@type': 'QuantitativeValue', 'minValue': 3, 'maxValue': 7, 'unitCode': 'DAY'}}},
                        'hasMerchantReturnPolicy': {'@type': 'MerchantReturnPolicy', 'applicableCountry': 'IN', 'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-                                                   'merchantReturnDays': 7, 'returnMethod': 'https://schema.org/ReturnByMail', 'returnFees': 'https://schema.org/ReturnFeesCustomerResolution'}}}
+                                                   'merchantReturnDays': 7, 'returnMethod': 'https://schema.org/ReturnByMail', 'returnFees': 'https://schema.org/ReturnFeesCustomerResolution'}}}, **extra_p)
 
 
 def faq_ld(items):
@@ -163,17 +169,32 @@ SVG_GRID = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="
 SVG_TRUCK = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9.5h-11zM13.5 9.5h4l3 3.2V16h-7z"/><circle cx="6.5" cy="17.5" r="1.8" fill="#fff"/><circle cx="17" cy="17.5" r="1.8" fill="#fff"/></svg>'
 
 
-def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='website', ogimg='night-shift-banner', extra='', js='store.js', jar=False, lang='en-IN'):
+def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='website', ogimg='night-shift-banner', extra='', js='store.js', jar=False, lang='en-IN', ptype='WebPage', main=None):
     full = SITE + path
     nav = ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == path else '', t) for h, t in NAV)
     graph = graph_base()
     if crumbs:
-        graph.append({'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'}] +
+        graph.append({'@type': 'BreadcrumbList', '@id': full + '#breadcrumb', 'itemListElement': [{'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE + '/'}] +
                       [{'@type': 'ListItem', 'position': i + 2, 'name': n, 'item': SITE + u} for i, (n, u) in enumerate(crumbs)]})
         body = '<div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / ' + ' / '.join(
             ('<a href="%s">%s</a>' % (u, html.escape(n)) if i < len(crumbs) - 1 else html.escape(n)) for i, (n, u) in enumerate(crumbs)) + '</nav></div>' + body
     if schema:
         graph += schema
+    # one WebPage node per page, tied to the site, its breadcrumb, language and main subject
+    if index and path != '/404' and not any(x.get('@type') == 'AboutPage' for x in graph):
+        wp = {'@type': ptype, '@id': full + '#webpage', 'url': full, 'name': re.sub(r'\s*\|\s*GlutaNex.*$', '', title), 'description': desc, 'inLanguage': lang,
+              'isPartOf': {'@id': SITE + '/#site'}, 'publisher': {'@id': SITE + '/#org'}}
+        if crumbs:
+            wp['breadcrumb'] = {'@id': full + '#breadcrumb'}
+        art = next((x for x in graph if x.get('@type') == 'Article'), None)
+        if main:
+            wp['mainEntity'] = {'@id': main}
+        elif art:
+            art['@id'] = full + '#article'
+            wp['mainEntity'] = {'@id': full + '#article'}
+        if art and art.get('about'):
+            wp['about'] = art['about']
+        graph.append(wp)
     robots = 'noindex, nofollow' if (PREVIEW or not index) else 'index, follow, max-image-preview:large'
     scripts = ''.join('<script src="/assets/%s?v=%s" defer></script>' % (j, AV) for j in (['jar3d.js'] if jar else []) + js.split(',') + (['talk.js'] if '[data-talk]' in body or 'data-talk' in body else []))
     doc = '''<!doctype html>
@@ -415,7 +436,7 @@ page('/shop/', 'Shop GlutaNex | Glutathione Night Cream, Face Wash & Duo', 'Shop
      '<tr><td>When to use</td><td>Night (start 2–3 nights a week)</td><td>Morning and night</td><td>Wash morning and night, cream at night</td></tr>'
      '<tr><td>Best for</td><td>Tan, dullness, uneven tone</td><td>Clean, fresh skin before your cream</td><td>Best value and best results</td></tr>'
      '<tr><td></td><td><button class="btn sm" type="button" data-add="cream">Add</button></td><td><button class="btn sm" type="button" data-add="wash">Add</button></td><td><button class="btn sm" type="button" data-add="duo">Add</button></td></tr>'
-     '</tbody></table></div></div></section>' % (''.join(card(p, 'h2') for p in PRODUCTS), rs(BYID['cream']['price']), rs(BYID['wash']['price']), rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])), crumbs=[('Shop', '/shop/')])
+     '</tbody></table></div></div></section>' % (''.join(card(p, 'h2') for p in PRODUCTS), rs(BYID['cream']['price']), rs(BYID['wash']['price']), rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])), crumbs=[('Shop', '/shop/')], ptype='CollectionPage', main=SITE + '/shop/#products', schema=[{'@type': 'ItemList', '@id': SITE + '/shop/#products', 'name': 'GlutaNex products', 'numberOfItems': len(PRODUCTS), 'itemListElement': [{'@type': 'ListItem', 'position': n + 1, 'item': {'@id': SITE + url(x) + '#product'}, 'url': SITE + url(x), 'name': x['name']} for n, x in enumerate(PRODUCTS)]}] + [product_ld(x) for x in PRODUCTS])
 
 # ---------------- Product pages ----------------
 TABS = {
@@ -467,7 +488,7 @@ for p in PRODUCTS:
         wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG, adv=rs(ADVANCE),
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
         faq=faq_html(faq_items), rel=''.join(card(q) for q in others))
-    page(url(p), p['title'], p['desc'], body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)],
+    page(url(p), p['title'], p['desc'], body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)], ptype='ItemPage', main=SITE + url(p) + '#product',
          extra='<meta property="product:price:amount" content="%d"><meta property="product:price:currency" content="INR">\n' % p['price'])
 
 # ---------------- Cart & checkout ----------------

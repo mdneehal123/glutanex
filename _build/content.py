@@ -113,6 +113,9 @@ GUIDES = [PILLAR] + GUIDES + NEW_GUIDES + [QA_PAGE]
 EN2HI = {h['en']: '/hi/%s/' % h['slug'] for h in HI}
 
 
+GSH_THING = {'@type': 'Thing', 'name': 'Glutathione', 'sameAs': ['https://en.wikipedia.org/wiki/Glutathione', 'https://pubchem.ncbi.nlm.nih.gov/compound/GSH', 'https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:16856']}
+
+
 def guide_url(g):
     return '/%s/' % g['slug']
 
@@ -194,7 +197,7 @@ hub = top('Glutathione guides', 'Everything about <span class="gold">glutathione
         PILLAR['title'], PILLAR['blurb'], ''.join(gcard(g) for g in GUIDES[1:]),
         ''.join('<a class="reveal" href="/hi/%s/" lang="hi"><span class="eyebrow">हिंदी</span><h3>%s</h3><p>%s</p></a>' % (h['slug'], h['title'], h['desc'].split(':')[0]) for h in HI))
 page('/glutathione-guides/', 'Glutathione Guides: Benefits, Side Effects, Price, Use | GlutaNex', 'All GlutaNex glutathione guides: what glutathione is, benefits for skin, side effects, price in India, face wash, kojic acid, foods and Hindi guides.',
-     hub, crumbs=[('Glutathione guides', '/glutathione-guides/')], schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + guide_url(g), 'name': g['title']} for i, g in enumerate(GUIDES)]}])
+     hub, crumbs=[('Glutathione guides', '/glutathione-guides/')], ptype='CollectionPage', schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + guide_url(g), 'name': g['title']} for i, g in enumerate(GUIDES)]}])
 
 RELATED = {'glutathione': ['glutathione-cream-questions', 'glutathione-cream', 'is-glutathione-safe-for-skin'], 'glutathione-cream-questions': ['glutathione', 'retinol-vs-glutathione', 'glutathione-night-cream']}
 for i, g in enumerate(GUIDES):
@@ -212,9 +215,18 @@ for i, g in enumerate(GUIDES):
             ''.join(gcard(m) for m in more))
     sch = [{'@type': 'Article', 'headline': g['title'], 'description': g['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + guide_url(g),
             'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'en-IN',
-            'about': {'@type': 'Thing', 'name': 'Glutathione', 'sameAs': 'https://en.wikipedia.org/wiki/Glutathione'},
+            'about': GSH_THING,
             'citation': [{'@type': 'CreativeWork', 'name': SOURCES[r], 'url': re.search(r'href="([^"]+)"', (REFS.get(r) or (FDA if r == 'fda' else ''))).group(1)} for r in g['refs'] if r in SOURCES and re.search(r'href="([^"]+)"', (REFS.get(r) or (FDA if r == 'fda' else '')))],
             'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.tldr', '.answer']}}]
+    if g['slug'] == 'how-to-use-glutathione-cream':
+        sch.append({'@type': 'HowTo', '@id': SITE + guide_url(g) + '#howto', 'name': 'How to use glutathione cream at night', 'inLanguage': 'en-IN', 'totalTime': 'PT3M',
+                    'supply': [{'@type': 'HowToSupply', 'name': 'Gentle face wash'}, {'@type': 'HowToSupply', 'name': 'Glutathione night cream'}, {'@type': 'HowToSupply', 'name': 'Sunscreen SPF 30 or higher'}],
+                    'step': [{'@type': 'HowToStep', 'position': i + 1, 'name': n, 'text': t} for i, (n, t) in enumerate([
+                        ('Cleanse', 'Wash your face with a gentle face wash and pat it dry.'),
+                        ('Take a pea-sized amount', 'Dot a pea-sized amount of glutathione cream on the forehead, cheeks, chin and neck.'),
+                        ('Spread thinly', 'Spread it in thin, upward strokes, avoiding the eyes and lips.'),
+                        ('Start slowly', 'If the cream has retinol, use it 2 to 3 nights a week for the first two weeks, then build up.'),
+                        ('Sunscreen every morning', 'Every morning, apply SPF 30 or higher sunscreen and reapply when outdoors.')])]})
     if g.get('faq_ld'):
         sch.append(faq_ld([(q % P, re.sub(r'<[^>]+>', '', a % P)) for q, a in g['faq_ld']]))
     elif faq:
@@ -242,7 +254,7 @@ for h in HI:
             '<a href="/glutathione/"><span class="eyebrow">English</span><h3>Glutathione: the complete guide</h3></a>')
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
-                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN'},
+                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN', 'about': GSH_THING},
                  faq_ld(_qa_ld + faq)])
 page('/hi/', 'Glutathione Hindi Guide: ग्लूटाथियोन की जानकारी हिंदी में', 'ग्लूटाथियोन की जानकारी हिंदी में: ग्लूटाथियोन क्रीम के फायदे, नुकसान और लगाने का सही तरीका।',
      top('हिंदी गाइड', 'ग्लूटाथियोन की जानकारी <span class="gold">हिंदी में</span>', 'आसान और सही जानकारी: फायदे, नुकसान और उपयोग का तरीका।') +
@@ -267,7 +279,7 @@ for h in HL:
             ''.join('<a href="/hinglish/%s/"><span class="eyebrow">Hinglish</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HL if x is not h))
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-Latn', crumbs=[(u['hub'], '/hinglish/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
-                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-Latn',
+                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-Latn', 'about': GSH_THING,
                   'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.answer']}},
                  faq_ld(ld_qa)])
 page('/hinglish/', 'Glutathione Ki Jaankari Hinglish Mein: Fayde, Nuksan, Use',
@@ -287,7 +299,7 @@ for r in REG:
             u['by'], u['en'], with_toc(r['body'], u['toc']), faq_block(r['faq'], u['faq']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'])
     page(path, r['seo'], r['desc'], body, og='article', lang=r['code'], crumbs=[(u['guide'], path)], extra=hreflang_cluster('/glutathione-cream/'),
          schema=[{'@type': 'Article', 'headline': r['title'], 'description': r['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
-                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': r['code']}, faq_ld(r['faq'])])
+                  'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': r['code'], 'about': GSH_THING}, faq_ld(r['faq'])])
 
 # ---------------- Information pages ----------------
 page('/about/', 'About GlutaNex | Glutathione Skincare', 'About GlutaNex: glutathione skincare for a simple night routine, sold and shipped by %s.' % OWNER,
@@ -338,7 +350,7 @@ page('/contact/', 'Contact GlutaNex | WhatsApp Support', 'Contact GlutaNex on Wh
      top('Contact', 'Contact us', 'The fastest way to reach us is WhatsApp.') + '''<section style="padding-top:24px"><div class="wrap prose">
 <p><a class="btn wa" href="https://wa.me/%s" target="_blank" rel="noopener">%s Chat on WhatsApp</a></p>
 <h2>Details</h2><ul><li><b>Instagram:</b> <a href="https://www.instagram.com/glutanexofficial/" rel="noopener">@glutanexofficial</a></li><li><b>WhatsApp and phone:</b> %s</li><li><b>Seller:</b> %s</li><li><b>Address:</b> %s</li><li><b>Hours:</b> Monday to Saturday, 10 am to 7 pm</li></ul>
-<p>Please share your order number or the mobile number used on the order. You can also check your parcel on the <a href="/track-order/">Track Order</a> page.</p></div></section>''' % (WA, WA_IMG, WA_SHOW, OWNER, ADDR), crumbs=[('Contact', '/contact/')])
+<p>Please share your order number or the mobile number used on the order. You can also check your parcel on the <a href="/track-order/">Track Order</a> page.</p></div></section>''' % (WA, WA_IMG, WA_SHOW, OWNER, ADDR), crumbs=[('Contact', '/contact/')], ptype='ContactPage')
 
 page('/our-standards/', 'Our Standards: How GlutaNex Writes and Sells | GlutaNex', 'How GlutaNex writes its glutathione guides, checks facts, makes claims and sells its products: cited research, honest claims, clear labels and easy returns.',
      top('Our standards', 'Our <span class="gold">standards</span>', 'How we write about glutathione, what we will and will not claim, and how we sell.') + '''<section style="padding-top:24px"><div class="wrap prose">

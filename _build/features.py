@@ -8,7 +8,11 @@ page('/skin-quiz/', 'Glutathione Skin Quiz: Find Your Routine in 30 Seconds | Gl
      '<section style="padding-top:18px"><div class="wrap"><div id="quiz" class="quiz"><noscript>Please turn on JavaScript to use the quiz.</noscript></div>'
      '<p class="muted" style="font-size:.84rem;margin-top:16px;max-width:60ch">This quiz gives general cosmetic skincare guidance, not medical advice. Your answers stay on your phone. '
      'For a skin condition, see a dermatologist.</p></div></section>',
-     js='store.js,quiz.js', crumbs=[('Skin quiz', '/skin-quiz/')])
+     js='store.js,quiz.js', crumbs=[('Skin quiz', '/skin-quiz/')], main=SITE + '/skin-quiz/#app',
+     schema=[{'@type': 'WebApplication', '@id': SITE + '/skin-quiz/#app', 'name': 'GlutaNex Skin Quiz', 'url': SITE + '/skin-quiz/', 'applicationCategory': 'LifestyleApplication',
+              'operatingSystem': 'Any (web browser)', 'browserRequirements': 'Requires JavaScript', 'isAccessibleForFree': True, 'inLanguage': 'en-IN',
+              'description': 'Five questions about your skin give an honest glutathione routine: which product, how often and what to avoid.',
+              'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'INR'}, 'publisher': {'@id': SITE + '/#org'}}])
 
 # ---------------- Wholesale / resellers ----------------
 _WS_FAQ = [('Do you sell glutathione cream wholesale?', 'Yes. Beauty parlours, salons, cosmetic shops and online sellers can order GlutaNex Glutathione Night Cream and Gluta Boost Face Wash in bulk. Send the form and we reply with wholesale prices on WhatsApp.'),
