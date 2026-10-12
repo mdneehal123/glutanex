@@ -163,7 +163,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
     if schema:
         graph += schema
     robots = 'noindex, nofollow' if (PREVIEW or not index) else 'index, follow, max-image-preview:large'
-    scripts = ''.join('<script src="/assets/%s" defer></script>' % j for j in (['jar3d.js'] if jar else []) + js.split(','))
+    scripts = ''.join('<script src="/assets/%s" defer></script>' % j for j in (['jar3d.js'] if jar else []) + js.split(',') + (['talk.js'] if '[data-talk]' in body or 'data-talk' in body else []))
     doc = '''<!doctype html>
 <html lang="%(lang)s">
 <head>
@@ -294,6 +294,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <p class="lead">Glutathione night care that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
     <div class="price-line"><b>%(cprice)s</b><span>Glutathione Night Cream · about %(pernight)s a night · free shipping · Cash on Delivery</span></div>
     <div class="cta"><button class="btn" type="button" data-buy="cream">Buy the Night Cream</button><a class="btn ghost" href="/glutathione-cream/">What is glutathione cream?</a></div>
+    <button class="jar-talk hero-talk" type="button" data-talk hidden><span class="jt-dot"></span>🎙️ Talk to the jar<small>Ask out loud in English, हिंदी, Hinglish, தமிழ்…</small></button>
     <div class="badges"><span>Glutathione care</span><span>Night routine</span><span>Ships across India</span><span>7-day returns on sealed packs</span></div>
   </div>
   <div class="hero-stage">
@@ -435,6 +436,7 @@ for p in PRODUCTS:
     <p class="eta" data-eta hidden></p>
     <form class="pinchk" data-pinchk hidden><label for="pc-pin">Check delivery to your pincode</label><div><input id="pc-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6-digit pincode"><button class="btn sm" type="submit">Check</button></div><p class="pc-out" aria-live="polite" hidden></p></form>
     <ul class="perks"><li>Cash on Delivery with a refundable %(adv)s advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
+    <button class="jar-talk sm" type="button" data-talk hidden><span class="jt-dot"></span>🎙️ Ask the jar a question<small>Speak in English, हिंदी, Hinglish, தமிழ்…</small></button>
     <a class="quizcta sm" href="/skin-quiz/"><b>Not sure it suits your skin?</b><span>Take the 30-second quiz →</span></a>
     <div class="tabs">%(tabs)s</div>
   </div>
@@ -639,7 +641,7 @@ page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('
 
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
-for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js']:
+for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))

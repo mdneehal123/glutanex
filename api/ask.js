@@ -36,6 +36,11 @@ function pick(q) {
     if (out.includes(s.i) || s.sc <= 0) continue;
     out.push(s.i); len += KB[s.i].x.length;
   }
+  // nothing matched (for example a question in Tamil or Bengali script): add the core guides so the answer still has facts
+  if (out.every((i) => KB[i].always)) {
+    const CORE = ['/glutathione-cream/', '/how-to-use-glutathione-cream/', '/glutathione-side-effects/', '/glutathione-benefits-for-skin/', '/shop/', '/shipping-policy/'];
+    KB.forEach((c, i) => { if (len < 9000 && !out.includes(i) && CORE.includes(c.u)) { out.push(i); len += c.x.length; } });
+  }
   return out.map((i) => KB[i]);
 }
 
@@ -50,6 +55,17 @@ Rules:
 - When useful, link one or two relevant pages from the notes in the form [page title](/path/). Use only paths that appear in the notes.
 - You can mention the products and prices from the notes when relevant, without being pushy.`;
 
+// "Talk to the jar": the answer is read aloud by the phone, in the language the customer chose
+const LANGS = { en: 'English', hi: 'Hindi (Devanagari script)', hinglish: 'Hinglish (Hindi written in English letters)', ta: 'Tamil (Tamil script)', te: 'Telugu (Telugu script)',
+  mr: 'Marathi (Devanagari script)', bn: 'Bengali (Bengali script)', kn: 'Kannada (Kannada script)' };
+function voiceRules(lang) {
+  return `\n\nVOICE MODE: your reply will be spoken aloud by the customer's phone, as if the GlutaNex jar itself is talking (friendly, warm, first person is fine: "I contain...").
+- Reply in ${LANGS[lang] || 'the language the customer used'}.
+- 2 or 3 short spoken sentences. No markdown, no links, no lists, no emojis, no URLs.
+- Numbers and prices in words that sound natural when read aloud (for example "two thousand four hundred ninety-nine rupees").
+- If the customer clearly wants to buy or asks how to order, add one tag at the very end: [CART:cream], [CART:wash] or [CART:duo]. Otherwise add no tag.`;
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ error: 'method_not_allowed' });
@@ -58,6 +74,7 @@ module.exports = async (req, res) => {
   let b = req.body || {};
   if (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }
   const q = String(b.q || '').trim().slice(0, 500);
+  const voice = !!b.voice, lang = LANGS[b.lang] ? b.lang : '';
   if (q.length < 2) return res.status(400).json({ error: 'empty' });
 
   // daily cap, so a flood of questions cannot run up the API bill
@@ -93,12 +110,15 @@ module.exports = async (req, res) => {
       method: 'POST',
       signal: ctl.signal,
       headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model: process.env.ASK_MODEL || 'claude-haiku-4-5-20251001', max_tokens: 450, system: SYSTEM + '\n\nReference notes:\n\n' + notes, messages: msgs })
+      body: JSON.stringify({ model: process.env.ASK_MODEL || 'claude-haiku-4-5-20251001', max_tokens: voice ? 260 : 450, system: SYSTEM + (voice ? voiceRules(lang) : '') + '\n\nReference notes:\n\n' + notes, messages: msgs })
     });
     const j = await r.json();
     if (!r.ok) return res.status(502).json({ error: 'upstream' });
-    const answer = (j.content || []).filter((x) => x.type === 'text').map((x) => x.text).join('').trim();
-    return res.status(200).json({ answer: answer || null });
+    let answer = (j.content || []).filter((x) => x.type === 'text').map((x) => x.text).join('').trim();
+    let cart = null;
+    const m = answer.match(/\[CART:(cream|wash|duo)\]\s*$/);
+    if (m) { cart = m[1]; answer = answer.slice(0, m.index).trim(); }
+    return res.status(200).json({ answer: answer || null, cart });
   } catch (e) {
     return res.status(504).json({ error: 'timeout' });
   } finally {
