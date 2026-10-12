@@ -426,7 +426,7 @@ page('/', 'Glutathione Cream for Face | GlutaNex Night Cream & Face Wash', 'Glut
 # ---------------- Shop ----------------
 page('/shop/', 'Shop GlutaNex | Glutathione Night Cream, Face Wash & Duo', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
      top('Shop', 'Shop <span class="gold">GlutaNex</span>', 'Glutathione skincare for your night routine. Free shipping and Cash on Delivery on every order.') +
-     '<section style="padding-top:30px"><div class="wrap"><div class="grid">%s</div>'
+     '<section class="shop-sec" style="padding-top:30px"><div class="wrap"><div class="grid shop-grid">%s</div>'
      '<div class="sec-h" style="margin-top:56px"><span class="eyebrow">Compare</span><h2>Which one is right for you?</h2></div>'
      '<div class="tbl"><table class="cmp"><thead><tr><th></th><th>Night Cream</th><th>Face Wash</th><th>Glow Duo</th></tr></thead><tbody>'
      '<tr><td>Size</td><td>30 g jar</td><td>100 ml pump</td><td>30 g + 100 ml</td></tr>'

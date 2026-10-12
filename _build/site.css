@@ -801,3 +801,42 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
 .skip:not(:focus){position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .head .brand{display:inline-flex;align-items:center;min-height:44px}
 .cite{padding:12px 14px;border-left:3px solid var(--gold2);background:var(--surface);border-radius:0 12px 12px 0;font-size:.9rem}
+/* shop page on phones: compact list so all three products fit on one screen */
+@media (max-width:640px){
+  .shop-sec{padding-top:12px!important}
+  .shop-grid{grid-template-columns:minmax(0,1fr)!important;gap:10px}
+  .shop-grid .card{display:grid;grid-template-columns:104px minmax(0,1fr);border-radius:18px;transform:none!important}
+  .shop-grid .card::after{display:none}
+  .shop-grid .card .tag{top:6px;left:6px;font-size:.56rem;padding:3px 7px;letter-spacing:.08em}
+  .shop-grid .card .ph{aspect-ratio:auto;height:100%;min-height:136px}
+  .shop-grid .card .ph img{height:100%}
+  .shop-grid .card .bd{padding:10px 12px 12px;gap:3px}
+  .shop-grid .card h2{font-size:1.06rem;line-height:1.2;margin:0}
+  .shop-grid .card .size{font-size:.74rem}
+  .shop-grid .card .price{margin:0;gap:6px;flex-wrap:wrap}
+  .shop-grid .card .price b{font-size:1.15rem}
+  .shop-grid .card .price s{font-size:.72rem}
+  .shop-grid .card .acts{padding-top:6px;gap:6px}
+  .shop-grid .card .acts .btn{min-height:36px;font-size:.74rem;padding:0 6px}
+}
+@media (max-width:640px){
+  main:has(.shop-grid) .crumbs{display:none}
+  main:has(.shop-grid) .page-top{padding-block:14px 4px!important}
+  main:has(.shop-grid) .page-top h1{font-size:1.9rem;margin:2px 0 0}
+  main:has(.shop-grid) .page-top p{font-size:.84rem;margin:4px 0 0;line-height:1.45}
+  main:has(.shop-grid) .page-top .eyebrow{display:none}
+  .shop-grid .card{grid-template-columns:96px minmax(0,1fr)}
+  .shop-grid .card .ph{min-height:118px}
+  .shop-grid .card .bd{padding:9px 11px 10px;gap:2px}
+}
+@media (max-width:380px){
+  .shop-grid{gap:8px}
+  .shop-grid .card{grid-template-columns:84px minmax(0,1fr)}
+  .shop-grid .card .ph{min-height:108px}
+  .shop-grid .card .bd{padding:8px 10px 9px}
+  .shop-grid .card h2{font-size:.96rem}
+  .shop-grid .card .size{display:none}
+  .shop-grid .card .price b{font-size:1.05rem}
+  .shop-grid .card .acts .btn{min-height:34px;font-size:.7rem}
+  main:has(.shop-grid) .page-top p{display:none}
+}
