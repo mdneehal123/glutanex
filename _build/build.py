@@ -25,7 +25,7 @@ PRODUCTS = [
          imgs=['cream-square', 'jar-night', 'jar-hand', 'jar-bag'], og='cream-square',
          summary='A rich night cream that pairs glutathione with niacinamide, vitamin C, retinol, hyaluronic acid, ceramides and peptides, plus aloe, turmeric and neem. Made for skin that looks brighter, smoother and more even by morning.',
          title='GlutaNex Glutathione Night Cream 30g | Glutathione Cream for Face',
-         desc='GlutaNex Glutathione Night Cream with niacinamide, vitamin C, retinol and hyaluronic acid for a brighter-looking, more even complexion. Cash on Delivery across India.'),
+         desc='GlutaNex Glutathione Night Cream with niacinamide, vitamin C, retinol and hyaluronic acid for a brighter, more even-looking complexion. COD across India.'),
     dict(id='wash', slug='glutanex-gluta-boost-face-wash', short='Face Wash', sku='GNX-WASH-100',
          name='GlutaNex Gluta Boost Face Wash', size='100 ml pump bottle', price=399, mrp=599,  # confirmed 11 Oct 2026
          tag='New',
@@ -90,6 +90,18 @@ def _market_badge(n, u):
 WA_IMG = '<img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="20">'
 
 pages = []
+# asset version: changes whenever the stylesheet or any script changes, so browsers can cache them for a year
+import hashlib as _hl, glob as _glob
+AV = _hl.md5(b''.join(open(f, 'rb').read() for f in sorted(_glob.glob(os.path.join(B, '*.js')) + [os.path.join(B, 'site.css')]))).hexdigest()[:10]
+
+
+def mincss(c):
+    # careful minifier: drops comments and spacing only; selectors and values are untouched otherwise
+    c = re.sub(r'/\*.*?\*/', '', c, flags=re.S)
+    c = re.sub(r'\s+', ' ', c)
+    c = re.sub(r'\s*([{};,>])\s*', r'\1', c)
+    c = re.sub(r':\s+', ':', c)
+    return c.replace(';}', '}').strip()
 SEARCH = []  # site search index, written to assets/search.json
 
 
@@ -163,7 +175,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
     if schema:
         graph += schema
     robots = 'noindex, nofollow' if (PREVIEW or not index) else 'index, follow, max-image-preview:large'
-    scripts = ''.join('<script src="/assets/%s" defer></script>' % j for j in (['jar3d.js'] if jar else []) + js.split(',') + (['talk.js'] if '[data-talk]' in body or 'data-talk' in body else []))
+    scripts = ''.join('<script src="/assets/%s?v=%s" defer></script>' % (j, AV) for j in (['jar3d.js'] if jar else []) + js.split(',') + (['talk.js'] if '[data-talk]' in body or 'data-talk' in body else []))
     doc = '''<!doctype html>
 <html lang="%(lang)s">
 <head>
@@ -184,7 +196,7 @@ d.className+=' t-'+t+(f?' fest-'+f:'');d.setAttribute('data-today',ds);}catch(e)
 <meta name="twitter:card" content="summary_large_image">
 %(extra)s<link rel="manifest" href="/site.webmanifest"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/manrope.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/assets/fonts/cormorant.woff" as="font" type="font/woff" crossorigin>
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=%(av)s">
 <script type="application/ld+json">%(ld)s</script>
 </head>
 <body%(bodycls)s><div class="progress" aria-hidden="true"></div>
@@ -239,7 +251,7 @@ d.className+=' t-'+t+(f?' fest-'+f:'');d.setAttribute('data-today',ds);}catch(e)
            nav=nav, menu=SVG_MENU, bag=SVG_BAG, x=SVG_X, body=body, owner=OWNER, addr=ADDR, wa=WA, waimg=WA_IMG,
            watext=urllib.parse.quote('Hi GlutaNex, I have a question.'),
            shop=''.join('<a href="%s">%s</a>' % (url(p), p['short']) for p in PRODUCTS),
-           bodycls=' class="checkout-page"' if path == '/checkout/' else '', srch=SVG_SEARCH, i_home=SVG_HOME, i_shop=SVG_GRID, i_track=SVG_TRUCK, t_home=' aria-current="page"' if path == '/' else '', t_shop=' aria-current="page"' if path == '/shop/' or path.startswith('/product/') else '', t_track=' aria-current="page"' if path == '/track-order/' else '', pol=''.join('<a href="%s">%s</a>' % x for x in POLICIES), markets=''.join(_market_badge(n, u) for n, u in MARKET_LINKS), scripts=scripts)
+           av=AV, bodycls=' class="checkout-page"' if path == '/checkout/' else '', srch=SVG_SEARCH, i_home=SVG_HOME, i_shop=SVG_GRID, i_track=SVG_TRUCK, t_home=' aria-current="page"' if path == '/' else '', t_shop=' aria-current="page"' if path == '/shop/' or path.startswith('/product/') else '', t_track=' aria-current="page"' if path == '/track-order/' else '', pol=''.join('<a href="%s">%s</a>' % x for x in POLICIES), markets=''.join(_market_badge(n, u) for n, u in MARKET_LINKS), scripts=scripts)
     out = os.path.join(ROOT, '404.html') if path == '/404' else os.path.join(ROOT, path.strip('/'), 'index.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w').write(doc)
@@ -646,7 +658,8 @@ page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('
 
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
-for f in ['site.css', 'store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
+open(os.path.join(ROOT, 'assets', 'site.css'), 'w', encoding='utf-8').write(mincss(open(os.path.join(B, 'site.css'), encoding='utf-8').read()))
+for f in ['store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
@@ -703,8 +716,11 @@ open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
 # Google Search Console ownership file (HTML file method). Must stay at the site root.
 open(os.path.join(ROOT, 'google68c163c347b9f153.html'), 'w').write('google-site-verification: google68c163c347b9f153.html')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
-vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo)', 'destination': '/api/hub?fn=:fn'}], 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/hub?fn=indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
-                                         {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
+vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo)', 'destination': '/api/hub?fn=:fn'}], 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/hub?fn=indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/(.*)', 'headers': [{'key': 'X-Content-Type-Options', 'value': 'nosniff'}, {'key': 'Referrer-Policy', 'value': 'strict-origin-when-cross-origin'},
+                {'key': 'Permissions-Policy', 'value': 'camera=(self), microphone=(self), geolocation=(), browsing-topics=()'}, {'key': 'Strict-Transport-Security', 'value': 'max-age=63072000; includeSubDomains'}]},
+               {'source': '/((?!web-stories|hi/web-stories).*)', 'headers': [{'key': 'X-Frame-Options', 'value': 'SAMEORIGIN'}]},
+               {'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
+                                         {'source': '/assets/(.*)\\.(css|js)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]}, {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
                                          {'source': '/(cart|checkout|reorder|leads|offline|reminders)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},
                                          {'source': '/sw.js', 'headers': [{'key': 'Cache-Control', 'value': 'no-cache'}]},
                                          {'source': '/(llms.txt|llms-full.txt)', 'headers': [{'key': 'Content-Type', 'value': 'text/plain; charset=utf-8'}, {'key': 'Cache-Control', 'value': 'public, max-age=3600'}]},
@@ -722,7 +738,7 @@ open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
     'shortcuts': [{'name': 'Shop', 'url': '/shop/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
                   {'name': 'Track order', 'url': '/track-order/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]},
                   {'name': 'Glutathione guide', 'url': '/glutathione/', 'icons': [{'src': '/icon-192.png', 'sizes': '192x192'}]}]}, ensure_ascii=False, indent=1))
-PRECACHE = ['/', '/offline/', '/shop/', '/glutathione/', '/assets/site.css', '/assets/store.js', '/assets/jar3d.js', '/assets/products.json',
+PRECACHE = ['/', '/offline/', '/shop/', '/glutathione/', '/assets/site.css?v=' + AV, '/assets/store.js?v=' + AV, '/assets/jar3d.js?v=' + AV, '/assets/products.json',
             im('jar-cut'), '/assets/img/glutanex-logo-dark.png', '/assets/img/glutanex-logo-light.png', '/assets/whatsapp-glyph-green.svg', '/icon-192.png', '/assets/fonts/manrope.woff', '/assets/fonts/cormorant.woff']
 open(os.path.join(ROOT, 'sw.js'), 'w').write('''/* GlutaNex app: keeps the shop fast and usable on weak connections. Version %s */
 var V='gn-%s', CORE=%s;

@@ -14,8 +14,8 @@
     root.textContent='';var p=el('form','panel rt-card rt-join');p.noValidate=true;
     p.appendChild(el('h2',null,'Start your tracker'));
     p.appendChild(el('p','muted','Use the order number from your order confirmation (it starts with pay_) and the mobile number you ordered with.'));
-    var f1=el('div','f');f1.appendChild(el('label',null,'Order number'));var o=el('input');o.placeholder='pay_XXXXXXXXXXXX';o.autocomplete='off';o.spellcheck=false;o.value=prefill.order||'';f1.appendChild(o);p.appendChild(f1);
-    var f2=el('div','f');f2.appendChild(el('label',null,'Mobile number'));var ph=el('input');ph.type='tel';ph.inputMode='numeric';ph.maxLength=14;ph.value=prefill.phone||'';f2.appendChild(ph);p.appendChild(f2);
+    var f1=el('div','f');var l1=el('label',null,'Order number');l1.htmlFor='rt-order';f1.appendChild(l1);var o=el('input');o.id='rt-order';o.placeholder='pay_XXXXXXXXXXXX';o.autocomplete='off';o.spellcheck=false;o.value=prefill.order||'';f1.appendChild(o);p.appendChild(f1);
+    var f2=el('div','f');var l2=el('label',null,'Mobile number');l2.htmlFor='rt-phone';f2.appendChild(l2);var ph=el('input');ph.id='rt-phone';ph.type='tel';ph.inputMode='numeric';ph.maxLength=14;ph.value=prefill.phone||'';f2.appendChild(ph);p.appendChild(f2);
     var er=el('p','oerr');er.hidden=true;p.appendChild(er);
     var b=el('button','btn block','Start tracking');b.type='submit';p.appendChild(b);
     p.addEventListener('submit',function(e){e.preventDefault();go(o.value.trim(),ph.value);});

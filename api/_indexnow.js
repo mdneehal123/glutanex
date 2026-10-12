@@ -1,4 +1,5 @@
 const kv = require('./_kv');
+const guard = require('./_guard');
 const PAGES = require('./_pages.json');
 
 // IndexNow: tells Bing (which also feeds ChatGPT search and Copilot), Yandex, Seznam and Naver
@@ -11,7 +12,7 @@ const HOST = 'glutanex.co.in';
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   const secret = process.env.CRON_SECRET;
-  const owner = process.env.OWNER_CODE && String(req.headers['x-owner-code'] || '') === process.env.OWNER_CODE;
+  const owner = guard.sameCode(req.headers['x-owner-code'], process.env.OWNER_CODE);
   if (secret && !owner && req.headers.authorization !== 'Bearer ' + secret) return res.status(401).json({ ok: false });
   if (!kv.cfg()) return res.status(503).json({ ok: false, error: 'not_configured' });
   try {

@@ -1,19 +1,13 @@
-const crypto = require('crypto');
 const kv = require('./_kv');
+const guard = require('./_guard');
 
 // Owner-only list of unfinished checkouts. Protected by the OWNER_CODE environment variable.
-function allowed(req) {
-  const want = process.env.OWNER_CODE || '';
-  const got = String(req.headers['x-owner-code'] || '');
-  if (want.length < 6 || got.length !== want.length) return false;
-  return crypto.timingSafeEqual(Buffer.from(got), Buffer.from(want));
-}
-
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   if (!process.env.OWNER_CODE) return res.status(503).json({ ok: false, error: 'owner_code_missing' });
   if (!kv.cfg()) return res.status(503).json({ ok: false, error: 'database_missing' });
-  if (!allowed(req)) { await new Promise((r) => setTimeout(r, 600)); return res.status(401).json({ ok: false, error: 'wrong_code' }); }
+  const deny = await guard.owner(req);
+  if (deny) return res.status(deny[0]).json(deny[1]);
   try {
     if (req.method === 'POST') {
       let b = req.body || {};

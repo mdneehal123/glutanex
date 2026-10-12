@@ -9,7 +9,7 @@
   function rs(n){return '₹'+Number(n||0).toLocaleString('en-IN');}
   function ago(t){var m=Math.round((Date.now()-t)/60000);if(m<60){return m+' min ago';}var h=Math.round(m/60);if(h<48){return h+' h ago';}return Math.round(h/24)+' days ago';}
   function api(method,body){return fetch('/api/leads',{method:method,headers:{'Content-Type':'application/json','x-owner-code':code},body:body?JSON.stringify(body):undefined}).then(function(r){return r.json().then(function(j){return {s:r.status,j:j};});});}
-  function fail(s,j){var m={401:'Wrong owner code.',503:j&&j.error==='database_missing'?'The database is not connected yet. In Vercel: Storage → add Upstash Redis to this project, then redeploy.':'Set OWNER_CODE in Vercel → Settings → Environment Variables, then redeploy.'}[s]||'Could not load the list. Try again.';
+  function fail(s,j){var m={429:'Too many wrong codes. Owner pages are locked for 15 minutes.',401:'Wrong owner code.',503:j&&j.error==='database_missing'?'The database is not connected yet. In Vercel: Storage → add Upstash Redis to this project, then redeploy.':'Set OWNER_CODE in Vercel → Settings → Environment Variables, then redeploy.'}[s]||'Could not load the list. Try again.';
     err.textContent=m;err.hidden=false;if(s===401){try{sessionStorage.removeItem('gn-owner');}catch(e){}}}
   var STEP={1:'Entered name and phone',2:'Entered address',3:'Reached payment'};
   function load(){err.hidden=true;out.textContent='Loading…';

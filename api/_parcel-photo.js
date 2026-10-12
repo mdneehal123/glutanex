@@ -1,4 +1,5 @@
 const kv = require('./_kv');
+const guard = require('./_guard');
 const { BRAND, keys } = require('./_shared');
 
 // Owner uploads one photo of the sealed parcel; the buyer sees it on the tracking page ("Packed today in Bhatkal").
@@ -7,9 +8,8 @@ const { BRAND, keys } = require('./_shared');
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ ok: false });
-  const want = process.env.OWNER_CODE || '';
-  if (!want) return res.status(503).json({ ok: false, error: 'owner_code_missing' });
-  if (String(req.headers['x-owner-code'] || '') !== want) return res.status(401).json({ ok: false });
+  const deny = await guard.owner(req);
+  if (deny) return res.status(deny[0]).json(deny[1]);
   if (!kv.cfg()) return res.status(503).json({ ok: false, error: 'database_missing' });
   const k = keys();
   if (!k) return res.status(503).json({ ok: false, error: 'not_configured' });

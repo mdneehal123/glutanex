@@ -6,7 +6,7 @@
   var $=function(id){return document.getElementById(id);};
   function code(){var c='';try{c=sessionStorage.getItem('gn-owner')||'';}catch(e){}return c||($('owner-code')&&$('owner-code').value.trim())||'';}
   function say(id,t,ok){var p=$(id);p.textContent=t;p.className='ot-msg '+(ok?'ok':'bad');p.hidden=false;}
-  var ERR={401:'Wrong owner code. Enter it at the top first.',503:'Not switched on yet: add the Redis database and OWNER_CODE in Vercel, then redeploy.'};
+  var ERR={429:'Too many wrong codes: owner tools are locked for 15 minutes.',401:'Wrong owner code. Enter it at the top first.',503:'Not switched on yet: add the Redis database and OWNER_CODE in Vercel, then redeploy.'};
   /* reward code */
   $('ot-code-go').addEventListener('click',function(){var ph=$('ot-phone').value.replace(/\D/g,'').slice(-10),off=+$('ot-off').value,note=$('ot-note').value;
     if(!/^[6-9]\d{9}$/.test(ph)){return say('ot-code-msg','Enter the customer\'s 10-digit mobile number.');}

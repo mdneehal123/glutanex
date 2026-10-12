@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const kv = require('./_kv');
 const push = require('./_push');
+const guard = require('./_guard');
 
 // App reminders: GET returns the public key; POST subscribes, updates or unsubscribes a phone.
 // Stored per subscription (30-day rolling expiry refreshed by the daily job): which reminders are on and the dates they start.
@@ -14,6 +15,7 @@ module.exports = async (req, res) => {
   try {
     if (req.method === 'GET') return res.status(200).json({ ok: true, key: (await push.vapid()).pub });
     if (req.method !== 'POST') return res.status(405).json({ ok: false });
+    if (!(await guard.limit('push', 1000, 3600))) return res.status(429).json({ ok: false, error: 'busy' });
     let b = req.body || {};
     if (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }
     const sub = b.sub || {};

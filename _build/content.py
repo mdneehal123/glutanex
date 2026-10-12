@@ -32,7 +32,7 @@ GUIDES = [
     dict(slug='glutathione-side-effects', title='Glutathione side effects and safe use', short='Side effects',
          blurb='Who should be careful, and how to use glutathione creams safely.',
          seo='Glutathione Side Effects: Is Glutathione Cream Safe?',
-         desc='Glutathione side effects explained: what is normal with glutathione creams, the risks of glutathione injections, who should ask a doctor first, and how to patch test.',
+         desc='Glutathione side effects explained: what is normal with glutathione creams, the risks of injections, who should ask a doctor first, and how to patch test.',
          body='''<p>Glutathione creams and face washes are generally well tolerated, but any skincare product can irritate some skin. The bigger safety concerns are with <b>glutathione injections</b>, not creams.</p>
 <h2>Creams and face washes</h2><ul><li><b>Mild tingling, redness or dryness</b> in the first days can happen with new products and usually settles.</li><li><b>Redness, itching or burning that lasts</b> is a reaction: stop using the product.</li><li><b>Rash or swelling</b>: stop at once and see a doctor.</li></ul><p>In the 10-week study of a 2%% glutathione lotion (%(study)s), one of 30 participants had mild redness for two days, which settled without stopping.</p>
 <h2>Glutathione injections</h2><p>Injections are a medical procedure, not skincare. The %(fda)s said injectable skin-lightening products may be unsafe, may contain unknown substances, and carry risks from unsafe injection practices, and that no injectable skin-lightening drug is approved. Never take glutathione injections from salons or unlicensed sellers.</p>
@@ -193,7 +193,7 @@ hub = top('Glutathione guides', 'Everything about <span class="gold">glutathione
     '<p class="note">These guides are general information about cosmetic skincare and do not replace advice from a dermatologist.</p></div></section>' % (
         PILLAR['title'], PILLAR['blurb'], ''.join(gcard(g) for g in GUIDES[1:]),
         ''.join('<a class="reveal" href="/hi/%s/" lang="hi"><span class="eyebrow">हिंदी</span><h3>%s</h3><p>%s</p></a>' % (h['slug'], h['title'], h['desc'].split(':')[0]) for h in HI))
-page('/glutathione-guides/', 'Glutathione Guides: Benefits, Side Effects, Price & Use | GlutaNex', 'All GlutaNex glutathione guides: what glutathione is, benefits for skin, side effects, price in India, face wash, kojic acid, foods and Hindi guides.',
+page('/glutathione-guides/', 'Glutathione Guides: Benefits, Side Effects, Price, Use | GlutaNex', 'All GlutaNex glutathione guides: what glutathione is, benefits for skin, side effects, price in India, face wash, kojic acid, foods and Hindi guides.',
      hub, crumbs=[('Glutathione guides', '/glutathione-guides/')], schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + guide_url(g), 'name': g['title']} for i, g in enumerate(GUIDES)]}])
 
 RELATED = {'glutathione': ['glutathione-cream-questions', 'glutathione-cream', 'is-glutathione-safe-for-skin'], 'glutathione-cream-questions': ['glutathione', 'retinol-vs-glutathione', 'glutathione-night-cream']}
@@ -244,7 +244,7 @@ for h in HI:
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN'},
                  faq_ld(_qa_ld + faq)])
-page('/hi/', 'Glutathione Hindi Guide: ग्लूटाथियोन की पूरी जानकारी हिंदी में | GlutaNex', 'ग्लूटाथियोन की जानकारी हिंदी में: ग्लूटाथियोन क्रीम के फायदे, नुकसान और लगाने का सही तरीका।',
+page('/hi/', 'Glutathione Hindi Guide: ग्लूटाथियोन की जानकारी हिंदी में', 'ग्लूटाथियोन की जानकारी हिंदी में: ग्लूटाथियोन क्रीम के फायदे, नुकसान और लगाने का सही तरीका।',
      top('हिंदी गाइड', 'ग्लूटाथियोन की जानकारी <span class="gold">हिंदी में</span>', 'आसान और सही जानकारी: फायदे, नुकसान और उपयोग का तरीका।') +
      '<section style="padding-top:30px"><div class="wrap" lang="hi"><div class="guides">%s</div></div></section>' % ''.join(
          '<a class="reveal" href="/hi/%s/"><span class="eyebrow">गाइड</span><h3>%s</h3><p>%s</p></a>' % (x['slug'], x['title'], x['desc'].split(':', 1)[-1].strip()) for x in HI),
@@ -270,7 +270,7 @@ for h in HL:
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-Latn',
                   'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['.answer']}},
                  faq_ld(ld_qa)])
-page('/hinglish/', 'Glutathione Ki Jaankari Hinglish Mein: Fayde, Nuksan, Use | GlutaNex',
+page('/hinglish/', 'Glutathione Ki Jaankari Hinglish Mein: Fayde, Nuksan, Use',
      'Glutathione ki poori jaankari aasan Hinglish mein: glutathione kya hai, cream ke fayde, nuksan, kaise lagaye, tablet, injection aur price.',
      top('Hinglish guides', 'Glutathione ki jaankari <span class="gold">Hinglish mein</span>', 'Aasan bhasha mein sach aur kaam ki baatein.') +
      '<section style="padding-top:30px"><div class="wrap"><div class="guides">%s</div></div></section>' % ''.join(
@@ -311,7 +311,7 @@ _bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
     ('Customer support', 'WhatsApp %s, Monday to Saturday, 10 am to 7 pm' % WA_SHOW)])
 _bp_mkts = ''.join('<li><a href="%s" target="_blank" rel="noopener">GlutaNex on %s</a></li>' % (html.escape(u), n) for n, u in MARKET_LINKS)
 page('/glutanex/', 'GlutaNex: Official Brand Information | Glutathione Skincare India',
-     'Official information about GlutaNex, the Indian glutathione skincare brand: who makes it, products and prices, official website and marketplace listings, and how to buy genuine.',
+     'Official facts about GlutaNex, the Indian glutathione skincare brand: who makes it, products and prices, official website and marketplaces, and how to buy genuine.',
      top('Brand facts', '<span class="gold">GlutaNex</span>: official brand information', 'Who we are, what we make and where to buy genuine GlutaNex.') + """<section style="padding-top:24px"><div class="wrap prose">
 <p class="answer"><b>GlutaNex</b> is an Indian glutathione skincare brand from %s, Bhatkal, Karnataka. It makes a Glutathione Night Cream and a Gluta Boost Face Wash, sold on its official website glutanex.co.in and on Amazon, Flipkart and Myntra.</p>
 <h2>GlutaNex at a glance</h2><div class="tbl"><table class="facts"><tbody>%s</tbody></table></div>

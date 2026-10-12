@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const kv = require('./_kv');
 const coupons = require('./_coupons');
 const { fromPayment } = require('./_proof');
+const guard = require('./_guard');
 
 // Routine streak: buyers tap "Done tonight" after applying the Night Cream. One tap counts per day (India time,
 // decided here on the server, so dates cannot be faked). 56 nights unlock a ₹200 code for the next order.
@@ -38,6 +39,7 @@ module.exports = async (req, res) => {
   if (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }
   try {
     if (b.action === 'join') {
+      if (!(await guard.limit('rt:' + String(b.order || '').slice(0, 40), 10, 3600)) || !(await guard.limit('rt', 2000, 3600))) return res.status(429).json({ ok: false, error: 'busy' });
       const pr = await fromPayment(String(b.order || '').trim());
       if (pr.err) return res.status(404).json({ ok: false, error: 'order_not_found' });
       const n = pr.o.notes || {};

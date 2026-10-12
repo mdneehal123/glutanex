@@ -1,5 +1,6 @@
 const { clean, cartFrom } = require('./_shared');
 const kv = require('./_kv');
+const guard = require('./_guard');
 
 // Saves an unfinished checkout so the shop can help on WhatsApp, only when the customer ticked the consent box.
 // status "done" removes it (order placed). Entries expire by themselves after 30 days.
@@ -14,6 +15,7 @@ module.exports = async (req, res) => {
   let phone = clean(b.phone, 20).replace(/\D/g, '');
   if (phone.length === 12 && phone.startsWith('91')) phone = phone.slice(2);
   if (!/^[6-9]\d{9}$/.test(phone)) return res.status(400).json({ ok: false, error: 'phone' });
+  if (!(await guard.limit('lead:' + phone, 30, 3600)) || !(await guard.limit('lead', 5000, 86400))) return res.status(429).json({ ok: false, error: 'busy' });
   const key = 'lead:' + phone;
   try {
     if (b.status === 'done' || b.consent === false) {

@@ -21,7 +21,7 @@ PILLAR = dict(
     slug='glutathione', title='Glutathione: what it is, what it does for skin, and how to use it safely', short='Glutathione',
     blurb='The complete guide: what glutathione is, how it affects skin, every form compared, and the research.',
     seo='Glutathione: Benefits for Skin, Uses, Side Effects & Forms',
-    desc='Glutathione explained: what it is, how it works in the body and skin, benefits, cream vs tablets vs injections, side effects, foods, and what the research really shows.',
+    desc='Glutathione explained: what it is, how it works in body and skin, benefits, cream vs tablets vs injections, side effects, foods, and what research shows.',
     refs=['study', 'oral', 'wesch', 'ijdvl', 'review', 'fda'],
     body='''<p><b>Glutathione</b> is a small antioxidant molecule that your body makes every day, mostly in the liver. It is often called the body's "master antioxidant" because it helps protect cells from damage and recycles other antioxidants such as vitamin C and vitamin E. In skincare, glutathione is used in creams, serums and face washes made for <b>brighter-looking, more even skin</b>.</p>
 <p>This guide covers everything in one place: what glutathione is, how it affects skin, the different forms you can buy, what the research shows, and how to use it safely.</p>
@@ -88,7 +88,7 @@ NEW_GUIDES = [
     dict(slug='glutathione-cream-price-in-india', title='Glutathione cream price in India: what you are paying for', short='Price in India',
          blurb='Why glutathione creams cost what they do, and how to judge value.',
          seo='Glutathione Cream Price in India (2026): What Affects It',
-         desc='Glutathione cream price in India explained: what drives the price, how to compare value per gram, red flags with very cheap creams, and GlutaNex prices with free shipping.',
+         desc='Glutathione cream price in India explained: what drives the price, how to compare value per gram, red flags with very cheap creams, and GlutaNex prices.',
          refs=['ijdvl', 'review'],
          body='''<p>Glutathione creams in India range from a few hundred rupees to several thousand. The price depends less on the word "glutathione" on the label and more on <b>what else is in the formula, how much you get, and who stands behind it</b>.</p>
 <h2>GlutaNex prices</h2>
@@ -332,7 +332,7 @@ HI = [
 QA_PAGE = dict(
     slug='glutathione-cream-questions', title='Glutathione cream: answers to the most-asked questions', short='Glutathione cream questions',
     blurb='Straight answers to what people ask Google about glutathione cream: does it work, daily use, whitening, the best one, retinol and more.',
-    seo='Glutathione Cream Questions Answered: Does It Work, Daily Use, Best One',
+    seo='Glutathione Cream Questions: Does It Work, Daily Use, Best One',
     desc='Honest answers to the most-asked glutathione cream questions: what it is used for, does it work, can you use it daily, whitening, best brand, retinol vs glutathione.',
     refs=['study', 'review', 'ijdvl', 'fda'],
     qa=[
@@ -487,8 +487,8 @@ QA_EXTRA['glutathione-side-effects'] = [
 # "glutathione tablets" (11 Oct 2026): its own page, questions first
 NEW_GUIDES.append(dict(slug='glutathione-tablets', title='Glutathione tablets: benefits, safety, dose and do they work for skin?', short='Glutathione tablets',
     blurb='What glutathione tablets can and cannot do for skin, what the studies used, safety, and how they compare with a cream.',
-    seo='Glutathione Tablets: Benefits, Safety, Dose & Do They Work for Skin?',
-    desc='Glutathione tablets explained: benefits for skin, what doses studies used, is it safe daily, kidneys and liver, 1000 mg tablets, how to spot originals, and tablets vs cream.',
+    seo='Glutathione Tablets: Benefits, Safety, Dose & Do They Work?',
+    desc='Glutathione tablets explained: skin benefits, doses used in studies, daily safety, kidneys and liver, 1000 mg tablets, spotting originals, and tablets vs cream.',
     refs=['oral', 'wesch', 'ijdvl', 'review', 'fda'],
     body='''<h2>How glutathione tablets compare with a cream</h2><div class="tbl"><table><thead><tr><th></th><th>Tablets</th><th>Cream</th></tr></thead><tbody>
 <tr><td>How it reaches skin</td><td>Swallowed; much is broken down in digestion</td><td>Applied directly where you want it</td></tr>
@@ -690,7 +690,7 @@ NEW_GUIDES += [
          faq=[('How can I remove summer tan fast?', 'Protect your skin daily with SPF 30+ sunscreen and reapply outdoors; a glutathione night cream can help tan look lighter within a few weeks.'), ('Can I use glutathione cream on sunburnt skin?', 'Wait until sunburn has healed; use a plain, soothing moisturiser meanwhile.')]),
     dict(slug='glutathione-in-pregnancy', title='Is glutathione safe in pregnancy?', short='Pregnancy',
          blurb='What is known about glutathione, retinol and skincare during pregnancy and breastfeeding.',
-         seo='Is Glutathione Safe in Pregnancy? Creams, Tablets & Injections', desc='Glutathione in pregnancy: what is known about glutathione creams, tablets and injections, why retinol should be avoided, safer routine ideas and why to ask your doctor.',
+         seo='Is Glutathione Safe in Pregnancy? Creams, Tablets & Injections', desc='Glutathione in pregnancy: what is known about creams, tablets and injections, why retinol should be avoided, safer routine ideas and why to ask your doctor.',
          refs=['ijdvl', 'fda'],
          body='''<p><b>Short answer:</b> the safety of glutathione during pregnancy and breastfeeding has not been well studied, so speak to your doctor before using any glutathione product. Avoid glutathione injections and avoid creams containing retinol.</p>
 <h2>Creams</h2><p>Little glutathione is absorbed from a cream, but many glutathione creams also contain other actives. <b>Retinol (vitamin A)</b> is generally avoided in pregnancy. The GlutaNex Night Cream contains retinol and salicylic acid, so do not use it while pregnant or breastfeeding unless your doctor says it is fine.</p>
@@ -716,7 +716,7 @@ HI += [
               ('क्या ग्लूटाथियोन रंग गोरा करता है?', 'नहीं। यह टैन और असमान रंगत को हल्का दिखाने में मदद कर सकता है, लेकिन प्राकृतिक रंग नहीं बदलता।')]),
     dict(slug='glutathione-goli-ke-fayde-nuksan', en='/glutathione-tablets/',
          title='ग्लूटाथियोन गोली (टैबलेट) के फायदे और नुकसान', short='ग्लूटाथियोन गोली',
-         seo='Glutathione Tablet Ke Fayde Aur Nuksan: ग्लूटाथियोन गोली की पूरी जानकारी',
+         seo='Glutathione Tablet Ke Fayde Aur Nuksan: ग्लूटाथियोन गोली',
          desc='Glutathione tablet ke fayde aur nuksan हिंदी में: गोली क्या करती है, स्टडी में कितनी मात्रा ली गई, साइड इफेक्ट्स, लिवर और किडनी, और क्रीम से तुलना।',
          body='''<p>ग्लूटाथियोन गोलियां शरीर की एंटीऑक्सीडेंट सुरक्षा के लिए और कुछ लोग त्वचा की रंगत के लिए लेते हैं। लेकिन त्वचा पर इनका असर हल्का और मिला-जुला है।</p>
 <h2>गोली के संभावित फायदे</h2><p>छोटी स्टडी में रोज 250 से 500 mg, 4 से 12 हफ्ते लेने पर त्वचा के मेलानिन में हल्की कमी दिखी (%(oral)s, %(wesch)s)। यह स्थायी गोरापन नहीं देती।</p>
@@ -915,7 +915,7 @@ TLDR = {
 NEW_GUIDES += [
     dict(slug='glutathione-cream-in-winter', title='Glutathione cream in winter: a routine for dry skin', short='Winter routine',
          blurb='How to use a glutathione cream in cold, dry weather without flaking, and why sunscreen still matters.',
-         seo='Glutathione Cream in Winter: Dry Skin Routine & Sunscreen Tips', desc='Can you use glutathione cream in winter? Yes: how to adjust for dry skin, layering with a moisturiser, retinol in cold weather, and why winter sunscreen still matters in India.',
+         seo='Glutathione Cream in Winter: Dry Skin Routine & Sunscreen Tips', desc='Can you use glutathione cream in winter? Yes: how to adjust for dry skin, layer a moisturiser, use retinol in cold weather, and why winter sunscreen still matters.',
          refs=['study'],
          qa=[('Can I use glutathione cream in winter?', 'Yes. Winter is a good time to start a glutathione cream: the sun is milder, so tan fades more easily. Apply it at night on clean skin, add a moisturiser on top if your skin feels dry, and keep wearing SPF 30+ sunscreen every morning.', ''),
              ('Do I need sunscreen in winter?', 'Yes. UVA rays, which drive tan and dark spots, stay strong through Indian winters and pass through haze, clouds and window glass. Use a broad-spectrum SPF 30 or higher with a good PA rating every morning, even on cool or foggy days.', '')],
@@ -927,7 +927,7 @@ NEW_GUIDES += [
               ('Should I apply moisturiser before or after glutathione cream?', 'Apply the glutathione cream first on clean, dry skin, wait about a minute, then apply your moisturiser on top.')]),
     dict(slug='glutathione-before-wedding', title='Glutathione before your wedding: an honest 12-week plan', short='Before the wedding',
          blurb='When to start, a week-by-week plan, and why to skip pre-wedding glutathione injections.',
-         seo='Glutathione Before Wedding: 12-Week Bridal & Groom Glow Plan', desc='Planning glutathione before your wedding? When to start a glutathione cream, a 12-week bride and groom plan, what to stop before the day, and why to avoid glutathione injections.',
+         seo='Glutathione Before Wedding: 12-Week Bridal & Groom Glow Plan', desc='Glutathione before your wedding: when to start the cream, a 12-week bride and groom plan, what to stop before the day, and why to skip glutathione injections.',
          refs=['study', 'fda'],
          qa=[('Is glutathione good before a wedding?', 'A glutathione cream can help tan and uneven tone look brighter if you start 8–12 weeks before the day and wear sunscreen daily. It will not change your natural skin colour, and glutathione injections, often sold as pre-wedding packages, are not recommended.', ''),
              ('How many weeks before the wedding should I start glutathione cream?', 'Start 10–12 weeks before if you can. That leaves two weeks to build up slowly, about eight weeks for gradual results, and time to stop anything that irritates. Starting a new active cream in the last two weeks is risky.', ''),
@@ -948,7 +948,7 @@ NEW_GUIDES += [
 HI += [
     dict(slug='shaadi-se-pehle-glutathione', en='/glutathione-before-wedding/',
          title='शादी से पहले ग्लूटाथियोन: 12 हफ्तों का सच्चा प्लान', short='शादी से पहले',
-         seo='Shaadi Se Pehle Glutathione: दुल्हन और दूल्हे के लिए 12 हफ्ते का प्लान',
+         seo='Shaadi Se Pehle Glutathione: 12 हफ्ते का प्लान',
          desc='शादी से पहले glutathione cream कब शुरू करें, हफ्ते-दर-हफ्ते प्लान, आखिरी दो हफ्तों में क्या न करें, और ग्लूटाथियोन इंजेक्शन से क्यों बचें।',
          body='''<p><b>छोटा जवाब:</b> ग्लूटाथियोन क्रीम शादी से 10–12 हफ्ते पहले शुरू करें और रोज़ सुबह सनस्क्रीन लगाएं। इससे टैन और असमान रंगत धीरे-धीरे हल्की और एक-सी दिख सकती है। यह प्राकृतिक रंग नहीं बदलती, और प्री-वेडिंग ग्लूटाथियोन इंजेक्शन की सलाह नहीं दी जाती।</p>
 <h2>हफ्ते-दर-हफ्ते प्लान</h2><div class="tbl"><table><thead><tr><th>शादी से पहले</th><th>क्या करें</th></tr></thead><tbody>

@@ -1,5 +1,6 @@
 const { BRAND, ADVANCE, keys, clean, cartFrom } = require('./_shared');
 const coupons = require('./_coupons');
+const guard = require('./_guard');
 
 // Creates a Razorpay order for the cart. The amount is worked out here from the fixed price table.
 module.exports = async (req, res) => {
@@ -18,6 +19,7 @@ module.exports = async (req, res) => {
   if (!cart || name.length < 2 || !/^[6-9]\d{9}$/.test(phone) || address.length < 8 || city.length < 2 || !/^[1-9]\d{5}$/.test(pincode)) {
     return res.status(400).json({ error: 'invalid_details' });
   }
+  if (!(await guard.limit('order:' + phone, 15, 3600)) || !(await guard.limit('order', 1000, 3600))) return res.status(429).json({ error: 'busy' });
   const advance = body.mode === 'advance';
   // reward code: checked here on the server; it is only marked as used once the payment succeeds (api/verify.js)
   let off = 0, code = '';

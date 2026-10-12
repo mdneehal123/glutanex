@@ -1,4 +1,5 @@
 const coupons = require('./_coupons');
+const guard = require('./_guard');
 
 // GET  /api/coupon?code=GNX-XXXXXX&phone=98xxxxxxxx&total=2499  -> preview a reward code at checkout
 // POST /api/coupon  (header x-owner-code)  {phone, off, days, note}  -> owner creates a code (e.g. unboxing reel reward)
@@ -7,13 +8,14 @@ module.exports = async (req, res) => {
   try {
     if (req.method === 'GET') {
       const q = req.query || {};
+      const ph = String(q.phone || '').replace(/\D/g, '').slice(-10);
+      if (!(await guard.limit('cpn:' + ph, 20, 3600)) || !(await guard.limit('cpn', 3000, 3600))) return res.status(429).json({ ok: false, reason: 'busy', message: 'Too many tries. Please wait a while and try again.' });
       const v = await coupons.check(q.code, q.phone, Number(q.total) || 0);
       return res.status(200).json(v.ok ? { ok: true, code: v.code, off: v.off, exp: v.exp } : { ok: false, reason: v.reason, message: coupons.REASONS[v.reason] });
     }
     if (req.method === 'POST') {
-      const want = process.env.OWNER_CODE || '';
-      if (!want) return res.status(503).json({ ok: false, error: 'owner_code_missing' });
-      if (String(req.headers['x-owner-code'] || '') !== want) return res.status(401).json({ ok: false });
+      const deny = await guard.owner(req);
+      if (deny) return res.status(deny[0]).json(deny[1]);
       let b = req.body || {};
       if (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }
       const c = await coupons.issue({ off: b.off, phone: b.phone, days: b.days || 60, kind: b.kind || 'manual', note: b.note });
