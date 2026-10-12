@@ -970,3 +970,121 @@ TLDR.update({
                                    'Do not start new products, peels or bleach in the final two weeks.',
                                    'Skip glutathione injections and IV glow drips; they lack trials and carry warnings.'],
 })
+
+# Key takeaways for Hindi pages
+TLDR_HI = {
+    'glutathione-cream-ke-fayde': ['ग्लूटाथियोन क्रीम एंटीऑक्सीडेंट सुरक्षा देती है और त्वचा को धीरे-धीरे चमकदार व एक-सा दिखाने में मदद करती है।',
+                                   'नतीजे 8–12 हफ्तों में दिखते हैं, रोज़ सनस्क्रीन के साथ।',
+                                   'यह प्राकृतिक रंग नहीं बदलती।'],
+    'glutathione-ke-nuksan': ['क्रीम आमतौर पर सुरक्षित है; शुरुआत में हल्की जलन, लालिमा या रूखापन हो सकता है।',
+                              'पहले 24 घंटे पैच टेस्ट करें; सूजन या रैश हो तो इस्तेमाल बंद करें।',
+                              'सबसे ज़्यादा जोखिम इंजेक्शन में है; त्वचा गोरी करने के लिए इनसे बचें।'],
+    'glutathione-cream-kaise-lagaye': ['रात को चेहरा धोकर सुखाएं, फिर मटर के दाने जितनी क्रीम लगाएं।',
+                                       'रेटिनॉल वाली क्रीम पहले दो हफ्ते हफ्ते में 2–3 रात।',
+                                       'हर सुबह SPF 30+ सनस्क्रीन; नतीजे 8–12 हफ्तों में।'],
+    'glutathione-kya-hai': ['ग्लूटाथियोन शरीर में बनने वाला एंटीऑक्सीडेंट है जो कोशिकाओं को नुकसान से बचाता है।',
+                            'स्किनकेयर में यह टैन और असमान रंगत को धीरे-धीरे हल्का दिखाने में मदद कर सकता है।',
+                            'यह प्राकृतिक रंग नहीं बदलता; क्रीम कम जोखिम वाली है, इंजेक्शन से बचें।'],
+    'glutathione-goli-ke-fayde-nuksan': ['अध्ययनों में 250–500 mg रोज़, 4–12 हफ्तों तक, रंगत में हल्का बदलाव दिखा।',
+                                         'कम समय के लिए आमतौर पर ठीक; लंबे इस्तेमाल की जानकारी कम है।',
+                                         'गोली लेने से पहले डॉक्टर से पूछें।'],
+    'glutathione-cream-price': ['भारत में ग्लूटाथियोन क्रीम कुछ सौ से कई हज़ार रुपये तक मिलती है।',
+                                'कीमत प्रति ग्राम, पूरी सामग्री सूची और सच्चे दावे देखें।',
+                                'बहुत सस्ती, बिना लेबल वाली "फेयरनेस" क्रीम से बचें।'],
+    'glutathione-se-gora-hota-hai-kya': ['नहीं, ग्लूटाथियोन प्राकृतिक त्वचा का रंग नहीं बदलता।',
+                                         'यह टैन और दाग-धब्बों को धीरे-धीरे हल्का दिखा सकता है, सनस्क्रीन के साथ।',
+                                         '"हमेशा के लिए गोरा" करने वाला कोई इंजेक्शन, गोली या क्रीम साबित नहीं है।'],
+    'glutathione-cream-sawal-jawab': ['ग्लूटाथियोन क्रीम रोज़ रात लगाई जा सकती है; रेटिनॉल वाली क्रीम धीरे-धीरे शुरू करें।',
+                                      'नतीजे 8–12 हफ्तों में; रोज़ सनस्क्रीन ज़रूरी है।',
+                                      'गर्भावस्था में या त्वचा की समस्या हो तो डॉक्टर से पूछें।'],
+    'shaadi-se-pehle-glutathione': ['शादी से 10–12 हफ्ते पहले ग्लूटाथियोन क्रीम शुरू करें, रोज़ सनस्क्रीन के साथ।',
+                                    'आखिरी दो हफ्तों में कोई नई क्रीम, पील या ब्लीच नहीं।',
+                                    'ग्लूटाथियोन इंजेक्शन और IV ड्रिप से बचें।'],
+}
+
+# ---------------- GEO pages: a citable fact sheet and three questions people ask AI assistants ----------------
+NEW_GUIDES += [
+    dict(slug='glutathione-facts', title='Glutathione: key facts and figures, with sources', short='Facts and figures',
+         blurb='The essential numbers on glutathione for skin in one place: studies, doses, timelines and safety, each with its source.',
+         seo='Glutathione Facts & Figures: Studies, Doses, Safety (Sources)', desc='Key facts on glutathione for skin with sources: what it is, the main clinical studies, doses, how long results take, safety of creams, tablets and injections.',
+         refs=['study', 'oral', 'wesch', 'ijdvl', 'review', 'fda'],
+         qa=[('What are the key facts about glutathione for skin?', 'Glutathione is an antioxidant the body makes from three amino acids. Small trials found modest, gradual drops in skin melanin: a 2%% lotion over 10 weeks and 250–500 mg tablets over 4–12 weeks. It does not change natural skin colour, and injections for skin lightening lack trials and carry regulator warnings.', '')],
+         body='''<h2>The molecule</h2><div class="tbl"><table class="facts"><tbody>
+<tr><td>What it is</td><td>A tripeptide antioxidant made of glutamic acid (glutamate), cysteine and glycine; often written GSH</td></tr>
+<tr><td>Where it is made</td><td>In the body's own cells, mostly the liver</td></tr>
+<tr><td>Main job</td><td>Protects cells from oxidative damage and recycles vitamins C and E</td></tr>
+<tr><td>Link to skin tone</td><td>Slows tyrosinase, the enzyme that makes melanin, and may shift production towards lighter pheomelanin (%(ijdvl)s)</td></tr></tbody></table></div>
+<h2>The main clinical studies on skin</h2><div class="tbl"><table><thead><tr><th>Study</th><th>What was tested</th><th>Who and how long</th><th>Finding</th></tr></thead><tbody>
+<tr><td>%(study)s</td><td>2%% oxidised glutathione lotion, twice daily</td><td>30 healthy women, 10 weeks</td><td>Melanin index fell more on the treated side than placebo</td></tr>
+<tr><td>%(oral)s</td><td>500 mg capsules daily</td><td>60 healthy adults, 4 weeks</td><td>Melanin index fell at all six measured sites versus placebo</td></tr>
+<tr><td>%(wesch)s</td><td>250 mg a day, reduced or oxidised form</td><td>60 women aged 20–50, 12 weeks</td><td>Trends to lower melanin, mostly not statistically significant</td></tr></tbody></table></div>
+<h2>What the reviews conclude</h2><ul><li>A 2025 systematic review of topical glutathione (%(review)s): promising, but studies are few, small and short.</li><li>The Indian dermatology review (%(ijdvl)s): short-term evidence is encouraging for creams and tablets, not strong enough to call glutathione a treatment for melasma, and no trial supports IV glutathione for skin lightening.</li></ul>
+<h2>Timelines and numbers to remember</h2><div class="tbl"><table class="facts"><tbody>
+<tr><td>Fresher look</td><td>Often 4–8 weeks of nightly use</td></tr>
+<tr><td>Lighter-looking tan</td><td>Usually 8–12 weeks, with daily SPF 30+ sunscreen</td></tr>
+<tr><td>Doses studied (tablets)</td><td>250–500 mg a day, for 4–12 weeks</td></tr>
+<tr><td>Cream tolerance</td><td>In the 10-week lotion study, 1 of 30 women had mild redness that cleared in two days</td></tr>
+<tr><td>Injections</td><td>No clinical trial for skin lightening; warned against by regulators (%(fda)s)</td></tr></tbody></table></div>
+<h2>What glutathione does not do</h2><p>It does not change natural skin colour, results fade without sun protection, and no cream, tablet or injection is proven to whiten skin permanently.</p>
+<h2>How to cite this page</h2><p class="cite">GlutaNex. "Glutathione: key facts and figures, with sources." glutanex.co.in/glutathione-facts/. Please link to the original studies listed below as well.</p>''',
+         faq=[('How long does glutathione take to work on skin?', 'In studies, changes appeared after 4 to 12 weeks. With a cream, expect a fresher look in 4 to 8 weeks and lighter-looking tan in 8 to 12 weeks, with daily sunscreen.'),
+              ('What dose of glutathione was used in studies?', 'Tablet studies used 250 to 500 mg a day for 4 to 12 weeks. The best-known cream study used a 2%% oxidised glutathione lotion twice daily for 10 weeks.')]),
+    dict(slug='glutathione-for-underarms-and-body', title='Glutathione for dark underarms, knees and elbows: what helps', short='Underarms and body',
+         blurb='Why underarms, knees and elbows get darker, what glutathione can and cannot do there, and a gentle routine.',
+         seo='Glutathione for Dark Underarms, Knees & Elbows: What Helps', desc='Can glutathione lighten dark underarms, knees and elbows? Common causes, a gentle routine, when to see a doctor, and why retinol face creams are not for underarms.',
+         refs=['ijdvl', 'review'],
+         qa=[('Can glutathione lighten dark underarms?', 'It may help a little where darkness comes from friction or shaving irritation, but evidence is for the face and is modest. Underarm skin is thin and easily irritated, so gentle care matters most. Velvety, thick dark skin can be a sign of insulin resistance and needs a doctor.', ''),
+             ('Can I use glutathione face cream on my underarms?', 'Not a cream with retinol or salicylic acid, like the GlutaNex Night Cream: it can sting and irritate thin underarm skin, especially after shaving. On knees and elbows, patch test first and use a thin layer at night.', '')],
+         body='''<h2>Why these areas get darker</h2><ul><li><b>Friction:</b> tight clothes and skin rubbing on skin.</li><li><b>Shaving and waxing:</b> repeated irritation leaves dark marks.</li><li><b>Deodorant irritation:</b> some fragrances and alcohol sting.</li><li><b>Dry, thick skin</b> on knees and elbows from pressure.</li><li><b>Acanthosis nigricans:</b> velvety, thick, dark skin in folds, linked to insulin resistance and some hormone conditions. See a doctor if you notice this.</li></ul>
+<h2>A gentle routine that helps</h2><ol><li>Wash gently; skip harsh scrubs and lemon.</li><li>Switch to a fragrance-free deodorant if yours stings.</li><li>Trim or use a fresh razor with gel; avoid shaving on irritated skin.</li><li>Moisturise knees and elbows daily.</li><li>Use sunscreen on exposed knees and elbows.</li></ol>
+<h2>Where glutathione fits</h2><p>Studies on glutathione creams looked at the face (%(review)s). On knees and elbows a thin layer of a glutathione cream at night is reasonable after a patch test. %(cream)s contains retinol and salicylic acid, so keep it away from underarms and freshly shaved skin.</p>
+<h2>Avoid</h2><p>Bleach creams, unlabelled "whitening" creams, and creams that work "in days": they may contain steroids or mercury (%(ijdvl)s).</p>''',
+         faq=[('How long does it take for dark underarms to fade?', 'If you remove the cause, such as friction or shaving irritation, marks usually fade over 2 to 3 months. Darkness from acanthosis nigricans needs treatment of the underlying cause.'),
+              ('Do glutathione soaps lighten underarms?', 'A soap is rinsed off in seconds, so its glutathione has little time to act. Gentle washing helps; the soap itself is unlikely to change pigmentation.')]),
+    dict(slug='glutathione-for-dark-circles', title='Glutathione for dark circles: does it work?', short='Dark circles',
+         blurb='The different causes of dark circles, which type glutathione might help, and how to care for the eye area safely.',
+         seo='Glutathione for Dark Circles: Does It Work? Causes & Safe Care', desc='Does glutathione help dark circles? The four common causes, which kind may respond, why retinol creams should not go near the eyes, and simple habits that help.',
+         refs=['review', 'ijdvl'],
+         qa=[('Does glutathione help dark circles?', 'Only a little, and only for the brownish, pigment type. Many dark circles come from thin skin showing blood vessels, hollows, puffiness or genetics, which glutathione cannot change. Never apply retinol or acid creams close to the eyes.', ''),
+             ('Can I put glutathione night cream under my eyes?', 'Not one with retinol or salicylic acid, such as the GlutaNex Night Cream. Keep it at least a finger-width away from the eyes and use a gentle, fragrance-free eye cream instead.', '')],
+         body='''<h2>Four common causes</h2><div class="tbl"><table><thead><tr><th>Type</th><th>What it looks like</th><th>What helps</th></tr></thead><tbody>
+<tr><td>Pigment</td><td>Brownish, common in Indian skin</td><td>Sunscreen, sunglasses, gentle brightening care</td></tr>
+<tr><td>Vascular</td><td>Bluish or purple, worse when tired</td><td>Sleep, cool compress, treating allergies</td></tr>
+<tr><td>Hollows</td><td>Shadow under the eye</td><td>Mostly structural; a dermatologist can advise</td></tr>
+<tr><td>Puffiness</td><td>Bags, worse in the morning</td><td>Less salt at night, sleep, treating allergies</td></tr></tbody></table></div>
+<h2>Where glutathione fits</h2><p>Glutathione is studied for overall skin tone, not specifically for dark circles (%(review)s). For the pigment type, sun protection does most of the work.</p>
+<h2>Habits that help</h2><ul><li>7 to 8 hours of sleep.</li><li>Do not rub your eyes; treat itchy allergies.</li><li>Sunscreen around the eyes (mineral formulas sting less) and sunglasses.</li><li>A gentle, fragrance-free eye cream at night.</li></ul>
+<h2>When to see a doctor</h2><p>Sudden dark circles, one-sided swelling, or circles with tiredness and weight change are worth a check-up.</p>''',
+         faq=[('What is the fastest way to reduce dark circles?', 'There is no instant fix. Sleep, a cool compress for puffiness, treating allergies and daily sun protection help most within weeks.'),
+              ('Is glutathione safe around the eyes?', 'Glutathione itself is gentle, but many creams also contain retinol or acids that irritate the eye area. Keep those creams away from the eyes.')]),
+    dict(slug='glutathione-serum-vs-cream-vs-soap', title='Glutathione serum vs cream vs soap: which works best?', short='Serum vs cream vs soap',
+         blurb='How glutathione serums, creams, soaps and face washes differ, and which format makes sense for your skin.',
+         seo='Glutathione Serum vs Cream vs Soap: Which Works Best?', desc='Glutathione serum, cream, soap or face wash: how long each stays on skin, which suits oily or dry skin, what the research used, and how to build a simple routine.',
+         refs=['study', 'review'],
+         qa=[('Which is better, glutathione serum or cream?', 'Both are leave-on, which is what the research used. Serums are lighter and suit oily skin under a moisturiser; creams also moisturise and suit normal to dry skin. The formula, regular use and daily sunscreen matter more than the format.', ''),
+             ('Does glutathione soap work?', 'Soaps and face washes are rinsed off within a minute, so they mainly clean. They are a fine first step, but visible change needs a leave-on product and sunscreen.', '')],
+         body='''<h2>The formats compared</h2><div class="tbl"><table><thead><tr><th>Format</th><th>Contact time</th><th>Best for</th><th>Role</th></tr></thead><tbody>
+<tr><td>Soap / face wash</td><td>Under a minute</td><td>Everyone</td><td>Cleans; prepares skin</td></tr>
+<tr><td>Serum</td><td>Leave-on</td><td>Oily or combination skin</td><td>Light active layer under moisturiser</td></tr>
+<tr><td>Cream</td><td>Leave-on</td><td>Normal to dry skin</td><td>Active care plus moisture</td></tr>
+<tr><td>Body lotion</td><td>Leave-on</td><td>Arms, legs</td><td>Moisture; modest tone care</td></tr></tbody></table></div>
+<h2>What the research used</h2><p>The best-known study used a leave-on 2%% glutathione lotion twice daily for 10 weeks (%(study)s). A 2025 review found studies of leave-on glutathione promising but small (%(review)s). There is little evidence for soaps.</p>
+<h2>A simple routine</h2><ol><li>Night: cleanse with a gentle face wash such as %(wash)s.</li><li>Apply one leave-on glutathione product (a cream like %(cream)s, or a serum).</li><li>Morning: sunscreen SPF 30 or higher.</li></ol><p>Using several glutathione products at once does not speed results and adds irritation risk.</p>
+<h2>Red flags in any format</h2><p>Promises to whiten in days, no ingredient list, or no seller details.</p>''',
+         faq=[('Can I use glutathione serum and cream together?', 'You can, but it is rarely needed. One leave-on product used consistently, with sunscreen, is simpler and gentler.'),
+              ('Is glutathione face wash enough on its own?', 'It cleans and refreshes, but for a brighter, more even look you need a leave-on product and daily sunscreen.')]),
+]
+TLDR.update({
+    'glutathione-facts': ['Glutathione is a tripeptide antioxidant (glutamate, cysteine, glycine) made mostly in the liver.',
+                          'Trials: 2% lotion for 10 weeks (30 women); 500 mg tablets for 4 weeks (60 adults); 250 mg for 12 weeks (60 women): modest effects.',
+                          'It does not change natural skin colour; injections for lightening lack trials and carry warnings.'],
+    'glutathione-for-underarms-and-body': ['Underarm, knee and elbow darkness usually comes from friction, shaving or dryness.',
+                                           'Glutathione evidence is for the face; remove the cause first and care gently.',
+                                           'Velvety, thick dark skin can signal insulin resistance: see a doctor.'],
+    'glutathione-for-dark-circles': ['Glutathione may help only the brownish, pigment type of dark circles, and only a little.',
+                                     'Thin skin, vessels, hollows and puffiness need other care.',
+                                     'Keep retinol and acid creams away from the eye area.'],
+    'glutathione-serum-vs-cream-vs-soap': ['Soaps and face washes mainly clean; they are rinsed off too fast to change tone.',
+                                           'Serums and creams are leave-on, like the products used in research.',
+                                           'One leave-on product plus daily sunscreen beats stacking several.'],
+})

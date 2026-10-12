@@ -138,7 +138,7 @@ def with_toc(body, label='On this page'):
     return toc + body
 
 
-NO_CARD = {'glutathione-in-pregnancy', 'glutathione-vs-hydroquinone'}
+NO_CARD = {'glutathione-in-pregnancy', 'glutathione-vs-hydroquinone', 'glutathione-for-underarms-and-body', 'glutathione-for-dark-circles'}
 def mid_card(slug, body):
     if slug in NO_CARD:
         return body
@@ -151,11 +151,11 @@ def mid_card(slug, body):
     return body[:k] + card + body[k:]
 
 
-def tldr_box(slug):
-    pts = TLDR.get(slug)
+def tldr_box(slug, src=None, label='Key takeaways'):
+    pts = (src if src is not None else TLDR).get(slug)
     if not pts:
         return ''
-    return '<div class="tldr"><b>Key takeaways</b><ul>%s</ul></div>' % ''.join('<li>%s</li>' % html.escape(x) for x in pts)
+    return '<div class="tldr"><b>%s</b><ul>%s</ul></div>' % (label, ''.join('<li>%s</li>' % html.escape(x) for x in pts))
 
 
 def faq_block(items, head='Frequently asked questions'):
@@ -248,7 +248,7 @@ for h in HI:
         '<section style="padding-top:22px"><div class="wrap article"><div class="prose" lang="hi"><p class="byline">GlutaNex टीम द्वारा · अपडेट: 11 अक्टूबर 2026 · <a href="%s" lang="en">Read in English</a></p>%s%s%s<p class="note">यह सामान्य कॉस्मेटिक स्किनकेयर जानकारी है, चिकित्सा सलाह नहीं। परिणाम हर व्यक्ति में अलग हो सकते हैं।</p></div>' \
         '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>ग्लूटाथियोन नाइट क्रीम · %s · कैश ऑन डिलीवरी</span><button class="btn block" type="button" data-buy="cream">अभी खरीदें</button></aside></div></section>' \
         '<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>और पढ़ें</h2></div><div class="guides">%s</div></div></section>' % (
-            h['en'], with_toc(h['body'] % P, 'इस पेज पर'), faq_block(faq, 'अक्सर पूछे जाने वाले सवाल'), sources_block(['study', 'ijdvl', 'fda'], 'स्रोत'),
+            h['en'], tldr_box(h['slug'], TLDR_HI, 'मुख्य बातें') + with_toc(h['body'] % P, 'इस पेज पर'), faq_block(faq, 'अक्सर पूछे जाने वाले सवाल'), sources_block(['study', 'ijdvl', 'fda'], 'स्रोत'),
             im('cream-square'), rs(BYID['cream']['price']),
             ''.join('<a href="/hi/%s/" lang="hi"><span class="eyebrow">हिंदी</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HI if x is not h) +
             '<a href="/glutathione/"><span class="eyebrow">English</span><h3>Glutathione: the complete guide</h3></a>')
@@ -274,7 +274,7 @@ for h in HL:
         '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">%s · <a href="%s" lang="en-IN">Read in English</a>%s</p>%s%s%s<p class="note">%s</p></div>' \
         '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>Glutathione night cream · %s · Cash on Delivery</span><button class="btn block" type="button" data-buy="cream">%s</button></aside></div></section>' \
         '<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>%s</h2></div><div class="guides">%s</div></div></section>' % (
-            u['by'], h['en'], hi_link, with_toc((qa_html + h['body']) % P, u['toc']), faq_block([(q, a % P) for q, a in h['faq']], u['faq']),
+            u['by'], h['en'], hi_link, tldr_box(h['slug'], TLDR_HL, 'Mukhya baatein') + with_toc((qa_html + h['body']) % P, u['toc']), faq_block([(q, a % P) for q, a in h['faq']], u['faq']),
             sources_block(['study', 'fda'], u['src']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'], u['more'],
             ''.join('<a href="/hinglish/%s/"><span class="eyebrow">Hinglish</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HL if x is not h))
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-Latn', crumbs=[(u['hub'], '/hinglish/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
@@ -314,7 +314,8 @@ _BRAND_FAQ = [('Is GlutaNex an Indian brand?', 'Yes. GlutaNex is an Indian skinc
               ('What is the official GlutaNex website?', 'The official website is glutanex.co.in. GlutaNex is also sold on Amazon, Flipkart and Myntra, and the official listings are linked on this page.'),
               ('What products does GlutaNex make?', 'GlutaNex makes a Glutathione Night Cream (30 g), a Gluta Boost Face Wash (100 ml) and the Glow Duo, which combines both.'),
               ('How do I know my GlutaNex product is genuine?', 'Buy from glutanex.co.in or the official marketplace listings linked on this page, check that the pack is sealed and the name reads GlutaNex, and send us a photo on WhatsApp if you are unsure.'),
-              ('Is GlutaNex connected with other brands with a similar name?', 'No. GlutaNex (India, glutanex.co.in) is not connected with other companies abroad that sell products under similar names.')]
+              ('Does GlutaNex sell glutathione injections or tablets?', 'No. GlutaNex makes only skincare you apply to the skin: a Night Cream and a Face Wash. Glutathione injections or tablets sold under similar names are made by other companies and are not GlutaNex products.'),
+              ('Is GlutaNex connected with other brands with a similar name?', 'GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. Products sold elsewhere under similar names, such as "Glutanex" injections, tablets or Korean skincare, are made by other companies and are not connected with GlutaNex India.')]
 _bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
     ('Brand', 'GlutaNex'), ('Company', OWNER), ('Based in', 'Bhatkal, Uttara Kannada, Karnataka, India'),
     ('Products', ', '.join('<a href="%s">%s</a> (%s, %s)' % (url(x), html.escape(x['short']), html.escape(x['size']), rs(x['price'])) for x in PRODUCTS)),
@@ -329,7 +330,7 @@ page('/glutanex/', 'GlutaNex: Official Brand Information | Glutathione Skincare 
 <h2>GlutaNex at a glance</h2><div class="tbl"><table class="facts"><tbody>%s</tbody></table></div>
 <h2>Where to buy genuine GlutaNex</h2><ul><li><a href="/shop/">glutanex.co.in</a>: free shipping and Cash on Delivery across India</li>%s</ul>
 <h2>How to check your product is genuine</h2><ul><li>Buy from this website or the official listings above.</li><li>The pack should be sealed, and the name should read <b>GlutaNex</b>.</li><li>Not sure? Send a photo of the pack to us on WhatsApp at %s and we will check it.</li></ul>
-<h2>Similar names</h2><p>GlutaNex (India, glutanex.co.in) is not connected with other companies abroad that sell products under similar names. If a product is not listed on this page, we cannot vouch for it.</p>
+<h2>GlutaNex is not an injection brand</h2><p>GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. Products sold elsewhere under similar names, such as "Glutanex" injections, tablets or Korean skincare, are made by other companies and are not connected with GlutaNex India. We advise against glutathione injections for skin lightening: read <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a>. If a product is not listed on this page, we cannot vouch for it.</p>
 <h2>What we stand for</h2><p>Honest claims: glutathione works gradually and does not change natural skin colour, and we do not recommend injections. Read <a href="/our-standards/">our standards</a> and <a href="/about/">about us</a>.</p>
 </div></section>""" % (OWNER, _bp_rows, _bp_mkts, WA_SHOW) + faq_block(_BRAND_FAQ),
      crumbs=[('GlutaNex', '/glutanex/')],

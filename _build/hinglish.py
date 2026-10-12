@@ -107,3 +107,31 @@ HL_UI = dict(hub='Hinglish guides', toc='Is page par', faq='Aksar pooche jaane w
              note='Yeh general cosmetic skincare jaankari hai, medical salah nahi. Koi skin problem ho to dermatologist se milein.',
              by='GlutaNex team · Updated: 12 Oct 2026')
 EN2HL = {h['en']: '/hinglish/%s/' % h['slug'] for h in HL}
+
+# Key takeaways for Hinglish pages (shown at the top, also read aloud by voice assistants via speakable)
+TLDR_HL = {
+    'glutathione-kya-hai': ['Glutathione ek antioxidant hai jo body khud banati hai; yeh cells ko damage se bachata hai.',
+                            'Skincare mein yeh tan aur uneven tone ko 8–12 hafte mein halka aur even dikhane mein madad kar sakta hai.',
+                            'Yeh natural rang nahi badalta; cream kam risk wali hai, injections se bachein.'],
+    'glutathione-cream-ke-fayde': ['Fayde: antioxidant protection aur dheere dheere brighter, even-looking skin.',
+                                   'Fresh look 4–8 hafte mein, tan halka hone mein 8–12 hafte, roz sunscreen ke saath.',
+                                   'Natural rang nahi badalta; "7 din mein gora" claims sach nahi hain.'],
+    'glutathione-ke-nuksan': ['Cream aam taur par safe hai; shuru mein halki chubhan, redness ya dryness ho sakti hai.',
+                              'Pehle 24 ghante patch test karein; sujan ya rash ho to turant band karein.',
+                              'Sabse zyada risk injections mein hai; skin lightening ke liye inse bachein.'],
+    'glutathione-cream-kaise-lagaye': ['Raat ko chehra dhoyein, sukhayein, phir matar ke daane jitni cream lagayein.',
+                                       'Retinol wali cream: pehle 2 hafte, hafte mein 2–3 raat.',
+                                       'Subah SPF 30+ sunscreen zaroor; result 8–12 hafte mein.'],
+    'glutathione-tablet-ke-fayde-aur-nuksan': ['Studies mein 250–500 mg roz, 4–12 hafte se thoda, modest badlaav dikha.',
+                                               'Short-term mein zyada tar theek; lambe use ki jaankari kam hai.',
+                                               'Tablet lene se pehle doctor se poochein; 1000 mg behtar hone ka saboot nahi.'],
+    'kya-glutathione-se-gora-hota-hai': ['Nahi, glutathione natural skin colour nahi badalta.',
+                                         'Yeh tan aur dark patches ko dheere dheere halka dikha sakta hai, sunscreen ke saath.',
+                                         'Permanent gora karne wala koi injection, tablet ya cream proven nahi hai.'],
+    'glutathione-injection-safe-hai-kya': ['Skin lightening ke liye glutathione injection ka koi proper trial nahi hai.',
+                                           'Regulators ne warning di hai; bina license wali drip se infection ka risk bhi hai.',
+                                           'Raat ko cream aur subah sunscreen sabse kam risk wala option hai.'],
+    'glutathione-cream-price-aur-best-kaise-chune': ['India mein glutathione cream kuch sau se kai hazaar rupaye tak milti hai.',
+                                                     'Price per gram, poora ingredient list aur sach claims dekhein.',
+                                                     'Bahut sasti, bina label wali "fairness" cream se bachein.'],
+}

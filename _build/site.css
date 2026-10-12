@@ -800,3 +800,4 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
 .j3-dot-spot::after{content:"";position:absolute;inset:-9px;border-radius:50%}
 .skip:not(:focus){position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .head .brand{display:inline-flex;align-items:center;min-height:44px}
+.cite{padding:12px 14px;border-left:3px solid var(--gold2);background:var(--surface);border-radius:0 12px 12px 0;font-size:.9rem}

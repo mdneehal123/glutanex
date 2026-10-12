@@ -108,7 +108,7 @@ SEARCH = []  # site search index, written to assets/search.json
 # extra official profiles (YouTube, Pinterest, LinkedIn, marketplace brand stores) go here as they are created
 BRAND_PROFILES = []
 BRAND_DESC = ('GlutaNex is an Indian glutathione skincare brand (Glutathione Night Cream and Gluta Boost Face Wash) from %s, Bhatkal, Karnataka. '
-              'Official website glutanex.co.in; also sold on Amazon, Flipkart and Myntra.' % OWNER)
+              'Official website glutanex.co.in; also sold on Amazon, Flipkart and Myntra. GlutaNex does not make or sell glutathione injections or tablets.' % OWNER)
 
 
 def graph_base():
@@ -620,7 +620,7 @@ LLMS = ['# GlutaNex', '',
         '## Brand facts', '',
         '- Brand name: GlutaNex (also written Glutanex). Official website: https://glutanex.co.in. Company: %s, Bhatkal, Karnataka, India.' % OWNER,
         '- Official channels: this website, Instagram @glutanexofficial (%s), WhatsApp %s. Official marketplace listings: ' % (INSTAGRAM, WA_SHOW) + ', '.join('%s (%s)' % (n, u) for n, u in MARKET_LINKS) + '.',
-        '- GlutaNex (India, glutanex.co.in) is not connected with other companies abroad that sell products under similar names. Brand page: %s/glutanex/' % SITE, '',
+        '- GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. Products sold elsewhere under similar names, such as "Glutanex" injections, tablets or Korean skincare, are made by other companies and are not connected with GlutaNex India. Brand page: %s/glutanex/' % SITE, '',
         'Key facts:', '',
         '- Products: ' + '; '.join('%s (%s) %s, MRP %s' % (x['name'], x['size'], rs(x['price']), rs(x['mrp'])) for x in PRODUCTS) + '. Prices include taxes.',
         '- Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. Contains retinol and salicylic acid: night use, start 2-3 nights a week, sunscreen every morning, not for pregnancy or breastfeeding unless a doctor approves.',
@@ -716,13 +716,19 @@ for pth in pages:
     if not os.path.exists(_f):
         continue
     _h = open(_f, encoding='utf-8').read()
-    _sig = hashlib.sha256(_DRE.sub('', _h).encode()).hexdigest()[:16]
+    _main = re.search(r'<main id="main">(.*)</main>', _h, re.S)
+    _sig = hashlib.sha256(_DRE.sub('', (_main.group(1) if _main else _h) + re.sub(r'<script type="application/ld\+json">.*?</script>', '', re.search(r'<head>(.*?)</head>', _h, re.S).group(1) if '<head>' in _h else '', flags=re.S)[:0]).encode()).hexdigest()[:16]
     _d = _dates.get(pth)
     if not _d:
         _d = _dates[pth] = {'h': _sig, 'pub': _now, 'mod': _now}
     elif _d['h'] != _sig:
         _d['h'] = _sig; _d['mod'] = _now
     _h2 = _h.replace('"datePublished": "%s"' % TODAY, '"datePublished": "%s"' % _d['pub']).replace('"dateModified": "%s"' % TODAY, '"dateModified": "%s"' % _d['mod'])
+    # visible "Updated" lines match the real last-changed date (AI engines and Google compare them with the markup)
+    _y, _m, _dd = [int(x) for x in _d['mod'].split('-')]
+    _EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    _HIM = ['जनवरी', 'फरवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर']
+    _h2 = _h2.replace('Updated 11 October 2026', 'Updated %d %s %d' % (_dd, _EN[_m - 1], _y)).replace('Updated: 12 Oct 2026', 'Updated: %d %s %d' % (_dd, _EN[_m - 1][:3], _y)).replace('अपडेट: 11 अक्टूबर 2026', 'अपडेट: %d %s %d' % (_dd, _HIM[_m - 1], _y))
     if _h2 != _h:
         open(_f, 'w', encoding='utf-8').write(_h2)
 open(_DATES_F, 'w').write(json.dumps(_dates, indent=1, sort_keys=True) + '\n')
@@ -749,6 +755,12 @@ vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|c
 open(os.path.join(ROOT, 'vercel.json'), 'w').write(json.dumps(vercel, indent=2) + '\n')
 # ---------------- Install as an app: manifest + service worker ----------------
 import hashlib
+# llms.txt: add every indexable page that is not listed yet (Hinglish, regional, tools, newer pages)
+_lt = open(os.path.join(ROOT, 'llms.txt'), encoding='utf-8').read()
+_more = [x for x in SEARCH if ('](' + SITE + x['u'] + ')') not in _lt and x['u'] not in ('/404',)]
+if _more:
+    _lt = _lt.rstrip('\n') + '\n\n## More pages\n\n' + '\n'.join('- [%s](%s%s): %s' % (x['t'], SITE, x['u'], x['d']) for x in _more) + '\n'
+    open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write(_lt)
 open(os.path.join(ROOT, 'assets', 'search.json'), 'w', encoding='utf-8').write(json.dumps(SEARCH, ensure_ascii=False, separators=(',', ':')))
 _ver = hashlib.md5(b''.join(open(os.path.join(ROOT, 'assets', f), 'rb').read() for f in ['site.css', 'store.js', 'jar3d.js', 'products.json'])).hexdigest()[:10]
 open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
