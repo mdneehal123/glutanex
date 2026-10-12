@@ -424,9 +424,27 @@ page('/', 'Glutathione Cream for Face | GlutaNex Night Cream & Face Wash', 'Glut
      home, jar=True, extra='<link rel="preload" as="image" href="%s" type="image/webp" fetchpriority="high">\n' % im('jar-cut'), schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(p)} for i, p in enumerate(PRODUCTS)]}, faq_ld(HOME_FAQ)])
 
 # ---------------- Shop ----------------
+# phone-only luxury showcase for the shop page: the Night Cream featured on a pedestal, the other two as tiles
+_c, _w, _d = BYID['cream'], BYID['wash'], BYID['duo']
+def _mrp(p):
+    return '<s>%s</s>' % rs(p['mrp']) if p['mrp'] > p['price'] else ''
+SHOWCASE = ('<div class="lux" aria-label="GlutaNex products">'
+    '<article class="lux-hero"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-txt"><span class="lux-eb">Bestseller</span><h2>Glutathione<br>Night Cream</h2><span class="lux-sz">%s</span>'
+    '<div class="lux-pr"><b>%s</b>%s</div><button class="lux-btn" type="button" data-add="cream">Add to bag</button></div>'
+    '<div class="lux-stage"><i class="lux-glow"></i><img src="%s" alt="%s" width="650" height="614"><i class="lux-ped"></i></div></article>'
+    '<div class="lux-row">'
+    '<article class="lux-tile"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-ph"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><i class="lux-ped"></i></div>'
+    '<span class="lux-eb">New</span><h3>Gluta Boost<br>Face Wash</h3><div class="lux-pr"><b>%s</b>%s</div><button class="lux-plus" type="button" data-add="wash" aria-label="Add Face Wash to bag">+</button></article>'
+    '<article class="lux-tile"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-ph"><img src="%s" alt="%s" width="1000" height="1000" loading="lazy"><i class="lux-ped"></i></div>'
+    '<span class="lux-eb">Save %s</span><h3>The Glow<br>Duo</h3><div class="lux-pr"><b>%s</b>%s</div><button class="lux-plus" type="button" data-add="duo" aria-label="Add Glow Duo to bag">+</button></article>'
+    '</div></div>') % (
+    url(_c), html.escape(_c['name']), html.escape(_c['size']), rs(_c['price']), _mrp(_c), im('jar-cut'), html.escape(_c['name']),
+    url(_w), html.escape(_w['name']), im('facewash-square'), html.escape(_w['name']), rs(_w['price']), _mrp(_w),
+    url(_d), html.escape(_d['name']), im('duo-square'), html.escape(_d['name']), rs(_c['price'] + _w['price'] - _d['price']), rs(_d['price']), _mrp(_d))
+
 page('/shop/', 'Shop GlutaNex | Glutathione Night Cream, Face Wash & Duo', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
      top('Shop', 'Shop <span class="gold">GlutaNex</span>', 'Glutathione skincare for your night routine. Free shipping and Cash on Delivery on every order.') +
-     '<section class="shop-sec" style="padding-top:30px"><div class="wrap"><div class="grid shop-grid">%s</div>'
+     '<section class="shop-sec" style="padding-top:30px"><div class="wrap">' + SHOWCASE + '<div class="grid shop-grid">%s</div>'
      '<div class="sec-h" style="margin-top:56px"><span class="eyebrow">Compare</span><h2>Which one is right for you?</h2></div>'
      '<div class="tbl"><table class="cmp"><thead><tr><th></th><th>Night Cream</th><th>Face Wash</th><th>Glow Duo</th></tr></thead><tbody>'
      '<tr><td>Size</td><td>30 g jar</td><td>100 ml pump</td><td>30 g + 100 ml</td></tr>'

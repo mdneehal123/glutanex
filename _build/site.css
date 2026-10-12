@@ -840,3 +840,47 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
   .shop-grid .card .acts .btn{min-height:34px;font-size:.7rem}
   main:has(.shop-grid) .page-top p{display:none}
 }
+/* ---- shop on phones: luxury showcase (desktop keeps the card grid) ---- */
+.lux{display:none}
+@media (max-width:640px){
+  .shop-grid{display:none!important}
+  .lux{display:flex;flex-direction:column;gap:12px;perspective:900px}
+  .lux article{position:relative;isolation:isolate;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#FFFFFF 0%,#FBF4EA 55%,#F3E6D3 100%);border:1px solid rgba(201,160,90,.28);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 22px 44px -18px rgba(92,64,28,.28),0 4px 12px -6px rgba(92,64,28,.14);transition:transform .35s cubic-bezier(.2,.9,.25,1)}
+  .lux article:active{transform:scale(.985) rotateX(2deg)}
+  .lux-link{position:absolute;inset:0;z-index:1}
+  .lux-btn,.lux-plus{position:relative;z-index:2}
+  .lux-eb{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#8A6A2E}
+  .lux h2,.lux h3{font-family:var(--display);font-weight:600;color:#1B1713;margin:4px 0 0;letter-spacing:-.01em}
+  .lux-pr{display:flex;align-items:baseline;gap:7px;margin-top:6px}.lux-pr b{font-family:var(--display);font-size:1.35rem;font-weight:600;color:#1B1713}
+  .lux-pr s{font-size:.72rem;color:#9A8E80}
+  /* featured Night Cream */
+  .lux-hero{display:grid;grid-template-columns:minmax(0,1fr) 46%;align-items:center;min-height:232px;padding:20px 0 20px 20px;background:radial-gradient(120% 90% at 85% 40%,#FFF7EC 0%,#F7E8D3 48%,#EFDCC1 100%)}
+  .lux-hero h2{font-size:1.62rem;line-height:1.05}
+  .lux-sz{display:block;font-size:.74rem;color:#7A6E62;margin-top:6px}
+  .lux-btn{margin-top:14px;height:42px;padding:0 20px;border-radius:999px;border:0;background:#1B1713;color:#FBF4EA;font:inherit;font-size:.8rem;font-weight:700;letter-spacing:.06em;box-shadow:0 10px 22px -10px rgba(27,23,19,.6);cursor:pointer}
+  .lux-stage{position:relative;height:100%;min-height:190px;display:flex;align-items:center;justify-content:center}
+  .lux-stage img{position:relative;z-index:1;width:118%;max-width:none;height:auto;margin-left:-6%;filter:drop-shadow(0 18px 18px rgba(40,26,10,.35));animation:luxfloat 5s ease-in-out infinite}
+  .lux-glow{position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,236,204,.95),rgba(255,236,204,0) 70%);z-index:0}
+  .lux-ped{position:absolute;left:50%;bottom:16px;width:72%;height:16px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse at center,rgba(60,38,14,.32),rgba(60,38,14,0) 70%);animation:luxshadow 5s ease-in-out infinite}
+  @keyframes luxfloat{50%{transform:translateY(-7px) rotate(-1.5deg)}}@keyframes luxshadow{50%{transform:translateX(-50%) scale(.86);opacity:.7}}
+  /* two tiles */
+  .lux-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+  .lux-tile{display:flex;flex-direction:column;padding:12px 14px 14px}
+  .lux-ph{position:relative;height:118px;margin:-4px -6px 8px;display:flex;align-items:center;justify-content:center;border-radius:18px;background:radial-gradient(90% 80% at 50% 45%,#FFFFFF,#F4EADC 75%)}
+  .lux-ph img{height:112px;width:auto;mix-blend-mode:multiply;position:relative;z-index:1;transition:transform .5s cubic-bezier(.2,.9,.25,1)}
+  .lux-tile:active .lux-ph img{transform:translateY(-4px) scale(1.04)}
+  .lux-ph .lux-ped{bottom:6px;width:62%;height:10px;animation:none}
+  .lux-tile h3{font-size:1.08rem;line-height:1.1}
+  .lux-tile .lux-pr b{font-size:1.12rem}
+  .lux-plus{position:absolute;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;border:0;background:#1B1713;color:#FBF4EA;font-size:1.35rem;line-height:1;display:grid;place-items:center;box-shadow:0 8px 18px -8px rgba(27,23,19,.7);cursor:pointer}
+  main:has(.lux) .page-top h1{font-size:1.85rem}
+}
+@media (max-width:380px){.lux-hero{min-height:204px;padding:16px 0 16px 16px}.lux-hero h2{font-size:1.42rem}.lux-stage{min-height:168px}.lux-ph{height:100px}.lux-ph img{height:96px}.lux-tile h3{font-size:.98rem}}
+@media (prefers-reduced-motion:reduce){.lux-stage img,.lux-ped{animation:none}}
+@media (max-width:640px){
+  .lux-stage img{width:100%;margin-left:-4%}
+  .lux-ph{background:radial-gradient(90% 85% at 50% 45%,#F7F5F1,#F1ECE3 80%)}
+  .lux-ph img{-webkit-mask-image:radial-gradient(ellipse 62% 64% at 50% 50%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 62% 64% at 50% 50%,#000 62%,transparent 100%);height:128px}
+  .lux-plus{top:14px;right:14px;bottom:auto;width:34px;height:34px;font-size:1.25rem;background:rgba(27,23,19,.92)}
+}
+@media (max-width:380px){.lux-ph img{height:108px}}
