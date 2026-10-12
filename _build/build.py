@@ -90,6 +90,7 @@ def _market_badge(n, u):
 WA_IMG = '<img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="20">'
 
 pages = []
+SEARCH = []  # site search index, written to assets/search.json
 
 
 # extra official profiles (YouTube, Pinterest, LinkedIn, marketplace brand stores) go here as they are created
@@ -144,6 +145,12 @@ def faq_html(items):
     return '<div class="faq">' + ''.join('<details><summary>%s</summary><p>%s</p></details>' % qa for qa in items) + '</div>'
 
 
+SVG_SEARCH = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>'
+SVG_HOME = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 3.8l8.5 6.7V20a1 1 0 0 1-1 1H15v-6.5H9V21H4.5a1 1 0 0 1-1-1z"/></svg>'
+SVG_GRID = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg>'
+SVG_TRUCK = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9.5h-11zM13.5 9.5h4l3 3.2V16h-7z"/><circle cx="6.5" cy="17.5" r="1.8" fill="#fff"/><circle cx="17" cy="17.5" r="1.8" fill="#fff"/></svg>'
+
+
 def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='website', ogimg='night-shift-banner', extra='', js='store.js', jar=False, lang='en-IN'):
     full = SITE + path
     nav = ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == path else '', t) for h, t in NAV)
@@ -175,12 +182,13 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">%(ld)s</script>
 </head>
-<body><div class="progress" aria-hidden="true"></div>
+<body%(bodycls)s><div class="progress" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 %(ribbon)s<div class="strip">Free shipping across India<span> · </span><b>Cash on Delivery</b><span> · </span>WhatsApp support</div>
 <header class="head"><div class="wrap head-in">
   <a class="brand" href="/" aria-label="GlutaNex home"><img src="/assets/img/glutanex-logo-dark.png" alt="GlutaNex – Restore your youthness" width="515" height="150"></a>
   <nav class="nav" id="nav" aria-label="Main">%(nav)s</nav>
+  <button class="icon-btn search-btn" type="button" aria-label="Search" data-search>%(srch)s</button>
   <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu">%(menu)s</button>
   <button class="icon-btn cart-btn" type="button" aria-label="Open cart" data-open-cart>%(bag)s<span class="cart-count" hidden>0</span></button>
 </div></header>
@@ -205,6 +213,17 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
   <div class="drawer-body" id="drawer-lines"></div>
   <div class="drawer-foot"><div class="sum" id="drawer-sum"></div><a class="btn block" href="/checkout/" id="drawer-go">Checkout</a><a class="btn wa block" id="drawer-wa" href="https://wa.me/%(wa)s" target="_blank" rel="noopener">%(waimg)s Order on WhatsApp</a></div>
 </aside></div>
+<nav class="tabbar" aria-label="Quick menu">
+  <a href="/"%(t_home)s>%(i_home)s<span>Home</span></a>
+  <button type="button" data-search>%(srch)s<span>Search</span></button>
+  <a href="/shop/"%(t_shop)s>%(i_shop)s<span>Shop</span></a>
+  <a href="/track-order/"%(t_track)s>%(i_track)s<span>Track</span></a>
+  <button type="button" data-open-cart>%(bag)s<span>Cart</span><b class="tb-count" hidden>0</b></button>
+</nav>
+<div class="sov" id="sov" hidden role="dialog" aria-modal="true" aria-label="Search GlutaNex"><div class="sov-in">
+  <div class="sov-top"><div class="sov-box">%(srch)s<input id="sov-q" type="search" placeholder="Search: night cream, side effects, हिंदी…" autocomplete="off" enterkeyhint="search" aria-label="Search"></div><button type="button" class="sov-x" data-close-search>Cancel</button></div>
+  <div class="sov-res" id="sov-res" aria-live="polite"></div>
+</div></div>
 <a class="wa-float" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener" aria-label="Chat with GlutaNex on WhatsApp"><img src="/assets/whatsapp-glyph-green.svg" alt="" width="58" height="58"></a>
 %(scripts)s
 </body>
@@ -215,12 +234,13 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
            nav=nav, menu=SVG_MENU, bag=SVG_BAG, x=SVG_X, body=body, owner=OWNER, addr=ADDR, wa=WA, waimg=WA_IMG,
            watext=urllib.parse.quote('Hi GlutaNex, I have a question.'),
            shop=''.join('<a href="%s">%s</a>' % (url(p), p['short']) for p in PRODUCTS),
-           pol=''.join('<a href="%s">%s</a>' % x for x in POLICIES), markets=''.join(_market_badge(n, u) for n, u in MARKET_LINKS), scripts=scripts)
+           bodycls=' class="checkout-page"' if path == '/checkout/' else '', srch=SVG_SEARCH, i_home=SVG_HOME, i_shop=SVG_GRID, i_track=SVG_TRUCK, t_home=' aria-current="page"' if path == '/' else '', t_shop=' aria-current="page"' if path == '/shop/' or path.startswith('/product/') else '', t_track=' aria-current="page"' if path == '/track-order/' else '', pol=''.join('<a href="%s">%s</a>' % x for x in POLICIES), markets=''.join(_market_badge(n, u) for n, u in MARKET_LINKS), scripts=scripts)
     out = os.path.join(ROOT, '404.html') if path == '/404' else os.path.join(ROOT, path.strip('/'), 'index.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w').write(doc)
     if index:
         pages.append(path)
+        SEARCH.append({'u': path, 't': re.sub(r'\s*\|\s*GlutaNex.*$', '', title), 'd': desc[:180], 'l': lang[:2]})
 
 
 def top(eyebrow, h1, lead=''):
@@ -685,6 +705,7 @@ vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|c
 open(os.path.join(ROOT, 'vercel.json'), 'w').write(json.dumps(vercel, indent=2) + '\n')
 # ---------------- Install as an app: manifest + service worker ----------------
 import hashlib
+open(os.path.join(ROOT, 'assets', 'search.json'), 'w', encoding='utf-8').write(json.dumps(SEARCH, ensure_ascii=False, separators=(',', ':')))
 _ver = hashlib.md5(b''.join(open(os.path.join(ROOT, 'assets', f), 'rb').read() for f in ['site.css', 'store.js', 'jar3d.js', 'products.json'])).hexdigest()[:10]
 open(os.path.join(ROOT, 'site.webmanifest'), 'w').write(json.dumps({
     'name': 'GlutaNex – Glutathione Skincare', 'short_name': 'GlutaNex', 'description': 'GlutaNex glutathione night cream and face wash. Free shipping and Cash on Delivery across India.',

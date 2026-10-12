@@ -16,7 +16,7 @@
   function lines(){var c=cart();return Object.keys(c).filter(function(k){return P&&P[k];}).map(function(k){var p=P[k];return {id:k,qty:c[k],p:p,sub:p.price*c[k],mrp:p.mrp*c[k]};});}
   function totals(){var l=lines();return {lines:l,total:l.reduce(function(a,x){return a+x.sub;},0),mrp:l.reduce(function(a,x){return a+x.mrp;},0)};}
   function add(id,q){var c=cart();c[id]=(c[id]||0)+(q||1);setCart(c);}
-  function badge(pop){var b=document.querySelector('.cart-count');if(!b){return;}var n=count();b.textContent=n;b.hidden=!n;if(pop){b.classList.add('pop');setTimeout(function(){b.classList.remove('pop');},320);}}
+  function badge(pop){var n=count();[].forEach.call(document.querySelectorAll('.cart-count,.tb-count'),function(b){b.textContent=n;b.hidden=!n;if(pop){b.classList.add('pop');setTimeout(function(){b.classList.remove('pop');},320);}});}
   function toast(text,action){var t=document.querySelector('.toast');if(!t){t=el('div','toast');t.setAttribute('role','status');document.body.appendChild(t);}
     t.textContent='';t.appendChild(el('span',null,text));if(action){var b=el('button',null,action[0]);b.type='button';b.addEventListener('click',action[1]);t.appendChild(b);}
     t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},3200);}
@@ -34,6 +34,27 @@
     card.addEventListener('mouseleave',function(){card.classList.remove('live');card.style.setProperty('--ry','0deg');card.style.setProperty('--rx','0deg');});
   }
   [].slice.call(document.querySelectorAll('.tilt')).forEach(tilt);
+
+  /* site search: full-screen box (opened from the header or the bottom bar); index built at deploy time */
+  (function(){var ov=$('sov');if(!ov){return;}var q=$('sov-q'),res=$('sov-res'),idx=null,last=null;
+    var POP=[['Night Cream','night cream'],['How to use','how to use'],['Side effects','side effects'],['Price','price'],['Tablets','tablets'],['Face wash','face wash'],['हिंदी','हिंदी'],['Hinglish','hinglish']];
+    function norm(t){return String(t||'').toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g,'');}
+    function open(){last=document.activeElement;ov.hidden=false;document.body.classList.add('sov-open');setTimeout(function(){q.focus();},30);if(!idx){fetch('/assets/search.json').then(function(r){return r.json();}).then(function(d){idx=d.map(function(x){x.n=norm(x.t+' '+x.d+' '+x.u.replace(/[\/-]/g,' '));x.nt=norm(x.t);return x;});draw();}).catch(function(){idx=[];draw();});}draw();}
+    function close(){ov.hidden=true;document.body.classList.remove('sov-open');if(last&&last.focus){last.focus();}}
+    function draw(){var v=norm(q.value).trim();res.textContent='';
+      if(!v){var h=el('p','sov-h','Popular');res.appendChild(h);var c=el('div','sov-pop');POP.forEach(function(p){var b=el('button','chip',p[0]);b.type='button';b.addEventListener('click',function(){q.value=p[1];draw();});c.appendChild(b);});res.appendChild(c);
+        var pr=el('p','sov-h','Products');res.appendChild(pr);prods('').forEach(function(n){res.appendChild(n);});return;}
+      var toks=v.split(/\s+/).filter(Boolean),pn=prods(v);if(pn.length){res.appendChild(el('p','sov-h','Products'));pn.forEach(function(n){res.appendChild(n);});}
+      if(!idx){res.appendChild(el('p','muted','Loading…'));return;}
+      var hits=idx.map(function(x){var sc=0;for(var i=0;i<toks.length;i++){var t=toks[i];if(x.n.indexOf(t)<0){return null;}sc+=x.nt.indexOf(t)>=0?3:1;}if(x.nt.indexOf(v)>=0){sc+=4;}if(x.u.indexOf(v.replace(/\s+/g,'-'))>=0){sc+=3;}if(x.u.split('/').length>4||x.u==='/glutathione-guides/'){sc-=1;}return {x:x,s:sc};}).filter(Boolean).filter(function(h){return h.x.u.indexOf('/product/')!==0&&h.x.u!=='/shop/';}).sort(function(a,b){return b.s-a.s;}).slice(0,12);
+      if(hits.length){res.appendChild(el('p','sov-h','Guides and pages'));hits.forEach(function(h){var a=el('a','sov-item');a.href=h.x.u;if(h.x.l&&h.x.l!=='en'){a.lang=h.x.l;}a.appendChild(el('b',null,h.x.t));a.appendChild(el('span',null,h.x.d));res.appendChild(a);});}
+      if(!pn.length&&!hits.length){var no=el('div','sov-none');no.appendChild(el('p',null,'No results for "'+q.value.trim()+'".'));var w=el('a','btn wa sm','Ask us on WhatsApp');w.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I have a question: '+q.value.trim());w.target='_blank';w.rel='noopener';no.appendChild(w);res.appendChild(no);}}
+    function prods(v){var out=[];if(!P){return out;}Object.keys(P).forEach(function(k){var p=P[k],hay=norm(p.name+' '+p.short+' glutathione price buy order cream '+(k==='cream'?'night cream jar retinol niacinamide':k==='wash'?'face wash cleanser gluta boost':'glow duo combo routine set'));
+        if(v&&!v.split(/\s+/).every(function(t){return hay.indexOf(t)>=0;})){return;}var a=el('a','sov-prod');a.href=p.url;var im=el('img');im.src=p.img;im.alt='';im.width=52;im.height=52;im.loading='lazy';a.appendChild(im);var d=el('div');d.appendChild(el('b',null,p.name));d.appendChild(el('span',null,rs(p.price)+' · free shipping · COD'));a.appendChild(d);out.push(a);});return out;}
+    document.addEventListener('click',function(e){if(e.target.closest('[data-search]')){e.preventDefault();open();}else if(e.target.closest('[data-close-search]')||e.target===ov){close();}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!ov.hidden){close();}if(e.key==='/'&&ov.hidden&&!/input|textarea|select/i.test((document.activeElement||{}).tagName||'')){e.preventDefault();open();}});
+    q.addEventListener('input',draw);q.addEventListener('keydown',function(e){if(e.key==='Enter'){var f=res.querySelector('a');if(f){location.href=f.href;}}});
+  })();
 
   /* reveal on scroll */
   var rv=[].slice.call(document.querySelectorAll('.reveal'));

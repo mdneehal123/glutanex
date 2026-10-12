@@ -29,6 +29,7 @@
 <header class="head"><div class="wrap head-in">
   <a class="brand" href="/" aria-label="GlutaNex home"><img src="/assets/img/glutanex-logo-dark.png" alt="GlutaNex – Restore your youthness" width="515" height="150"></a>
   <nav class="nav" id="nav" aria-label="Main"><a href="/">Home</a><a href="/shop/">Shop</a><a href="/glutathione/">Glutathione</a><a href="/glutathione-cream/">Glutathione Cream</a><a href="/glutathione-guides/">Guides</a><a href="/about/">About</a><a href="/faq/">FAQ</a><a href="/track-order/">Track Order</a></nav>
+  <button class="icon-btn search-btn" type="button" aria-label="Search" data-search><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button>
   <button class="icon-btn menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   <button class="icon-btn cart-btn" type="button" aria-label="Open cart" data-open-cart><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg><span class="cart-count" hidden>0</span></button>
 </div></header>
@@ -57,6 +58,17 @@
   <div class="drawer-body" id="drawer-lines"></div>
   <div class="drawer-foot"><div class="sum" id="drawer-sum"></div><a class="btn block" href="/checkout/" id="drawer-go">Checkout</a><a class="btn wa block" id="drawer-wa" href="https://wa.me/919980881230" target="_blank" rel="noopener"><img src="/assets/whatsapp-glyph-green.svg" alt="" width="20" height="20"> Order on WhatsApp</a></div>
 </aside></div>
+<nav class="tabbar" aria-label="Quick menu">
+  <a href="/"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 12 3.8l8.5 6.7V20a1 1 0 0 1-1 1H15v-6.5H9V21H4.5a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+  <button type="button" data-search><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><span>Search</span></button>
+  <a href="/shop/"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg><span>Shop</span></a>
+  <a href="/track-order/"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9.5h-11zM13.5 9.5h4l3 3.2V16h-7z"/><circle cx="6.5" cy="17.5" r="1.8" fill="#fff"/><circle cx="17" cy="17.5" r="1.8" fill="#fff"/></svg><span>Track</span></a>
+  <button type="button" data-open-cart><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg><span>Cart</span><b class="tb-count" hidden>0</b></button>
+</nav>
+<div class="sov" id="sov" hidden role="dialog" aria-modal="true" aria-label="Search GlutaNex"><div class="sov-in">
+  <div class="sov-top"><div class="sov-box"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="sov-q" type="search" placeholder="Search: night cream, side effects, हिंदी…" autocomplete="off" enterkeyhint="search" aria-label="Search"></div><button type="button" class="sov-x" data-close-search>Cancel</button></div>
+  <div class="sov-res" id="sov-res" aria-live="polite"></div>
+</div></div>
 <a class="wa-float" href="https://wa.me/919980881230?text=Hi%20GlutaNex%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Chat with GlutaNex on WhatsApp"><img src="/assets/whatsapp-glyph-green.svg" alt="" width="58" height="58"></a>
 <script src="/assets/store.js" defer></script>
 </body>
