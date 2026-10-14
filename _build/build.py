@@ -24,8 +24,10 @@ PRODUCTS = [
          tag='Bestseller',
          imgs=['cream-square', 'jar-night', 'jar-hand', 'jar-bag'], og='cream-square',
          summary='A rich night cream that pairs glutathione with niacinamide, vitamin C, retinol, hyaluronic acid, ceramides and peptides, plus aloe, turmeric and neem. Made for skin that looks brighter, smoother and more even by morning.',
-         title='GlutaNex Glutathione Night Cream 30g | Glutathione Cream for Face',
-         desc='GlutaNex Glutathione Night Cream with niacinamide, vitamin C, retinol and hyaluronic acid for a brighter, more even-looking complexion. COD across India.'),
+         title='Glutathione Face Cream for Night, 30 g | GlutaNex Night Cream',
+         sub='Glutathione face cream · night formula with niacinamide and vitamin C',
+         alt_names=['GlutaNex Glutathione Face Cream', 'Glutathione Cream for Face'],
+         desc='GlutaNex glutathione face cream for night with niacinamide, vitamin C, retinol and hyaluronic acid, for brighter, more even-looking skin. COD across India.'),
     dict(id='wash', slug='glutanex-gluta-boost-face-wash', short='Face Wash', sku='GNX-WASH-100',
          name='GlutaNex Gluta Boost Face Wash', size='100 ml pump bottle', price=399, mrp=599,  # confirmed 11 Oct 2026
          tag='New',
@@ -68,7 +70,7 @@ def im(name, ext='webp'):
     return '/assets/img/%s.%s' % (SEO_IMG.get(name, name), ext)
 
 
-NAV = [('/', 'Home'), ('/shop/', 'Shop'), ('/glutathione/', 'Glutathione'), ('/glutathione-cream/', 'Glutathione Cream'), ('/glutathione-guides/', 'Guides'),
+NAV = [('/', 'Home'), ('/shop/', 'Shop'), ('/glutathione/', 'Glutathione'), ('/glutathione-cream/', 'Cream Guide'), ('/glutathione-guides/', 'Guides'),
        ('/about/', 'About'), ('/faq/', 'FAQ'), ('/track-order/', 'Track Order')]
 POLICIES = [('/privacy-policy/', 'Privacy Policy'), ('/terms/', 'Terms'), ('/refund-policy/', 'Returns & Refunds'), ('/shipping-policy/', 'Shipping')]
 SVG_BAG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg>'
@@ -143,7 +145,7 @@ def product_ld(p):
     extra_p = {'cream': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': ', '.join(n for n, d in INGREDIENTS)}, {'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Night'}]},
                'wash': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Morning and night'}]},
                'duo': {'isRelatedTo': [{'@id': SITE + url(BYID['cream']) + '#product'}, {'@id': SITE + url(BYID['wash']) + '#product'}]}}.get(p['id'], {})
-    return dict({'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], 'sku': p['sku'], 'mpn': p['sku'], 'size': p['size'], 'category': 'Health & Beauty > Personal Care > Cosmetics > Skin Care', 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
+    return dict({'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], **({'alternateName': p['alt_names']} if p.get('alt_names') else {}), 'sku': p['sku'], 'mpn': p['sku'], 'size': p['size'], 'category': 'Health & Beauty > Personal Care > Cosmetics > Skin Care', 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
             'image': [img_ld(SITE + im(i, 'jpg'), p['name']) for i in p['imgs']], 'description': p['desc'],
             'offers': {'@type': 'Offer', 'url': SITE + url(p), 'price': str(p['price']), 'priceCurrency': 'INR', 'priceValidUntil': '2027-12-31', 'availability': 'https://schema.org/InStock',
                        'itemCondition': 'https://schema.org/NewCondition', 'seller': {'@id': SITE + '/#org'},
@@ -329,7 +331,7 @@ HOME_STORIES = [('glutathione-benefits-for-skin', 'Glutathione for skin: 5 hones
 home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="sky" aria-hidden="true"><i class="orb"></i></div><div class="fest" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
   <div class="reveal">
     <h1><span class="h1-brand">GlutaNex Glutathione Night Cream</span>Your skin's <span class="gold">night shift</span> starts here.</h1>
-    <p class="lead">Glutathione night care that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
+    <p class="lead">A glutathione face cream that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
     <div class="price-line"><b>%(cprice)s</b><span>Glutathione Night Cream · about %(pernight)s a night · free shipping · Cash on Delivery</span></div>
     <div class="cta"><button class="btn" type="button" data-buy="cream">Buy the Night Cream</button><a class="btn ghost" href="/glutathione-cream/">What is glutathione cream?</a></div>
     <button class="jar-talk hero-talk" type="button" data-talk hidden><span class="jt-dot"></span>🎙️ Talk to the jar<small>Ask out loud in English, हिंदी, Hinglish, தமிழ்…</small></button>
@@ -356,7 +358,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 <section style="padding-top:0"><div class="wrap split">
   <div class="reveal hide-m"><img src="%(img_marble)s" alt="GlutaNex glutathione cream jar on a marble stand" width="586" height="645" loading="lazy"></div>
   <div class="prose reveal"><span class="eyebrow">The ingredient</span><h2 style="font-size:clamp(2.2rem,4.4vw,3.2rem);margin-top:12px">What is a glutathione cream?</h2>
-    <p>Glutathione is an antioxidant made of three amino acids that the body produces naturally. In skincare, it is added to creams and face washes made for <b>brighter-looking, more even skin</b>, often alongside ingredients like niacinamide.</p>
+    <p>Glutathione is an antioxidant made of three amino acids that the body produces naturally. In skincare, it is added to creams and face washes made for <b>brighter-looking, more even skin</b>, often alongside ingredients like niacinamide. A <b>glutathione face cream</b> is a leave-on cream, the format used in research, which is why it does more than a wash-off product.</p>
     <p>Research on glutathione applied to the skin is still limited but encouraging: a small 2014 placebo-controlled study of a 2%% glutathione lotion found a modest, gradual improvement in skin tone over 10 weeks. Consistent use and daily sunscreen matter more than any single product.</p>
     <p><a href="/glutathione/">What is glutathione? The complete guide</a> · <a href="/glutathione-cream/">Glutathione cream guide</a> · <a href="/glutathione-side-effects/">Side effects and safe use</a></p></div>
 </div></section>
@@ -420,7 +422,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
-page('/', 'Glutathione Cream for Face | GlutaNex Night Cream & Face Wash', 'GlutaNex glutathione cream and face wash for a brighter-looking, more even complexion. Glutathione night cream from %s, free shipping, Cash on Delivery.' % rs(c['price']),
+page('/', 'Glutathione Cream for Face in India | GlutaNex', 'GlutaNex glutathione face cream: a night cream with glutathione, niacinamide and vitamin C for brighter, more even-looking skin. %s, free shipping, COD.' % rs(c['price']),
      home, jar=True, extra='<link rel="preload" as="image" href="%s" type="image/webp" fetchpriority="high">\n' % im('jar-cut'), schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(p)} for i, p in enumerate(PRODUCTS)]}, faq_ld(HOME_FAQ)])
 
 # ---------------- Shop ----------------
@@ -442,7 +444,7 @@ SHOWCASE = ('<div class="lux" aria-label="GlutaNex products">'
     url(_w), html.escape(_w['name']), im('facewash-square'), html.escape(_w['name']), rs(_w['price']), _mrp(_w),
     url(_d), html.escape(_d['name']), im('duo-square'), html.escape(_d['name']), rs(_c['price'] + _w['price'] - _d['price']), rs(_d['price']), _mrp(_d))
 
-page('/shop/', 'Shop GlutaNex | Glutathione Night Cream, Face Wash & Duo', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
+page('/shop/', 'Shop Glutathione Face Cream & Face Wash | GlutaNex', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
      top('Shop', 'Shop <span class="gold">GlutaNex</span>', 'Glutathione skincare for your night routine. Free shipping and Cash on Delivery on every order.') +
      '<section class="shop-sec" style="padding-top:30px"><div class="wrap">' + SHOWCASE + '<div class="grid shop-grid">%s</div>'
      '<div class="sec-h" style="margin-top:56px"><span class="eyebrow">Compare</span><h2>Which one is right for you?</h2></div>'
@@ -472,6 +474,12 @@ CREAM_FAQ = [('Can I use it during pregnancy?', 'The Night Cream contains retino
 PDP_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Pay %s online to confirm and the rest at delivery. The advance is refunded if the order is cancelled, refused or cannot be delivered.' % rs(ADVANCE)),
            ('When will I see results?', 'Use it every night with daily sunscreen for at least 6 to 8 weeks before judging. Results vary from person to person.'),
            ('Is it safe for sensitive skin?', 'Patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.')]
+ABOUT = {'cream': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About this glutathione face cream</h2>
+<p>The GlutaNex Night Cream is a <b>glutathione face cream</b> made for night use. Glutathione is paired with niacinamide (vitamin B3) and vitamin C, which also help the look of uneven tone, plus retinol for smoother-looking skin and hyaluronic acid and ceramides for moisture.</p>
+<h3>Who it is for</h3><ul><li>Women and men with <a href="/glutathione-cream-for-summer-tan/">tan</a>, dullness or uneven-looking tone.</li><li>Flat <a href="/glutathione-for-acne-marks/">acne marks</a> left after pimples heal.</li><li>Normal, combination and oily skin; dry skin can add a moisturiser on top.</li></ul>
+<h3>What to expect</h3><p>A smoother feel in 2 to 4 weeks, a fresher look in 4 to 8 weeks, and lighter-looking tan and marks in 8 to 12 weeks, with sunscreen every morning. It does not change your natural skin colour. See <a href="/how-long-does-glutathione-take-to-work/">how long glutathione cream takes to work</a>.</p>
+<h3>Who should not use it</h3><p>It contains retinol and salicylic acid, so avoid it during pregnancy or breastfeeding unless your doctor approves, and ask a dermatologist first if you use prescription creams or have <a href="/glutathione-for-melasma/">melasma</a>.</p>
+<p class="muted">Comparing creams? Use our <a href="/best-glutathione-cream-in-india/">checklist for the best glutathione cream in India</a>.</p></div></div></section>'''}
 for p in PRODUCTS:
     off = pct(p)
     thumbs = ''.join('<button type="button" data-src="%s"%s aria-label="Picture %d"><img src="%s" alt="" width="78" height="78" loading="lazy"></button>' % (
@@ -483,7 +491,7 @@ for p in PRODUCTS:
   <div class="pdp-media"><div class="pdp-main tilt"><img id="pdp-img" src="%(main)s" alt="%(alt)s" width="800" height="800" fetchpriority="high"></div><div class="thumbs">%(thumbs)s</div></div>
   <div>
     <span class="eyebrow">GlutaNex · %(tag)s</span>
-    <h1>%(name)s</h1>
+    <h1>%(name)s</h1>%(sub)s
     <div class="price"><b>%(price)s</b>%(mrp)s%(off)s</div>
     <p class="tax">Inclusive of all taxes · Free shipping · %(size)s</p>
     <p class="summary">%(summary)s</p>
@@ -497,7 +505,7 @@ for p in PRODUCTS:
     <div class="tabs">%(tabs)s</div>
   </div>
 </div>
-<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>Questions</h2></div>%(faq)s
+%(about)s<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>Questions</h2></div>%(faq)s
 <p style="margin-top:22px" class="muted">Learn more: <a href="/glutathione-cream/">Glutathione cream guide</a> · <a href="/glutathione-side-effects/">Side effects</a> · <a href="/how-to-use-glutathione-cream/">How to use</a></p></div></section>
 <section style="padding-top:10px"><div class="wrap"><div class="sec-h"><span class="eyebrow">Complete the ritual</span><h2>You may also like</h2></div><div class="grid">%(rel)s</div></div></section>
 <div class="buybar" id="buybar" aria-hidden="true"><img src="%(main)s" alt="" width="44" height="44"><div class="bb-t"><b>%(short)s</b><span>%(price)s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%(id)s" aria-label="Add to cart">%(bag)s</button><button class="btn" type="button" data-buy="%(id)s">Buy now</button></div>''' % dict(
@@ -505,7 +513,8 @@ for p in PRODUCTS:
         mrp='<s>MRP %s</s>' % rs(p['mrp']) if off else '', off='<span class="off">%d%% off</span>' % off if off else '', size=p['size'], summary=p['summary'], id=p['id'],
         wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG, adv=rs(ADVANCE),
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
-        faq=faq_html(faq_items), rel=''.join(card(q) for q in others))
+        faq=faq_html(faq_items), rel=''.join(card(q) for q in others),
+        sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=ABOUT.get(p['id'], ''))
     page(url(p), p['title'], p['desc'], body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)], ptype='ItemPage', main=SITE + url(p) + '#product',
          extra='<meta property="product:price:amount" content="%d"><meta property="product:price:currency" content="INR">\n' % p['price'])
 
@@ -558,7 +567,7 @@ FEED_META = {
     'duo': dict(cat='Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care', ptype='Skin Care &gt; Skin Care Sets', grams=260, bundle=True,
                 desc='GlutaNex Glow Duo: GlutaNex Glutathione Night Cream 30 g and Gluta Boost Face Wash 100 ml together. Cleanse with the face wash, then apply the night cream; use sunscreen every morning. The night cream contains retinol and salicylic acid: start 2 to 3 nights a week, and avoid during pregnancy or breastfeeding unless a doctor approves. Cosmetic products; results vary. Free shipping across India, Cash on Delivery available.'),
 }
-FEED_TITLES = {'cream': 'GlutaNex Glutathione Night Cream 30 g - with Niacinamide, Vitamin C and Hyaluronic Acid',
+FEED_TITLES = {'cream': 'GlutaNex Glutathione Face Cream for Night, 30 g - with Niacinamide, Vitamin C and Hyaluronic Acid',
                'wash': 'GlutaNex Gluta Boost Glutathione Face Wash 100 ml',
                'duo': 'GlutaNex Glow Duo - Glutathione Night Cream 30 g + Face Wash 100 ml'}
 _fi = []

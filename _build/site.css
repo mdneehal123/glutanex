@@ -889,3 +889,6 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
 .gl-item dt{font-weight:700;color:var(--ink);margin-bottom:4px}
 .gl-item dd{margin:0;color:var(--dim);line-height:1.6}
 .gl-item:target{border-color:var(--gold);box-shadow:0 0 0 3px rgba(134,100,42,.15)}
+.pdp-sub{margin:-4px 0 10px;color:var(--gold);font-size:.92rem;font-weight:600;letter-spacing:.01em}
+.pdp-about{max-width:760px}
+.pdp-about h3{font-size:1.15rem;margin:18px 0 6px}

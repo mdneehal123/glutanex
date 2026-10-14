@@ -7,9 +7,9 @@ WASH = '<a href="%s">Gluta Boost Face Wash</a>' % url(BYID['wash'])
 GUIDES = [
     dict(slug='glutathione-cream', title='Glutathione cream: what it is and how to choose one', short='Glutathione cream guide',
          blurb='What glutathione cream does, what the research says, and what to look for.',
-         seo='Glutathione Cream for Face: Benefits, Research & How to Choose',
-         desc='Glutathione cream explained: what glutathione is, what a glutathione face cream can and cannot do, what the research shows, and how to choose and use one safely.',
-         body='''<p>A glutathione cream is a skincare cream that contains glutathione, an antioxidant the body makes naturally. It is used in products made for <b>brighter-looking, more even skin</b>. It is a cosmetic, not a medicine, and it works gradually.</p>
+         seo='What Is Glutathione Cream? Benefits, Uses & How to Choose',
+         desc='What glutathione cream is, what a glutathione face cream can and cannot do, uses and benefits, what research shows, and how to choose one safely.',
+         body='''<p>A glutathione cream is a skincare cream that contains glutathione, an antioxidant the body makes naturally. It is used in products made for <b>brighter-looking, more even skin</b>. It is a cosmetic, not a medicine, and it works gradually. Most are made as a <b>glutathione face cream</b> for night use, like the <a href="/product/glutanex-glutathione-night-cream/">GlutaNex glutathione face cream</a>.</p>
 <h2>What is glutathione?</h2><p>Glutathione is a small molecule made of three amino acids (cysteine, glutamic acid and glycine). Inside the body it acts as an antioxidant, helping cells deal with everyday stress from things like UV light and pollution. In skincare, it is added to creams, serums and face washes, often together with niacinamide or vitamin C.</p>
 <h2>What can a glutathione cream do?</h2><ul><li>Help skin look <b>brighter and more even</b> with regular use.</li><li>Support the look of <b>dark spots and tan</b> fading, alongside daily sunscreen.</li><li>Add an antioxidant step to a simple night routine.</li></ul>
 <h2>What it cannot do</h2><ul><li>Change your natural skin colour. No cream can.</li><li>Work overnight. Expect weeks, not days.</li><li>Replace sunscreen or treatment for medical conditions like <a href="/glutathione-for-melasma/">melasma</a>.</li></ul>
