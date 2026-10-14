@@ -884,3 +884,8 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
   .lux-plus{top:14px;right:14px;bottom:auto;width:34px;height:34px;font-size:1.25rem;background:rgba(27,23,19,.92)}
 }
 @media (max-width:380px){.lux-ph img{height:108px}}
+.glossary{display:grid;gap:10px;margin:18px 0}
+.gl-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;scroll-margin-top:90px}
+.gl-item dt{font-weight:700;color:var(--ink);margin-bottom:4px}
+.gl-item dd{margin:0;color:var(--dim);line-height:1.6}
+.gl-item:target{border-color:var(--gold);box-shadow:0 0 0 3px rgba(134,100,42,.15)}

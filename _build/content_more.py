@@ -29,7 +29,7 @@ PILLAR = dict(
 <h2>What is glutathione?</h2>
 <p>Glutathione (often written GSH) is a <b>tripeptide</b>, a chain of three amino acids:</p>
 <ul><li><b>Glutamic acid</b> (glutamate)</li><li><b>Cysteine</b>, which carries the sulphur group that makes glutathione such an effective antioxidant</li><li><b>Glycine</b></li></ul>
-<p>It exists in two forms. <b>Reduced glutathione (GSH)</b> is the active form that neutralises free radicals. When it does that job it becomes <b>oxidised glutathione (GSSG)</b>, which the body then converts back. Skincare products may use either form.</p>
+<p>It exists in two forms. <b>Reduced glutathione (GSH)</b> is the active form that neutralises free radicals. When it does that job it becomes <b>oxidised glutathione (GSSG)</b>, which the body then converts back. Skincare products may use either form (<a href="/reduced-vs-oxidized-glutathione/">reduced vs oxidised glutathione</a>).</p>
 <p>Glutathione levels naturally fall with age, stress, poor sleep, smoking, alcohol and heavy sun exposure, which is one reason it has become popular in skincare.</p>
 
 <h2>What does glutathione do in the body?</h2>
@@ -51,7 +51,7 @@ PILLAR = dict(
 <tr><td>%(oral)s</td><td>500 mg glutathione capsules daily</td><td>60 healthy medical students, 4 weeks</td><td>Melanin index fell at all six measured sites compared with placebo.</td></tr>
 <tr><td>%(wesch)s</td><td>250 mg/day reduced or oxidised glutathione</td><td>60 women aged 20–50, 12 weeks</td><td>Trends towards lower melanin and better elasticity, mostly not statistically significant; some wrinkle improvement with the reduced form.</td></tr>
 </tbody></table></div>
-<p>A 2025 systematic review of topical glutathione (%(review)s) concluded that it "shows promise", but that studies are few, small and short, and that more and larger trials are needed. The Indian review (%(ijdvl)s) reached a similar view: the evidence is encouraging for creams and tablets in the short term, but not strong enough to call glutathione a treatment for pigmentation disorders such as melasma.</p>
+<p>A 2025 systematic review of topical glutathione (%(review)s) concluded that it "shows promise", but that studies are few, small and short, and that more and larger trials are needed. The Indian review (%(ijdvl)s) reached a similar view: the evidence is encouraging for creams and tablets in the short term, but not strong enough to call glutathione a treatment for pigmentation disorders such as <a href="/glutathione-for-melasma/">melasma</a>. See <a href="/how-long-does-glutathione-take-to-work/">how long glutathione takes to work</a>.</p>
 <p><b>Our honest summary:</b> glutathione can help skin look brighter and more even over time, as part of a routine with sunscreen. Expect gradual, modest change, not dramatic results.</p>
 
 <h2>Forms of glutathione compared</h2>
@@ -74,7 +74,7 @@ PILLAR = dict(
 <p>Step by step: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>
 
 <h2>Who should be careful</h2>
-<ul><li>Pregnant or breastfeeding women, especially with products that also contain retinol.</li><li>People with eczema, rosacea or very sensitive skin.</li><li>Anyone with patchy pigmentation that may be melasma, or spots that change shape or colour: see a dermatologist first.</li></ul>''',
+<ul><li>Pregnant or breastfeeding women, especially with products that also contain retinol.</li><li>People with eczema, rosacea or very sensitive skin.</li><li>Anyone with patchy pigmentation that may be <a href="/glutathione-for-melasma/">melasma</a>, or spots that change shape or colour: see a dermatologist first.</li></ul>''',
     faq=[
         ('What is glutathione in simple words?', 'Glutathione is an antioxidant your body makes from three amino acids (glutamic acid, cysteine and glycine). It protects cells from damage and is used in skincare for brighter, more even-looking skin.'),
         ('Does glutathione lighten skin permanently?', 'No. Glutathione may help tan and uneven tone look lighter over time, but it does not change your natural skin colour, and any effect fades if you stop sun protection and regular care.'),
@@ -1088,3 +1088,219 @@ TLDR.update({
                                            'Serums and creams are leave-on, like the products used in research.',
                                            'One leave-on product plus daily sunscreen beats stacking several.'],
 })
+
+# ---------------- October 2026: new keyword gaps (melasma, pigmentation, timeline, lips, GSH vs GSSG, liposomal, glossary) ----------------
+REFS.update(
+    richie='<a href="https://pubmed.ncbi.nlm.nih.gov/24791752/" rel="noopener">Richie et al., 2015</a>',
+    lipo='<a href="https://pubmed.ncbi.nlm.nih.gov/28853742/" rel="noopener">Sinha et al., 2018</a>',
+    vislight='<a href="https://pubmed.ncbi.nlm.nih.gov/24313385/" rel="noopener">Castanedo-Cázares et al., 2014</a>',
+)
+SOURCES.update({
+    'richie': 'Richie JP Jr, et al. Randomized controlled trial of oral glutathione supplementation on body stores of glutathione. Eur J Nutr. 2015;54(2):251-263.',
+    'lipo': 'Sinha R, et al. Oral supplementation with liposomal glutathione elevates body stores of glutathione and markers of immune function. Eur J Clin Nutr. 2018;72(1):105-111.',
+    'vislight': 'Castanedo-Cázares JP, et al. Near-visible light and UV photoprotection in the treatment of melasma: a double-blind randomized trial. Photodermatol Photoimmunol Photomed. 2014;30(1):35-42.',
+})
+
+GLOSSARY = [
+    ('Antioxidant', 'A substance that neutralises free radicals, the unstable molecules made by sunlight, pollution and normal metabolism. Glutathione, vitamin C and vitamin E are antioxidants.', '/glutathione/'),
+    ('Broad-spectrum sunscreen', 'A sunscreen that protects against both UVB (burning) and UVA (tanning and ageing) rays.', '/glutathione-cream-for-summer-tan/'),
+    ('Ceramides', 'Natural fats in the outer skin layer that hold skin cells together and keep moisture in. Added to creams to support the skin barrier.', ''),
+    ('Cysteine', 'One of the three amino acids in glutathione. Its sulphur group is what lets glutathione act as an antioxidant.', '/glutathione-rich-foods/'),
+    ('Eumelanin', 'The dark brown-black type of melanin. Glutathione may shift production away from it.', ''),
+    ('Free radicals', 'Unstable molecules that damage cells. UV light and pollution increase them in skin.', ''),
+    ('GSH (reduced glutathione)', 'The active form of glutathione that neutralises free radicals.', '/reduced-vs-oxidized-glutathione/'),
+    ('GSSG (oxidised glutathione)', 'Two glutathione molecules joined after doing their antioxidant job. More stable in lotions; the body can turn it back into GSH.', '/reduced-vs-oxidized-glutathione/'),
+    ('Hyaluronic acid', 'A water-holding molecule found naturally in skin. In creams it draws water into the top layer so skin feels hydrated.', ''),
+    ('Hyperpigmentation', 'Any area of skin darker than the skin around it: tan, sun spots, acne marks or melasma.', '/glutathione-for-pigmentation/'),
+    ('Kojic acid', 'A brightening ingredient made by fungi that slows melanin production. Can irritate some skin.', '/glutathione-vs-kojic-acid/'),
+    ('Liposomal', 'Wrapped in tiny fat bubbles (liposomes), usually to help a supplement survive digestion.', '/liposomal-glutathione/'),
+    ('Melanin', 'The pigment that gives skin, hair and eyes their colour and helps protect skin from the sun.', '/glutathione/'),
+    ('Melanin index', 'A number measured by a skin meter in studies to track how much melanin is in skin.', '/glutathione-facts/'),
+    ('Melanocyte', 'The skin cell that makes melanin.', ''),
+    ('Melasma', 'Brown or grey-brown patches, usually on both cheeks, forehead or upper lip, linked to sun, hormones and genetics. Needs a dermatologist.', '/glutathione-for-melasma/'),
+    ('Niacinamide', 'Vitamin B3. Helps the look of uneven tone and supports the skin barrier. Often paired with glutathione.', '/glutathione-and-niacinamide/'),
+    ('PA rating', 'A rating (PA+ to PA++++) used on Asian sunscreens for UVA protection. More plus signs mean more UVA protection.', ''),
+    ('Patch test', 'Trying a product on a small area, such as behind the ear, for 24 hours before using it on the face.', '/glutathione-side-effects/'),
+    ('Pheomelanin', 'The lighter red-yellow type of melanin.', ''),
+    ('PIH (post-inflammatory hyperpigmentation)', 'Dark marks left after a pimple, cut, burn or rash heals. Common in Indian skin.', '/glutathione-for-acne-marks/'),
+    ('Retinol', 'A form of vitamin A used at night for smoother-looking skin. Can cause dryness at first and makes skin more sun-sensitive.', '/retinol-vs-glutathione/'),
+    ('Salicylic acid (BHA)', 'An oil-soluble acid that exfoliates inside pores. Helpful for oily skin; can sting on broken or shaved skin.', '/glutathione-for-oily-skin/'),
+    ('SPF', 'Sun Protection Factor: how well a sunscreen protects against UVB. SPF 30 or higher is recommended for daily use.', ''),
+    ('Tripeptide', 'A small chain of three amino acids. Glutathione is a tripeptide of glutamic acid, cysteine and glycine.', '/glutathione/'),
+    ('Tyrosinase', 'The enzyme skin uses to make melanin. Glutathione, kojic acid and vitamin C can slow it.', '/glutathione/'),
+    ('Visible light', 'The light we can see. On brown skin it can deepen pigmentation such as melasma; tinted sunscreens with iron oxides help block it.', '/glutathione-for-melasma/'),
+]
+_GL_LBL = {'/glutathione/': 'Glutathione guide', '/glutathione-cream-for-summer-tan/': 'Summer tan guide', '/glutathione-rich-foods/': 'Glutathione-rich foods',
+    '/reduced-vs-oxidized-glutathione/': 'GSH vs GSSG', '/glutathione-for-pigmentation/': 'Pigmentation guide', '/glutathione-vs-kojic-acid/': 'Glutathione vs kojic acid',
+    '/liposomal-glutathione/': 'Liposomal glutathione', '/glutathione-facts/': 'Facts and figures', '/glutathione-for-melasma/': 'Melasma guide',
+    '/glutathione-and-niacinamide/': 'Glutathione and niacinamide', '/glutathione-side-effects/': 'Side effects', '/glutathione-for-acne-marks/': 'Acne marks guide',
+    '/retinol-vs-glutathione/': 'Retinol vs glutathione', '/glutathione-for-oily-skin/': 'Oily skin guide'}
+_gl_rows = ''.join('<div class="gl-item" id="%s"><dt>%s</dt><dd>%s%s</dd></div>' % (
+    re.sub(r'[^a-z0-9]+', '-', t.lower()).strip('-'), t, d.replace('%', '%%'), (' <a href="%s">%s</a>' % (u, _GL_LBL.get(u, 'Read the guide'))) if u else '') for t, d, u in GLOSSARY)
+
+NEW_GUIDES += [
+    dict(slug='glutathione-for-melasma', title='Glutathione for melasma: does it help, and what actually works?', short='Melasma',
+         blurb='How to tell melasma from tan, what glutathione can and cannot do for it, and the routine dermatologists build around sun protection.',
+         seo='Glutathione for Melasma: Does It Work? What Actually Helps', desc='Does glutathione help melasma? How melasma differs from tan, why tinted sunscreen matters, what dermatologists use, and a gentle routine.',
+         refs=['ijdvl', 'review', 'vislight'],
+         qa=[('Does glutathione help melasma?', 'Not reliably. The Indian dermatology review found the evidence too weak to call glutathione a melasma treatment. A glutathione cream can be part of a gentle routine, but daily sunscreen and a dermatologist\'s plan do most of the work.', ''),
+             ('What is the best treatment for melasma?', 'Strict daily sun protection, ideally a tinted sunscreen that also blocks visible light, plus treatment chosen by a dermatologist. Melasma can be controlled but often returns, so long-term care matters.', '')],
+         body='''<h2>Is it melasma or tan?</h2><div class="tbl"><table><thead><tr><th></th><th>Tan</th><th>Melasma</th><th>Sun spots</th></tr></thead><tbody>
+<tr><td>Looks like</td><td>Even darkening of sun-exposed skin</td><td>Patchy brown or grey-brown areas, often on both cheeks, forehead, nose bridge or upper lip</td><td>Small, flat, round brown spots</td></tr>
+<tr><td>Main triggers</td><td>Sun</td><td>Sun and visible light, hormones (pregnancy, pills), genetics, heat</td><td>Years of sun</td></tr>
+<tr><td>Fades on its own?</td><td>Yes, over weeks with sun protection</td><td>Rarely; tends to return</td><td>Slowly, if at all</td></tr>
+<tr><td>Who to see</td><td>Skincare and sunscreen are enough</td><td>A dermatologist</td><td>A dermatologist if a spot changes</td></tr></tbody></table></div>
+<h2>Why sunscreen matters even more for melasma</h2><p>Melasma is darkened not only by UV rays but also by visible light, which ordinary sunscreens do not block well. In a randomised trial, people with melasma who used a sunscreen that also blocked visible light (with iron oxides, which give tinted sunscreens their colour) improved more than those using UV-only sunscreen (%(vislight)s).</p><ul><li>Use a tinted, broad-spectrum SPF 30+ sunscreen every morning, indoors too if you sit near windows.</li><li>Reapply every 2–3 hours outdoors; add a hat and shade.</li><li>Heat can also worsen melasma: avoid steam rooms and very hot kitchens where you can.</li></ul>
+<h2>What a dermatologist may suggest</h2><p>Treatment depends on your skin and is a medical decision. Options doctors use include prescription creams (sometimes a short course of a combination cream), azelaic acid, tranexamic acid and gentle peels. Do not use steroid-containing "fairness" creams on your own: misuse of steroid creams on the face is a common cause of thin, red, damaged skin in India (%(ijdvl)s).</p>
+<h2>Where glutathione fits</h2><p>Glutathione slows tyrosinase, the enzyme that makes melanin, so it is often tried for pigmentation. But the studies are small and short (%(review)s), and the Indian dermatology review says the evidence is not strong enough to call glutathione a melasma treatment (%(ijdvl)s). If your dermatologist agrees, a glutathione and niacinamide cream such as %(cream)s can sit in a gentle night routine. It contains retinol and salicylic acid, so ask before combining it with prescription creams.</p>
+<h2>Melasma in pregnancy</h2><p>Melasma often starts or worsens in pregnancy. Use sunscreen and gentle basics only, and skip retinol creams. Many cases fade after delivery. Read <a href="/glutathione-in-pregnancy/">glutathione in pregnancy</a>.</p>''',
+         faq=[('Can melasma be cured permanently?', 'Melasma can be lightened and controlled, but it often returns with sun, heat or hormonal changes. Ongoing sun protection is the key to keeping it away.'),
+              ('Are glutathione injections good for melasma?', 'No. There is no clinical trial supporting glutathione injections for melasma or skin lightening, and regulators have warned about their safety.')]),
+
+    dict(slug='glutathione-for-pigmentation', title='Glutathione for pigmentation: types, what helps and what to avoid', short='Pigmentation',
+         blurb='The five common kinds of pigmentation on Indian skin, which ones a glutathione cream may help, and when to see a dermatologist.',
+         seo='Glutathione for Pigmentation: Types, What Helps, What to Avoid', desc='Can glutathione reduce pigmentation? The common types (tan, sun spots, acne marks, melasma, freckles), what helps each, how long it takes, and warning signs.',
+         refs=['study', 'review', 'ijdvl'],
+         qa=[('Does glutathione reduce pigmentation?', 'It may help some types look lighter over 8 to 12 weeks, mainly tan and acne marks, when used with daily sunscreen. It works modestly and gradually, and it is not proven for melasma.', ''),
+             ('Which glutathione product is best for pigmentation?', 'A leave-on cream or serum, used at night, with SPF 30+ sunscreen every morning. Leave-on products are what the research tested; soaps and face washes rinse off too quickly.', '')],
+         body='''<h2>The common types of pigmentation</h2><div class="tbl"><table><thead><tr><th>Type</th><th>What it looks like</th><th>Can a glutathione cream help?</th><th>Read</th></tr></thead><tbody>
+<tr><td>Sun tan</td><td>Even darkening of exposed skin</td><td>Yes, gradually, with sunscreen</td><td><a href="/glutathione-cream-for-summer-tan/">Summer tan</a></td></tr>
+<tr><td>Acne marks (PIH)</td><td>Flat brown marks where pimples healed</td><td>Can help them fade faster</td><td><a href="/glutathione-for-acne-marks/">Acne marks</a></td></tr>
+<tr><td>Sun spots</td><td>Small, round, flat brown spots</td><td>A little; slow</td><td><a href="/glutathione-for-dark-spots-and-tan/">Dark spots and tan</a></td></tr>
+<tr><td>Melasma</td><td>Patches on both cheeks, forehead or upper lip</td><td>Not reliably; see a dermatologist</td><td><a href="/glutathione-for-melasma/">Melasma</a></td></tr>
+<tr><td>Freckles</td><td>Tiny spots, often since childhood</td><td>Little; sunscreen stops them darkening</td><td></td></tr></tbody></table></div>
+<h2>A routine that helps most pigmentation</h2><ol><li><b>Night:</b> gentle face wash such as %(wash)s, then a leave-on glutathione cream such as %(cream)s.</li><li><b>Morning:</b> broad-spectrum SPF 30+ sunscreen, reapplied outdoors.</li><li><b>Hands off:</b> do not pick pimples or scrub hard; irritation makes new marks.</li><li><b>Wait:</b> 8 to 12 weeks before judging. See <a href="/how-long-does-glutathione-take-to-work/">how long glutathione takes to work</a>.</li></ol>
+<h2>What the research shows</h2><p>In the best-known study, a 2%% glutathione lotion lowered the melanin index more than placebo over 10 weeks (%(study)s). A 2025 review called topical glutathione promising but noted that studies are few and small (%(review)s).</p>
+<h2>What to avoid</h2><ul><li>Steroid or unlabelled "fairness" creams that promise results in days (%(ijdvl)s).</li><li>Lemon, baking soda or toothpaste on the face.</li><li>Starting several strong actives at once.</li></ul>
+<h2>When to see a dermatologist</h2><p>Patches on both cheeks, a spot that changes size, shape or colour, bleeding, or no change after 3 months of care.</p>''',
+         faq=[('How long does glutathione take to reduce pigmentation?', 'Most people need 8 to 12 weeks of nightly use with daily sunscreen to see tan or acne marks look lighter. Deeper pigmentation takes longer or needs a dermatologist.'),
+              ('Can pigmentation come back after stopping glutathione?', 'Yes, if the cause continues. Sun exposure brings tan and spots back, which is why daily sunscreen matters more than any single cream.')]),
+
+    dict(slug='how-long-does-glutathione-take-to-work', title='How long does glutathione cream take to work? A week-by-week timeline', short='How long it takes',
+         blurb='What to expect in week 1, month 1 and month 3 of using a glutathione cream, and the common reasons people see no change.',
+         seo='How Long Does Glutathione Cream Take to Work? Week-by-Week', desc='Glutathione cream results week by week: what changes in weeks 1–2, 4–8 and 8–12, what studies found, and why some people see no results.',
+         refs=['study', 'oral', 'wesch', 'review'],
+         qa=[('How long does glutathione cream take to show results?', 'Expect skin to feel smoother within 2 to 4 weeks, a fresher look in 4 to 8 weeks, and lighter-looking tan or marks in 8 to 12 weeks of nightly use with daily sunscreen. Studies on glutathione ran for 4 to 12 weeks.', ''),
+             ('Can glutathione show results in 7 days?', 'No honest product can promise visible lightening in 7 days. Skin renews over about a month, and pigment fades slowly. A cream that changes colour in days may contain steroids or bleach.', '')],
+         body='''<h2>Week-by-week timeline</h2><div class="tbl"><table><thead><tr><th>When</th><th>What you may notice</th><th>What to do</th></tr></thead><tbody>
+<tr><td>Weeks 1–2</td><td>Skin adjusting. With retinol creams, mild tingling or dryness is common.</td><td>Use 2–3 nights a week. Sunscreen every morning.</td></tr>
+<tr><td>Weeks 3–4</td><td>Smoother, more hydrated feel.</td><td>Every other night if comfortable.</td></tr>
+<tr><td>Weeks 4–8</td><td>A fresher, less dull look.</td><td>Nightly if your skin is happy.</td></tr>
+<tr><td>Weeks 8–12</td><td>Tan and acne marks look lighter and more even.</td><td>Keep going; compare photos.</td></tr>
+<tr><td>After 12 weeks</td><td>Gains hold only with sun protection.</td><td>Continue the routine to maintain.</td></tr></tbody></table></div>
+<h2>What the studies found</h2><ul><li>Topical: a 2%% glutathione lotion showed a lower melanin index after 10 weeks (%(study)s).</li><li>Tablets: changes after 4 weeks at 500 mg a day (%(oral)s), and smaller, mostly non-significant changes over 12 weeks at 250 mg a day (%(wesch)s).</li><li>A 2025 review: effects are modest and studies are short (%(review)s).</li></ul>
+<h2>Why some people see no results</h2><ul><li><b>No daily sunscreen</b>, so new tan keeps replacing what fades.</li><li><b>Using it now and then</b> instead of most nights.</li><li><b>Melasma</b>, which needs a dermatologist (see <a href="/glutathione-for-melasma/">glutathione for melasma</a>).</li><li><b>Expecting a colour change:</b> glutathione does not change natural skin colour.</li><li><b>Irritation</b> from too much product or too many actives, which can leave new marks.</li></ul>
+<h2>Track progress honestly</h2><p>Take a photo on day 1 in the same spot, same daylight, no filter, then once every 2 weeks. Compare week 1 with week 8, not day to day. If you bought %(cream)s, the free <a href="/routine/">routine tracker</a> counts your nights for you.</p>''',
+         faq=[('Is 30 g of glutathione cream enough to see results?', 'Used as a pea-sized amount at night, a 30 g jar usually lasts about 6 to 8 weeks, which is enough to judge the early changes. Tan and marks often need 8 to 12 weeks.'),
+              ('Should I use more cream to get faster results?', 'No. More product does not work faster and raises the chance of irritation, especially with retinol creams. A pea-sized amount for the whole face is enough.')]),
+
+    dict(slug='glutathione-for-dark-lips', title='Glutathione for dark lips: causes and safe care', short='Dark lips',
+         blurb='Why lips get darker, whether glutathione lip products help, and a gentle routine that works on lips.',
+         seo='Glutathione for Dark Lips: Causes, Does It Work, Safe Care', desc='Does glutathione lighten dark lips? Common causes (sun, smoking, lip licking, allergies), why retinol creams should not go on lips, and what helps.',
+         refs=['review', 'ijdvl'],
+         qa=[('Does glutathione lighten dark lips?', 'There is no good study on glutathione for lips. Dark lips usually improve when the cause is removed: sun protection with an SPF lip balm, no lip licking, no smoking and avoiding products that irritate.', ''),
+             ('Can I apply glutathione night cream on my lips?', 'Not one with retinol or salicylic acid, such as the GlutaNex Night Cream; lips are thin and peel easily. Use a plain lip balm with SPF instead.', '')],
+         body='''<h2>Why lips get darker</h2><ul><li><b>Sun:</b> lips have very little natural protection.</li><li><b>Smoking:</b> heat and nicotine darken lips over time.</li><li><b>Lip licking and dryness:</b> repeated irritation leaves pigment.</li><li><b>Allergy to a lipstick, balm or toothpaste:</b> look for itching or peeling.</li><li><b>Natural colour:</b> many people have darker lips by genetics; that is normal.</li></ul>
+<h2>A gentle lip routine</h2><ol><li>An SPF 15+ lip balm by day, reapplied after eating.</li><li>A plain, fragrance-free balm at night.</li><li>Stop licking or biting lips; drink water.</li><li>If a new lipstick stings or itches, stop it.</li><li>Skip lemon, sugar scrubs and bleach on lips.</li></ol>
+<h2>What about glutathione?</h2><p>Glutathione research is on facial skin, not lips (%(review)s). A gentle lip product with glutathione will not harm most people, but sun protection and removing the cause matter far more. Keep retinol and acid creams, including %(cream)s, off the lips.</p>
+<h2>When to see a doctor</h2><p>A new dark spot on the lip, a spot that changes or bleeds, or dark patches inside the mouth should be checked by a doctor.</p>''',
+         faq=[('How long does it take for dark lips to become lighter?', 'When the cause, such as sun or lip licking, is removed, lips often look better in 4 to 8 weeks. Natural lip colour does not change.'),
+              ('Does smoking cause dark lips?', 'Yes, smoking is a common cause. Lips often lighten gradually after quitting.')]),
+
+    dict(slug='reduced-vs-oxidized-glutathione', title='Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin?', short='Reduced vs oxidised',
+         blurb='What reduced and oxidised glutathione are, why creams use one or the other, and what to check on the label.',
+         seo='Reduced vs Oxidized Glutathione (GSH vs GSSG) for Skin', desc='Reduced (GSH) vs oxidised (GSSG) glutathione: how they differ, which form skin studies used, stability in creams, and what matters more.',
+         refs=['study', 'wesch', 'review'],
+         qa=[('What is the difference between reduced and oxidised glutathione?', 'Reduced glutathione (GSH) is the active antioxidant form. After it neutralises a free radical, two molecules join into oxidised glutathione (GSSG). The body turns GSSG back into GSH with an enzyme, so the two forms cycle.', ''),
+             ('Is oxidised glutathione better for skin creams?', 'Oxidised glutathione is more stable in water-based formulas, and the best-known cream study used it. There is no head-to-head study showing one form works better in a cream.', '')],
+         body='''<h2>The two forms in one table</h2><div class="tbl"><table><thead><tr><th></th><th>Reduced (GSH)</th><th>Oxidised (GSSG)</th></tr></thead><tbody>
+<tr><td>What it is</td><td>One glutathione molecule, active</td><td>Two glutathione molecules joined</td></tr>
+<tr><td>In the body</td><td>Most of the glutathione in healthy cells</td><td>Formed after antioxidant work, then recycled</td></tr>
+<tr><td>Stability in products</td><td>Oxidises with air and water</td><td>More stable</td></tr>
+<tr><td>Skin studies</td><td>250 mg tablets, 12 weeks (%(wesch)s)</td><td>2%% lotion, 10 weeks (%(study)s); 250 mg tablets (%(wesch)s)</td></tr></tbody></table></div>
+<h2>What the studies used</h2><p>The 10-week lotion study used oxidised glutathione and found a lower melanin index than placebo (%(study)s). A 12-week tablet study compared both forms; both trended towards lower melanin, and the reduced form also showed some wrinkle improvement (%(wesch)s). A 2025 review found no strong reason to prefer one form in creams (%(review)s).</p>
+<h2>What matters more than the form</h2><ul><li><b>Packaging:</b> an airtight, opaque jar or tube protects glutathione from air and light. Close the lid after use.</li><li><b>The whole formula:</b> partners like niacinamide and vitamin C do much of the work.</li><li><b>Regular use and sunscreen:</b> they decide results more than GSH vs GSSG.</li><li><b>A faint sulphur smell</b> is normal for glutathione products.</li></ul>
+<h2>On labels</h2><p>You may see "glutathione", "reduced glutathione", "L-glutathione" or "oxidised/oxidized glutathione". All are the same molecule family; check the full ingredient list and honest claims.</p>''',
+         faq=[('What is L-glutathione?', 'L-glutathione is simply the natural form of glutathione, the one the body makes. Most products labelled glutathione contain the L form.'),
+              ('Why does my glutathione cream smell?', 'Glutathione contains sulphur, so a faint smell is normal. A strong change in smell, colour or texture after opening means the product may have gone off.')]),
+
+    dict(slug='liposomal-glutathione', title='Liposomal glutathione: what it is, does it work for skin, and is it safe?', short='Liposomal glutathione',
+         blurb='What "liposomal" means, what the studies on liposomal and regular glutathione supplements found, and what is still unknown for skin.',
+         seo='Liposomal Glutathione: Benefits, Skin Results, Safety', desc='Liposomal glutathione explained: what liposomes are, what studies found on body glutathione levels, the lack of skin-tone trials, and safety.',
+         refs=['richie', 'lipo', 'oral', 'ijdvl'],
+         qa=[('What is liposomal glutathione?', 'It is glutathione wrapped in liposomes, tiny fat bubbles, to help it survive digestion when taken by mouth. It is sold as a supplement, usually as a liquid or capsule.', ''),
+             ('Does liposomal glutathione lighten skin?', 'We found no published trial of liposomal glutathione for skin tone. Small studies show it can raise glutathione levels in the body, but that is not the same as proven skin lightening.', '')],
+         body='''<h2>What the studies found</h2><div class="tbl"><table><thead><tr><th>Study</th><th>Form and dose</th><th>Who and how long</th><th>Finding</th></tr></thead><tbody>
+<tr><td>%(richie)s</td><td>Regular oral glutathione, 250 or 1,000 mg a day</td><td>54 adults, 6 months</td><td>Body glutathione stores rose, more with the higher dose</td></tr>
+<tr><td>%(lipo)s</td><td>Liposomal glutathione, 500 or 1,000 mg a day</td><td>12 adults, 1 month (pilot)</td><td>Glutathione stores and some immune markers rose</td></tr>
+<tr><td>%(oral)s</td><td>Regular capsules, 500 mg a day</td><td>60 adults, 4 weeks</td><td>Melanin index fell slightly at the measured sites</td></tr></tbody></table></div>
+<p>So: oral glutathione can raise body levels, and one small trial of regular capsules saw a modest change in melanin. Whether the liposomal form gives better skin results is not known.</p>
+<h2>Is it safe?</h2><p>Short-term oral glutathione was generally well tolerated in these studies. Long-term safety at high doses is less clear, and supplements vary in quality. Ask a doctor first if you are pregnant or breastfeeding, take regular medicines, or have a medical condition. Never move from supplements to glutathione injections: they lack trials for skin lightening and carry safety warnings (%(ijdvl)s).</p>
+<h2>Supplement or cream?</h2><div class="tbl"><table><thead><tr><th></th><th>Liposomal supplement</th><th>Glutathione cream</th></tr></thead><tbody>
+<tr><td>Works on</td><td>Whole body levels</td><td>The skin you apply it to</td></tr>
+<tr><td>Skin-tone evidence</td><td>None for the liposomal form</td><td>Small controlled studies</td></tr>
+<tr><td>Doctor advice</td><td>Recommended</td><td>Not usually needed; patch test</td></tr></tbody></table></div>
+<p>For a simple, low-risk start, a leave-on cream such as %(cream)s with daily sunscreen is the easier route. Compare all forms in <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a>.</p>''',
+         faq=[('Is liposomal glutathione better than regular glutathione tablets?', 'It is designed to be absorbed better, and a small pilot study showed it raised body levels. There is no head-to-head trial showing better skin results than regular tablets.'),
+              ('Can I use liposomal glutathione and glutathione cream together?', 'A cream works on the skin surface and does not interact with a supplement. Ask a doctor before starting any supplement.')]),
+
+    dict(slug='glutathione-skincare-glossary', title='Glutathione skincare glossary: 27 terms explained simply', short='Glossary',
+         blurb='GSH, GSSG, melanin, tyrosinase, PIH, PA+++ and more: the words you see on glutathione products and guides, in plain English.',
+         seo='Glutathione Skincare Glossary: GSH, Melanin, Tyrosinase & More', desc='Plain-English glossary of glutathione and skincare terms: GSH and GSSG, melanin, tyrosinase, melasma, PIH, niacinamide, retinol, SPF and PA ratings.',
+         refs=['ijdvl'],
+         body='<p>Short, plain definitions of the terms used across our guides and on glutathione product labels. Each term links to the full guide where there is one.</p><dl class="glossary">' + _gl_rows + '</dl>',
+         faq=[]),
+]
+TLDR.update({
+    'glutathione-for-melasma': ['Melasma is patchy, hormone- and light-driven pigmentation that needs a dermatologist.',
+                                'Glutathione is not proven to treat melasma; at most it supports a gentle routine.',
+                                'A tinted sunscreen that blocks visible light helped melasma more than UV-only sunscreen in a trial.'],
+    'glutathione-for-pigmentation': ['Tan and acne marks respond best to a glutathione cream used with daily sunscreen.',
+                                     'Melasma and changing spots need a dermatologist.',
+                                     'Give it 8–12 weeks; avoid steroid "fairness" creams.'],
+    'how-long-does-glutathione-take-to-work': ['Smoother skin in 2–4 weeks, fresher look in 4–8 weeks, lighter tan and marks in 8–12 weeks.',
+                                               'Studies on glutathione ran for 4 to 12 weeks, with modest effects.',
+                                               'No daily sunscreen is the most common reason for no results.'],
+    'glutathione-for-dark-lips': ['There is no good study on glutathione for lips.',
+                                  'Sun, smoking, lip licking and allergies are the usual causes: remove them first.',
+                                  'Keep retinol and acid face creams off the lips; use an SPF lip balm.'],
+    'reduced-vs-oxidized-glutathione': ['Reduced glutathione (GSH) is the active form; oxidised (GSSG) is two joined molecules the body recycles.',
+                                        'GSSG is more stable in creams and was used in the best-known lotion study.',
+                                        'Packaging, the full formula and sunscreen matter more than the form.'],
+    'liposomal-glutathione': ['Liposomal glutathione is a supplement wrapped in fat bubbles to aid absorption.',
+                              'Small studies show oral glutathione raises body levels; no trial tests liposomal glutathione for skin tone.',
+                              'Ask a doctor before supplements; avoid injections.'],
+})
+RELATED_MORE = {
+    'glutathione-for-melasma': ['glutathione-for-pigmentation', 'glutathione-in-pregnancy', 'glutathione-for-dark-spots-and-tan'],
+    'glutathione-for-pigmentation': ['glutathione-for-melasma', 'glutathione-for-acne-marks', 'how-long-does-glutathione-take-to-work'],
+    'how-long-does-glutathione-take-to-work': ['how-to-use-glutathione-cream', 'glutathione-for-pigmentation', 'glutathione-facts'],
+    'glutathione-for-dark-lips': ['glutathione-for-underarms-and-body', 'glutathione-for-pigmentation', 'glutathione-side-effects'],
+    'reduced-vs-oxidized-glutathione': ['glutathione', 'liposomal-glutathione', 'glutathione-facts'],
+    'liposomal-glutathione': ['glutathione-tablets', 'glutathione-cream-vs-tablets-vs-injections', 'reduced-vs-oxidized-glutathione'],
+    'glutathione-skincare-glossary': ['glutathione', 'glutathione-facts', 'reduced-vs-oxidized-glutathione'],
+    'glutathione-for-dark-spots-and-tan': ['glutathione-for-pigmentation', 'glutathione-for-melasma', 'how-long-does-glutathione-take-to-work'],
+    'glutathione-for-acne-marks': ['glutathione-for-pigmentation', 'how-long-does-glutathione-take-to-work', 'glutathione-for-oily-skin'],
+    'glutathione-tablets': ['liposomal-glutathione', 'glutathione-cream-vs-tablets-vs-injections', 'glutathione-side-effects'],
+    'glutathione-facts': ['how-long-does-glutathione-take-to-work', 'reduced-vs-oxidized-glutathione', 'glutathione-skincare-glossary'],
+}
+
+HI += [
+    dict(slug='jhaiyan-aur-glutathione', en='/glutathione-for-melasma/',
+         title='चेहरे की झाइयां (मेलास्मा) और ग्लूटाथियोन: क्या सच में मदद करता है?', short='झाइयां',
+         seo='Chehre Ki Jhaiyan (Melasma) और Glutathione: सच क्या है',
+         desc='झाइयां (मेलास्मा) और टैन में फर्क, ग्लूटाथियोन क्रीम झाइयों में कितनी मदद करती है, रंगीन सनस्क्रीन क्यों ज़रूरी है, और डॉक्टर कब दिखाएं।',
+         body='''<p><b>छोटा जवाब:</b> ग्लूटाथियोन झाइयों का साबित इलाज नहीं है। भारतीय त्वचा-विशेषज्ञों की समीक्षा के अनुसार इसके सबूत कमज़ोर हैं। झाइयों में सबसे ज़्यादा मदद रोज़ की सनस्क्रीन और त्वचा-विशेषज्ञ के इलाज से मिलती है।</p>
+<h2>झाइयां या टैन?</h2><div class="tbl"><table><thead><tr><th></th><th>टैन</th><th>झाइयां (मेलास्मा)</th></tr></thead><tbody>
+<tr><td>कैसी दिखती है</td><td>धूप वाली त्वचा एक-सी गहरी</td><td>दोनों गालों, माथे, नाक या ऊपरी होंठ पर भूरे-स्लेटी धब्बे</td></tr>
+<tr><td>कारण</td><td>धूप</td><td>धूप और रोशनी, हार्मोन (गर्भावस्था, गोलियां), आनुवंशिकता, गर्मी</td></tr>
+<tr><td>अपने आप जाती है?</td><td>हां, सनस्क्रीन के साथ कुछ हफ्तों में</td><td>कम ही; अक्सर लौट आती है</td></tr></tbody></table></div>
+<h2>रंगीन (टिंटेड) सनस्क्रीन क्यों</h2><p>झाइयां सिर्फ UV से नहीं, दिखने वाली रोशनी से भी गहरी होती हैं। एक ट्रायल में आयरन ऑक्साइड वाली (रंगीन) सनस्क्रीन लगाने वालों में झाइयां सामान्य सनस्क्रीन से ज़्यादा कम हुईं। रोज़ सुबह SPF 30+ रंगीन सनस्क्रीन लगाएं और बाहर हर 2–3 घंटे में दोबारा लगाएं।</p>
+<h2>किन चीज़ों से बचें</h2><ul><li>स्टेरॉयड वाली या बिना लेबल की "फेयरनेस" क्रीम।</li><li>नींबू, बेकिंग सोडा या ब्लीच।</li><li>ग्लूटाथियोन इंजेक्शन।</li></ul>
+<h2>ग्लूटाथियोन क्रीम कहां फिट होती है</h2><p>डॉक्टर सहमत हों तो ग्लूटाथियोन और नियासिनामाइड वाली क्रीम रात के हल्के रूटीन का हिस्सा हो सकती है। GlutaNex नाइट क्रीम में रेटिनॉल है, इसलिए गर्भावस्था में या डॉक्टर की क्रीम के साथ इस्तेमाल से पहले पूछें।</p>''',
+         faq=[('क्या झाइयां हमेशा के लिए ठीक हो सकती हैं?', 'झाइयां हल्की और नियंत्रित हो सकती हैं, लेकिन धूप, गर्मी या हार्मोन बदलने पर अक्सर लौट आती हैं। रोज़ की सनस्क्रीन सबसे ज़रूरी है।'),
+              ('क्या ग्लूटाथियोन से झाइयां जाती हैं?', 'इसके पक्के सबूत नहीं हैं। यह रूटीन का हिस्सा हो सकती है, लेकिन असली फर्क सनस्क्रीन और त्वचा-विशेषज्ञ के इलाज से आता है।')]),
+]
+TLDR_HI['jhaiyan-aur-glutathione'] = ['ग्लूटाथियोन झाइयों का साबित इलाज नहीं है।',
+                                      'रोज़ SPF 30+ रंगीन सनस्क्रीन झाइयों में सबसे ज़्यादा मदद करती है।',
+                                      'झाइयां हों तो त्वचा-विशेषज्ञ को दिखाएं; स्टेरॉयड क्रीम से बचें।']

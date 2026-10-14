@@ -12,7 +12,7 @@ GUIDES = [
          body='''<p>A glutathione cream is a skincare cream that contains glutathione, an antioxidant the body makes naturally. It is used in products made for <b>brighter-looking, more even skin</b>. It is a cosmetic, not a medicine, and it works gradually.</p>
 <h2>What is glutathione?</h2><p>Glutathione is a small molecule made of three amino acids (cysteine, glutamic acid and glycine). Inside the body it acts as an antioxidant, helping cells deal with everyday stress from things like UV light and pollution. In skincare, it is added to creams, serums and face washes, often together with niacinamide or vitamin C.</p>
 <h2>What can a glutathione cream do?</h2><ul><li>Help skin look <b>brighter and more even</b> with regular use.</li><li>Support the look of <b>dark spots and tan</b> fading, alongside daily sunscreen.</li><li>Add an antioxidant step to a simple night routine.</li></ul>
-<h2>What it cannot do</h2><ul><li>Change your natural skin colour. No cream can.</li><li>Work overnight. Expect weeks, not days.</li><li>Replace sunscreen or treatment for medical conditions like melasma.</li></ul>
+<h2>What it cannot do</h2><ul><li>Change your natural skin colour. No cream can.</li><li>Work overnight. Expect weeks, not days.</li><li>Replace sunscreen or treatment for medical conditions like <a href="/glutathione-for-melasma/">melasma</a>.</li></ul>
 <h2>What the research says</h2><p>Studies on glutathione applied to the skin are few and small. In one double-blind, placebo-controlled study (%(study)s), 30 women applied a 2%% oxidized glutathione lotion to one side of the face twice a day for 10 weeks. The glutathione side showed a modest but steady reduction in melanin index compared with placebo, and the lotion was well tolerated. The study was small and partly run by the ingredient's maker, so results should be read with care.</p>
 <h2>How to choose a glutathione cream</h2><ol><li><b>Read the ingredient list.</b> Glutathione should be listed, and the full list should be printed on the pack.</li><li><b>Avoid big promises.</b> "Fair in 7 days" or "permanent whitening" are red flags for harsh or banned ingredients.</li><li><b>Check the seller.</b> A real business name, address, return policy and contact number.</li><li><b>Pick a routine you will keep.</b> A gentle cleanser, the cream at night, sunscreen in the morning.</li></ol>
 <h2>How to use it</h2><p>At night, cleanse with a gentle face wash such as %(wash)s, pat dry and apply a small amount of cream to the face and neck. Use sunscreen every morning. Patch test first. See the full guide: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>
@@ -37,7 +37,7 @@ GUIDES = [
 <h2>Creams and face washes</h2><ul><li><b>Mild tingling, redness or dryness</b> in the first days can happen with new products and usually settles.</li><li><b>Redness, itching or burning that lasts</b> is a reaction: stop using the product.</li><li><b>Rash or swelling</b>: stop at once and see a doctor.</li></ul><p>In the 10-week study of a 2%% glutathione lotion (%(study)s), one of 30 participants had mild redness for two days, which settled without stopping.</p>
 <h2>Glutathione injections</h2><p>Injections are a medical procedure, not skincare. The %(fda)s said injectable skin-lightening products may be unsafe, may contain unknown substances, and carry risks from unsafe injection practices, and that no injectable skin-lightening drug is approved. Never take glutathione injections from salons or unlicensed sellers.</p>
 <h2>How to patch test</h2><ol><li>Apply a little product behind the ear or on the inner arm.</li><li>Leave it for 24 hours.</li><li>No reaction? Start on the face, once a day.</li></ol>
-<h2>Ask a doctor first if you</h2><ul><li>are pregnant or breastfeeding;</li><li>have eczema, rosacea or very sensitive skin;</li><li>use prescription skin treatments;</li><li>have patchy pigmentation that may be melasma.</li></ul>
+<h2>Ask a doctor first if you</h2><ul><li>are pregnant or breastfeeding;</li><li>have eczema, rosacea or very sensitive skin;</li><li>use prescription skin treatments;</li><li>have patchy pigmentation that may be <a href="/glutathione-for-melasma/">melasma</a>.</li></ul>
 <p>See also: <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a></p>'''),
     dict(slug='how-to-use-glutathione-cream', title='How to use glutathione cream', short='How to use',
          blurb='A simple night routine, step by step.',
@@ -200,9 +200,10 @@ page('/glutathione-guides/', 'Glutathione Guides: Benefits, Side Effects, Price,
      hub, crumbs=[('Glutathione guides', '/glutathione-guides/')], ptype='CollectionPage', schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + guide_url(g), 'name': g['title']} for i, g in enumerate(GUIDES)]}])
 
 RELATED = {'glutathione': ['glutathione-cream-questions', 'glutathione-cream', 'is-glutathione-safe-for-skin'], 'glutathione-cream-questions': ['glutathione', 'retinol-vs-glutathione', 'glutathione-night-cream']}
+RELATED.update(RELATED_MORE)
 for i, g in enumerate(GUIDES):
     if g['slug'] in RELATED:
-        more = [x for x in GUIDES if x['slug'] in RELATED[g['slug']]]
+        more = sorted([x for x in GUIDES if x['slug'] in RELATED[g['slug']]], key=lambda x: RELATED[g['slug']].index(x['slug']))
     else:
         more = [GUIDES[0]] + [GUIDES[(i + j) % len(GUIDES)] for j in (1, 2) if GUIDES[(i + j) % len(GUIDES)]['slug'] != 'glutathione']
         more = more[:3]
@@ -227,6 +228,9 @@ for i, g in enumerate(GUIDES):
                         ('Spread thinly', 'Spread it in thin, upward strokes, avoiding the eyes and lips.'),
                         ('Start slowly', 'If the cream has retinol, use it 2 to 3 nights a week for the first two weeks, then build up.'),
                         ('Sunscreen every morning', 'Every morning, apply SPF 30 or higher sunscreen and reapply when outdoors.')])]})
+    if g['slug'] == 'glutathione-skincare-glossary':
+        sch.append({'@type': 'DefinedTermSet', '@id': SITE + guide_url(g) + '#terms', 'name': 'Glutathione skincare glossary', 'inLanguage': 'en-IN',
+                    'hasDefinedTerm': [{'@type': 'DefinedTerm', 'name': t, 'description': d, 'url': SITE + guide_url(g) + '#' + re.sub(r'[^a-z0-9]+', '-', t.lower()).strip('-')} for t, d, u in GLOSSARY]})
     if g.get('faq_ld'):
         sch.append(faq_ld([(q % P, re.sub(r'<[^>]+>', '', a % P)) for q, a in g['faq_ld']]))
     elif faq:

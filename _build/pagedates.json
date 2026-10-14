@@ -80,8 +80,8 @@
   "pub": "2026-10-11"
  },
  "/glutathione-cream/": {
-  "h": "39957bc702391c3a",
-  "mod": "2026-10-12",
+  "h": "6cf8ed19f78cc25b",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/glutathione-face-wash/": {
@@ -90,29 +90,44 @@
   "pub": "2026-10-11"
  },
  "/glutathione-facts/": {
-  "h": "941578a10a567972",
-  "mod": "2026-10-12",
+  "h": "4e13d9267624470b",
+  "mod": "2026-10-14",
   "pub": "2026-10-12"
  },
  "/glutathione-for-acne-marks/": {
-  "h": "4949218800b65e5d",
-  "mod": "2026-10-12",
+  "h": "f26b38dc28e0ff5a",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/glutathione-for-dark-circles/": {
-  "h": "696da2b802c886ae",
-  "mod": "2026-10-12",
+  "h": "2b235cbe57608074",
+  "mod": "2026-10-14",
   "pub": "2026-10-12"
  },
+ "/glutathione-for-dark-lips/": {
+  "h": "e99112d6befe1f87",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
+ },
  "/glutathione-for-dark-spots-and-tan/": {
-  "h": "898df92d4901d72f",
-  "mod": "2026-10-12",
+  "h": "5b88352e2489911b",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
+ },
+ "/glutathione-for-melasma/": {
+  "h": "8c4b6375bfc5e92c",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
  },
  "/glutathione-for-oily-skin/": {
   "h": "34b968c8ea319a5c",
   "mod": "2026-10-12",
   "pub": "2026-10-11"
+ },
+ "/glutathione-for-pigmentation/": {
+  "h": "7fff7aa1d25e53ed",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
  },
  "/glutathione-for-skin-whitening/": {
   "h": "0a6fc1743eab00d0",
@@ -125,8 +140,8 @@
   "pub": "2026-10-12"
  },
  "/glutathione-guides/": {
-  "h": "462b4bc019dbb86b",
-  "mod": "2026-10-12",
+  "h": "720c62e8e7d45b08",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
@@ -145,18 +160,23 @@
   "pub": "2026-10-11"
  },
  "/glutathione-serum-vs-cream-vs-soap/": {
-  "h": "a73e0e35554058eb",
-  "mod": "2026-10-12",
+  "h": "4d8bd09c7828e221",
+  "mod": "2026-10-14",
   "pub": "2026-10-12"
  },
  "/glutathione-side-effects/": {
-  "h": "70f4fdbfb9f3cce3",
-  "mod": "2026-10-12",
+  "h": "a1180a8f3ad16009",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
+ "/glutathione-skincare-glossary/": {
+  "h": "efafd30c9fd9a34d",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
+ },
  "/glutathione-tablets/": {
-  "h": "1364fe4845c0900c",
-  "mod": "2026-10-12",
+  "h": "e57fa803843ae821",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/glutathione-vs-alpha-arbutin/": {
@@ -185,58 +205,63 @@
   "pub": "2026-10-11"
  },
  "/glutathione/": {
-  "h": "4a3f744b8bbd5892",
-  "mod": "2026-10-12",
+  "h": "78e9b719957aae4f",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/": {
-  "h": "0d19d144e7c1f16f",
-  "mod": "2026-10-12",
+  "h": "05e0a1816362c513",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-cream-kaise-lagaye/": {
-  "h": "51028c3b46a4d7e4",
-  "mod": "2026-10-12",
+  "h": "6c4856c25a941fe2",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-cream-ke-fayde/": {
-  "h": "ddfc0406c151d653",
-  "mod": "2026-10-12",
+  "h": "273a7815ff476424",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-cream-price/": {
-  "h": "6a85ac7227ce98ee",
-  "mod": "2026-10-12",
+  "h": "727212230b54bb1b",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-cream-sawal-jawab/": {
-  "h": "6deba26aea0c692f",
-  "mod": "2026-10-12",
+  "h": "dc1ab656a1d57153",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-goli-ke-fayde-nuksan/": {
-  "h": "717b5bcf33e0ecbc",
-  "mod": "2026-10-12",
+  "h": "5eec32794ce6da90",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-ke-nuksan/": {
-  "h": "a00de2283976e7fd",
-  "mod": "2026-10-12",
+  "h": "4b1823db2d510e9c",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-kya-hai/": {
-  "h": "35c693a28dfb86a0",
-  "mod": "2026-10-12",
+  "h": "b07a5c9476427ccc",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-se-gora-hota-hai-kya/": {
-  "h": "09613f9d13c06287",
-  "mod": "2026-10-12",
+  "h": "16e9abec36e9b031",
+  "mod": "2026-10-14",
   "pub": "2026-10-11"
  },
+ "/hi/jhaiyan-aur-glutathione/": {
+  "h": "2007265504f05a9e",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
+ },
  "/hi/shaadi-se-pehle-glutathione/": {
-  "h": "a9563345bbcb45aa",
-  "mod": "2026-10-12",
+  "h": "7067aee9384c0d23",
+  "mod": "2026-10-14",
   "pub": "2026-10-12"
  },
  "/hi/web-stories/glutathione-cream-ke-fayde/": {
@@ -289,6 +314,11 @@
   "mod": "2026-10-12",
   "pub": "2026-10-12"
  },
+ "/how-long-does-glutathione-take-to-work/": {
+  "h": "6cbaaf88b3bc596f",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
+ },
  "/how-to-use-glutathione-cream/": {
   "h": "dcb2e868e1f30c6d",
   "mod": "2026-10-12",
@@ -308,6 +338,11 @@
   "h": "705ab197b6db0355",
   "mod": "2026-10-12",
   "pub": "2026-10-11"
+ },
+ "/liposomal-glutathione/": {
+  "h": "aa2a4b92904ae735",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
  },
  "/mr/glutathione-cream/": {
   "h": "581013b894017119",
@@ -338,6 +373,11 @@
   "h": "f52efcc686391336",
   "mod": "2026-10-12",
   "pub": "2026-10-11"
+ },
+ "/reduced-vs-oxidized-glutathione/": {
+  "h": "307180a77d213714",
+  "mod": "2026-10-14",
+  "pub": "2026-10-14"
  },
  "/refund-policy/": {
   "h": "2446e1672ddc9c30",

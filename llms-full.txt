@@ -49,7 +49,7 @@ Glutathione (often written GSH) is a tripeptide , a chain of three amino acids:
  Cysteine , which carries the sulphur group that makes glutathione such an effective antioxidant
  Glycine
 
- It exists in two forms. Reduced glutathione (GSH) is the active form that neutralises free radicals. When it does that job it becomes oxidised glutathione (GSSG) , which the body then converts back. Skincare products may use either form.
+ It exists in two forms. Reduced glutathione (GSH) is the active form that neutralises free radicals. When it does that job it becomes oxidised glutathione (GSSG) , which the body then converts back. Skincare products may use either form (reduced vs oxidised glutathione).
 
  Glutathione levels naturally fall with age, stress, poor sleep, smoking, alcohol and heavy sun exposure, which is one reason it has become popular in skincare.
 
@@ -93,9 +93,9 @@ Glutathione is widely used, but the number of good clinical studies is still sma
 
 
 
- A 2025 systematic review of topical glutathione (Khanna et al., J Clin Aesthet Dermatol 2025) concluded that it "shows promise", but that studies are few, small and short, and that more and larger trials are needed. The Indian review (Sonthalia, Daulatabad & Sarkar, IJDVL 2016) reached a similar view: the evidence is encouraging for creams and tablets in the short term, but not strong enough to call glutathione a treatment for pigmentation disorders such as melasma.
+ A 2025 systematic review of topical glutathione (Khanna et al., J Clin Aesthet Dermatol 2025) concluded that it "shows promise", but that studies are few, small and short, and that more and larger trials are needed. The Indian review (Sonthalia, Daulatabad & Sarkar, IJDVL 2016) reached a similar view: the evidence is encouraging for creams and tablets in the short term, but not strong enough to call glutathione a treatment for pigmentation disorders such as melasma. See how long glutathione takes to work.
 
- Our honest summary: glutathione can help skin look brighter and more even over time, as part of a routine with sunscreen. Expect gradual, modest change, not drama
+ Our honest summary: glutathione can help skin look brighter and more even over time, as part of a routine with sunscreen. 
 
 ## Glutathione: what it is, what it does for skin, and how to use it safely — Forms of glutathione compared
 URL: https://glutanex.co.in/glutathione/
@@ -1509,6 +1509,247 @@ Night: cleanse with a gentle face wash such as Gluta Boost Face Wash.
 URL: https://glutanex.co.in/glutathione-serum-vs-cream-vs-soap/
 Promises to whiten in days, no ingredient list, or no seller details.
 
+## Glutathione for melasma: does it help, and what actually works? — Does glutathione help melasma?
+URL: https://glutanex.co.in/glutathione-for-melasma/
+Not reliably. The Indian dermatology review found the evidence too weak to call glutathione a melasma treatment. A glutathione cream can be part of a gentle routine, but daily sunscreen and a dermatologist's plan do most of the work.
+
+## Glutathione for melasma: does it help, and what actually works? — What is the best treatment for melasma?
+URL: https://glutanex.co.in/glutathione-for-melasma/
+Strict daily sun protection, ideally a tinted sunscreen that also blocks visible light, plus treatment chosen by a dermatologist. Melasma can be controlled but often returns, so long-term care matters.
+
+## Glutathione for melasma: does it help, and what actually works? — Is it melasma or tan?
+URL: https://glutanex.co.in/glutathione-for-melasma/
+| | | Tan | Melasma | Sun spots
+
+ | Looks like | Even darkening of sun-exposed skin | Patchy brown or grey-brown areas, often on both cheeks, forehead, nose bridge or upper lip | Small, flat, round brown spots
+
+ | Main triggers | Sun | Sun and visible light, hormones (pregnancy, pills), genetics, heat | Years of sun
+
+ | Fades on its own? | Yes, over weeks with sun protection | Rarely; tends to return | Slowly, if at all
+
+ | Who to see | Skincare and sunscreen are enough | A dermatologist | A dermatologist if a spot changes
+
+## Glutathione for melasma: does it help, and what actually works? — Why sunscreen matters even more for melasma
+URL: https://glutanex.co.in/glutathione-for-melasma/
+Melasma is darkened not only by UV rays but also by visible light, which ordinary sunscreens do not block well. In a randomised trial, people with melasma who used a sunscreen that also blocked visible light (with iron oxides, which give tinted sunscreens their colour) improved more than those using UV-only sunscreen (Castanedo-Cázares et al., 2014).
+ Use a tinted, broad-spectrum SPF 30+ sunscreen every morning, indoors too if you sit near windows.
+ Reapply every 2–3 hours outdoors; add a hat and shade.
+ Heat can also worsen melasma: avoid steam rooms and very hot kitchens where you can.
+
+## Glutathione for melasma: does it help, and what actually works? — What a dermatologist may suggest
+URL: https://glutanex.co.in/glutathione-for-melasma/
+Treatment depends on your skin and is a medical decision. Options doctors use include prescription creams (sometimes a short course of a combination cream), azelaic acid, tranexamic acid and gentle peels. Do not use steroid-containing "fairness" creams on your own: misuse of steroid creams on the face is a common cause of thin, red, damaged skin in India (Sonthalia, Daulatabad & Sarkar, IJDVL 2016).
+
+## Glutathione for melasma: does it help, and what actually works? — Where glutathione fits
+URL: https://glutanex.co.in/glutathione-for-melasma/
+Glutathione slows tyrosinase, the enzyme that makes melanin, so it is often tried for pigmentation. But the studies are small and short (Khanna et al., J Clin Aesthet Dermatol 2025), and the Indian dermatology review says the evidence is not strong enough to call glutathione a melasma treatment (Sonthalia, Daulatabad & Sarkar, IJDVL 2016). If your dermatologist agrees, a glutathione and niacinamide cream such as GlutaNex Glutathione Night Cream can sit in a gentle night routine. It contains retinol and salicylic acid, so ask before combining it with prescription creams.
+
+## Glutathione for melasma: does it help, and what actually works? — Melasma in pregnancy
+URL: https://glutanex.co.in/glutathione-for-melasma/
+Melasma often starts or worsens in pregnancy. Use sunscreen and gentle basics only, and skip retinol creams. Many cases fade after delivery. Read glutathione in pregnancy.
+
+## Glutathione for pigmentation: types, what helps and what to avoid — Does glutathione reduce pigmentation?
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+It may help some types look lighter over 8 to 12 weeks, mainly tan and acne marks, when used with daily sunscreen. It works modestly and gradually, and it is not proven for melasma.
+
+## Glutathione for pigmentation: types, what helps and what to avoid — Which glutathione product is best for pigmentation?
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+A leave-on cream or serum, used at night, with SPF 30+ sunscreen every morning. Leave-on products are what the research tested; soaps and face washes rinse off too quickly.
+
+## Glutathione for pigmentation: types, what helps and what to avoid — The common types of pigmentation
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+| | Type | What it looks like | Can a glutathione cream help? | Read
+
+ | Sun tan | Even darkening of exposed skin | Yes, gradually, with sunscreen | Summer tan
+
+ | Acne marks (PIH) | Flat brown marks where pimples healed | Can help them fade faster | Acne marks
+
+ | Sun spots | Small, round, flat brown spots | A little; slow | Dark spots and tan
+
+ | Melasma | Patches on both cheeks, forehead or upper lip | Not reliably; see a dermatologist | Melasma
+
+ | Freckles | Tiny spots, often since childhood | Little; sunscreen stops them darkening |
+
+## Glutathione for pigmentation: types, what helps and what to avoid — A routine that helps most pigmentation
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+Night: gentle face wash such as Gluta Boost Face Wash, then a leave-on glutathione cream such as GlutaNex Glutathione Night Cream.
+ Morning: broad-spectrum SPF 30+ sunscreen, reapplied outdoors.
+ Hands off: do not pick pimples or scrub hard; irritation makes new marks.
+ Wait: 8 to 12 weeks before judging. See how long glutathione takes to work.
+
+## Glutathione for pigmentation: types, what helps and what to avoid — What the research shows
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+In the best-known study, a 2% glutathione lotion lowered the melanin index more than placebo over 10 weeks (Watanabe et al., 2014). A 2025 review called topical glutathione promising but noted that studies are few and small (Khanna et al., J Clin Aesthet Dermatol 2025).
+
+## Glutathione for pigmentation: types, what helps and what to avoid — What to avoid
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+Steroid or unlabelled "fairness" creams that promise results in days (Sonthalia, Daulatabad & Sarkar, IJDVL 2016).
+ Lemon, baking soda or toothpaste on the face.
+ Starting several strong actives at once.
+
+## Glutathione for pigmentation: types, what helps and what to avoid — When to see a dermatologist
+URL: https://glutanex.co.in/glutathione-for-pigmentation/
+Patches on both cheeks, a spot that changes size, shape or colour, bleeding, or no change after 3 months of care.
+
+## How long does glutathione cream take to work? A week-by-week timeline — How long does glutathione cream take to show results?
+URL: https://glutanex.co.in/how-long-does-glutathione-take-to-work/
+Expect skin to feel smoother within 2 to 4 weeks, a fresher look in 4 to 8 weeks, and lighter-looking tan or marks in 8 to 12 weeks of nightly use with daily sunscreen. Studies on glutathione ran for 4 to 12 weeks.
+
+## How long does glutathione cream take to work? A week-by-week timeline — Can glutathione show results in 7 days?
+URL: https://glutanex.co.in/how-long-does-glutathione-take-to-work/
+No honest product can promise visible lightening in 7 days. Skin renews over about a month, and pigment fades slowly. A cream that changes colour in days may contain steroids or bleach.
+
+## How long does glutathione cream take to work? A week-by-week timeline — Week-by-week timeline
+URL: https://glutanex.co.in/how-long-does-glutathione-take-to-work/
+| | When | What you may notice | What to do
+
+ | Weeks 1–2 | Skin adjusting. With retinol creams, mild tingling or dryness is common. | Use 2–3 nights a week. Sunscreen every morning.
+
+ | Weeks 3–4 | Smoother, more hydrated feel. | Every other night if comfortable.
+
+ | Weeks 4–8 | A fresher, less dull look. | Nightly if your skin is happy.
+
+ | Weeks 8–12 | Tan and acne marks look lighter and more even. | Keep going; compare photos.
+
+ | After 12 weeks | Gains hold only with sun protection. | Continue the routine to maintain.
+
+## How long does glutathione cream take to work? A week-by-week timeline — What the studies found
+URL: https://glutanex.co.in/how-long-does-glutathione-take-to-work/
+Topical: a 2% glutathione lotion showed a lower melanin index after 10 weeks (Watanabe et al., 2014).
+ Tablets: changes after 4 weeks at 500 mg a day (Arjinpathana & Asawanonda, 2012), and smaller, mostly non-significant changes over 12 weeks at 250 mg a day (Weschawalit et al., 2017).
+ A 2025 review: effects are modest and studies are short (Khanna et al., J Clin Aesthet Dermatol 2025).
+
+## How long does glutathione cream take to work? A week-by-week timeline — Why some people see no results
+URL: https://glutanex.co.in/how-long-does-glutathione-take-to-work/
+No daily sunscreen , so new tan keeps replacing what fades.
+ Using it now and then instead of most nights.
+ Melasma , which needs a dermatologist (see glutathione for melasma).
+ Expecting a colour change: glutathione does not change natural skin colour.
+ Irritation from too much product or too many actives, which can leave new marks.
+
+## How long does glutathione cream take to work? A week-by-week timeline — Track progress honestly
+URL: https://glutanex.co.in/how-long-does-glutathione-take-to-work/
+Take a photo on day 1 in the same spot, same daylight, no filter, then once every 2 weeks. Compare week 1 with week 8, not day to day. If you bought GlutaNex Glutathione Night Cream, the free routine tracker counts your nights for you.
+
+## Glutathione for dark lips: causes and safe care — Does glutathione lighten dark lips?
+URL: https://glutanex.co.in/glutathione-for-dark-lips/
+There is no good study on glutathione for lips. Dark lips usually improve when the cause is removed: sun protection with an SPF lip balm, no lip licking, no smoking and avoiding products that irritate.
+
+## Glutathione for dark lips: causes and safe care — Can I apply glutathione night cream on my lips?
+URL: https://glutanex.co.in/glutathione-for-dark-lips/
+Not one with retinol or salicylic acid, such as the GlutaNex Night Cream; lips are thin and peel easily. Use a plain lip balm with SPF instead.
+
+## Glutathione for dark lips: causes and safe care — Why lips get darker
+URL: https://glutanex.co.in/glutathione-for-dark-lips/
+Sun: lips have very little natural protection.
+ Smoking: heat and nicotine darken lips over time.
+ Lip licking and dryness: repeated irritation leaves pigment.
+ Allergy to a lipstick, balm or toothpaste: look for itching or peeling.
+ Natural colour: many people have darker lips by genetics; that is normal.
+
+## Glutathione for dark lips: causes and safe care — A gentle lip routine
+URL: https://glutanex.co.in/glutathione-for-dark-lips/
+An SPF 15+ lip balm by day, reapplied after eating.
+ A plain, fragrance-free balm at night.
+ Stop licking or biting lips; drink water.
+ If a new lipstick stings or itches, stop it.
+ Skip lemon, sugar scrubs and bleach on lips.
+
+## Glutathione for dark lips: causes and safe care — What about glutathione?
+URL: https://glutanex.co.in/glutathione-for-dark-lips/
+Glutathione research is on facial skin, not lips (Khanna et al., J Clin Aesthet Dermatol 2025). A gentle lip product with glutathione will not harm most people, but sun protection and removing the cause matter far more. Keep retinol and acid creams, including GlutaNex Glutathione Night Cream, off the lips.
+
+## Glutathione for dark lips: causes and safe care — When to see a doctor
+URL: https://glutanex.co.in/glutathione-for-dark-lips/
+A new dark spot on the lip, a spot that changes or bleeds, or dark patches inside the mouth should be checked by a doctor.
+
+## Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin? — What is the difference between reduced and oxidised glutathione?
+URL: https://glutanex.co.in/reduced-vs-oxidized-glutathione/
+Reduced glutathione (GSH) is the active antioxidant form. After it neutralises a free radical, two molecules join into oxidised glutathione (GSSG). The body turns GSSG back into GSH with an enzyme, so the two forms cycle.
+
+## Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin? — Is oxidised glutathione better for skin creams?
+URL: https://glutanex.co.in/reduced-vs-oxidized-glutathione/
+Oxidised glutathione is more stable in water-based formulas, and the best-known cream study used it. There is no head-to-head study showing one form works better in a cream.
+
+## Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin? — The two forms in one table
+URL: https://glutanex.co.in/reduced-vs-oxidized-glutathione/
+| | | Reduced (GSH) | Oxidised (GSSG)
+
+ | What it is | One glutathione molecule, active | Two glutathione molecules joined
+
+ | In the body | Most of the glutathione in healthy cells | Formed after antioxidant work, then recycled
+
+ | Stability in products | Oxidises with air and water | More stable
+
+ | Skin studies | 250 mg tablets, 12 weeks (Weschawalit et al., 2017) | 2% lotion, 10 weeks (Watanabe et al., 2014); 250 mg tablets (Weschawalit et al., 2017)
+
+## Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin? — What the studies used
+URL: https://glutanex.co.in/reduced-vs-oxidized-glutathione/
+The 10-week lotion study used oxidised glutathione and found a lower melanin index than placebo (Watanabe et al., 2014). A 12-week tablet study compared both forms; both trended towards lower melanin, and the reduced form also showed some wrinkle improvement (Weschawalit et al., 2017). A 2025 review found no strong reason to prefer one form in creams (Khanna et al., J Clin Aesthet Dermatol 2025).
+
+## Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin? — What matters more than the form
+URL: https://glutanex.co.in/reduced-vs-oxidized-glutathione/
+Packaging: an airtight, opaque jar or tube protects glutathione from air and light. Close the lid after use.
+ The whole formula: partners like niacinamide and vitamin C do much of the work.
+ Regular use and sunscreen: they decide results more than GSH vs GSSG.
+ A faint sulphur smell is normal for glutathione products.
+
+## Reduced vs oxidised glutathione (GSH vs GSSG): which is better for skin? — On labels
+URL: https://glutanex.co.in/reduced-vs-oxidized-glutathione/
+You may see "glutathione", "reduced glutathione", "L-glutathione" or "oxidised/oxidized glutathione". All are the same molecule family; check the full ingredient list and honest claims.
+
+## Liposomal glutathione: what it is, does it work for skin, and is it safe? — What is liposomal glutathione?
+URL: https://glutanex.co.in/liposomal-glutathione/
+It is glutathione wrapped in liposomes, tiny fat bubbles, to help it survive digestion when taken by mouth. It is sold as a supplement, usually as a liquid or capsule.
+
+## Liposomal glutathione: what it is, does it work for skin, and is it safe? — Does liposomal glutathione lighten skin?
+URL: https://glutanex.co.in/liposomal-glutathione/
+We found no published trial of liposomal glutathione for skin tone. Small studies show it can raise glutathione levels in the body, but that is not the same as proven skin lightening.
+
+## Liposomal glutathione: what it is, does it work for skin, and is it safe? — What the studies found
+URL: https://glutanex.co.in/liposomal-glutathione/
+| | Study | Form and dose | Who and how long | Finding
+
+ | Richie et al., 2015 | Regular oral glutathione, 250 or 1,000 mg a day | 54 adults, 6 months | Body glutathione stores rose, more with the higher dose
+
+ | Sinha et al., 2018 | Liposomal glutathione, 500 or 1,000 mg a day | 12 adults, 1 month (pilot) | Glutathione stores and some immune markers rose
+
+ | Arjinpathana & Asawanonda, 2012 | Regular capsules, 500 mg a day | 60 adults, 4 weeks | Melanin index fell slightly at the measured sites
+
+
+ So: oral glutathione can raise body levels, and one small trial of regular capsules saw a modest change in melanin. Whether the liposomal form gives better skin results is not known.
+
+## Liposomal glutathione: what it is, does it work for skin, and is it safe? — Is it safe?
+URL: https://glutanex.co.in/liposomal-glutathione/
+Short-term oral glutathione was generally well tolerated in these studies. Long-term safety at high doses is less clear, and supplements vary in quality. Ask a doctor first if you are pregnant or breastfeeding, take regular medicines, or have a medical condition. Never move from supplements to glutathione injections: they lack trials for skin lightening and carry safety warnings (Sonthalia, Daulatabad & Sarkar, IJDVL 2016).
+
+## Liposomal glutathione: what it is, does it work for skin, and is it safe? — Supplement or cream?
+URL: https://glutanex.co.in/liposomal-glutathione/
+| | | Liposomal supplement | Glutathione cream
+
+ | Works on | Whole body levels | The skin you apply it to
+
+ | Skin-tone evidence | None for the liposomal form | Small controlled studies
+
+ | Doctor advice | Recommended | Not usually needed; patch test
+
+
+ For a simple, low-risk start, a leave-on cream such as GlutaNex Glutathione Night Cream with daily sunscreen is the easier route. Compare all forms in cream vs tablets vs injections.
+
+## Glutathione skincare glossary: 27 terms explained simply
+URL: https://glutanex.co.in/glutathione-skincare-glossary/
+Short, plain definitions of the terms used across our guides and on glutathione product labels. Each term links to the full guide where there is one.
+ Antioxidant A substance that neutralises free radicals, the unstable molecules made by sunlight, pollution and normal metabolism. Glutathione, vitamin C and vitamin E are antioxidants. Glutathione guide
+ Broad-spectrum sunscreen A sunscreen that protects against both UVB (burning) and UVA (tanning and ageing) rays. Summer tan guide
+ Ceramides Natural fats in the outer skin layer that hold skin cells together and keep moisture in. Added to creams to support the skin barrier.
+ Cysteine One of the three amino acids in glutathione. Its sulphur group is what lets glutathione act as an antioxidant. Glutathione-rich foods
+ Eumelanin The dark brown-black type of melanin. Glutathione may shift production away from it.
+ Free radicals Unstable molecules that damage cells. UV light and pollution increase them in skin.
+ GSH (reduced glutathione) The active form of glutathione that neutralises free radicals. GSH vs GSSG
+ GSSG (oxidised glutathione) Two glutathione molecules joined after doing their antioxidant job. More stable in lotions; the body can turn it back into GSH. GSH vs GSSG
+ Hyaluronic acid A water-holding molecule found naturally in skin. In creams it draws water into the top layer so skin feels hydrated.
+ Hyperpigmentation Any area of skin darker than the skin around it: tan, sun spots, acne marks or melasma. Pigmentation guide
+
 ## Glutathione cream: answers to the most-asked questions — What is glutathione cream used for?
 URL: https://glutanex.co.in/glutathione-cream-questions/
 Glutathione cream is used to help skin look brighter and more even. It is applied to the face to support fading of tan, dullness and dark marks, and to add antioxidant protection against daily sun and pollution stress. It works gradually, alongside daily sunscreen.
@@ -1641,6 +1882,14 @@ URL: https://glutanex.co.in/hi/shaadi-se-pehle-glutathione/
 URL: https://glutanex.co.in/hi/shaadi-se-pehle-glutathione/
 त्वचा गोरी करने के लिए इंजेक्शन के सुरक्षित या असरदार होने का कोई ठीक क्लिनिकल ट्रायल नहीं है, और स्वास्थ्य नियामकों ने इनके बारे में चेतावनी दी है। इनसे बचना बेहतर है।
 
+## चेहरे की झाइयां (मेलास्मा) और ग्लूटाथियोन: क्या सच में मदद करता है? — क्या झाइयां हमेशा के लिए ठीक हो सकती हैं?
+URL: https://glutanex.co.in/hi/jhaiyan-aur-glutathione/
+झाइयां हल्की और नियंत्रित हो सकती हैं, लेकिन धूप, गर्मी या हार्मोन बदलने पर अक्सर लौट आती हैं। रोज़ की सनस्क्रीन सबसे ज़रूरी है।
+
+## चेहरे की झाइयां (मेलास्मा) और ग्लूटाथियोन: क्या सच में मदद करता है? — क्या ग्लूटाथियोन से झाइयां जाती हैं?
+URL: https://glutanex.co.in/hi/jhaiyan-aur-glutathione/
+इसके पक्के सबूत नहीं हैं। यह रूटीन का हिस्सा हो सकती है, लेकिन असली फर्क सनस्क्रीन और त्वचा-विशेषज्ञ के इलाज से आता है।
+
 ## GlutaNex FAQ — What is glutathione?
 URL: https://glutanex.co.in/faq/
 Glutathione is an antioxidant made of three amino acids, found naturally in the body. In skincare it is used in creams and face washes made for brighter-looking, more even skin.
@@ -1688,3 +1937,6 @@ Ask your doctor before using any new skincare product during pregnancy or breast
 - Sonthalia S, Daulatabad D, Sarkar R. Glutathione as a skin whitening agent: facts, myths, evidence and controversies. Indian J Dermatol Venereol Leprol. 2016;82(3):262-272.
 - Khanna R, Rambhia P, Chapas A. Systematic review of the efficacy and safety of topical glutathione in dermatology. J Clin Aesthet Dermatol. 2025;18(9):51-54.
 - US Food and Drug Administration warning on injectable skin-lightening products, 2015 (as reported by MedEsthetics).
+- Richie JP Jr, et al. Randomized controlled trial of oral glutathione supplementation on body stores of glutathione. Eur J Nutr. 2015;54(2):251-263.
+- Sinha R, et al. Oral supplementation with liposomal glutathione elevates body stores of glutathione and markers of immune function. Eur J Clin Nutr. 2018;72(1):105-111.
+- Castanedo-Cázares JP, et al. Near-visible light and UV photoprotection in the treatment of melasma: a double-blind randomized trial. Photodermatol Photoimmunol Photomed. 2014;30(1):35-42.
