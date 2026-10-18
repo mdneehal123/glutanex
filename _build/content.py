@@ -374,12 +374,12 @@ FAQ_ALL = HOME_FAQ + [
 page('/faq/', 'GlutaNex FAQ | Glutathione Cream Questions', 'Answers about GlutaNex glutathione cream and face wash: how to use, results, safety, price, delivery, Cash on Delivery and returns.',
      top('FAQ', 'Questions, answered') + '<section style="padding-top:24px"><div class="wrap">%s</div></section>' % faq_html(FAQ_ALL), crumbs=[('FAQ', '/faq/')], schema=[faq_ld(FAQ_ALL)])
 
-page('/track-order/', 'Track Your Order | GlutaNex', 'Track your GlutaNex order with your mobile number and pincode, or your payment ID.',
-     top('Track order', 'Track your order', 'Use the mobile number and pincode from your order, or your payment ID.') + '''<section style="padding-top:20px"><div class="wrap track">
+page('/track-order/', 'Track Your Order | GlutaNex', 'Track your GlutaNex order with your mobile number and pincode, your order number, payment ID or tracking number.',
+     top('Track order', 'Track your order', 'Use the mobile number and pincode from your order, or your order number, payment ID or tracking number.') + '''<section style="padding-top:20px"><div class="wrap track">
 <form class="form" id="track-form" novalidate>
   <div class="track-by"><button type="button" id="by-phone" class="on">Mobile number</button><button type="button" id="by-id">Payment ID / AWB</button></div>
   <div id="by-phone-box" class="form"><div class="f"><label for="t-phone">Mobile number</label><input id="t-phone" type="tel" inputmode="numeric" maxlength="16"></div><div class="f"><label for="t-pin">Delivery pincode</label><input id="t-pin" inputmode="numeric" maxlength="6"></div></div>
-  <div id="by-id-box" class="form" hidden><div class="f"><label for="t-id">Payment ID or tracking number</label><input id="t-id" autocomplete="off" placeholder="pay_XXXXXXXXXXXX"></div></div>
+  <div id="by-id-box" class="form" hidden><div class="f"><label for="t-id">Order number, payment ID or tracking number</label><input id="t-id" autocomplete="off" placeholder="GX12345678 or pay_XXXXXXXXXXXX"></div></div>
   <button class="btn block" type="submit" id="t-go">Track order</button>
 </form><div class="track-out" id="t-out" role="status" aria-live="polite" hidden></div></div></section>''', crumbs=[('Track order', '/track-order/')])
 
@@ -401,8 +401,8 @@ POL = {
 <p>By using this website and placing an order you agree to these terms. Products are sold by %(o)s.</p>%(biz)s
 <h2>Products</h2><p>GlutaNex products are cosmetics, not medicines. Results vary and are not guaranteed. Patch test before use and follow the directions on the pack.</p>
 <h2>Prices</h2><p>Prices are in Indian rupees and include taxes. Shipping is free. The total shown at checkout is the total you pay.</p>
-<h2>Orders</h2><p>An order is confirmed when payment, or the Cash on Delivery advance, succeeds. If we cannot fulfil an order, we refund any amount paid in full.</p>
-<h2>Cash on Delivery</h2><p>Cash on Delivery orders are confirmed with a %(adv)s advance paid online. It is part of the price and is refunded in full if the order is cancelled, refused at delivery or cannot be delivered.</p>
+<h2>Orders</h2><p>An online order is confirmed when the payment succeeds. A Cash on Delivery order is confirmed when it is placed. If we cannot fulfil an order, we refund any amount paid in full.</p>
+<h2>Cash on Delivery</h2><p>Cash on Delivery orders need nothing paid in advance: you pay the full amount in cash to the courier when the parcel arrives. There is no Cash on Delivery fee. Cash on Delivery is available for pincodes our courier serves for it.</p>
 <h2>Liability and law</h2><p>Our liability is limited to the amount paid for the order. These terms are governed by the laws of India. Nothing here limits your rights under the Consumer Protection Act, 2019.</p>'''),
     '/refund-policy/': ('Returns & Refunds', 'GlutaNex returns: 7 days for sealed products, free replacement or refund for damaged or wrong items, refunds within 7 working days.', '''
 %(biz)s<h2>Returns</h2><p>Sealed, unopened products can be returned within <b>7 days of delivery</b>. Message us on WhatsApp first. Return shipping for a change of mind is paid by you; we refund the product price once we receive it sealed.</p>
@@ -417,6 +417,6 @@ POL = {
 }
 for path, (h, d_, body) in POL.items():
     page(path, '%s | GlutaNex' % h, d_, top('Policy', h, 'Last updated: 11 October 2026') + '<section style="padding-top:20px"><div class="wrap prose">%s</div></section>' % (
-        body % dict(o=OWNER, biz=BIZ, adv=rs(ADVANCE))), crumbs=[(h, path)])
+        body % dict(o=OWNER, biz=BIZ)), crumbs=[(h, path)])
 
 page('/404', 'Page not found | GlutaNex', 'This page could not be found.', top('404', 'Page not found', 'The link may be old or mistyped.') + '<section style="padding-top:20px"><div class="wrap"><a class="btn" href="/shop/">Go to the shop</a></div></section>', index=False)

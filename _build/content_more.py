@@ -97,7 +97,7 @@ NEW_GUIDES = [
 <tr><td>%(wash)s</td><td>%(pwash)s</td><td>%(mwash)s</td><td>Free</td></tr>
 <tr><td><a href="%(uduo)s">Glow Duo (cream + face wash)</a></td><td>%(pduo)s</td><td>%(mduo)s</td><td>Free</td></tr>
 </tbody></table></div>
-<p>Prices include taxes. Cash on Delivery is available with a small refundable advance.</p>
+<p>Prices include taxes. Cash on Delivery is available with nothing to pay in advance.</p>
 <h2>What affects the price of a glutathione cream</h2>
 <ol><li><b>The full formula.</b> A cream that combines glutathione with proven partners such as niacinamide, vitamin C, hyaluronic acid, ceramides and peptides costs more to make than a basic cream with a trace of glutathione.</li><li><b>Quantity.</b> Always compare price per gram, not price per jar.</li><li><b>Packaging.</b> Airless pumps and opaque jars protect sensitive ingredients from light and air.</li><li><b>Testing and transparency.</b> A full ingredient list, batch number, expiry date and a real company address on the pack.</li><li><b>Support.</b> Returns, a working contact number and a clear refund policy cost money to run, and protect you.</li></ol>
 <h2>How to compare value</h2>

@@ -1,10 +1,16 @@
 const crypto = require('crypto');
-const { keys, shipArgs } = require('./_shared');
-const shiprocket = require('./_shiprocket');
+const { keys, shipArgs, customer } = require('./_shared');
 const coupons = require('./_coupons');
-const kv = require('./_kv');
+const { pushToDesk } = require('./_orderdesk');
 
-// Confirms that a payment reported by the browser was really signed by Razorpay, then hands it to Shiprocket.
+// Paid online orders: checks the Razorpay signature, confirms with Razorpay that the payment is really captured
+// for this order and for the server price, marks the reward code as used, then puts the order into the
+// Order Desk as PAID. Paid orders are NOT booked with Delhivery here (the Order Desk handles them).
+function auth(k) { return { Authorization: 'Basic ' + Buffer.from(k.id + ':' + k.secret).toString('base64') }; }
+async function rpGet(k, path) {
+  try { const r = await fetch('https://api.razorpay.com/v1' + path, { headers: auth(k) }); return r.ok ? await r.json() : null; } catch (e) { return null; }
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ error: 'method_not_allowed' });
@@ -19,28 +25,36 @@ module.exports = async (req, res) => {
   const expected = crypto.createHmac('sha256', k.secret).update(orderId + '|' + paymentId).digest('hex');
   const a = Buffer.from(expected), b = Buffer.from(signature);
   if (!(a.length === b.length && crypto.timingSafeEqual(a, b))) return res.status(400).json({ ok: false });
-  // A shipping problem must never turn a successful payment into an error for the customer.
-  let shipping = 'off', o = null;
-  if (shiprocket.settings() || kv.cfg()) {
-    try {
-      const r = await fetch('https://api.razorpay.com/v1/orders/' + encodeURIComponent(orderId), {
-        headers: { Authorization: 'Basic ' + Buffer.from(k.id + ':' + k.secret).toString('base64') }
-      });
-      o = r.ok ? await r.json() : null;
-    } catch (e) { o = null; }
+
+  const [p, o] = await Promise.all([rpGet(k, '/payments/' + encodeURIComponent(paymentId)), rpGet(k, '/orders/' + encodeURIComponent(orderId))]);
+  if (p && (p.order_id !== orderId || !(p.status === 'captured' || p.status === 'authorized'))) {
+    return res.status(400).json({ ok: false, error: 'not_paid', status: p.status });
   }
-  if (o && (o.notes || {}).coupon) {
-    try { if (!(await coupons.redeem(o.notes.coupon, orderId))) console.error('reward code reused', o.notes.coupon, orderId); } catch (e) { console.error('redeem failed', e && e.message); }
+  const args = o ? shipArgs(o) : null;
+  if (!args) {
+    // Signed by Razorpay, but the order details could not be read: the customer has paid, so never show an error.
+    console.error('paid order lookup failed', orderId, paymentId);
+    return res.status(200).json({ ok: true, savedToDesk: false });
   }
-  if (shiprocket.settings()) {
-    try {
-      const args = o ? shipArgs(o) : null;
-      if (!args) throw new Error('order_lookup_failed');
-      shipping = (await shiprocket.createOrder(args)).status;
-    } catch (e) {
-      console.error('shipping hand-off failed', e && e.message, JSON.stringify((e && e.detail) || {}));
-      shipping = 'failed';
-    }
+  const confirmed = !!p;
+  const charged = confirmed ? p.amount / 100 : args.cart.total - args.off;
+  const priced = args.cart.total - args.off; // server price (cart from the fixed price table, minus the reward code)
+  const warn = [];
+  if (!confirmed) warn.push('⚠ could not confirm the payment with Razorpay: check the dashboard before shipping');
+  if (confirmed && p.amount !== priced * 100) warn.push('⚠ amount ₹' + charged + ' differs from the price ₹' + priced);
+
+  if (args.coupon && confirmed) {
+    try { if (!(await coupons.redeem(args.coupon, orderId))) console.error('reward code reused', args.coupon, orderId); } catch (e) { console.error('redeem failed', e && e.message); }
   }
-  return res.status(200).json({ ok: true, shipping });
+
+  const c = customer({ name: args.name, phone: args.phone, address: args.address, city: args.city, pincode: args.pincode }) ||
+    { name: String(args.name || ''), phone: String(args.phone || ''), address: String(args.address || ''), city: String(args.city || ''), pin: String(args.pincode || ''), state: '' };
+  const ref = args.ref || ('GX' + orderId.replace(/^order_/, '').toUpperCase()).slice(0, 20);
+  const desk = await pushToDesk({
+    ref, c, lines: args.cart.lines, sub: args.cart.total, disc: args.off, coupon: args.coupon, total: charged,
+    pay: 'upi', paid: confirmed, payId: paymentId,
+    note: ['Paid online via Razorpay' + (confirmed && p.method ? ' (' + p.method + ')' : '') + ' ' + paymentId + ' · ' + orderId].concat(args.coupon ? ['reward code ' + args.coupon + ' −₹' + args.off] : [], warn).join(' · ')
+  });
+  if (!desk.ok) console.error('order desk push failed', ref, orderId, desk.error);
+  return res.status(200).json({ ok: true, ref, savedToDesk: desk.ok });
 };

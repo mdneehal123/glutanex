@@ -20,7 +20,7 @@
   try{var d=JSON.parse(localStorage.getItem('gn-details')||'{}');if(d&&d.phone){$('ub-phone').value=d.phone;}var o=JSON.parse(localStorage.getItem('gn-orders')||'[]');if(o&&o[0]&&o[0].id){$('ub-order').value=o[0].id;}}catch(e){}
   f.addEventListener('submit',function(e){e.preventDefault();
     var ord=$('ub-order').value.trim(),ph=$('ub-phone').value.replace(/\D/g,'').slice(-10),link=$('ub-link').value.trim();
-    var bad=!/^pay_\w{6,}$/.test(ord)?'Please enter your order number (it starts with pay_).':!/^[6-9]\d{9}$/.test(ph)?'Please enter the 10-digit mobile number on your order.':!/^https:\/\/(www\.)?instagram\.com\/(reel|reels|p)\//.test(link)?'Please paste the link to your Instagram Reel.':'';
+    var bad=!/^(pay_\w{6,}|GX\d{8})$/i.test(ord)?'Please enter your order number (it starts with pay_ or GX).':!/^[6-9]\d{9}$/.test(ph)?'Please enter the 10-digit mobile number on your order.':!/^https:\/\/(www\.)?instagram\.com\/(reel|reels|p)\//.test(link)?'Please paste the link to your Instagram Reel.':'';
     if(bad){err.textContent=bad;err.hidden=false;return;}err.hidden=true;
     window.open('https://wa.me/919980881230?text='+encodeURIComponent('Hi GlutaNex, here is my unboxing Reel for the ₹150 reward.\n\nOrder: '+ord+'\nMobile: '+ph+'\nReel: '+link),'_blank','noopener');
   });
