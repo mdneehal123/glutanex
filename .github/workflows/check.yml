@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for u in /api/delhivery-check /api/config; do echo "== $u"; curl -sS -m 30 "https://glutanex.co.in$u"; echo; done
-          echo "== /api/cod-order (GET, should not be 404)"; curl -sS -m 30 -o /dev/null -w "%{http_code}\n" https://glutanex.co.in/api/cod-order
+          for u in /api/delhivery-check /api/config; do echo "::notice title=$u::$(curl -sS -m 30 https://glutanex.co.in$u | tr -d '\n' | head -c 900)"; done
+          echo "::notice title=cod-order GET status::$(curl -sS -m 30 -o /dev/null -w '%{http_code}' https://glutanex.co.in/api/cod-order)"
