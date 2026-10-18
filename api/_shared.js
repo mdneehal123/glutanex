@@ -3,7 +3,9 @@
 const PRODUCTS = {
   cream: { name: 'GlutaNex Glutathione Night Cream 30g', sku: 'GNX-CREAM', price: 2499, mrp: 3000, kg: 0.12 },
   wash: { name: 'GlutaNex Gluta Boost Face Wash 100ml', sku: 'GNX-WASH-100', price: 399, mrp: 599, kg: 0.14 },
-  duo: { name: 'GlutaNex Glow Duo: Night Cream + Face Wash', sku: 'GNX-DUOx2', price: 2699, mrp: 3599, kg: 0.26 }
+  duo: { name: 'GlutaNex Glow Duo: Night Cream + Face Wash', sku: 'GNX-DUOx2', price: 2699, mrp: 3599, kg: 0.26 },
+  // TEMPORARY ₹1 test item for checking online payments (page /sample-test/). Remove after testing.
+  sample: { name: 'GlutaNex Test Sample (Rs 1)', sku: 'GNX-TEST', price: 1, mrp: 1, kg: 0.05 }
 };
 const BRAND = 'GlutaNex';
 const MAX_QTY = 10;
