@@ -22,7 +22,12 @@ module.exports = async (req, res) => {
     if (!v.ok) return res.status(400).json({ error: 'coupon', reason: v.reason, message: coupons.REASONS[v.reason] || 'This code cannot be used.' });
     off = v.off; code = v.code;
   }
-  const payable = cart.total - off;
+  let payable = cart.total - off;
+  // Owner test: when TEST_ONE_RUPEE_PHONE (Vercel setting) matches this mobile number, the online payment is ₹1.
+  // The Order Desk entry then shows a warning that ₹1 differs from the price. Delete the setting after testing.
+  const testPhone = String(process.env.TEST_ONE_RUPEE_PHONE || '').replace(/\D/g, '').slice(-10);
+  const isTest = /^[6-9]\d{9}$/.test(testPhone) && testPhone === c.phone;
+  if (isTest) payable = 1;
   const ref = orderRef(body.ref);
   try {
     const r = await fetch('https://api.razorpay.com/v1/orders', {
@@ -33,7 +38,7 @@ module.exports = async (req, res) => {
         notes: {
           brand: BRAND, ref, product: BRAND + ': ' + cart.label.slice(0, 200), items: cart.code, total: String(cart.total),
           name: c.name, phone: c.phone, address: c.address, city: c.city, pincode: c.pin,
-          payment: 'Paid in full online' + (off ? ' (code ' + code + ' -Rs ' + off + ')' : ''),
+          payment: (isTest ? 'OWNER TEST Rs 1 · ' : '') + 'Paid in full online' + (off ? ' (code ' + code + ' -Rs ' + off + ')' : ''),
           coupon: code, coupon_off: String(off)
         }
       })
