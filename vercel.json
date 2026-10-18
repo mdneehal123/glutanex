@@ -2,7 +2,7 @@
   "cleanUrls": false,
   "rewrites": [
     {
-      "source": "/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo)",
+      "source": "/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo|cod-order|delhivery-check)",
       "destination": "/api/hub?fn=:fn"
     }
   ],
