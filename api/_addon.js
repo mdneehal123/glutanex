@@ -1,14 +1,13 @@
 const crypto = require('crypto');
-const { PRODUCTS, BRAND, ADVANCE, keys, cartFrom, shipArgs } = require('./_shared');
-const shiprocket = require('./_shiprocket');
+const { PRODUCTS, BRAND, keys, cartFrom, shipArgs, customer } = require('./_shared');
+const { pushToDesk } = require('./_orderdesk');
 
 // After-payment add-on: for 15 minutes after paying, the customer can add the missing half of the Glow Duo
 // to the same parcel at the Duo price difference (Face Wash +₹200 to a Night Cream order, Night Cream +₹2,300
-// to a Face Wash order). Cash on Delivery orders can add it to the amount paid at the door; others pay online.
-// Nothing is stored here: the add-on is recorded on the original Razorpay order (notes), which also makes it
-// impossible to add twice.
+// to a Face Wash order), paid online. Only for orders paid online (Cash on Delivery orders have no online payment
+// to attach it to). Nothing is stored here: the add-on is recorded on the original Razorpay order (notes), which also
+// makes it impossible to add twice, and it is sent to the Order Desk as an add-on to pack in the same parcel.
 //   POST {action:'offer', order_id, payment_id}            -> what can be added, price and deadline
-//   POST {action:'cod', order_id, payment_id}              -> add to Cash on Delivery
 //   POST {action:'create', order_id, payment_id}           -> Razorpay order for paying the add-on online
 //   POST {action:'confirm', razorpay_order_id, razorpay_payment_id, razorpay_signature} -> record a paid add-on
 const WINDOW = 15 * 60e3;      // shown to the customer
@@ -43,12 +42,11 @@ async function parent(k, orderId, paymentId, grace) {
 }
 
 function paymentText(n, total, extra) {
-  if (n.mode === 'advance') return 'Advance Rs ' + ADVANCE + (extra ? ' + Rs ' + extra + ' add-on' : '') + ' paid online, Rs ' + (total - ADVANCE - extra) + ' cash on delivery';
   return 'Paid in full online' + (extra ? ' (incl. Rs ' + extra + ' add-on)' : '');
 }
 
-// Records the add-on on the original order, then updates the Shiprocket order (or ships it separately if that fails).
-async function apply(k, o, off, how, addonOrderId) {
+// Records the add-on on the original order, then sends it to the Order Desk as an add-on for the same parcel.
+async function apply(k, o, off, how, addonOrderId, addonPaymentId) {
   const n = Object.assign({}, o.notes);
   const extra = how === 'online' ? off.price : 0;
   const prevExtra = Math.floor(Number(n.extra_paid || 0));
@@ -61,24 +59,21 @@ async function apply(k, o, off, how, addonOrderId) {
   const r = await fetch('https://api.razorpay.com/v1/orders/' + o.id, { method: 'PATCH', headers: rp(k), body: JSON.stringify({ notes: n }) });
   if (!r.ok) return { ok: false, error: 'record_failed' };
   const updated = Object.assign({}, o, { notes: n });
-  let shipping = 'off';
-  if (shiprocket.settings()) {
-    try {
-      shipping = (await shiprocket.updateOrder(shipArgs(updated))).status;
-      if (shipping !== 'updated') {
-        // already with a courier: send the add-on as its own small parcel instead
-        const line = Object.assign({ id: off.item, qty: 1 }, PRODUCTS[off.item], { price: off.price });
-        const cart = { lines: [line], total: off.price, kg: PRODUCTS[off.item].kg };
-        const a = shipArgs(updated);
-        shipping = (await shiprocket.createOrder(Object.assign({}, a, { id: o.id + '-A', cart, cod: how === 'cod', discount: 0, collect: how === 'cod' ? off.price : 0, paid: how === 'cod' ? null : off.price,
-          comment: 'Add-on to website order ' + o.id }))).status === 'created' ? 'separate' : 'failed';
-      }
-    } catch (e) {
-      console.error('addon shipping failed', e && e.message);
-      shipping = 'failed';
-    }
-  }
   const args = shipArgs(updated);
+  let shipping = 'failed';
+  try {
+    const c = customer({ name: n.name, phone: n.phone, address: n.address, city: n.city, pincode: n.pincode });
+    const parentRef = n.ref || ('GX' + o.id.replace(/^order_/, '').toUpperCase()).slice(0, 20);
+    if (c) {
+      const desk = await pushToDesk({ ref: parentRef + 'A', c, lines: [{ id: off.item, name: off.name + ' (Glow Duo add-on)', qty: 1, price: off.price }],
+        sub: off.price, total: off.price, pay: how === 'cod' ? 'cod' : 'upi', paid: how === 'online', payId: addonPaymentId || '',
+        note: 'Add-on to website order ' + parentRef + ' (' + o.id + '): pack in the SAME parcel' + (how === 'online' ? ' · paid online ' + (addonPaymentId || addonOrderId || '') : '') });
+      shipping = desk.ok ? 'desk' : 'failed';
+      if (!desk.ok) console.error('addon order desk push failed', parentRef, desk.error);
+    }
+  } catch (e) {
+    console.error('addon hand-off failed', e && e.message);
+  }
   return { ok: true, item: off.item, name: off.name, total: off.after.total - Math.floor(Number(n.coupon_off || 0)), collect: args ? args.collect : 0, shipping };
 }
 
@@ -102,19 +97,14 @@ module.exports = async (req, res) => {
       if (String((o.notes || {}).addon || '').indexOf(oid) >= 0) return res.status(200).json({ ok: true, already: true });
       const off = offerFor(o.notes || {});
       if (!off || off.item !== an.item || off.price * 100 !== ao.amount) return res.status(409).json({ ok: false, error: 'changed' });
-      return res.status(200).json(await apply(k, o, off, 'online', oid));
+      return res.status(200).json(await apply(k, o, off, 'online', oid, pid));
     }
     const isCreate = b.action === 'create';
     const pr = await parent(k, b.order_id, b.payment_id);
     if (pr.err) return res.status(404).json({ ok: false, error: pr.err });
     const off = offerFor(pr.o.notes || {});
     if (!off || !pr.open) return res.status(200).json({ ok: false, error: off ? 'expired' : 'none' });
-    const cod = (pr.o.notes || {}).mode === 'advance';
-    if (b.action === 'offer') return res.status(200).json({ ok: true, item: off.item, name: off.name, price: off.price, regular: off.regular, until: pr.until, cod });
-    if (b.action === 'cod') {
-      if (!cod) return res.status(400).json({ ok: false, error: 'not_cod' });
-      return res.status(200).json(await apply(k, pr.o, off, 'cod'));
-    }
+    if (b.action === 'offer') return res.status(200).json({ ok: true, item: off.item, name: off.name, price: off.price, regular: off.regular, until: pr.until, cod: false });
     if (isCreate) {
       const n = pr.o.notes || {};
       const r = await fetch('https://api.razorpay.com/v1/orders', { method: 'POST', headers: rp(k), body: JSON.stringify({

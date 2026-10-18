@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  var WA='919980881230', ADVANCE=99, KEY='gn-cart', DETAILS='gn-details', ORDERS='gn-orders', PENDING='gn-pending';
+  var WA='919980881230', KEY='gn-cart', DETAILS='gn-details', ORDERS='gn-orders', PENDING='gn-pending';
   var P=null, $=function(id){return document.getElementById(id);};
   var CFG=null;function getConfig(){if(!CFG){CFG=fetch('/api/config').then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});}return CFG;}
   function rs(n){return '₹'+Number(n).toLocaleString('en-IN');}
@@ -191,13 +191,16 @@
     var F={name:$('co-name'),phone:$('co-phone'),address:$('co-address'),pin:$('co-pin'),city:$('co-city')};
     var btn=$('co-pay'),err=$('co-err'),busy=false,lastMode='online',step=1,stage=$('stage3d'),steps=[].slice.call(document.querySelectorAll('.step')),nav=[].slice.call(document.querySelectorAll('#steps-nav span'));
     var saved=load(DETAILS,null);if(saved){Object.keys(F).forEach(function(k){if(typeof saved[k]==='string'){F[k].value=saved[k].slice(0,300);}});}
-    var online=true;
+    var online=true,codOn=true,pinNoCod='';
+    /* one order number per checkout (GX + 8 digits): a retry of the same order is never booked twice */
+    var REF='';function ref(){if(!REF){var a=new Uint32Array(1);try{crypto.getRandomValues(a);}catch(e){a[0]=Math.floor(Math.random()*1e9);}REF='GX'+String(a[0]%1e8+1e8).slice(1);}return REF;}
     var leadsOn=false;
     var cpn=null,cpnTried=false;
-    getConfig().then(function(c){if(c&&c.rewards){$('co-cpn').hidden=false;}if(c&&c.leads){leadsOn=true;$('consent-row').hidden=false;fit();var sv=load(DETAILS,null);if(sv&&sv.consent){$('co-consent').checked=true;}}if(c&&c.razorpay===false){online=false;
-      document.querySelector('input[name=pay][value=online]').closest('label').classList.add('off');document.querySelector('input[name=pay][value=online]').disabled=true;
-      document.querySelector('input[name=pay][value=cod]').closest('label').classList.add('off');document.querySelector('input[name=pay][value=cod]').disabled=true;
-      document.querySelector('input[name=pay][value=wa]').checked=true;render();}});
+    getConfig().then(function(c){if(c&&c.rewards){$('co-cpn').hidden=false;}if(c&&c.leads){leadsOn=true;$('consent-row').hidden=false;fit();var sv=load(DETAILS,null);if(sv&&sv.consent){$('co-consent').checked=true;}}if(c&&c.razorpay===false){online=false;payOpt('online',false);}if(c&&c.cod===false){codOn=false;payOpt('cod',false);}render();});
+    /* turns a payment choice on or off; if the chosen one goes off, the next available one is chosen */
+    function payOpt(v,on){var r=document.querySelector('input[name=pay][value='+v+']');r.disabled=!on;r.closest('label').classList.toggle('off',!on);
+      if(!on&&r.checked){var n=['online','cod','wa'].map(function(x){return document.querySelector('input[name=pay][value='+x+']');}).filter(function(x){return !x.disabled;})[0];if(n){n.checked=true;}}
+      var sw=$('ny-switch');if(sw){sw.hidden=!codOn||!!pinNoCod;}}
     function fit(){var on=steps[step-1];stage.style.height=on.offsetHeight+'px';}
     function go(n){step=n;steps.forEach(function(s,i){s.classList.toggle('on',i===n-1);s.classList.toggle('past',i<n-1);});nav.forEach(function(s,i){s.classList.toggle('on',i===n-1);s.classList.toggle('done',i<n-1);});fit();
       if(n===3){review();autoCode();}var first=steps[n-1].querySelector('input,textarea');if(first&&n<3){setTimeout(function(){first.focus({preventScroll:true});},350);}
@@ -238,12 +241,12 @@
       if(cpn&&t.total<399){cpn=null;cpnMsg('Codes work on orders of ₹399 or more.','bad');}
       var off=cpn?Math.min(cpn.off,t.total-199):0,pay=t.total-off;
       var m=mode();$('amt-online').textContent=$('amt-cod').textContent=$('amt-wa').textContent=rs(pay);
-      $('cod-note').textContent='Pay '+rs(ADVANCE)+' now (refundable), '+rs(Math.max(0,pay-ADVANCE))+' at delivery';$('cod-terms').hidden=m!=='cod';
+      $('cod-terms').hidden=m!=='cod';
       var rows=[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free']];if(off){rows.push(['Reward code '+cpn.code,'− '+rs(off),'save']);}
-      if(m==='cod'){rows.push(['Pay now (advance)',rs(ADVANCE),'total']);rows.push(['Pay at delivery',rs(pay-ADVANCE)]);}else{rows.push([m==='wa'?'Order total':'You pay',rs(pay),'total']);}
+      if(m==='cod'){rows.push(['Pay now','₹0']);rows.push(['Pay at delivery',rs(pay),'total']);}else{rows.push([m==='wa'?'Order total':'You pay',rs(pay),'total']);}
       sumRows($('co-sum'),rows);
-      if(!busy){btn.textContent=m==='online'?'Pay '+rs(pay)+' securely':m==='cod'?'Pay '+rs(ADVANCE)+' to confirm':'Send on WhatsApp';}
-      if(step===3){fit();}
+      if(!busy){btn.textContent=m==='online'?'Pay '+rs(pay)+' securely':m==='cod'?'Place order · '+rs(pay)+' on delivery':'Send on WhatsApp';}
+      if(step===3){fit();setTimeout(fit,60);}
     }
     [].slice.call(document.querySelectorAll('input[name=pay]')).forEach(function(r){r.addEventListener('change',render);});
     render();setTimeout(fit,60);
@@ -254,29 +257,44 @@
         if(d.city&&(!F.city.value.trim()||F.city.value===cityAuto)){F.city.value=d.city;cityAuto=d.city;}
         var parts=[[d.city,d.state].filter(Boolean).join(', ')];
         if(d.days){var by=new Date();by.setDate(by.getDate()+2+d.days);parts.push('delivery by '+by.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'}));}
-        if(d.cod===false){parts.push('Cash on Delivery not available here');var c=document.querySelector('input[name=pay][value=cod]');c.disabled=true;c.closest('label').classList.add('off');}
+        if(d.cod===false){parts.push('Cash on Delivery not available here');pinNoCod=pin;payOpt('cod',false);render();}else if(pinNoCod&&codOn){pinNoCod='';payOpt('cod',true);render();}
         $('pin-note').textContent=parts.filter(Boolean).join(' · ');$('pin-note').hidden=false;fit();}).catch(function(){});}
     F.pin.addEventListener('input',pinLookup);pinLookup();
     function loadRzp(done,fail){if(window.Razorpay){done();return;}var s=document.createElement('script');s.src='https://checkout.razorpay.com/v1/checkout.js';s.onload=done;s.onerror=fail;document.head.appendChild(s);}
     function stop(text){busy=false;render();if(text){err.textContent=text;err.hidden=false;fit();}}
-    function pay(advance){
-      var t=totals();lastMode=advance?'cod':'online';$('not-yet').hidden=true;err.hidden=true;busy=true;btn.textContent='Opening secure payment…';remember();
-      fetch('/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:t.lines.map(function(x){return {id:x.id,qty:x.qty};}),mode:advance?'advance':'full',coupon:cpn?cpn.code:'',name:F.name.value.trim(),phone:mobile(F.phone.value),address:F.address.value.trim(),city:F.city.value.trim(),pincode:F.pin.value.trim()})})
+    function custPayload(){var t=totals();return {ref:ref(),items:t.lines.map(function(x){return {id:x.id,qty:x.qty};}),coupon:cpn?cpn.code:'',name:F.name.value.trim(),phone:mobile(F.phone.value),address:F.address.value.trim(),city:F.city.value.trim(),pincode:F.pin.value.trim()};}
+    function codeFail(e){cpn=null;$('cpn-open').hidden=false;cpnMsg(e.message,'bad');stop(e.message);}
+    /* Cash on Delivery: nothing to pay now. The server prices the order, books it with Delhivery and saves it in our Order Desk. */
+    function bookCod(){
+      if(busy){return;}$('not-yet').hidden=true;err.hidden=true;busy=true;btn.disabled=true;btn.textContent='Placing your order…';remember();
+      fetch('/api/cod-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(custPayload())})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return {s:r.status,j:j||{}};});})
+      .then(function(x){var j=x.j;btn.disabled=false;
+        if(x.s===200&&j.ok){finishOrder({kind:'cod',res:j});return;}
+        if(j.error==='coupon'){codeFail(j);return;}
+        if(j.codUnavailable){pinNoCod=F.pin.value.trim();payOpt('cod',false);stop(j.message||'Cash on Delivery is not available for this pincode. Please pay online.');return;}
+        if(x.s===429){stop('Too many tries from this number. Please wait a while, pay online, or order on WhatsApp.');return;}
+        stop('We could not place the Cash on Delivery order right now. Please try again, pay online, or order on WhatsApp.');})
+      .catch(function(){btn.disabled=false;stop('Could not reach our server. Check your connection and try again, or order on WhatsApp.');});
+    }
+    function pay(){
+      lastMode='online';$('not-yet').hidden=true;err.hidden=true;busy=true;btn.textContent='Opening secure payment…';remember();
+      fetch('/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(custPayload())})
       .then(function(r){return r.ok?r.json():r.json().catch(function(){return {};}).then(function(j){return Promise.reject(j);});})
       .then(function(o){loadRzp(function(){var done=false;
-        var rz=new window.Razorpay({key:o.key_id,order_id:o.order_id,amount:o.amount,currency:o.currency,name:'GlutaNex',description:advance?'Advance for Cash on Delivery':'GlutaNex order',prefill:{name:F.name.value.trim(),contact:mobile(F.phone.value)},theme:{color:'#F07C1C'},
-          handler:function(resp){done=true;try{localStorage.removeItem(PENDING);}catch(e){}fetch('/api/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(function(r){return r.json();}).then(function(v){thanks(resp.razorpay_payment_id,o,!!v.ok);}).catch(function(){thanks(resp.razorpay_payment_id,o,false);});},
-          modal:{ondismiss:function(){stop();if(!done){save(PENDING,{at:Date.now()});$('ny-switch').textContent=lastMode==='cod'?'Pay the full amount online instead':'Switch to Cash on Delivery';$('not-yet').hidden=false;fit();}}}});
+        var rz=new window.Razorpay({key:o.key_id,order_id:o.order_id,amount:o.amount,currency:o.currency,name:'GlutaNex',description:'GlutaNex order '+(o.ref||''),prefill:{name:F.name.value.trim(),contact:mobile(F.phone.value)},theme:{color:'#F07C1C'},
+          handler:function(resp){done=true;try{localStorage.removeItem(PENDING);}catch(e){}fetch('/api/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(function(r){return r.json();}).then(function(v){finishOrder({kind:'paid',pid:resp.razorpay_payment_id,o:o,ok:!!v.ok});}).catch(function(){finishOrder({kind:'paid',pid:resp.razorpay_payment_id,o:o,ok:false});});},
+          modal:{ondismiss:function(){stop();if(!done){save(PENDING,{at:Date.now()});$('ny-switch').hidden=!codOn||!!pinNoCod;$('not-yet').hidden=false;fit();}}}});
         rz.on('payment.failed',function(){stop('The payment did not go through. Please try again.');});rz.open();},function(){stop('The payment window could not load. Check your connection, or order on WhatsApp.');});})
-      .catch(function(e){if(e&&e.error==='coupon'){cpn=null;$('cpn-open').hidden=false;cpnMsg(e.message,'bad');stop(e.message);return;}stop('Online payment is not available right now. Please try again in a few minutes, or order on WhatsApp.');});
+      .catch(function(e){if(e&&e.error==='coupon'){codeFail(e);return;}stop('Online payment is not available right now. Please try again in a few minutes, or order on WhatsApp.');});
     }
-    $('ny-retry').addEventListener('click',function(){pay(lastMode==='cod');});
-    $('ny-switch').addEventListener('click',function(){var v=lastMode==='cod'?'online':'cod';document.querySelector('input[name=pay][value='+v+']').checked=true;render();pay(v==='cod');});
+    $('ny-retry').addEventListener('click',function(){pay();});
+    $('ny-switch').addEventListener('click',function(){document.querySelector('input[name=pay][value=cod]').checked=true;render();bookCod();});
     $('co-form').addEventListener('submit',function(e){e.preventDefault();if(busy){return;}var p=check(1)||check(2);if(p){go(p[0]===F.name||p[0]===F.phone?1:2);show(p);return;}var m=mode();remember();
       if(m==='wa'){lead('done');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(waText((cpn?'\nReward code: '+cpn.code+' (−'+rs(cpn.off)+')':'')+'\n\nName: '+F.name.value.trim()+'\nMobile: '+F.phone.value.trim()+'\nAddress: '+F.address.value.trim()+', '+F.city.value.trim()+' '+F.pin.value.trim())),'_blank','noopener');return;}
-      if(!online){return;}pay(m==='cod');});
+      if(m==='cod'){bookCod();return;}if(!online){return;}pay();});
     /* after-payment add-on: the other half of the Glow Duo, same parcel, Duo price difference, 15 minutes */
-    function addon(hold,sumBox,pid,o,t,cod){
+    function addon(hold,sumBox,pid,o,t){
       fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'offer',order_id:o.order_id,payment_id:pid})})
       .then(function(r){return r.ok?r.json():null;}).then(function(f){if(!f||!f.ok){return;}
         var pr=P[f.item]||{},card=el('div','addon');var top=el('div','ad-top');var im=el('img');im.src=pr.img||'';im.alt='';im.width=64;im.height=64;top.appendChild(im);
@@ -288,7 +306,7 @@
         function fail(text){busy(false);msg.textContent=text;msg.hidden=false;}
         function added(res){clearInterval(timer);card.textContent='';card.classList.add('done');card.appendChild(el('b',null,'✓ Added: '+(pr.short||f.name)+' will come in the same parcel'));
           var rows=[['Items',t.lines.map(function(x){return x.p.short+(x.qty>1?' ×'+x.qty:'');}).concat([(pr.short||f.name)]).join(', ')]];
-          if(cod){rows.push(['Paid online',rs(ADVANCE+(res.how==='online'?f.price:0))]);rows.push(['Pay at delivery',rs(res.collect),'total']);}else{rows.push(['Paid online',rs(res.total),'total']);}
+          rows.push(['Paid online',rs(res.total),'total']);
           rows.push(['Order number',pid]);sumRows(sumBox,rows);
           if(typeof gtag==='function'){gtag('event','purchase',{transaction_id:pid+'-addon',value:f.price,currency:'INR'});}
           if(typeof fbq==='function'){fbq('track','Purchase',{value:f.price,currency:'INR'},{eventID:pid+'-addon'});}}
@@ -296,13 +314,10 @@
           fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'create',order_id:o.order_id,payment_id:pid})}).then(function(r){return r.json();}).then(function(a){
             if(!a.ok){return fail(a.error==='expired'?'Sorry, this offer has ended.':'Could not start the payment. Please try again.');}
             loadRzp(function(){var rz=new window.Razorpay({key:a.key_id,order_id:a.order_id,amount:a.amount,currency:a.currency,name:'GlutaNex',description:'Add-on: '+(pr.short||f.name),prefill:{name:F.name.value.trim(),contact:mobile(F.phone.value)},theme:{color:'#F07C1C'},
-              handler:function(resp){resp.action='confirm';fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(function(r){return r.json();}).then(function(v){if(v.ok){v.how='online';if(v.already){v.total=t.total+f.price;v.collect=cod?t.total+f.price-ADVANCE-f.price:0;}added(v);}else{fail('Payment received. We will add it to your parcel; message us on WhatsApp if you have questions.');}}).catch(function(){fail('Payment received. We will add it to your parcel.');});},
+              handler:function(resp){resp.action='confirm';fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(resp)}).then(function(r){return r.json();}).then(function(v){if(v.ok){v.how='online';if(v.already){v.total=o.total+f.price;}added(v);}else{fail('Payment received. We will add it to your parcel; message us on WhatsApp if you have questions.');}}).catch(function(){fail('Payment received. We will add it to your parcel.');});},
               modal:{ondismiss:function(){busy(false);}}});rz.open();},function(){fail('The payment window could not load.');});
           }).catch(function(){fail('Could not start the payment. Please try again.');});}
-        if(cod){var b1=el('button','btn block','Add · pay '+rs(f.price)+' at delivery');b1.type='button';b1.addEventListener('click',function(){busy(true);msg.hidden=true;
-            fetch('/api/addon',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'cod',order_id:o.order_id,payment_id:pid})}).then(function(r){return r.json();}).then(function(v){if(v.ok){v.how='cod';added(v);}else{fail(v.error==='expired'?'Sorry, this offer has ended.':'Could not add it. Please try again.');}}).catch(function(){fail('Could not add it. Please try again.');});});acts.appendChild(b1);
-          var b2=el('button','btn ghost block','Pay '+rs(f.price)+' now instead');b2.type='button';b2.addEventListener('click',payOnline);acts.appendChild(b2);}
-        else{var b3=el('button','btn block','Add for '+rs(f.price));b3.type='button';b3.addEventListener('click',payOnline);acts.appendChild(b3);}
+        var b3=el('button','btn block','Add for '+rs(f.price));b3.type='button';b3.addEventListener('click',payOnline);acts.appendChild(b3);
         var no=el('button','ad-no','No thanks');no.type='button';no.addEventListener('click',function(){clearInterval(timer);card.remove();});acts.appendChild(no);
         hold.appendChild(card);}).catch(function(){});
     }
@@ -330,24 +345,29 @@
         cv.addEventListener('pointerup',function(){down=false;});cv.addEventListener('pointercancel',function(){down=false;});
       }).catch(function(){});
     }
-    function thanks(pid,o,ok){
-      lead('done');if(o.off&&cpn){save('gn-codes',savedCodes().filter(function(x){return x.code!==cpn.code;}));}var t=totals(),cod=o.balance>0;var past=load(ORDERS,[]).filter(function(x){return x&&x.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});
+    /* success screen. Paid: {kind:'paid', pid, o, ok}. Cash on Delivery: {kind:'cod', res} (res.awb = Delhivery tracking number). */
+    function finishOrder(x){
+      var cod=x.kind==='cod',res=x.res||{},o=x.o||{},ok=cod?true:x.ok,pid=cod?res.ref:x.pid,total=cod?res.total:o.total,off=cod?res.off:o.off;
+      lead('done');if(off&&cpn){save('gn-codes',savedCodes().filter(function(c){return c.code!==cpn.code;}));}
+      var t=totals();var past=load(ORDERS,[]).filter(function(c){return c&&c.id!==pid;});past.unshift({id:pid,at:Date.now()});save(ORDERS,past.slice(0,5));setCart({});REF='';try{localStorage.removeItem(PENDING);}catch(e){}
       var wrap=$('checkout');wrap.textContent='';var box=el('div','panel thanks');box.style.gridColumn='1 / -1';
-      box.appendChild(el('span','tick','✓'));box.appendChild(el('h2',null,ok?(cod?'Order confirmed. Thank you!':'Payment received. Thank you!'):'Payment submitted. We are confirming it.'));
-      box.appendChild(el('p','muted','We will pack your order within 1 to 2 business days and ship it free.'));
-      var s=el('div','sum'),rows=[['Items',t.lines.map(function(x){return x.p.short+(x.qty>1?' ×'+x.qty:'');}).join(', ')]];
-      if(cod){rows.push(['Advance paid',rs(ADVANCE)]);rows.push(['Pay at delivery',rs(o.balance),'total']);}else{rows.push(['Paid online',rs(o.total),'total']);}
-      rows.push(['Order number',pid]);sumRows(s,rows);box.appendChild(s);
-      var hold=el('div');box.appendChild(hold);if(ok){addon(hold,s,pid,o,t,cod);}
-      var hold2=el('div');box.appendChild(hold2);if(ok){getConfig().then(function(c){if(c&&c.rewards){scratch(hold2,pid,o);}});}
-      var tr=el('a','btn block','Track this order');tr.href='/track-order/?id='+encodeURIComponent(pid);box.appendChild(tr);
+      box.appendChild(el('span','tick','✓'));box.appendChild(el('h2',null,cod?'Order placed. Thank you!':ok?'Payment received. Thank you!':'Payment submitted. We are confirming it.'));
+      box.appendChild(el('p','muted',cod?'Nothing to pay now: pay '+rs(total)+' in cash when your parcel arrives. We will pack it within 1 to 2 business days and ship it free with Delhivery.':'We will pack your order within 1 to 2 business days and ship it free.'));
+      var s=el('div','sum'),rows=[['Items',t.lines.map(function(c){return c.p.short+(c.qty>1?' ×'+c.qty:'');}).join(', ')]];
+      if(off&&cpn){rows.push(['Reward code '+cpn.code,'− '+rs(off),'save']);}
+      if(cod){rows.push(['Pay at delivery',rs(total),'total']);}else{rows.push(['Paid online',rs(total),'total']);}
+      rows.push(['Order number',pid]);if(cod&&res.awb){rows.push(['Delhivery tracking no.',res.awb]);}sumRows(s,rows);box.appendChild(s);
+      if(cod&&!res.awb){box.appendChild(el('p','muted','Your Delhivery tracking number will be sent on WhatsApp once the parcel is booked.'));}
+      var hold=el('div');box.appendChild(hold);if(!cod&&ok){addon(hold,s,pid,o,t);}
+      var hold2=el('div');box.appendChild(hold2);if(!cod&&ok){getConfig().then(function(c){if(c&&c.rewards){scratch(hold2,pid,o);}});}
+      var tr=el('a','btn block','Track this order');tr.href='/track-order/?id='+encodeURIComponent(cod&&res.awb?res.awb:pid);box.appendChild(tr);
       var rm=el('a','btn ghost block','🔔 Turn on routine reminders');rm.href='/reminders/';box.appendChild(rm);
-      if(t.lines.some(function(x){return x.id==='cream'||x.id==='duo';})){getConfig().then(function(c){if(!c||!c.rewards){return;}var st=el('a','btn ghost block','📅 Track your 56 nights · ₹200 reward');st.href='/routine/?o='+encodeURIComponent(pid);box.insertBefore(st,rm);});}
+      if(!cod&&t.lines.some(function(c){return c.id==='cream'||c.id==='duo';})){getConfig().then(function(c){if(!c||!c.rewards){return;}var st=el('a','btn ghost block','📅 Track your 56 nights · ₹200 reward');st.href='/routine/?o='+encodeURIComponent(pid);box.insertBefore(st,rm);});}
       var ub=el('a','thanks-ub','🎬 Post your unboxing Reel and get ₹150 off your next order →');ub.href='/unboxing-reward/';
-      var wa=el('a','btn wa block','Get updates on WhatsApp');wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I placed an order. Order number: '+pid);wa.target='_blank';wa.rel='noopener';box.appendChild(wa);getConfig().then(function(c){if(c&&c.rewards){box.appendChild(ub);}});
+      var wa=el('a','btn wa block','Get updates on WhatsApp');wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hi GlutaNex, I placed an order. Order number: '+pid+(cod&&res.awb?' (Delhivery '+res.awb+')':''));wa.target='_blank';wa.rel='noopener';box.appendChild(wa);getConfig().then(function(c){if(c&&c.rewards){box.appendChild(ub);}});
       wrap.appendChild(box);window.scrollTo({top:0,behavior:'smooth'});
-      if(typeof gtag==='function'){gtag('event','purchase',{transaction_id:pid,value:o.total,currency:'INR'});}
-      if(typeof fbq==='function'){fbq('track','Purchase',{value:o.total,currency:'INR'},{eventID:pid});}
+      if(typeof gtag==='function'){gtag('event','purchase',{transaction_id:pid,value:total,currency:'INR'});}
+      if(typeof fbq==='function'){fbq('track','Purchase',{value:total,currency:'INR'},{eventID:pid});}
     }
   }
 
@@ -362,14 +382,15 @@
     function steps(n){var ol=el('ol','tsteps');['Placed','Packed','Shipped','Delivered'].forEach(function(t,i){ol.appendChild(el('li',i<n?'done':'',t));});return ol;}
     function render(d){
       if(d.paid===false){return showNodes([el('h2',null,'Payment not completed'),el('p','muted','This order was not paid, so it has not been dispatched.'),help()]);}
-      if(!d.shipped){return showNodes([el('h2',null,'Order received'),steps(1),el('p',null,'Your order is being packed. Tracking appears here once the courier collects it.'),help()]);}
+      var codNote=d.cod&&d.due?el('p','muted','Cash on Delivery: pay '+rs(d.due)+' when it arrives.'):null;
+      if(!d.shipped){return showNodes([el('h2',null,'Order received'),steps(1),el('p',null,'Your order is being packed. Tracking appears here once the courier collects it.'+(d.awb?' '+(d.courier||'Courier')+' tracking no.: '+d.awb+'.':'')),codNote,help()]);}
       var delivered=/deliver/i.test(d.status||'')&&!/out for|undeliver|not deliver/i.test(d.status||'');
       var n=[el('h2',null,d.status||'Shipped'),steps(delivered?4:3)],bits=[];if(d.courier){bits.push('Courier: '+d.courier);}if(d.awb){bits.push('Tracking no.: '+d.awb);}if(d.expected&&!delivered){bits.push('Expected by '+day(d.expected));}n.push(el('p',null,bits.join(' · ')));
-      if(d.track_url){var a=el('a','btn','Open courier tracking');a.href=d.track_url;a.target='_blank';a.rel='noopener';a.style.marginTop='14px';n.push(a);}showNodes(n);
+      if(codNote&&!delivered){n.push(codNote);}if(d.track_url){var a=el('a','btn','Open courier tracking');a.href=d.track_url;a.target='_blank';a.rel='noopener';a.style.marginTop='14px';n.push(a);}showNodes(n);
     }
     function run(){var u;
       if(byPhone){var ph=$('t-phone').value.replace(/\D/g,'').slice(-10),pn=$('t-pin').value.trim();if(!/^[6-9]\d{9}$/.test(ph)){return showNodes([el('p','oerr','Please enter the 10-digit mobile number used on the order.')]);}if(!/^[1-9]\d{5}$/.test(pn)){return showNodes([el('p','oerr','Please enter the 6-digit delivery pincode.')]);}u='/api/track?phone='+ph+'&pin='+pn;}
-      else{var id=$('t-id').value.trim().replace(/\s+/g,'');if(id.length<8){return showNodes([el('p','oerr','Please enter your payment ID or tracking number.')]);}u='/api/track?id='+encodeURIComponent(id);}
+      else{var id=$('t-id').value.trim().replace(/\s+/g,'');if(id.length<8){return showNodes([el('p','oerr','Please enter your order number, payment ID or tracking number.')]);}u='/api/track?id='+encodeURIComponent(id);}
       go.disabled=true;go.textContent='Checking…';
       fetch(u).then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j};});}).then(function(x){if(x.ok&&x.j.found){render(x.j);if(x.j.photo){var f=el('figure','packed');var im=el('img');im.src=x.j.photo;im.alt='Your GlutaNex parcel, packed and sealed';f.appendChild(im);f.appendChild(el('figcaption',null,'📦 Your parcel, packed and sealed in Bhatkal'+(x.j.photo_at?' on '+new Date(x.j.photo_at).toLocaleDateString('en-IN',{day:'numeric',month:'short'}):'')));out.insertBefore(f,out.children[1]||null);}}else{showNodes([el('h2',null,'We could not find that order'),el('p','muted','Check the details, or message us.'),help()]);}})
       .catch(function(){showNodes([el('h2',null,'Tracking is not available right now'),help()]);}).then(function(){go.disabled=false;go.textContent='Track order';});}
@@ -383,9 +404,9 @@
       cards.forEach(function(c){var ok=!words.length||words.every(function(w){return c.getAttribute('data-k').indexOf(w)>-1;});c.hidden=!ok;if(ok){c.classList.add('in');n++;}});
       if(pill){pill.hidden=!!words.length;}cnt.textContent=words.length?(n?n+' guide'+(n===1?'':'s')+' found':'No guide found. Try "side effects", "tablets" or ask on WhatsApp.'):'';});})();
   /* delivery estimate on product pages: packed in 1-2 business days, delivered 3-7 business days later */
-  /* product page: delivery and COD check for the shopper's pincode (Shiprocket, via /api/pincode) */
+  /* product page: delivery and COD check for the shopper's pincode (Delhivery, via /api/pincode) */
   (function(){var f=document.querySelector('[data-pinchk]');if(!f){return;}var inp=f.querySelector('input'),out=f.querySelector('.pc-out'),last='';
-    getConfig().then(function(c){if(!c||!c.shiprocket){return;}f.hidden=false;var sv=load(DETAILS,null);if(sv&&/^[1-9]\d{5}$/.test(sv.pin||'')){inp.value=sv.pin;check();}});
+    getConfig().then(function(c){if(!c||!c.pincode){return;}f.hidden=false;var sv=load(DETAILS,null);if(sv&&/^[1-9]\d{5}$/.test(sv.pin||'')){inp.value=sv.pin;check();}});
     function say(cls,text){out.className='pc-out '+cls;out.textContent=text;out.hidden=false;}
     function check(){var pin=inp.value.replace(/\D/g,'').slice(0,6);inp.value=pin;if(!/^[1-9]\d{5}$/.test(pin)){say('bad','Please enter a valid 6-digit pincode.');return;}if(pin===last){return;}last=pin;say('wait','Checking…');
       fetch('/api/pincode?pin='+pin).then(function(r){return r.ok?r.json():{ok:false};}).then(function(d){if(inp.value!==pin){return;}

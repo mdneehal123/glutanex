@@ -14,7 +14,6 @@ WA = '919980881230'                    # same number as Youth Face and Fair N Pi
 WA_SHOW = '+91 99808 81230'
 OWNER = 'Beauty Mart Pvt Ltd'          # same seller as Fair N Pink
 ADDR = 'Azad Nagar 4th Cross, near Anfa Park, Bhatkal, Uttara Kannada, Karnataka 581320, India'
-ADVANCE = 99                           # Cash on Delivery advance, refunded if the order is cancelled, refused or undeliverable
 TODAY = '2026-10-11'
 INDEXNOW_KEY = 'a7f3c9e15b2d4086b1e8d3f0c62a97e4'
 
@@ -302,7 +301,7 @@ HOME_FAQ = [
     ('What is glutathione?', 'Glutathione is an antioxidant made of three amino acids, found naturally in the body. In skincare it is used in creams and face washes made for brighter-looking, more even skin.'),
     ('How do I use the GlutaNex Night Cream?', 'At night, wash your face with a gentle cleanser such as Gluta Boost Face Wash, pat dry and apply a small amount of the cream to the face and neck. Use sunscreen every morning.'),
     ('When will I see a difference?', 'Skin changes slowly. Use your routine every night for at least 6 to 8 weeks, with daily sunscreen, before judging. Results vary from person to person.'),
-    ('Is Cash on Delivery available?', 'Yes. Pay %s online to confirm the order and the rest in cash at delivery. The advance is refunded if the order is cancelled, refused or cannot be delivered. You can also pay in full online or order on WhatsApp.' % rs(ADVANCE)),
+    ('Is Cash on Delivery available?', 'Yes. Choose Cash on Delivery at checkout and pay the full amount in cash when your parcel arrives: nothing to pay in advance and no COD fee. You can also pay online or order on WhatsApp.'),
     ('Are glutathione creams the same as glutathione injections?', 'No. Creams and face washes are cosmetics applied to the skin. Injections are a medical procedure; regulators have warned that skin-lightening injections can be unsafe. Read our guide on <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a>.'),
 ]
 INGREDIENTS = [
@@ -412,13 +411,13 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <p>Choose whatever feels easiest. Every order ships free across India.</p>
     <ul class="ways">
       <li><i aria-hidden="true">₹</i><div><b>Pay online</b><span class="l">UPI, cards or net banking</span><span class="s">UPI · cards</span></div></li>
-      <li><i aria-hidden="true">⌂</i><div><b>Cash on Delivery</b><span class="l">%(adv)s refundable advance, rest at your door</span><span class="s">%(adv)s advance</span></div></li>
+      <li><i aria-hidden="true">⌂</i><div><b>Cash on Delivery</b><span class="l">Nothing to pay now, pay at your door</span><span class="s">Pay at door</span></div></li>
       <li><i aria-hidden="true">✆</i><div><b>WhatsApp order</b><span class="l">Message us and we will confirm it for you</span><span class="s">We confirm it</span></div></li>
     </ul>
     <div class="b2-cta"><button class="btn" type="button" data-buy="duo"><span class="l">Get the Glow Duo · </span><span class="s">Glow Duo · </span>%(dprice)s</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)), adv=rs(ADVANCE),
+</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
@@ -468,10 +467,10 @@ TABS = {
             ('How to use', '<p>Night: cleanse with Gluta Boost Face Wash, pat dry, then apply the Night Cream (start with 2 to 3 nights a week, as it contains retinol and salicylic acid). Morning: cleanse and finish with sunscreen.</p>'),
             ('Night Cream key ingredients', ing_html('ing ing-sm'))],
 }
-SHIP_TAB = ('Shipping & returns', '<p>Free shipping across India. Pay online, or choose Cash on Delivery with a %s advance (refunded if the order is cancelled, refused or cannot be delivered). Orders are packed in 1 to 2 business days and delivered in 3 to 7 business days. Sealed packs can be returned within 7 days of delivery.</p>' % rs(ADVANCE))
+SHIP_TAB = ('Shipping & returns', '<p>Free shipping across India. Pay online, or choose Cash on Delivery and pay in cash when the parcel arrives (nothing to pay in advance). Orders are packed in 1 to 2 business days and delivered in 3 to 7 business days. Sealed packs can be returned within 7 days of delivery.</p>')
 CREAM_FAQ = [('Can I use it during pregnancy?', 'The Night Cream contains retinol (vitamin A) and salicylic acid. Do not use it during pregnancy or breastfeeding unless your doctor says it is fine.'),
              ('Why start 2 to 3 nights a week?', 'Retinol and salicylic acid can cause mild dryness or tingling while skin gets used to them. Starting slowly and using sunscreen every morning keeps it comfortable.')]
-PDP_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Pay %s online to confirm and the rest at delivery. The advance is refunded if the order is cancelled, refused or cannot be delivered.' % rs(ADVANCE)),
+PDP_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Choose Cash on Delivery at checkout and pay the full amount in cash when your parcel arrives. Nothing is paid in advance.'),
            ('When will I see results?', 'Use it every night with daily sunscreen for at least 6 to 8 weeks before judging. Results vary from person to person.'),
            ('Is it safe for sensitive skin?', 'Patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.')]
 ABOUT = {'cream': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About this glutathione face cream</h2>
@@ -499,7 +498,7 @@ for p in PRODUCTS:
     <div class="acts"><button class="btn ghost" type="button" data-add="%(id)s" data-useqty>Add to cart</button><button class="btn" type="button" data-buy="%(id)s" data-useqty>Buy now</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s Order on WhatsApp</a></div>
     <p class="eta" data-eta hidden></p>
     <form class="pinchk" data-pinchk hidden><label for="pc-pin">Check delivery to your pincode</label><div><input id="pc-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6-digit pincode"><button class="btn sm" type="submit">Check</button></div><p class="pc-out" aria-live="polite" hidden></p></form>
-    <ul class="perks"><li>Cash on Delivery with a refundable %(adv)s advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
+    <ul class="perks"><li>Cash on Delivery: nothing to pay in advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
     <button class="jar-talk sm" type="button" data-talk hidden><span class="jt-dot"></span>🎙️ Ask the jar a question<small>Speak in English, हिंदी, Hinglish, தமிழ்…</small></button>
     <a class="quizcta sm" href="/skin-quiz/"><b>Not sure it suits your skin?</b><span>Take the 30-second quiz →</span></a>
     <div class="tabs">%(tabs)s</div>
@@ -511,7 +510,7 @@ for p in PRODUCTS:
 <div class="buybar" id="buybar" aria-hidden="true"><img src="%(main)s" alt="" width="44" height="44"><div class="bb-t"><b>%(short)s</b><span>%(price)s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%(id)s" aria-label="Add to cart">%(bag)s</button><button class="btn" type="button" data-buy="%(id)s">Buy now</button></div>''' % dict(
         main=im(p['imgs'][0]), short=html.escape(p['short']), bag=SVG_BAG, alt=html.escape(p['name']), thumbs=thumbs, tag=p['tag'], name=html.escape(p['name']), price=rs(p['price']),
         mrp='<s>MRP %s</s>' % rs(p['mrp']) if off else '', off='<span class="off">%d%% off</span>' % off if off else '', size=p['size'], summary=p['summary'], id=p['id'],
-        wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG, adv=rs(ADVANCE),
+        wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG,
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
         faq=faq_html(faq_items), rel=''.join(card(q) for q in others),
         sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=ABOUT.get(p['id'], ''))
@@ -541,10 +540,10 @@ checkout = top('Secure checkout', 'Checkout') + '''<div class="wrap co" id="chec
       <div class="review" id="co-review"></div>
       <fieldset class="pay"><legend class="muted" style="font-size:.82rem;margin-bottom:6px">Choose one</legend>
         <label><em class="rec">Recommended</em><input type="radio" name="pay" value="online" checked><span>Pay online<small>UPI, cards, netbanking · nothing to pay at the door</small></span><b id="amt-online"></b></label>
-        <label><input type="radio" name="pay" value="cod"><span>Cash on Delivery<small id="cod-note">Pay a small refundable advance now, the rest at delivery</small></span><b id="amt-cod"></b></label>
+        <label><input type="radio" name="pay" value="cod"><span>Cash on Delivery<small id="cod-note">Nothing to pay now · pay in cash when it arrives</small></span><b id="amt-cod"></b></label>
         <label><input type="radio" name="pay" value="wa"><span>Order on WhatsApp<small>Send your order, we confirm on chat</small></span><b id="amt-wa"></b></label>
       </fieldset>
-      <p class="muted" id="cod-terms" style="font-size:.82rem" hidden>The advance is part of the price, not an extra charge. It is refunded in full if the order is cancelled, refused at delivery or cannot be delivered.</p>
+      <p class="muted" id="cod-terms" style="font-size:.82rem" hidden>Delivered by Delhivery. Please keep the exact amount ready; there is no Cash on Delivery fee. You get a Delhivery tracking number as soon as the order is placed.</p>
       <div class="notyet" id="not-yet" hidden><p><b>Your order isn't placed yet.</b> The payment window closed before it finished. Your details are saved.</p><button type="button" class="btn" id="ny-retry">Try payment again</button><button type="button" class="btn ghost" id="ny-switch">Switch to Cash on Delivery</button></div>
       <p class="oerr" id="co-err" role="alert" hidden></p>
       <div class="step-acts"><button class="btn ghost" type="button" data-back>Back</button><button class="btn" type="submit" id="co-pay">Pay securely</button></div>
@@ -613,7 +612,7 @@ KB = [{'t': 'GlutaNex products, prices and policies', 'u': '/shop/', 's': '', 'a
     'Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. The complete list is printed on the pack.',
     'Night Cream use: ' + _txt(CREAM_USE),
     'Shipping: free across India, packed in 1 to 2 business days, delivered in 3 to 7 business days. Track orders at /track-order/.',
-    'Payment: pay online (UPI, cards, netbanking), Cash on Delivery with a %s refundable advance, or order on WhatsApp at %s.' % (rs(ADVANCE), WA_SHOW),
+    'Payment: pay online (UPI, cards, netbanking), Cash on Delivery (pay in cash at delivery, nothing in advance), or order on WhatsApp at %s.' % WA_SHOW,
     'Returns: sealed products within 7 days of delivery; damaged or wrong items replaced or refunded if reported within 48 hours; opened products cannot be returned for hygiene reasons.',
     'Seller: %s, %s.' % (OWNER, ADDR)])}]
 for g in GUIDES:
@@ -651,7 +650,7 @@ LLMS = ['# GlutaNex', '',
         'Key facts:', '',
         '- Products: ' + '; '.join('%s (%s) %s, MRP %s' % (x['name'], x['size'], rs(x['price']), rs(x['mrp'])) for x in PRODUCTS) + '. Prices include taxes.',
         '- Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. Contains retinol and salicylic acid: night use, start 2-3 nights a week, sunscreen every morning, not for pregnancy or breastfeeding unless a doctor approves.',
-        '- Shipping: free across India; packed in 1-2 business days; delivered in 3-7 business days. Payment: online (UPI, cards), Cash on Delivery with a %s refundable advance, or WhatsApp order.' % rs(ADVANCE),
+        '- Shipping: free across India; packed in 1-2 business days; delivered in 3-7 business days. Payment: online (UPI, cards), Cash on Delivery (nothing paid in advance), or WhatsApp order.',
         '- Returns: sealed products within 7 days of delivery; damaged or wrong items replaced or refunded. Contact: WhatsApp %s, Instagram @glutanexofficial.' % WA_SHOW, '',
         '## Shop', '',
         _line('/shop/', 'Shop', 'all GlutaNex products with prices')] + [_line(url(x), x['name'], x['desc']) for x in PRODUCTS] + [
@@ -683,7 +682,7 @@ page('/leads/', 'Unfinished checkouts | GlutaNex', 'Owner page.', top('Owner', '
      '<div class="f"><label for="ot-note">Reason</label><select id="ot-note"><option>Unboxing Reel</option><option>Sorry for the trouble</option><option>Other</option></select></div></div>'
      '<button class="btn" type="button" id="ot-code-go">Create code</button><p class="ot-msg" id="ot-code-msg" hidden></p></div>'
      '<div class="panel"><h2>Packed-parcel photo</h2><p class="muted">One photo of the sealed parcel. The customer sees it on the tracking page.</p>'
-     '<div class="f"><label for="ot-order">Order number</label><input id="ot-order" placeholder="pay_… or order_…" autocomplete="off" spellcheck="false"></div>'
+     '<div class="f"><label for="ot-order">Order number</label><input id="ot-order" placeholder="pay_… or order_… (paid orders)" autocomplete="off" spellcheck="false"></div>'
      '<div class="f"><label for="ot-file">Photo</label><input id="ot-file" type="file" accept="image/*" capture="environment"></div>'
      '<button class="btn" type="button" id="ot-photo-go">Upload photo</button><p class="ot-msg" id="ot-photo-msg" hidden></p></div></div>'
      '</div></section>', index=False, js='store.js,leads.js,owner-tools.js')

@@ -66,7 +66,7 @@ page('/unboxing-reward/', 'Unboxing Reel Reward: ₹150 Off Your Next Order | Gl
 </div>
 <form class="panel wsform" id="ubform" novalidate>
   <h2>Send your Reel</h2>
-  <div class="f"><label for="ub-order">Order number (starts with pay_)</label><input id="ub-order" required maxlength="40" autocomplete="off" spellcheck="false"></div>
+  <div class="f"><label for="ub-order">Order number (starts with pay_ or GX)</label><input id="ub-order" required maxlength="40" autocomplete="off" spellcheck="false"></div>
   <div class="f"><label for="ub-phone">Mobile number on the order</label><input id="ub-phone" type="tel" inputmode="numeric" maxlength="14" required autocomplete="tel"></div>
   <div class="f"><label for="ub-link">Instagram Reel link</label><input id="ub-link" type="url" required placeholder="https://www.instagram.com/reel/..." autocomplete="off"></div>
   <p class="oerr" id="ub-err" hidden></p>
