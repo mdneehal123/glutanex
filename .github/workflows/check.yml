@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for u in https://www.theglowclub.in/ https://theglowclub.in/ https://www.glutanex.co.in/; do echo "::notice title=$u::$(curl -sS -m 30 -o /dev/null -w '%{http_code} -> %{url_effective} ip=%{remote_ip}' -L $u 2>&1 | head -c 300)"; done
-          echo "::notice title=dns::$(dig +short www.theglowclub.in theglowclub.in | tr '\n' ' ')"
+          for u in https://www.youthfacebeautycream.com/ https://youthfacebeautycream.com/ https://www.youthfacebeauty.com/; do echo "::notice title=$u::$(curl -sS -m 30 -o /dev/null -w '%{http_code} -> %{url_effective} ip=%{remote_ip}' -L $u 2>&1 | head -c 300)"; done
+          echo "::notice title=dns::$(dig +short youthfacebeautycream.com www.youthfacebeautycream.com; curl -sSL -m 20 https://www.youthfacebeautycream.com/ | grep -oiE "<title>[^<]*|wp-content|generator[^>]*|razorpay|woocommerce" | sort | uniq -c | head -8 | tr '\n' ' ')"
