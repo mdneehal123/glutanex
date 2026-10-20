@@ -709,7 +709,10 @@ open(os.path.join(ROOT, 'assets', 'site.css'), 'w', encoding='utf-8').write(minc
 for f in ['store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
-open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps({p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}, ensure_ascii=False))
+_pj = {p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}
+# the ₹1 test product used by /sample-test/ to check live payments (kept in products.json, not listed in the shop)
+_pj['sample'] = {'name': 'GlutaNex Test Sample (₹1)', 'short': 'Test Sample', 'price': 1, 'mrp': 1, 'img': im(BYID['cream']['imgs'][0]), 'url': '/sample-test/'}
+open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps(_pj, ensure_ascii=False))
 # photo credit + licence data inside every image (Google Images shows it); lossless and only once per file
 import sys as _sys
 _sys.path.insert(0, B)
@@ -769,7 +772,7 @@ open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
 # Google Search Console ownership file (HTML file method). Must stay at the site root.
 open(os.path.join(ROOT, 'google68c163c347b9f153.html'), 'w').write('google-site-verification: google68c163c347b9f153.html')
 open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
-vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo)', 'destination': '/api/hub?fn=:fn'}], 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/hub?fn=indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/(.*)', 'headers': [{'key': 'X-Content-Type-Options', 'value': 'nosniff'}, {'key': 'Referrer-Policy', 'value': 'strict-origin-when-cross-origin'},
+vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo|cod-order|delhivery-check)', 'destination': '/api/hub?fn=:fn'}], 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/hub?fn=indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/(.*)', 'headers': [{'key': 'X-Content-Type-Options', 'value': 'nosniff'}, {'key': 'Referrer-Policy', 'value': 'strict-origin-when-cross-origin'},
                 {'key': 'Permissions-Policy', 'value': 'camera=(self), microphone=(self), geolocation=(), browsing-topics=()'}, {'key': 'Strict-Transport-Security', 'value': 'max-age=63072000; includeSubDomains'}]},
                {'source': '/((?!web-stories|hi/web-stories).*)', 'headers': [{'key': 'X-Frame-Options', 'value': 'SAMEORIGIN'}]},
                {'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
@@ -818,5 +821,5 @@ self.addEventListener('fetch',function(e){
   e.respondWith(caches.match(r).then(function(m){var net=fetch(r).then(function(res){if(res&&(res.ok||res.type==='opaque')){var cp=res.clone();caches.open(V).then(function(c){c.put(r,cp);});}return res;}).catch(function(){return m;});return m||net;}));
 });
 ''' % (_ver, _ver, json.dumps(PRECACHE)))
-open(os.path.join(ROOT, '.vercelignore'), 'w').write('_build\nREADME.md\n')
+open(os.path.join(ROOT, '.vercelignore'), 'w').write('_build\nREADME.md\n.github\n')
 print('built', len(pages), 'indexed pages', '(PREVIEW: noindex everywhere)' if PREVIEW else '')

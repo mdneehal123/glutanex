@@ -88,6 +88,13 @@ GUIDES = [
 
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
 exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
+# 20 Oct 2026 batch: new guides (English), Hindi and Hinglish pages, each in its own file
+for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py']:
+    if os.path.exists(os.path.join(B, _f)):
+        exec(open(os.path.join(B, _f), encoding='utf-8').read())
+NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', [])
+HI += globals().get('HI_OCT20', [])
+HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, uduo=url(BYID['duo']),
          pcream=rs(BYID['cream']['price']), mcream=rs(BYID['cream']['mrp']), pwash=rs(BYID['wash']['price']), mwash=rs(BYID['wash']['mrp']),
          pduo=rs(BYID['duo']['price']), mduo=rs(BYID['duo']['mrp']))
