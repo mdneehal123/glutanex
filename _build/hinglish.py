@@ -43,10 +43,12 @@ HL = [
          faq=[('Kya glutathione se kidney kharab hoti hai?', 'Cream se aisa koi saboot nahi hai. Injections ke saath kuch serious reports aaye hain, isliye injections avoid karein aur tablets doctor ki salah se hi lein.'),
               ('Glutathione cream se pimples ho sakte hain?', 'Bhaari formula se kuch logon ko ho sakte hain. Halki, non-greasy cream patli layer mein lagayein; salicylic acid pores saaf rakhne mein madad karta hai.')]),
     dict(slug='glutathione-cream-kaise-lagaye', en='/how-to-use-glutathione-cream/', short='Glutathione cream kaise lagaye',
-         title='Glutathione cream kaise lagaye: sahi tarika step by step',
-         seo='Glutathione Cream Kaise Lagaye: Raat Ka Sahi Tarika (Hinglish)',
-         desc='Glutathione cream kaise lagaye, kitni lagayein, din mein ya raat mein, aur kitne din mein result dikhega: step-by-step Hinglish guide.',
+         title='Glutathione cream kaise lagaye (use kaise kare): sahi tarika step by step',
+         seo='Glutathione Cream Kaise Lagaye, Use Kaise Kare, Kab Lagaye',
+         desc='Glutathione cream kaise lagaye aur use kaise kare: kab lagana chahiye, kitni lagayein, din ya raat, aur result kab dikhega. Step-by-step Hinglish guide.',
          qa=[('Glutathione cream kaise lagaye?', 'Raat ko chehra halke face wash se dhoyein aur pochh kar sukha lein. Phir matar ke daane jitni cream maathe, gaalon, thodi aur gardan par lagakar halke haathon se upar ki taraf failayein. Subah SPF 30+ sunscreen zaroor lagayein.', ''),
+             ('Glutathione cream ka use kaise kare?', 'Hafte mein 2 se 3 raat se shuru karein, phir skin aaram se le to roz raat. Saaf aur sukhe chehre par matar ke daane jitni cream, uske baad kuch nahi; subah sunscreen. Pehli baar se pehle kaan ke peeche 24 ghante patch test karein.', ''),
+             ('Glutathione cream kab lagana chahiye?', 'Raat ko sone se lagbhag aadha ghanta pehle, chehra dhone ke baad, routine ke aakhri step ke roop mein. Pillow par cream na lage isliye thoda time dein. GlutaNex Night Cream sirf raat ke liye hai kyunki usmein retinol aur salicylic acid hai.', ''),
              ('Glutathione cream din mein lagayein ya raat mein?', 'Raat mein lagana best hai, khaaskar agar cream mein retinol ya salicylic acid ho, kyunki yeh dhoop mein skin ko sensitive kar sakte hain. Din mein sirf sunscreen aur moisturiser rakhein.', '')],
          body='''<h2>Step by step</h2><ol><li><b>Saaf karein:</b> %(wash)s jaise halke face wash se chehra dhoyein.</li><li><b>Sukha lein:</b> towel se halke se pochhein, ek minute rukein.</li><li><b>Matar ke daane jitni cream:</b> chehre aur gardan ke liye kaafi hai.</li><li><b>Patli layer:</b> upar ki taraf halke haath se failayein; aankhon aur hothon ke paas na lagayein.</li><li><b>Subah sunscreen:</b> SPF 30 ya zyada, dhoop mein ho to 2 se 3 ghante mein dobara.</li></ol>
 <h2>Shuruat dheere karein</h2><p>Retinol wali cream ho to pehle 2 hafte, hafte mein 2 se 3 raat. Skin theek lage to ek din chhod kar, aur phir roz raat.</p>
