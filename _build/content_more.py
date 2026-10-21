@@ -651,7 +651,7 @@ NEW_GUIDES += [
 NEW_GUIDES += [
     dict(slug='glutathione-cream-for-men', title='Glutathione cream for men: does it work and how to use it', short='For men',
          blurb='Why men use glutathione cream, how to fit it around shaving, and what to expect.',
-         seo='Glutathione Cream for Men: Benefits & How to Use', desc='Glutathione cream for men: benefits for tan, dullness and oily skin, how to use it around shaving, a simple routine and realistic results.',
+         seo='Glutathione Cream for Men: Skin Brightening Cream Guide', desc='Glutathione cream for men: benefits for tan, dullness and oily skin, how to use it around shaving, a simple routine and realistic results.',
          refs=['study'],
          body='''<p>Glutathione cream works the same way for men as for women. Men often have oilier skin, more sun exposure from commuting and sport, and razor irritation, so a few adjustments help.</p>
 <h2>Why men use it</h2><ul><li>Tan from bikes, sport and outdoor work.</li><li>Dull, tired-looking skin.</li><li>Dark marks after pimples or ingrown hairs.</li></ul>

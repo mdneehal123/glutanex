@@ -318,7 +318,7 @@ OCT20_C = [
 
     dict(slug='glutathione-cream-for-uneven-skin-tone', title='Glutathione cream for uneven skin tone: causes, routine and realistic results', short='Uneven skin tone',
          blurb='What causes uneven tone in Indian skin, what glutathione, niacinamide and vitamin C can do, a simple routine and when to see a doctor.',
-         seo='Glutathione Cream for Uneven Skin Tone: Causes & Routine',
+         seo='Cream for Uneven Skin Tone: Glutathione Routine That Helps',
          desc='Glutathione cream for uneven skin tone: causes like sun, acne marks, friction and hormones, what helps, a simple routine, timeline and when to see a doctor.',
          refs=['study', 'ijdvl', 'review'],
          qa=[("Does glutathione cream help uneven skin tone?", "It can help, gradually. Glutathione slows the enzyme that makes melanin and adds antioxidant support, and small studies found modest improvements in tone over about 10 weeks. Paired with niacinamide, vitamin C and daily sunscreen, a glutathione cream can make uneven areas look more even over 8 to 12 weeks.", ''),
