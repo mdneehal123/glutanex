@@ -69,6 +69,10 @@ def im(name, ext='webp'):
     return '/assets/img/%s.%s' % (SEO_IMG.get(name, name), ext)
 
 
+# Real customer review image, added on the owner's confirmation (22 Oct 2026) that Priya S. wrote it and agreed to it being shown.
+REVIEW_SEC = '<section style="padding-top:0"><div class="wrap"><div class="sec-h reveal"><span class="eyebrow">From a customer</span><h2>What Priya said</h2></div><figure class="reveal" style="max-width:420px;margin:0 auto;text-align:center"><img src="/assets/img/glutanex-night-cream-customer-review.webp" alt="Customer review of GlutaNex Night Cream by Priya S.: made my skin smoother, brighter and more even, woke up with healthy, glowing skin every morning" width="720" height="720" loading="lazy" decoding="async" style="width:100%;height:auto"><figcaption class="muted" style="font-size:.85rem;margin-top:8px">A review shared by a GlutaNex customer, shown with her permission. Results vary from person to person.</figcaption></figure></div></section>\n'
+
+
 NAV = [('/', 'Home'), ('/shop/', 'Shop'), ('/glutathione/', 'Glutathione'), ('/glutathione-cream/', 'Cream Guide'), ('/glutathione-guides/', 'Guides'),
        ('/about/', 'About'), ('/faq/', 'FAQ'), ('/track-order/', 'Track Order')]
 POLICIES = [('/privacy-policy/', 'Privacy Policy'), ('/terms/', 'Terms'), ('/refund-policy/', 'Returns & Refunds'), ('/shipping-policy/', 'Shipping')]
@@ -385,7 +389,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
   <figure class="tilt reveal"><img src="%(img_hand)s" alt="Hand holding a GlutaNex glutathione night cream jar" width="1024" height="682" loading="lazy"></figure>
   <figure class="tilt reveal"><img src="%(img_bag)s" alt="GlutaNex glutathione night cream 30 g jar in a handbag" width="1024" height="684" loading="lazy"></figure>
 </div></div></section>
-<section style="padding-top:0"><div class="wrap">
+%(review)s<section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Glutathione guides</span><h2>Know before you buy</h2></div>
   <div class="guides rail-m">
     <a class="reveal" href="/glutathione-benefits-for-skin/"><span class="eyebrow">Guide</span><h3>Glutathione benefits for skin</h3><p>What it can and cannot do, and what the research says.</p></a>
@@ -419,7 +423,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
 </div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
-                                      img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), img_banner=im('night-shift-banner'),
+                                      img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), review=REVIEW_SEC, img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
 page('/', 'Glutathione Cream for Face in India | GlutaNex', 'GlutaNex glutathione face cream: a night cream with glutathione, niacinamide and vitamin C for brighter, more even-looking skin. %s, free shipping, COD.' % rs(c['price']),
      home, jar=True, extra='<link rel="preload" as="image" href="%s" type="image/webp" fetchpriority="high">\n' % im('jar-cut'), schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(p)} for i, p in enumerate(PRODUCTS)]}, faq_ld(HOME_FAQ)])
@@ -504,7 +508,7 @@ for p in PRODUCTS:
     <div class="tabs">%(tabs)s</div>
   </div>
 </div>
-%(about)s<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>Questions</h2></div>%(faq)s
+%(about)s%(review)s<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>Questions</h2></div>%(faq)s
 <p style="margin-top:22px" class="muted">Learn more: <a href="/glutathione-cream/">Glutathione cream guide</a> · <a href="/glutathione-side-effects/">Side effects</a> · <a href="/how-to-use-glutathione-cream/">How to use</a></p></div></section>
 <section style="padding-top:10px"><div class="wrap"><div class="sec-h"><span class="eyebrow">Complete the ritual</span><h2>You may also like</h2></div><div class="grid">%(rel)s</div></div></section>
 <div class="buybar" id="buybar" aria-hidden="true"><img src="%(main)s" alt="" width="44" height="44"><div class="bb-t"><b>%(short)s</b><span>%(price)s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%(id)s" aria-label="Add to cart">%(bag)s</button><button class="btn" type="button" data-buy="%(id)s">Buy now</button></div>''' % dict(
@@ -513,7 +517,7 @@ for p in PRODUCTS:
         wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG,
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
         faq=faq_html(faq_items), rel=''.join(card(q) for q in others),
-        sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=ABOUT.get(p['id'], ''))
+        sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=ABOUT.get(p['id'], ''), review=REVIEW_SEC if p['id'] in ('cream', 'duo') else '')
     page(url(p), p['title'], p['desc'], body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)], ptype='ItemPage', main=SITE + url(p) + '#product',
          extra='<meta property="product:price:amount" content="%d"><meta property="product:price:currency" content="INR">\n' % p['price'])
 
