@@ -1,6 +1,7 @@
 const { clean, cartFrom } = require('./_shared');
 const kv = require('./_kv');
 const guard = require('./_guard');
+const desk = require('./_orderdesk');
 
 // Saves an unfinished checkout so the shop can help on WhatsApp, only when the customer ticked the consent box.
 // status "done" removes it (order placed). Entries expire by themselves after 30 days.
@@ -43,6 +44,7 @@ module.exports = async (req, res) => {
       contacted: !!old.contacted
     };
     await kv.pipe([['SET', key, JSON.stringify(lead), 'EX', TTL], ['ZADD', 'leads', Date.now(), phone], ['ZREMRANGEBYRANK', 'leads', 0, -501]]);
+    if (!old.created) { try { await desk.pushLead({ phone, name: lead.name, product: lead.items }); } catch (e) { /* never blocks checkout */ } }
     return res.status(200).json({ ok: true });
   } catch (e) {
     return res.status(500).json({ ok: false });

@@ -534,7 +534,7 @@ checkout = top('Secure checkout', 'Checkout') + '''<div class="wrap co" id="chec
     <div class="step on" data-step="1"><h2>Who is it for?</h2>
       <div class="f"><label for="co-name">Full name</label><input id="co-name" autocomplete="name"></div>
       <div class="f"><label for="co-phone">Mobile number</label><input id="co-phone" type="tel" inputmode="numeric" maxlength="16" autocomplete="tel"></div>
-      <label class="consent" id="consent-row" hidden><input type="checkbox" id="co-consent"><span>If I don't finish my order, GlutaNex may message me on WhatsApp to help.</span></label>
+      <label class="consent" id="consent-row" hidden><input type="checkbox" id="co-consent"><span>You may message me on WhatsApp about this order and related offers, even if I don't complete it.</span></label>
       <div class="step-acts"><button class="btn" type="button" data-next>Continue to address</button></div></div>
     <div class="step" data-step="2"><h2>Where should we deliver?</h2>
       <div class="f"><label for="co-address">Full address (house no., street, area)</label><textarea id="co-address" rows="2" autocomplete="street-address"></textarea></div>

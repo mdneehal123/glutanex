@@ -22,4 +22,16 @@ async function pushToDesk({ ref, c, lines, sub, disc, coupon, total, pay, paid, 
   } catch (e) { return { ok: false, error: String((e && e.message) || e) }; }
 }
 
-module.exports = { pushToDesk, deskOn };
+// A shopper who ticked the consent box at checkout: goes to Order Desk > Customers > Not bought yet.
+async function pushLead({ phone, name, product }) {
+  if (!deskOn()) return { ok: false };
+  try {
+    const r = await fetch(deskUrl() + '/api/web-order', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'x-web-order-key': process.env.WEB_ORDER_KEY.trim() },
+      body: JSON.stringify({ lead: true, consent: true, phone, name: name || '', product: product || '', site: 'glutanex.co.in' })
+    });
+    return { ok: r.ok };
+  } catch (e) { return { ok: false }; }
+}
+
+module.exports = { pushToDesk, pushLead, deskOn };
