@@ -892,3 +892,7 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
 .pdp-sub{margin:-4px 0 10px;color:var(--gold);font-size:.92rem;font-weight:600;letter-spacing:.01em}
 .pdp-about{max-width:760px}
 .pdp-about h3{font-size:1.15rem;margin:18px 0 6px}
+
+/* customer review images */
+.revs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:900px;margin:0 auto}.revs figure{margin:0}.revs img{width:100%;height:auto;display:block}
+@media (max-width:640px){.revs.rail-m>*{flex-basis:80%}}
