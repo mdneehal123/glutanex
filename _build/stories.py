@@ -2,11 +2,12 @@
 # Stories can show in Google Discover and in a "Web Stories" row in search, which is big in India.
 # Each story is short and honest, and its last page links to the full guide.
 from PIL import Image as _Im, ImageDraw as _Dr, ImageFilter as _Fl
+import math
 
 STORY_HUES = [((255, 246, 236), (246, 214, 186)), ((255, 248, 240), (240, 222, 200)), ((253, 244, 238), (238, 206, 196)), ((250, 247, 240), (228, 216, 190)), ((255, 245, 232), (250, 205, 160))]
 
 
-def _poster(slug, hue):
+def _poster_plain(slug, hue):
     """640x853 portrait poster: soft gradient, the real jar photo cut-out and a floor shadow. No baked-in text."""
     W, H = 640, 853
     top, bot = hue
@@ -29,6 +30,185 @@ def _poster(slug, hue):
     bg.paste(jar, ((W - jw) // 2, 690 - jar.height), jar)
     out = os.path.join(ROOT, 'assets', 'img', 'web-story-%s.jpg' % slug)
     bg.save(out, quality=84, optimize=True, progressive=True)
+    return '/assets/img/web-story-%s.jpg' % slug
+
+
+# Distinct cover per story (22 Oct 2026): each topic gets its own colour, its own real product photo in an arch frame
+# and a simple topic icon, so the "Glutathione in one minute" row does not show six near-identical jars. No baked-in text.
+_S = 2  # supersample factor
+
+
+def _grad(W, H, top, bot):
+    g = _Im.new('RGB', (1, H))
+    for y in range(H):
+        t = y / (H - 1)
+        g.putpixel((0, y), tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
+    return g.resize((W, H))
+
+
+def _photo(name, w, h, focus=(0.5, 0.5), zoom=1.0):
+    p = _Im.open(os.path.join(ROOT, 'assets', 'img', name)).convert('RGB')
+    s = max(w / p.width, h / p.height)
+    base = p.resize((int(p.width * s + 1), int(p.height * s + 1)), _Im.LANCZOS)
+    if zoom < 1:
+        # zoomed out: whole photo across the width, over a blurred, cover-cropped copy of itself
+        x = (base.width - w) // 2; y = (base.height - h) // 2
+        out = base.crop((x, y, x + w, y + h)).filter(_Fl.GaussianBlur(30))
+        f = w / p.width * (1 / zoom if zoom > 0 else 1)
+        f = min(f, h / p.height * 1.4)
+        f = w / p.width if f * p.height > h else f
+        q = p.resize((int(p.width * f), int(p.height * f)), _Im.LANCZOS)
+        out.paste(q, ((w - q.width) // 2, int((h - q.height) * focus[1])))
+        return out
+    s *= zoom
+    p = p.resize((int(p.width * s + 1), int(p.height * s + 1)), _Im.LANCZOS)
+    x = int((p.width - w) * focus[0]); y = int((p.height - h) * focus[1])
+    return p.crop((x, y, x + w, y + h))
+
+
+def _arch(bg, photo, box, ring):
+    x0, y0, x1, y1 = box
+    w, h = x1 - x0, y1 - y0
+    m = _Im.new('L', (w, h), 0)
+    md = _Dr.Draw(m)
+    md.ellipse([0, 0, w - 1, w - 1], fill=255)
+    md.rectangle([0, w // 2, w - 1, h - 1], fill=255)
+    sh = _Im.new('L', bg.size, 0)
+    sh.paste(m, (x0 + 10 * _S, y0 + 18 * _S))
+    sh = sh.filter(_Fl.GaussianBlur(22 * _S)).point(lambda v: v * 45 // 100)
+    bg.paste(_Im.new('RGB', bg.size, (60, 40, 30)), (0, 0), sh)
+    d = _Dr.Draw(bg)
+    pad = 9 * _S
+    d.ellipse([x0 - pad, y0 - pad, x1 + pad, y0 + w + pad], fill=ring)
+    d.rectangle([x0 - pad, y0 + w // 2, x1 + pad, y1 + pad], fill=ring)
+    bg.paste(photo, (x0, y0), m)
+
+
+def _badge(d, cx, cy, r, fill, ring=(255, 255, 255)):
+    d.ellipse([cx - r - 6 * _S, cy - r - 6 * _S, cx + r + 6 * _S, cy + r + 6 * _S], fill=ring)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=fill)
+
+
+def _star(d, cx, cy, r, fill):
+    pts = []
+    for k in range(8):
+        a = math.pi / 4 * k - math.pi / 2
+        rr = r if k % 2 == 0 else r * 0.28
+        pts.append((cx + rr * math.cos(a), cy + rr * math.sin(a)))
+    d.polygon(pts, fill=fill)
+
+
+def _heart(d, cx, cy, s, fill):
+    d.ellipse([cx - s, cy - s * 0.75, cx, cy + s * 0.25], fill=fill)
+    d.ellipse([cx, cy - s * 0.75, cx + s, cy + s * 0.25], fill=fill)
+    d.polygon([(cx - s * 0.97, cy - s * 0.12), (cx + s * 0.97, cy - s * 0.12), (cx, cy + s * 0.95)], fill=fill)
+
+
+def _check_shield(d, cx, cy, s, fill, mark):
+    d.polygon([(cx, cy - s), (cx + s * 0.85, cy - s * 0.62), (cx + s * 0.78, cy + s * 0.15), (cx, cy + s), (cx - s * 0.78, cy + s * 0.15), (cx - s * 0.85, cy - s * 0.62)], fill=fill)
+    d.line([(cx - s * 0.38, cy), (cx - s * 0.08, cy + s * 0.32), (cx + s * 0.42, cy - s * 0.3)], fill=mark, width=int(s * 0.17), joint='curve')
+
+
+def _drop(d, cx, cy, s, fill):
+    d.ellipse([cx - s * 0.6, cy - s * 0.1, cx + s * 0.6, cy + s * 1.1], fill=fill)
+    d.polygon([(cx, cy - s), (cx - s * 0.55, cy + s * 0.3), (cx + s * 0.55, cy + s * 0.3)], fill=fill)
+
+
+def _capsule(d, cx, cy, s, c1, c2):
+    w, h = s * 0.55, s * 1.5
+    d.rounded_rectangle([cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], radius=w / 2, fill=c1)
+    d.rounded_rectangle([cx - w / 2, cy, cx + w / 2, cy + h / 2], radius=w / 2, fill=c2)
+    d.rectangle([cx - w / 2, cy, cx + w / 2, cy + w / 2], fill=c2)
+
+
+def _syringe(d, cx, cy, s, c):
+    lw = int(s * 0.08)
+    d.rounded_rectangle([cx - s * 0.2, cy - s * 0.6, cx + s * 0.2, cy + s * 0.45], radius=s * 0.06, outline=c, width=lw)
+    d.line([(cx, cy + s * 0.45), (cx, cy + s * 0.9)], fill=c, width=int(lw * 0.7))
+    d.line([(cx, cy - s * 0.6), (cx, cy - s * 0.85)], fill=c, width=lw)
+    d.line([(cx - s * 0.25, cy - s * 0.88), (cx + s * 0.25, cy - s * 0.88)], fill=c, width=lw)
+    for k in range(3):
+        y = cy - s * 0.3 + k * s * 0.22
+        d.line([(cx - s * 0.2, y), (cx, y)], fill=c, width=int(lw * 0.6))
+
+
+POSTER_DESIGN = {
+    'glutathione-benefits-for-skin': dict(bg=((255, 240, 226), (244, 196, 160)), ring=(255, 252, 247), photo='glutathione-night-cream-jar-glutanex.jpg', focus=(0.5, 0.62), zoom=0.5, icon='stars', accent=(232, 116, 42),
+                                          alt='GlutaNex night cream jar on dark stone with gold sparkles'),
+    'how-to-use-glutathione-cream': dict(bg=((236, 244, 234), (186, 210, 186)), ring=(250, 253, 248), photo='glutanex-glutathione-cream-in-hand.jpg', focus=(0.55, 0.5), icon='steps', accent=(74, 120, 86),
+                                         alt='Hands holding a GlutaNex glutathione night cream jar'),
+    'glutathione-side-effects': dict(bg=((236, 242, 248), (184, 202, 222)), ring=(250, 252, 255), photo='glutanex-glutathione-face-cream.jpg', focus=(0.5, 0.4), icon='shield', accent=(58, 96, 140),
+                                     alt='GlutaNex night cream jar on marble with a safety shield icon'),
+    'glutathione-cream-vs-tablets-vs-injections': dict(bg=((242, 236, 250), (200, 186, 228)), ring=(255, 255, 255), photo=None, icon='compare', accent=(96, 74, 150),
+                                                       alt='Icons comparing a glutathione cream jar, a tablet and an injection'),
+    'glutathione-before-wedding': dict(bg=((252, 232, 236), (206, 120, 140)), ring=(255, 246, 236), photo='glutanex-glutathione-night-cream-travel.jpg', focus=(0.4, 0.5), icon='heart', accent=(160, 40, 70),
+                                       alt='GlutaNex night cream jar in a handbag with jewellery for wedding season'),
+    'glutathione-cream-ke-fayde': dict(bg=((255, 244, 214), (246, 190, 92)), ring=(255, 251, 240), photo='glutanex-glow-duo-glutathione-cream-face-wash.jpg', focus=(0.5, 0.5), zoom=0.8, icon='drops', accent=(200, 110, 20),
+                                       alt='GlutaNex glutathione night cream and face wash'),
+}
+
+
+def _poster(slug, hue):
+    """640x853 portrait cover with its own colour, photo and icon per story. Important art stays in the top ~60%
+    because the story cover fades the bottom into the title. Falls back to the old soft-gradient jar poster."""
+    cfg = POSTER_DESIGN.get(slug)
+    if not cfg:
+        return _poster_plain(slug, hue)
+    W, H = 640 * _S, 853 * _S
+    bg = _grad(W, H, *cfg['bg'])
+    glow = _Im.new('L', (W, H), 0)
+    _Dr.Draw(glow).ellipse([W * 0.05, H * 0.02, W * 0.95, H * 0.62], fill=120)
+    glow = glow.filter(_Fl.GaussianBlur(70 * _S))
+    bg = _Im.composite(_Im.new('RGB', (W, H), (255, 255, 255)), bg, glow)
+    d = _Dr.Draw(bg)
+    acc, ring = cfg['accent'], cfg['ring']
+    ax0, ay0, ax1, ay1 = 100 * _S, 64 * _S, 540 * _S, 590 * _S
+    if cfg['photo']:
+        _arch(bg, _photo(cfg['photo'], ax1 - ax0, ay1 - ay0, cfg.get('focus', (0.5, 0.5)), cfg.get('zoom', 1.0)), (ax0, ay0, ax1, ay1), ring)
+        d = _Dr.Draw(bg)
+    ic = cfg['icon']
+    if ic == 'stars':
+        for (x, y, r, c) in [(66, 150, 30, acc), (586, 100, 22, (214, 160, 60)), (560, 560, 44, acc), (70, 520, 20, (214, 160, 60)), (606, 300, 14, acc)]:
+            _star(d, x * _S, y * _S, r * _S, c)
+    elif ic == 'steps':
+        for k, x in enumerate((210, 320, 430)):
+            _badge(d, x * _S, 610 * _S, (26 + k * 6) * _S, acc, ring)
+            d.ellipse([(x - 6 - k * 2) * _S, (604 - k * 2) * _S, (x + 6 + k * 2) * _S, (616 + k * 2) * _S], fill=ring)
+        d.line([(244 * _S, 610 * _S), (282 * _S, 610 * _S)], fill=acc, width=5 * _S)
+        d.line([(358 * _S, 610 * _S), (390 * _S, 610 * _S)], fill=acc, width=5 * _S)
+    elif ic == 'shield':
+        _badge(d, 520 * _S, 545 * _S, 70 * _S, acc, ring)
+        _check_shield(d, 520 * _S, 545 * _S, 44 * _S, ring, acc)
+    elif ic == 'heart':
+        _badge(d, 520 * _S, 545 * _S, 68 * _S, acc, ring)
+        _heart(d, 520 * _S, 541 * _S, 38 * _S, ring)
+        for (x, y, s) in [(60, 140, 22), (64, 470, 14), (596, 110, 16)]:
+            _heart(d, x * _S, y * _S, s * _S, acc)
+    elif ic == 'drops':
+        for (x, y, s) in [(60, 160, 30), (590, 110, 22), (566, 540, 38), (62, 500, 20)]:
+            _drop(d, x * _S, y * _S, s * _S, acc)
+            d.ellipse([(x - s * 0.25) * _S, (y + s * 0.35) * _S, (x - s * 0.02) * _S, (y + s * 0.6) * _S], fill=(255, 240, 210))
+    elif ic == 'compare':
+        jar = _Im.open(os.path.join(ROOT, 'assets', 'img', 'jar-cut.png')).convert('RGBA')
+        cards = [(170, 250), (470, 250), (320, 500)]
+        for (x, y) in cards:
+            cx, cy = x * _S, y * _S
+            sh = _Im.new('L', (W, H), 0)
+            _Dr.Draw(sh).ellipse([cx - 118 * _S, cy - 106 * _S, cx + 122 * _S, cy + 130 * _S], fill=90)
+            sh = sh.filter(_Fl.GaussianBlur(18 * _S))
+            bg.paste(_Im.new('RGB', (W, H), (90, 70, 120)), (0, 0), sh)
+            d = _Dr.Draw(bg)
+            d.ellipse([cx - 112 * _S, cy - 112 * _S, cx + 112 * _S, cy + 112 * _S], fill=ring)
+        jw = 170 * _S
+        jr = jar.resize((jw, int(jar.height * jw / jar.width)), _Im.LANCZOS)
+        bg.paste(jr, (cards[0][0] * _S - jw // 2, cards[0][1] * _S - jr.height // 2), jr)
+        d = _Dr.Draw(bg)
+        _capsule(d, cards[1][0] * _S, cards[1][1] * _S, 110 * _S, acc, (226, 214, 244))
+        _syringe(d, cards[2][0] * _S, cards[2][1] * _S, 120 * _S, (150, 140, 160))
+        d.line([(cards[2][0] - 70) * _S, (cards[2][1] + 70) * _S, (cards[2][0] + 70) * _S, (cards[2][1] - 70) * _S], fill=(196, 72, 72), width=9 * _S)
+    out_im = bg.resize((640, 853), _Im.LANCZOS)
+    out = os.path.join(ROOT, 'assets', 'img', 'web-story-%s.jpg' % slug)
+    out_im.save(out, quality=86, optimize=True, progressive=True)
     return '/assets/img/web-story-%s.jpg' % slug
 
 
@@ -128,7 +308,7 @@ def _story_html(s, poster):
 <amp-story-grid-layer template="fill"><amp-img src="%s" layout="fill" object-fit="cover" alt="%s"></amp-img></amp-story-grid-layer>
 <amp-story-grid-layer template="fill" class="shade"></amp-story-grid-layer>
 <amp-story-grid-layer template="vertical" class="pad"><p class="k" animate-in="fade-in">%s</p><h1 animate-in="fly-in-bottom" animate-in-delay=".2s">%s</h1><p class="brand">GlutaNex</p></amp-story-grid-layer>
-</amp-story-page>''' % (poster, e('GlutaNex Glutathione Night Cream jar'), e(s['kicker']), e(s['title']))]
+</amp-story-page>''' % (poster, e(POSTER_DESIGN.get(s['slug'], {}).get('alt', 'GlutaNex Glutathione Night Cream jar')), e(s['kicker']), e(s['title']))]
     for i, (h, t) in enumerate(s['pages']):
         pg.append('''<amp-story-page id="p%d"%s auto-advance-after="8s">
 <amp-story-grid-layer template="vertical" class="mid"><p class="num" animate-in="fade-in">%02d</p><h2 animate-in="fly-in-left" animate-in-delay=".15s">%s</h2><p animate-in="fade-in" animate-in-delay=".45s">%s</p></amp-story-grid-layer>
