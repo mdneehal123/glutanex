@@ -96,8 +96,8 @@ NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + glob
 HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', [])
 HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, uduo=url(BYID['duo']),
-         pcream=rs(BYID['cream']['price']), mcream=rs(BYID['cream']['mrp']), pwash=rs(BYID['wash']['price']), mwash=rs(BYID['wash']['mrp']),
-         pduo=rs(BYID['duo']['price']), mduo=rs(BYID['duo']['mrp']))
+         pcream=rs(BYID['cream']['price']), mcream=rs(BYID['cream']['mrp']), pwash='launching soon', mwash='to be announced',
+         pduo='launching soon', mduo='to be announced')
 for g in GUIDES:
     ex = EXPAND.get(g['slug'])
     g.setdefault('refs', ['study', 'fda'] if '%(fda)s' in g['body'] else ['study'])
@@ -329,7 +329,7 @@ _BRAND_FAQ = [('Is GlutaNex an Indian brand?', 'Yes. GlutaNex is an Indian skinc
               ('Is GlutaNex the same as the Korean brand Glutanex?', 'GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. GlutaNex is an Indian brand. "Glutanex" products from Korea, including glutathione injections, tablets and skincare sold online in India, are made by other companies and are not connected with GlutaNex India.')]
 _bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
     ('Brand', 'GlutaNex'), ('Company', OWNER), ('Based in', 'Bhatkal, Uttara Kannada, Karnataka, India'),
-    ('Products', ', '.join('<a href="%s">%s</a> (%s, %s)' % (url(x), html.escape(x['short']), html.escape(x['size']), rs(x['price'])) for x in PRODUCTS)),
+    ('Products', ', '.join('<a href="%s">%s</a> (%s, %s)' % (url(x), html.escape(x['short']), html.escape(x['size']), (rs(x['price']) if not x.get('soon') else 'launching soon')) for x in PRODUCTS)),
     ('Key ingredient', '<a href="/glutathione/">Glutathione</a>, with niacinamide, vitamin C and hyaluronic acid'),
     ('Official website', '<a href="/">glutanex.co.in</a>'), ('Instagram', '<a href="%s" target="_blank" rel="noopener">@glutanexofficial</a>' % INSTAGRAM),
     ('Customer support', 'WhatsApp %s, Monday to Saturday, 10 am to 7 pm' % WA_SHOW)])
@@ -372,7 +372,7 @@ page('/our-standards/', 'Our Standards: How GlutaNex Writes and Sells | GlutaNex
 <h2>Spotted a mistake?</h2><p>If anything on our site looks wrong or out of date, message us on WhatsApp and we will check and correct it.</p></div></section>''' % (OWNER, ADDR, WA_SHOW), crumbs=[('Our standards', '/our-standards/')])
 
 FAQ_ALL = HOME_FAQ + [
-    ('What is the price of GlutaNex Glutathione Night Cream?', 'The Night Cream is %s, the Gluta Boost Face Wash is %s and the Glow Duo is %s. Prices include taxes and shipping is free.' % (rs(BYID['cream']['price']), rs(BYID['wash']['price']), rs(BYID['duo']['price']))),
+    ('What is the price of GlutaNex Glutathione Night Cream?', 'The Night Cream is %s, with taxes included and free shipping. The Face Wash, Shower Gel, Glow Duo and the other combo sets are launching soon; tap Notify me on their pages and we will message you on WhatsApp when they are ready.' % rs(BYID['cream']['price'])),
     ('How long does delivery take?', 'Orders are packed in 1 to 2 business days and usually delivered in 3 to 7 business days after dispatch.'),
     ('Can I return a product?', 'Sealed, unopened products can be returned within 7 days of delivery. Damaged or wrong items are replaced or refunded in full. See the <a href="/refund-policy/">returns policy</a>.'),
     ('Can men use GlutaNex?', 'Yes. GlutaNex products are for anyone who wants a simple night skincare routine.'),

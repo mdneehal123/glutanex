@@ -1,7 +1,7 @@
 {
  "/": {
-  "h": "0db781d18bbc8ef3",
-  "mod": "2026-10-22",
+  "h": "348082c6100eec40",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
  "/about/": {
@@ -40,18 +40,18 @@
   "pub": "2026-10-20"
  },
  "/faq/": {
-  "h": "8b8c5eb7c87fc95b",
-  "mod": "2026-10-18",
+  "h": "db37a0693c7e1ea2",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
  "/genuine-glutanex/": {
-  "h": "33c10ea96c6c5487",
-  "mod": "2026-10-20",
+  "h": "aecae489e68df69c",
+  "mod": "2026-10-24",
   "pub": "2026-10-20"
  },
  "/glutanex/": {
-  "h": "da679549642aed4b",
-  "mod": "2026-10-12",
+  "h": "a3b1e614f73a7a66",
+  "mod": "2026-10-24",
   "pub": "2026-10-12"
  },
  "/glutathione-and-ceramides/": {
@@ -70,8 +70,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-and-niacinamide/": {
-  "h": "69e46a372756c7b7",
-  "mod": "2026-10-12",
+  "h": "d0a4e08c4eb489fe",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
  "/glutathione-and-peptides/": {
@@ -115,8 +115,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-cream-for-diwali/": {
-  "h": "d532c1dcbc4952c6",
-  "mod": "2026-10-20",
+  "h": "a074b48a65f5c8dd",
+  "mod": "2026-10-24",
   "pub": "2026-10-20"
  },
  "/glutathione-cream-for-dry-skin/": {
@@ -170,8 +170,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-cream-price-in-india/": {
-  "h": "acc382e3b2e84d33",
-  "mod": "2026-10-18",
+  "h": "cceb9717000ddede",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
  "/glutathione-cream-questions/": {
@@ -290,7 +290,7 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "c9b132222b8987b0",
+  "h": "ac010ab48e1a269b",
   "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
@@ -415,8 +415,8 @@
   "pub": "2026-10-11"
  },
  "/hi/glutathione-cream-price/": {
-  "h": "92c2562af1e27fa5",
-  "mod": "2026-10-20",
+  "h": "6be5e685206b0c07",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
  "/hi/glutathione-cream-sawal-jawab/": {
@@ -450,8 +450,8 @@
   "pub": "2026-10-11"
  },
  "/hi/glutathione-soap-ke-fayde/": {
-  "h": "a07c628251c5e977",
-  "mod": "2026-10-20",
+  "h": "fc5a8ce15b4c270d",
+  "mod": "2026-10-24",
   "pub": "2026-10-20"
  },
  "/hi/jhaiyan-aur-glutathione/": {
@@ -490,8 +490,8 @@
   "pub": "2026-10-12"
  },
  "/hinglish/glutathione-cream-result-kitne-din-me/": {
-  "h": "f307a075244946cc",
-  "mod": "2026-10-20",
+  "h": "38c7873377a31f85",
+  "mod": "2026-10-24",
   "pub": "2026-10-20"
  },
  "/hinglish/glutathione-cream-roz-laga-sakte-hai/": {
@@ -574,20 +574,40 @@
   "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
+ "/product/glutanex-aqua-fresh-shower-gel/": {
+  "h": "c10d7eea6a29b7f6",
+  "mod": "2026-10-24",
+  "pub": "2026-10-24"
+ },
+ "/product/glutanex-face-wash-shower-gel-combo/": {
+  "h": "70b4068cd6ff1a8b",
+  "mod": "2026-10-24",
+  "pub": "2026-10-24"
+ },
  "/product/glutanex-glow-duo-night-cream-face-wash/": {
-  "h": "4ac678aee9a2a76d",
-  "mod": "2026-10-22",
+  "h": "cc4aedf27fe330f4",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
+ "/product/glutanex-glow-trio-night-cream-face-wash-shower-gel/": {
+  "h": "c5209e273f1362eb",
+  "mod": "2026-10-24",
+  "pub": "2026-10-24"
+ },
  "/product/glutanex-gluta-boost-face-wash/": {
-  "h": "48fade5069814f6b",
+  "h": "8969b9073a720e0d",
   "mod": "2026-10-24",
   "pub": "2026-10-11"
  },
  "/product/glutanex-glutathione-night-cream/": {
-  "h": "96e2971759df27d8",
-  "mod": "2026-10-22",
+  "h": "4cb238f89605a570",
+  "mod": "2026-10-24",
   "pub": "2026-10-11"
+ },
+ "/product/glutanex-night-cream-shower-gel-combo/": {
+  "h": "ccae275ebbc33bf8",
+  "mod": "2026-10-24",
+  "pub": "2026-10-24"
  },
  "/reduced-vs-oxidized-glutathione/": {
   "h": "307180a77d213714",
@@ -610,7 +630,7 @@
   "pub": "2026-10-11"
  },
  "/shop/": {
-  "h": "534c1cc7749cb5b6",
+  "h": "83a05bcf2e76b31d",
   "mod": "2026-10-24",
   "pub": "2026-10-11"
  },

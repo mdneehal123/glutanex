@@ -29,7 +29,7 @@ PRODUCTS = [
          desc='GlutaNex glutathione face cream for night with niacinamide, vitamin C, retinol and hyaluronic acid, for brighter, more even-looking skin. COD across India.'),
     dict(id='wash', slug='glutanex-gluta-boost-face-wash', short='Face Wash', sku='GNX-WASH-100',
          name='GlutaNex Gluta Boost Face Wash', size='100 ml pump bottle', price=399, mrp=599,  # confirmed 11 Oct 2026
-         tag='New',
+         tag='Launching soon', soon=True,
          imgs=['facewash-square', 'facewash', 'facewash-foam'], og='facewash-square',
          summary='A daily foaming gel face wash made with glutathione and copper peptide, plus niacinamide, aloe, chamomile and panthenol. It lifts away dirt, oil and the day\'s build-up and leaves skin feeling fresh and soft, and it is the first step before your glutathione night cream.',
          title='GlutaNex Gluta Boost Face Wash 100 ml | Glutathione & Copper Peptide',
@@ -38,11 +38,43 @@ PRODUCTS = [
          desc='GlutaNex Gluta Boost Face Wash, 100 ml: a foaming glutathione face wash with copper peptide, niacinamide, aloe and panthenol for daily cleansing. For all skin types. COD across India.'),
     dict(id='duo', slug='glutanex-glow-duo-night-cream-face-wash', short='Glow Duo', sku='GNX-DUO',
          name='GlutaNex Glow Duo: Night Cream + Face Wash', size='Night Cream 30 g + Face Wash 100 ml', price=2699, mrp=3599,  # duo: MRP = 3000 + 599; saves 199 vs buying both separately (2898)
-         tag='Save more',
+         tag='Launching soon', soon=True,
          imgs=['duo-square', 'cream-square', 'facewash-square'], og='duo-square',
-         summary='The full GlutaNex ritual: cleanse with Gluta Boost Face Wash, then finish with the Glutathione Night Cream. Together for ₹2,699, ₹199 less than buying both separately.',
+         summary='The full GlutaNex ritual: cleanse with Gluta Boost Face Wash, then finish with the Glutathione Night Cream. Launching soon.',
          title='GlutaNex Glow Duo: Glutathione Night Cream + Face Wash',
          desc='GlutaNex Glow Duo: Glutathione Night Cream with Gluta Boost Face Wash at one price. A complete glutathione night routine. Cash on Delivery.'),
+    dict(id='gel', slug='glutanex-aqua-fresh-shower-gel', short='Shower Gel', sku='GNX-GEL-100', soon=True, price=0, mrp=0,
+         name='GlutaNex Aqua Fresh Shower Gel', size='100 ml pump bottle', tag='Launching soon',
+         imgs=['gel-square', 'washgel-square'], og='gel-square',
+         summary='A refreshing glutathione shower gel with hyaluronic acid and aloe vera. It cleanses, refreshes and leaves skin feeling moisturised, for all skin types. Launching soon.',
+         title='Glutathione Shower Gel 100 ml | GlutaNex Aqua Fresh',
+         sub='Glutathione shower gel · with hyaluronic acid and aloe vera',
+         alt_names=['GlutaNex Glutathione Body Wash', 'Aqua Fresh Glutathione Shower Gel'],
+         desc='GlutaNex Aqua Fresh Shower Gel, 100 ml: a glutathione shower gel with hyaluronic acid and aloe vera that cleanses, refreshes and moisturises. For all skin types. Launching soon.'),
+    dict(id='washgel', slug='glutanex-face-wash-shower-gel-combo', short='Wash + Gel Combo', sku='GNX-WASHGEL', soon=True, price=0, mrp=0,
+         name='GlutaNex Face Wash + Shower Gel Combo', size='Face Wash 100 ml + Shower Gel 100 ml', tag='Launching soon',
+         imgs=['washgel-square', 'gel-square', 'facewash-square'], og='washgel-square',
+         summary='Two glutathione cleansers in one set: Gluta Boost Face Wash for your face and Aqua Fresh Shower Gel for your bath. A daily cleansing combo from GlutaNex. Launching soon.',
+         title='Glutathione Face Wash + Shower Gel Combo | GlutaNex',
+         sub='Glutathione face wash and shower gel combo · 100 ml + 100 ml',
+         alt_names=['GlutaNex Glutathione Cleansing Combo'],
+         desc='GlutaNex Face Wash + Shower Gel combo: Gluta Boost Face Wash 100 ml with Aqua Fresh Shower Gel 100 ml, a glutathione cleansing set for face and body. Launching soon.'),
+    dict(id='creamgel', slug='glutanex-night-cream-shower-gel-combo', short='Cream + Gel Combo', sku='GNX-CREAMGEL', soon=True, price=0, mrp=0,
+         name='GlutaNex Night Cream + Shower Gel Combo', size='Night Cream 30 g + Shower Gel 100 ml', tag='Launching soon',
+         imgs=['creamgel-square', 'cream-square', 'gel-square'], og='creamgel-square',
+         summary='The Glutathione Night Cream for your night routine and the Aqua Fresh Shower Gel for your daily bath, together in one GlutaNex set. Launching soon.',
+         title='Glutathione Night Cream + Shower Gel Combo | GlutaNex',
+         sub='Glutathione night cream 30 g and shower gel 100 ml set',
+         alt_names=['GlutaNex Night Cream and Shower Gel Set'],
+         desc='GlutaNex Night Cream + Shower Gel combo: Glutathione Night Cream 30 g with Aqua Fresh Shower Gel 100 ml. A glutathione skincare set for night care and daily bathing. Launching soon.'),
+    dict(id='trio', slug='glutanex-glow-trio-night-cream-face-wash-shower-gel', short='Glow Trio', sku='GNX-TRIO', soon=True, price=0, mrp=0,
+         name='GlutaNex Glow Trio: Night Cream + Face Wash + Shower Gel', size='Night Cream 30 g + Face Wash 100 ml + Shower Gel 100 ml', tag='Launching soon',
+         imgs=['trio-square', 'trio-sun', 'cream-square'], og='trio-square',
+         summary='The complete GlutaNex range in one set: Gluta Boost Face Wash, Aqua Fresh Shower Gel and the Glutathione Night Cream. Launching soon.',
+         title='GlutaNex Glow Trio: Glutathione Skincare Set of 3',
+         sub='Glutathione night cream + face wash + shower gel set',
+         alt_names=['GlutaNex Glutathione Skincare Combo Pack', 'GlutaNex 3-in-1 Skincare Set'],
+         desc='GlutaNex Glow Trio: Glutathione Night Cream 30 g, Gluta Boost Face Wash 100 ml and Aqua Fresh Shower Gel 100 ml together. The full GlutaNex glutathione skincare set. Launching soon.'),
 ]
 BYID = {p['id']: p for p in PRODUCTS}
 
@@ -59,11 +91,19 @@ def pct(p):
     return round((p['mrp'] - p['price']) * 100 / p['mrp']) if p['mrp'] > p['price'] else 0
 
 
+def notify_url(p):
+    return 'https://wa.me/%s?text=%s' % (WA, urllib.parse.quote('Hi GlutaNex, please message me when %s is available.' % p['name']))
+
+
+def notify_btn(p, cls='btn wa'):
+    return '<a class="%s" href="%s" target="_blank" rel="noopener">%s Notify me on WhatsApp</a>' % (cls, notify_url(p), WA_IMG)
+
+
 # Search-friendly file names for Google Images (source files keep their short names in assets/img and are copied at build time)
 SEO_IMG = {'cream-square': 'glutanex-glutathione-night-cream-30g', 'jar-night': 'glutathione-night-cream-jar-glutanex',
            'jar-hand': 'glutanex-glutathione-cream-in-hand', 'jar-bag': 'glutanex-glutathione-night-cream-travel',
            'jar-marble': 'glutanex-glutathione-face-cream', 'facewash-square': 'glutanex-gluta-boost-glutathione-face-wash-100ml',
-           'facewash': 'gluta-boost-face-wash-carton-glutanex', 'facewash-foam': 'gluta-boost-face-wash-foam-glutanex', 'duo-square': 'glutanex-glow-duo-glutathione-cream-face-wash',
+           'facewash': 'gluta-boost-face-wash-carton-glutanex', 'facewash-foam': 'gluta-boost-face-wash-foam-glutanex', 'gel-square': 'glutanex-aqua-fresh-glutathione-shower-gel-100ml', 'washgel-square': 'glutanex-face-wash-and-shower-gel-combo', 'creamgel-square': 'glutanex-night-cream-and-shower-gel-combo', 'trio-square': 'glutanex-glow-trio-night-cream-face-wash-shower-gel', 'trio-sun': 'glutanex-glutathione-skincare-trio-set', 'duo-square': 'glutanex-glow-duo-glutathione-cream-face-wash',
            'night-shift-banner': 'glutathione-night-cream-routine-glutanex', 'jar-cut': 'glutanex-glutathione-night-cream-jar'}
 
 
@@ -148,8 +188,16 @@ def img_ld(u, caption=''):
 
 
 def product_ld(p):
+    d = _product_ld(p)
+    if p.get('soon'):
+        d.pop('offers', None)
+    return d
+
+
+def _product_ld(p):
     extra_p = {'cream': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': ', '.join(n for n, d in INGREDIENTS)}, {'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Night'}]},
                'wash': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': 'Glutathione, copper peptide, niacinamide, aloe, chamomile, panthenol'}, {'@type': 'PropertyValue', 'name': 'Skin type', 'value': 'All skin types'}, {'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Morning and night'}]},
+               'gel': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': 'Glutathione, hyaluronic acid, aloe vera'}, {'@type': 'PropertyValue', 'name': 'Skin type', 'value': 'All skin types'}]},
                'duo': {'isRelatedTo': [{'@id': SITE + url(BYID['cream']) + '#product'}, {'@id': SITE + url(BYID['wash']) + '#product'}]}}.get(p['id'], {})
     return dict({'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], **({'alternateName': p['alt_names']} if p.get('alt_names') else {}), 'sku': p['sku'], 'mpn': p['sku'], 'size': p['size'], 'category': 'Health & Beauty > Personal Care > Cosmetics > Skin Care', 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
             'image': [img_ld(SITE + im(i, 'jpg'), p['name']) for i in p['imgs']], 'description': p['desc'],
@@ -295,6 +343,12 @@ def top(eyebrow, h1, lead=''):
 
 def card(p, h='h3'):
     off = pct(p)
+    if p.get('soon'):
+        return '''<article class="card tilt reveal soon"><span class="tag">Launching soon</span><a class="ph" href="%s"><img src="%s" alt="%s" width="800" height="800" loading="lazy"></a>
+  <div class="bd"><%s><a href="%s">%s</a></%s><span class="size">%s</span>
+  <div class="price"><b class="soon-txt">Launching soon</b></div>
+  <div class="acts"><a class="btn ghost" href="%s">View details</a>%s</div></div></article>''' % (
+            url(p), im(p['imgs'][0]), html.escape(p['name']), h, url(p), p['name'], h, p['size'], url(p), notify_btn(p))
     return '''<article class="card tilt reveal"><span class="tag">%s</span><a class="ph" href="%s"><img src="%s" alt="%s" width="800" height="800" loading="lazy"></a>
   <div class="bd"><%s><a href="%s">%s</a></%s><span class="size">%s</span>
   <div class="price"><b>%s</b>%s%s</div>
@@ -306,7 +360,7 @@ def card(p, h='h3'):
 # ---------------- Home ----------------
 HOME_FAQ = [
     ('What is glutathione?', 'Glutathione is an antioxidant made of three amino acids, found naturally in the body. In skincare it is used in creams and face washes made for brighter-looking, more even skin.'),
-    ('How do I use the GlutaNex Night Cream?', 'At night, wash your face with a gentle cleanser such as Gluta Boost Face Wash, pat dry and apply a small amount of the cream to the face and neck. Use sunscreen every morning.'),
+    ('How do I use the GlutaNex Night Cream?', 'At night, wash your face with a gentle cleanser (the Gluta Boost Face Wash is launching soon), pat dry and apply a small amount of the cream to the face and neck. Use sunscreen every morning.'),
     ('When will I see a difference?', 'Skin changes slowly. Use your routine every night for at least 6 to 8 weeks, with daily sunscreen, before judging. Results vary from person to person.'),
     ('Is Cash on Delivery available?', 'Yes. Choose Cash on Delivery at checkout and pay the full amount in cash when your parcel arrives: nothing to pay in advance and no COD fee. You can also pay online or order on WhatsApp.'),
     ('Are glutathione creams the same as glutathione injections?', 'No. Creams and face washes are cosmetics applied to the skin. Injections are a medical procedure; regulators have warned that skin-lightening injections can be unsafe. Read our guide on <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a>.'),
@@ -334,6 +388,12 @@ c, w, d = BYID['cream'], BYID['wash'], BYID['duo']
 HOME_STORIES = [('glutathione-benefits-for-skin', 'Glutathione for skin: 5 honest facts', ''), ('how-to-use-glutathione-cream', 'How to use glutathione cream', ''),
                 ('glutathione-side-effects', 'Glutathione side effects', ''), ('glutathione-before-wedding', 'Before your wedding: 12-week plan', ''),
                 ('glutathione-cream-vs-tablets-vs-injections', 'Cream vs tablets vs injections', ''), ('glutathione-cream-ke-fayde', 'ग्लूटाथियोन क्रीम के फायदे', 'hi')]
+_soonp = [x for x in PRODUCTS if x.get('soon')]
+SOONBAND = ('<section style="padding-top:0"><div class="wrap"><div class="soonband reveal"><figure class="sb-media"><img src="%s" alt="GlutaNex Gluta Boost Face Wash, Aqua Fresh Shower Gel and Glutathione Night Cream on satin" width="900" height="900" loading="lazy" decoding="async"></figure>'
+            '<div class="sb-copy"><span class="eyebrow">New from GlutaNex</span><h2>Six new ways to build your routine, <span class="gold">launching soon</span></h2>'
+            '<p>The new Gluta Boost Face Wash and Aqua Fresh Shower Gel are on their way, along with four ready-made sets. Tell us once and we will message you on WhatsApp the day they are ready.</p>'
+            '<ul class="sb-list">%s</ul><div class="cta">%s<a class="btn ghost" href="/shop/">See all products</a></div></div></div></div></section>\n') % (
+    im('trio-square'), ''.join('<li><a href="%s">%s</a></li>' % (url(x), html.escape(x['short'])) for x in _soonp), notify_btn(BYID['trio']))
 home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="sky" aria-hidden="true"><i class="orb"></i></div><div class="fest" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
   <div class="reveal">
     <h1><span class="h1-brand">GlutaNex Glutathione Night Cream</span>Your skin's <span class="gold">night shift</span> starts here.</h1>
@@ -407,7 +467,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 <section style="padding-top:0"><div class="wrap"><div class="langband reveal"><b>Read about glutathione in your language</b><div>
   <a href="/hi/" lang="hi">हिंदी</a><a href="/hinglish/">Hinglish</a><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a>
 </div></div></div></section>
-<section style="padding-top:0"><div class="wrap">
+%(soonband)s<section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Questions</span><h2>Before you order</h2></div>%(faq)s
   <p style="margin-top:20px"><a class="btn ghost" href="/glutathione-cream-questions/">More glutathione cream questions answered</a></p>
 </div></section>
@@ -421,13 +481,14 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
       <li><i aria-hidden="true">⌂</i><div><b>Cash on Delivery</b><span class="l">Nothing to pay now, pay at your door</span><span class="s">Pay at door</span></div></li>
       <li><i aria-hidden="true">✆</i><div><b>WhatsApp order</b><span class="l">Message us and we will confirm it for you</span><span class="s">We confirm it</span></div></li>
     </ul>
-    <div class="b2-cta"><button class="btn" type="button" data-buy="duo"><span class="l">Get the Glow Duo · </span><span class="s">Glow Duo · </span>%(dprice)s</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
+    <div class="b2-cta"><a class="btn" href="%(duourl)s"><span class="l">Glow Duo · launching soon</span><span class="s">Glow Duo · soon</span></a><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), dprice=rs(d['price']), cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
+</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), duourl=url(d), soonband=SOONBAND, cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), review=REVIEW_SEC, img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
+# duo url for the band
 page('/', 'Glutathione Cream for Face in India | GlutaNex', 'GlutaNex glutathione face cream: a night cream with glutathione, niacinamide and vitamin C for brighter, more even-looking skin. %s, free shipping, COD.' % rs(c['price']),
      home, jar=True, extra='<link rel="preload" as="image" href="%s" type="image/webp" fetchpriority="high">\n' % im('jar-cut'), schema=[{'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(p)} for i, p in enumerate(PRODUCTS)]}, faq_ld(HOME_FAQ)])
 
@@ -440,29 +501,23 @@ SHOWCASE = ('<div class="lux" aria-label="GlutaNex products">'
     '<article class="lux-hero"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-txt"><span class="lux-eb">Bestseller</span><h2>Glutathione<br>Night Cream</h2><span class="lux-sz">%s</span>'
     '<div class="lux-pr"><b>%s</b>%s</div><button class="lux-btn" type="button" data-add="cream">Add to bag</button></div>'
     '<div class="lux-stage"><i class="lux-glow"></i><img src="%s" alt="%s" width="650" height="614"><i class="lux-ped"></i></div></article>'
-    '<div class="lux-row">'
-    '<article class="lux-tile"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-ph"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><i class="lux-ped"></i></div>'
-    '<span class="lux-eb">New</span><h3>Gluta Boost<br>Face Wash</h3><div class="lux-pr"><b>%s</b>%s</div><button class="lux-plus" type="button" data-add="wash" aria-label="Add Face Wash to bag">+</button></article>'
-    '<article class="lux-tile"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-ph"><img src="%s" alt="%s" width="1000" height="1000" loading="lazy"><i class="lux-ped"></i></div>'
-    '<span class="lux-eb">Save %s</span><h3>The Glow<br>Duo</h3><div class="lux-pr"><b>%s</b>%s</div><button class="lux-plus" type="button" data-add="duo" aria-label="Add Glow Duo to bag">+</button></article>'
-    '</div></div>') % (
+    '<div class="lux-row">%s</div></div>') % (
     url(_c), html.escape(_c['name']), html.escape(_c['size']), rs(_c['price']), _mrp(_c), im('jar-cut'), html.escape(_c['name']),
-    url(_w), html.escape(_w['name']), im('facewash-square'), html.escape(_w['name']), rs(_w['price']), _mrp(_w),
-    url(_d), html.escape(_d['name']), im('duo-square'), html.escape(_d['name']), rs(_c['price'] + _w['price'] - _d['price']), rs(_d['price']), _mrp(_d))
+    ''.join('<article class="lux-tile"><a class="lux-link" href="%s" aria-label="%s"></a><div class="lux-ph"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><i class="lux-ped"></i></div><span class="lux-eb">Launching soon</span><h3>%s</h3><div class="lux-pr"><b>Notify me</b></div></article>' % (url(x), html.escape(x['name']), im(x['imgs'][0]), html.escape(x['name']), html.escape(x['short'])) for x in PRODUCTS if x.get('soon')))
 
 page('/shop/', 'Shop Glutathione Face Cream & Face Wash | GlutaNex', 'Shop GlutaNex glutathione skincare: Glutathione Night Cream, Gluta Boost Face Wash and the Glow Duo. Free shipping and Cash on Delivery across India.',
      top('Shop', 'Shop <span class="gold">GlutaNex</span>', 'Glutathione skincare for your night routine. Free shipping and Cash on Delivery on every order.') +
-     '<section class="shop-sec" style="padding-top:30px"><div class="wrap">' + SHOWCASE + '<div class="grid shop-grid">%s</div>'
+     '<section class="shop-sec" style="padding-top:30px"><div class="wrap">' + SHOWCASE + '<div class="grid shop-grid">' + ''.join(card(p, 'h2') for p in PRODUCTS) + '</div>'
      '<div class="sec-h" style="margin-top:56px"><span class="eyebrow">Compare</span><h2>Which one is right for you?</h2></div>'
-     '<div class="tbl"><table class="cmp"><thead><tr><th></th><th>Night Cream</th><th>Face Wash</th><th>Glow Duo</th></tr></thead><tbody>'
-     '<tr><td>Size</td><td>30 g jar</td><td>100 ml pump</td><td>30 g + 100 ml</td></tr>'
-     '<tr><td>Price</td><td>%s</td><td>%s</td><td>%s <span class="save">save %s</span></td></tr>'
-     '<tr><td>What it does</td><td>Night care for a brighter, more even-looking tone</td><td>Daily foaming cleanse</td><td>The full routine: cleanse, then treat</td></tr>'
-     '<tr><td>Key ingredients</td><td>Glutathione, niacinamide, vitamin C, hyaluronic acid, retinol, ceramides</td><td>Glutathione, copper peptide, niacinamide, aloe, chamomile, panthenol</td><td>Both</td></tr>'
-     '<tr><td>When to use</td><td>Night (start 2–3 nights a week)</td><td>Morning and night</td><td>Wash morning and night, cream at night</td></tr>'
-     '<tr><td>Best for</td><td>Tan, dullness, uneven tone</td><td>Clean, fresh skin before your cream</td><td>Best value and best results</td></tr>'
-     '<tr><td></td><td><button class="btn sm" type="button" data-add="cream">Add</button></td><td><button class="btn sm" type="button" data-add="wash">Add</button></td><td><button class="btn sm" type="button" data-add="duo">Add</button></td></tr>'
-     '</tbody></table></div></div></section>' % (''.join(card(p, 'h2') for p in PRODUCTS), rs(BYID['cream']['price']), rs(BYID['wash']['price']), rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])), crumbs=[('Shop', '/shop/')], ptype='CollectionPage', main=SITE + '/shop/#products', schema=[{'@type': 'ItemList', '@id': SITE + '/shop/#products', 'name': 'GlutaNex products', 'numberOfItems': len(PRODUCTS), 'itemListElement': [{'@type': 'ListItem', 'position': n + 1, 'item': {'@id': SITE + url(x) + '#product'}, 'url': SITE + url(x), 'name': x['name']} for n, x in enumerate(PRODUCTS)]}] + [product_ld(x) for x in PRODUCTS])
+     '<div class="tbl"><table class="cmp"><thead><tr><th></th><th>Night Cream</th><th>Face Wash</th><th>Shower Gel</th></tr></thead><tbody>'
+     '<tr><td>Size</td><td>30 g jar</td><td>100 ml pump</td><td>100 ml pump</td></tr>'
+     '<tr><td>Price</td><td>' + rs(BYID['cream']['price']) + '</td><td>Launching soon</td><td>Launching soon</td></tr>'
+     '<tr><td>What it does</td><td>Night care for a brighter, more even-looking tone</td><td>Daily foaming cleanse for your face</td><td>Cleanses, refreshes and moisturises in the shower</td></tr>'
+     '<tr><td>Key ingredients</td><td>Glutathione, niacinamide, vitamin C, hyaluronic acid, retinol, ceramides</td><td>Glutathione, copper peptide, niacinamide, aloe, chamomile, panthenol</td><td>Glutathione, hyaluronic acid, aloe vera</td></tr>'
+     '<tr><td>When to use</td><td>Night (start 2–3 nights a week)</td><td>Morning and night</td><td>In your daily shower</td></tr>'
+     '<tr><td>Best for</td><td>Tan, dullness, uneven tone</td><td>Clean, fresh skin before your cream</td><td>A fresh, moisturised feel after your bath</td></tr>'
+     '<tr><td></td><td><button class="btn sm" type="button" data-add="cream">Add</button></td><td>' + notify_btn(BYID['wash'], 'btn wa sm') + '</td><td>' + notify_btn(BYID['gel'], 'btn wa sm') + '</td></tr>'
+     '</tbody></table></div></div></section>', crumbs=[('Shop', '/shop/')], ptype='CollectionPage', main=SITE + '/shop/#products', schema=[{'@type': 'ItemList', '@id': SITE + '/shop/#products', 'name': 'GlutaNex products', 'numberOfItems': len(PRODUCTS), 'itemListElement': [{'@type': 'ListItem', 'position': n + 1, 'item': {'@id': SITE + url(x) + '#product'}, 'url': SITE + url(x), 'name': x['name']} for n, x in enumerate(PRODUCTS)]}] + [product_ld(x) for x in PRODUCTS])
 
 # ---------------- Product pages ----------------
 WASH_ING = ('<ul class="ing ing-sm"><li><b>Glutathione</b><span>The antioxidant this brand is built around, used here for fresher, brighter-looking skin.</span></li>'
@@ -470,11 +525,26 @@ WASH_ING = ('<ul class="ing ing-sm"><li><b>Glutathione</b><span>The antioxidant 
             '<li><b>Niacinamide</b><span>Vitamin B3, used for the look of even tone and smoother texture.</span></li>'
             '<li><b>Aloe and chamomile</b><span>Soothing plant ingredients that help the wash feel gentle.</span></li>'
             '<li><b>Panthenol</b><span>Provitamin B5, a hydrating ingredient that helps skin feel soft after rinsing.</span></li></ul>')
+GEL_ING = ('<ul class="ing ing-sm"><li><b>Glutathione</b><span>The antioxidant GlutaNex is built around, here in a wash-off shower gel.</span></li>'
+           '<li><b>Hyaluronic acid</b><span>A hydrating ingredient that helps skin feel soft and moisturised after your bath.</span></li>'
+           '<li><b>Aloe vera</b><span>A familiar, soothing plant ingredient that helps the gel feel gentle on skin.</span></li></ul>')
+GEL_USE = '<p>Apply a small amount to wet skin or a bath sponge, lather and massage gently, then rinse well. Keep it away from the eyes. For daily use in the shower.</p>'
+SOON_NOTE = '<p class="muted" style="margin-top:12px;font-size:.88rem">The complete ingredient list will be printed on the pack.</p>'
 TABS = {
     'cream': [('Key ingredients', ing_html('ing ing-sm') + '<p class="muted" style="margin-top:12px;font-size:.88rem">The complete ingredient list is printed on the pack.</p>'),
               ('How to use', CREAM_USE)],
     'wash': [('How to use', '<ol class="steps"><li>Take a small amount on your palm.</li><li>Lather it and massage gently on a wet face in circular motions.</li><li>Rinse thoroughly with water.</li></ol><p>Use morning and night. At night, follow with your glutathione night cream; in the morning, finish with sunscreen.</p>'),
              ('Key ingredients', WASH_ING + '<p class="muted" style="margin-top:12px;font-size:.88rem">The complete ingredient list is printed on the pack.</p>')],
+    'gel': [('How to use', GEL_USE), ('Key ingredients', GEL_ING + SOON_NOTE)],
+    'washgel': [('What you get', '<p>1 × GlutaNex Gluta Boost Face Wash 100 ml and 1 × GlutaNex Aqua Fresh Shower Gel 100 ml.</p>'),
+                ('How to use', '<p>Face: use the Face Wash morning and night. Lather on a wet face, massage gently in circles and rinse well. Body: use a small amount of the Shower Gel on wet skin, lather and rinse.</p>'),
+                ('Key ingredients', '<h4>Face Wash</h4>' + WASH_ING + '<h4 style="margin-top:14px">Shower Gel</h4>' + GEL_ING + SOON_NOTE)],
+    'creamgel': [('What you get', '<p>1 × GlutaNex Glutathione Night Cream 30 g and 1 × GlutaNex Aqua Fresh Shower Gel 100 ml.</p>'),
+                 ('How to use', '<p>Shower Gel: use daily on wet skin, lather and rinse. Night Cream: at night, on a clean, dry face, a pea-sized amount over face and neck. It contains retinol and salicylic acid, so start 2 to 3 nights a week and use sunscreen every morning.</p>'),
+                 ('Key ingredients', '<h4>Night Cream</h4>' + ing_html('ing ing-sm') + '<h4 style="margin-top:14px">Shower Gel</h4>' + GEL_ING + SOON_NOTE)],
+    'trio': [('What you get', '<p>1 × GlutaNex Glutathione Night Cream 30 g, 1 × GlutaNex Gluta Boost Face Wash 100 ml and 1 × GlutaNex Aqua Fresh Shower Gel 100 ml.</p>'),
+             ('How to use', '<p>Morning: cleanse with the Face Wash, then sunscreen. Night: cleanse with the Face Wash, pat dry, then the Night Cream (start 2 to 3 nights a week, as it contains retinol and salicylic acid). In the shower: Aqua Fresh Shower Gel for your body.</p>'),
+             ('Key ingredients', '<h4>Night Cream</h4>' + ing_html('ing ing-sm') + '<h4 style="margin-top:14px">Face Wash</h4>' + WASH_ING + '<h4 style="margin-top:14px">Shower Gel</h4>' + GEL_ING + SOON_NOTE)],
     'duo': [('What you get', '<p>1 × GlutaNex Glutathione Night Cream 30 g and 1 × GlutaNex Gluta Boost Face Wash 100 ml.</p>'),
             ('How to use', '<p>Night: cleanse with Gluta Boost Face Wash, pat dry, then apply the Night Cream (start with 2 to 3 nights a week, as it contains retinol and salicylic acid). Morning: cleanse and finish with sunscreen.</p>'),
             ('Night Cream key ingredients', ing_html('ing ing-sm'))],
@@ -490,11 +560,53 @@ WASH_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Choose Cash on Delivery at che
             ('Is it suitable for all skin types?', 'It is made for all skin types, as printed on the pack. As with any new product, patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.'),
             ('Does a face wash work like a glutathione cream?', 'No. A wash stays on your skin for under a minute and is rinsed off, so its main job is cleansing and keeping skin fresh. The leave-on step, such as a night cream, does the longer work. Read <a href="/glutathione-face-wash/">what a glutathione face wash can and cannot do</a>.'),
             ('What does the pack say it is free from?', 'The carton states paraben-free, sulfate-free and cruelty-free.')]
+def _soon_faq(p, qa):
+    return [('When will it be available?', 'It is launching soon. Tap "Notify me on WhatsApp" and we will message you when it is ready to order. There is no payment and no commitment.')] + qa + [
+        ('Can I buy anything from GlutaNex right now?', 'Yes. The <a href="/product/glutanex-glutathione-night-cream/">Glutathione Night Cream</a> is available now with free shipping and Cash on Delivery.')]
+SOON_FAQ = {
+    'gel': _soon_faq(None, [('Is the Aqua Fresh Shower Gel for all skin types?', 'It is made for all skin types, as printed on the pack. Patch test first on a small area, and stop using it if redness, itching or burning continues.'),
+                            ('What is in it?', 'The pack says it is enriched with glutathione, hyaluronic acid and aloe vera. The complete ingredient list will be printed on the pack.'),
+                            ('Is a glutathione shower gel the same as a glutathione cream?', 'No. A shower gel is rinsed off within a minute or two, so its job is cleansing and a fresh, moisturised feel. Leave-on products such as a night cream do the longer work.')]),
+    'washgel': _soon_faq(None, [('What is in the Face Wash + Shower Gel combo?', 'One Gluta Boost Face Wash (100 ml) for your face and one Aqua Fresh Shower Gel (100 ml) for your bath.'),
+                                ('Can I use the shower gel on my face?', 'Use the Face Wash for your face and the Shower Gel for your body. That is what each one is made for.')]),
+    'creamgel': _soon_faq(None, [('What is in the Night Cream + Shower Gel combo?', 'One Glutathione Night Cream (30 g) and one Aqua Fresh Shower Gel (100 ml).'),
+                                 ('Can I use the Night Cream during pregnancy?', 'The Night Cream contains retinol (vitamin A) and salicylic acid. Do not use it during pregnancy or breastfeeding unless your doctor says it is fine.')]),
+    'trio': _soon_faq(None, [('What is in the Glow Trio?', 'One Glutathione Night Cream (30 g), one Gluta Boost Face Wash (100 ml) and one Aqua Fresh Shower Gel (100 ml): the complete GlutaNex range.'),
+                             ('Why does the Night Cream start at 2 to 3 nights a week?', 'It contains retinol and salicylic acid, which can cause mild dryness or tingling while skin gets used to them. Start slowly and use sunscreen every morning.')]),
+    'wash': _soon_faq(None, [('How often can I use it?', 'The pack says morning and night. If your skin feels tight, wash once at night and just rinse with water in the morning.'),
+                             ('Is it suitable for all skin types?', 'It is made for all skin types, as printed on the pack. Patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.'),
+                             ('Does a face wash work like a glutathione cream?', 'No. A wash stays on your skin for under a minute and is rinsed off, so its main job is cleansing and keeping skin fresh. Read <a href="/glutathione-face-wash/">what a glutathione face wash can and cannot do</a>.'),
+                             ('What does the pack say it is free from?', 'The carton states paraben-free, sulfate-free and cruelty-free.')]),
+    'duo': _soon_faq(None, [('What is in the Glow Duo?', 'One Glutathione Night Cream (30 g) and one Gluta Boost Face Wash (100 ml): cleanse, then treat.'),
+                            ('Can I use the Night Cream during pregnancy?', 'The Night Cream contains retinol (vitamin A) and salicylic acid. Do not use it during pregnancy or breastfeeding unless your doctor says it is fine.')]),
+}
+def _about(title, intro, who, fit, links=''):
+    return '<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>%s</h2>%s<h3>Who it is for</h3><ul>%s</ul><h3>How it fits your routine</h3>%s%s</div></div></section>' % (title, intro, ''.join('<li>%s</li>' % w for w in who), fit, links)
+ABOUT_SOON = {
+ 'gel': _about('About the Aqua Fresh Shower Gel',
+   '<p>The GlutaNex Aqua Fresh Shower Gel is a <b>glutathione shower gel</b> in a 100 ml pump bottle. It is a clear blue gel enriched with glutathione, hyaluronic acid and aloe vera, made to cleanse, refresh and leave skin feeling moisturised.</p><p>Because a shower gel is rinsed off, it is there for a clean, fresh, comfortable bath rather than to treat skin. For longer-contact care, pair it with a leave-on step such as the <a href="/product/glutanex-glutathione-night-cream/">Night Cream</a>.</p>',
+   ['Anyone who wants a daily shower gel from the same brand as their glutathione skincare.', 'All skin types, as printed on the pack.', 'People who like a light gel that rinses off cleanly.'],
+   '<p>Use it in the shower on wet skin, then rinse well. Want the face routine too? See the <a href="/product/glutanex-gluta-boost-face-wash/">Gluta Boost Face Wash</a> and the <a href="/product/glutanex-glow-trio-night-cream-face-wash-shower-gel/">Glow Trio</a>.</p>',
+   '<p class="muted">New to glutathione? Start with <a href="/glutathione/">what glutathione is</a>.</p>'),
+ 'washgel': _about('About the Face Wash + Shower Gel combo',
+   '<p>This set pairs the <a href="/product/glutanex-gluta-boost-face-wash/">Gluta Boost Face Wash</a> for your face with the <a href="/product/glutanex-aqua-fresh-shower-gel/">Aqua Fresh Shower Gel</a> for your bath. Both are 100 ml pump bottles in the new GlutaNex pack design, so one order covers face and body cleansing.</p>',
+   ['Anyone who wants a matching cleansing set from one brand.', 'A simple gift for someone who already likes GlutaNex.', 'Normal, combination and oily skin that likes a fresh, foaming clean; dry skin can wash once a day.'],
+   '<p>Face Wash morning and night, Shower Gel in your bath. Add the <a href="/product/glutanex-glutathione-night-cream/">Night Cream</a> as your leave-on night step.</p>'),
+ 'creamgel': _about('About the Night Cream + Shower Gel combo',
+   '<p>This set combines the <a href="/product/glutanex-glutathione-night-cream/">Glutathione Night Cream</a> with the <a href="/product/glutanex-aqua-fresh-shower-gel/">Aqua Fresh Shower Gel</a>: a leave-on night step for your face and a rinse-off shower gel for your body.</p>',
+   ['Anyone starting a glutathione night routine who also wants a matching shower gel.', 'Normal, combination and oily skin; dry skin can add a moisturiser on top of the cream.'],
+   '<p>Shower Gel in your bath. Night: cleanse, pat dry, then a pea-sized amount of the Night Cream. It contains retinol and salicylic acid, so start 2 to 3 nights a week, use sunscreen every morning, and avoid it during pregnancy or breastfeeding unless your doctor approves.</p>'),
+ 'trio': _about('About the Glow Trio',
+   '<p>The GlutaNex Glow Trio is the full range in one set: the <a href="/product/glutanex-glutathione-night-cream/">Glutathione Night Cream</a> (30 g), the <a href="/product/glutanex-gluta-boost-face-wash/">Gluta Boost Face Wash</a> (100 ml) and the <a href="/product/glutanex-aqua-fresh-shower-gel/">Aqua Fresh Shower Gel</a> (100 ml).</p>',
+   ['Anyone who wants to try the whole GlutaNex range together.', 'A gift set for someone who loves skincare.', 'Normal, combination and oily skin; dry skin can use the wash once a day and add a moisturiser.'],
+   '<p>Morning: Face Wash, then sunscreen. Night: Face Wash, pat dry, then the Night Cream (start 2 to 3 nights a week). In the shower: Aqua Fresh Shower Gel.</p>',
+   '<p class="muted">Learn the routine: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>'),
+}
 ABOUT = {'wash': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About the Gluta Boost Face Wash</h2>
-<p>The GlutaNex Gluta Boost Face Wash is a <b>glutathione face wash</b> in a 100 ml pump bottle. It is a clear, foaming gel that lathers into a rich, creamy foam and rinses off cleanly, so it fits easily into a daily routine.</p>
+<p>The GlutaNex Gluta Boost Face Wash is a <b>glutathione face wash</b> in a 100 ml pump bottle, launching soon. It is a clear, foaming gel that lathers into a rich, creamy foam and rinses off cleanly, so it fits easily into a daily routine.</p>
 <h3>What is in it</h3><p>Glutathione and copper peptide lead the formula, backed by niacinamide, aloe, chamomile and panthenol. Because a wash is rinsed off, these ingredients are there to support a fresh, soft, comfortable feel after cleansing rather than to treat skin.</p>
 <h3>Who it is for</h3><ul><li>Anyone who wants a daily cleanser to go with a <a href="/glutathione-cream/">glutathione cream</a> routine.</li><li>Normal, combination and oily skin that likes a fresh, foaming wash; dry skin can wash once at night.</li><li>People who want one brand across the routine: wash, then <a href="/product/glutanex-glutathione-night-cream/">Night Cream</a>.</li></ul>
-<h3>How it fits your routine</h3><p>Morning: wash, then sunscreen. Night: wash, pat dry, then the Night Cream. Buying both? The <a href="/product/glutanex-glow-duo-night-cream-face-wash/">Glow Duo</a> costs less than the two separately.</p>
+<h3>How it fits your routine</h3><p>Morning: wash, then sunscreen. Night: wash, pat dry, then the Night Cream. Prefer a set? The <a href="/product/glutanex-glow-duo-night-cream-face-wash/">Glow Duo</a> pairs it with the Night Cream, and it is launching soon.</p>
 <p class="muted">Want the full picture of what a wash can do? Read our guide to <a href="/glutathione-face-wash/">glutathione face wash</a>.</p></div></div></section>''',
          'cream': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About this glutathione face cream</h2>
 <p>The GlutaNex Night Cream is a <b>glutathione face cream</b> made for night use. Glutathione is paired with niacinamide (vitamin B3) and vitamin C, which also help the look of uneven tone, plus retinol for smoother-looking skin and hyaluronic acid and ceramides for moisture.</p>
@@ -502,26 +614,27 @@ ABOUT = {'wash': '''<section style="padding-top:10px"><div class="wrap"><div cla
 <h3>What to expect</h3><p>A smoother feel in 2 to 4 weeks, a fresher look in 4 to 8 weeks, and lighter-looking tan and marks in 8 to 12 weeks, with sunscreen every morning. It does not change your natural skin colour. See <a href="/how-long-does-glutathione-take-to-work/">how long glutathione cream takes to work</a>.</p>
 <h3>Who should not use it</h3><p>It contains retinol and salicylic acid, so avoid it during pregnancy or breastfeeding unless your doctor approves, and ask a dermatologist first if you use prescription creams or have <a href="/glutathione-for-melasma/">melasma</a>.</p>
 <p class="muted">Comparing creams? Use our <a href="/best-glutathione-cream-in-india/">checklist for the best glutathione cream in India</a>.</p></div></div></section>'''}
+BUY_TPL = '''    <div class="qty-row"><div class="qty" data-qty><button type="button" data-dec aria-label="Less">−</button><output>1</output><button type="button" data-inc aria-label="More">+</button></div><span class="muted" style="font-size:.88rem">In stock</span></div>
+    <div class="acts"><button class="btn ghost" type="button" data-add="%(id)s" data-useqty>Add to cart</button><button class="btn" type="button" data-buy="%(id)s" data-useqty>Buy now</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s Order on WhatsApp</a></div>
+    <p class="eta" data-eta hidden></p>
+    <form class="pinchk" data-pinchk hidden><label for="pc-pin">Check delivery to your pincode</label><div><input id="pc-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6-digit pincode"><button class="btn sm" type="submit">Check</button></div><p class="pc-out" aria-live="polite" hidden></p></form>
+    <ul class="perks"><li>Cash on Delivery: nothing to pay in advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>'''
+SOON_TPL = '''<div class="soon-box"><span class="soon-badge">🚀 Launching soon</span><p><b>Not on sale yet.</b> Tap the button and we will message you on WhatsApp the moment %(short)s is ready to order. No payment, no commitment.</p><div class="acts">%(notify)s</div><p class="soon-alt">Want to start today? <a href="/product/glutanex-glutathione-night-cream/">Buy the Glutathione Night Cream</a>: free shipping and Cash on Delivery.</p></div>'''
 for p in PRODUCTS:
     off = pct(p)
     thumbs = ''.join('<button type="button" data-src="%s"%s aria-label="Picture %d"><img src="%s" alt="" width="78" height="78" loading="lazy"></button>' % (
         im(i), ' class="on"' if n == 0 else '', n + 1, im(i)) for n, i in enumerate(p['imgs']))
     tabs = TABS[p['id']] + [SHIP_TAB]
-    faq_items = WASH_FAQ if p['id'] == 'wash' else PDP_FAQ + (CREAM_FAQ if p['id'] in ('cream', 'duo') else [])
+    faq_items = SOON_FAQ[p['id']] if p.get('soon') else PDP_FAQ + (CREAM_FAQ if p['id'] in ('cream', 'duo') else [])
     others = [q for q in PRODUCTS if q['id'] != p['id']]
     body = '''<div class="wrap pdp">
   <div class="pdp-media"><div class="pdp-main tilt"><img id="pdp-img" src="%(main)s" alt="%(alt)s" width="800" height="800" fetchpriority="high"></div><div class="thumbs">%(thumbs)s</div></div>
   <div>
     <span class="eyebrow">GlutaNex · %(tag)s</span>
     <h1>%(name)s</h1>%(sub)s
-    <div class="price"><b>%(price)s</b>%(mrp)s%(off)s</div>
-    <p class="tax">Inclusive of all taxes · Free shipping · %(size)s</p>
+    %(pricehtml)s
     <p class="summary">%(summary)s</p>
-    <div class="qty-row"><div class="qty" data-qty><button type="button" data-dec aria-label="Less">−</button><output>1</output><button type="button" data-inc aria-label="More">+</button></div><span class="muted" style="font-size:.88rem">In stock</span></div>
-    <div class="acts"><button class="btn ghost" type="button" data-add="%(id)s" data-useqty>Add to cart</button><button class="btn" type="button" data-buy="%(id)s" data-useqty>Buy now</button><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s Order on WhatsApp</a></div>
-    <p class="eta" data-eta hidden></p>
-    <form class="pinchk" data-pinchk hidden><label for="pc-pin">Check delivery to your pincode</label><div><input id="pc-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6-digit pincode"><button class="btn sm" type="submit">Check</button></div><p class="pc-out" aria-live="polite" hidden></p></form>
-    <ul class="perks"><li>Cash on Delivery: nothing to pay in advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>
+    %(buyhtml)s
     <button class="jar-talk sm" type="button" data-talk hidden><span class="jt-dot"></span>🎙️ Ask the jar a question<small>Speak in English, हिंदी, Hinglish, தமிழ்…</small></button>
     <a class="quizcta sm" href="/skin-quiz/"><b>Not sure it suits your skin?</b><span>Take the 30-second quiz →</span></a>
     <div class="tabs">%(tabs)s</div>
@@ -530,15 +643,19 @@ for p in PRODUCTS:
 %(about)s%(review)s<section style="padding-top:10px"><div class="wrap"><div class="sec-h"><h2>Questions</h2></div>%(faq)s
 <p style="margin-top:22px" class="muted">Learn more: <a href="/glutathione-cream/">Glutathione cream guide</a> · <a href="/glutathione-side-effects/">Side effects</a> · <a href="/how-to-use-glutathione-cream/">How to use</a></p></div></section>
 <section style="padding-top:10px"><div class="wrap"><div class="sec-h"><span class="eyebrow">Complete the ritual</span><h2>You may also like</h2></div><div class="grid">%(rel)s</div></div></section>
-<div class="buybar" id="buybar" aria-hidden="true"><img src="%(main)s" alt="" width="44" height="44"><div class="bb-t"><b>%(short)s</b><span>%(price)s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%(id)s" aria-label="Add to cart">%(bag)s</button><button class="btn" type="button" data-buy="%(id)s">Buy now</button></div>''' % dict(
-        main=im(p['imgs'][0]), short=html.escape(p['short']), bag=SVG_BAG, alt=html.escape(p['name']), thumbs=thumbs, tag=p['tag'], name=html.escape(p['name']), price=rs(p['price']),
+%(buybar)s''' % dict(
+        buybar=('<div class="buybar" id="buybar" aria-hidden="true"><img src="%s" alt="" width="44" height="44"><div class="bb-t"><b>%s</b><span>Launching soon</span></div>%s</div>' % (im(p['imgs'][0]), html.escape(p['short']), notify_btn(p, 'btn wa sm')) if p.get('soon') else
+                '<div class="buybar" id="buybar" aria-hidden="true"><img src="%s" alt="" width="44" height="44"><div class="bb-t"><b>%s</b><span>%s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%s" aria-label="Add to cart">%s</button><button class="btn" type="button" data-buy="%s">Buy now</button></div>' % (im(p['imgs'][0]), html.escape(p['short']), rs(p['price']), p['id'], SVG_BAG, p['id'])),
+        pricehtml=('<p class="tax"><b>Launching soon</b> · %s</p>' % html.escape(p['size']) if p.get('soon') else '<div class="price"><b>%s</b>%s%s</div>\n    <p class="tax">Inclusive of all taxes · Free shipping · %s</p>' % (rs(p['price']), '<s>MRP %s</s>' % rs(p['mrp']) if off else '', '<span class="off">%d%% off</span>' % off if off else '', p['size'])),
+        buyhtml=(SOON_TPL % dict(short=html.escape(p['short']), notify=notify_btn(p)) if p.get('soon') else BUY_TPL % dict(id=p['id'], wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG)),
+        main=im(p['imgs'][0]), alt=html.escape(p['name']), thumbs=thumbs, tag=p['tag'], name=html.escape(p['name']),
         mrp='<s>MRP %s</s>' % rs(p['mrp']) if off else '', off='<span class="off">%d%% off</span>' % off if off else '', size=p['size'], summary=p['summary'], id=p['id'],
         wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG,
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
         faq=faq_html(faq_items), rel=''.join(card(q) for q in others),
-        sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=ABOUT.get(p['id'], ''), review=REVIEW_SEC if p['id'] in ('cream', 'duo') else '')
+        sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=(ABOUT_SOON.get(p['id']) or ABOUT.get(p['id'], '')), review=REVIEW_SEC if p['id'] in ('cream', 'duo') else '')
     page(url(p), p['title'], p['desc'], body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)], ptype='ItemPage', main=SITE + url(p) + '#product',
-         extra='<meta property="product:price:amount" content="%d"><meta property="product:price:currency" content="INR">\n' % p['price'])
+         extra=('' if p.get('soon') else '<meta property="product:price:amount" content="%d"><meta property="product:price:currency" content="INR">\n' % p['price']))
 
 # ---------------- Cart & checkout ----------------
 page('/cart/', 'Cart | GlutaNex', 'Your GlutaNex cart.', top('Your cart', 'Cart') + '''<div class="wrap co"><div class="panel" id="cart-lines"><div class="empty">Loading your cart…</div></div>
@@ -594,6 +711,8 @@ FEED_TITLES = {'cream': 'GlutaNex Glutathione Face Cream for Night, 30 g - with 
                'duo': 'GlutaNex Glow Duo - Glutathione Night Cream 30 g + Face Wash 100 ml'}
 _fi = []
 for p in PRODUCTS:
+    if p.get('soon'):
+        continue
     m = FEED_META[p['id']]
     imgs = [SITE + im(i, 'jpg') for i in p['imgs']]
     _fi.append('''<item>
@@ -630,8 +749,8 @@ def _txt(h):
     h = re.sub(r'<(td|th)[^>]*>', ' | ', h)
     return re.sub(r'[ \t]+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', h))).replace(' \n', '\n').strip()
 KB = [{'t': 'GlutaNex products, prices and policies', 'u': '/shop/', 's': '', 'always': True, 'x': '\n'.join([
-    '%s (%s): %s, MRP %s. %s' % (p['name'], p['size'], rs(p['price']), rs(p['mrp']), _txt(p['summary'])) for p in PRODUCTS] + [
-    'Glow Duo is %s, %s less than buying the Night Cream and Face Wash separately; the cart upgrades them automatically.' % (rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])),
+    ('%s (%s): %s. %s' % (p['name'], p['size'], 'launching soon, not yet available to order; customers can ask to be notified on WhatsApp' if p.get('soon') else '%s, MRP %s' % (rs(p['price']), rs(p['mrp'])), _txt(p['summary']))) for p in PRODUCTS] + [
+    'Only the Glutathione Night Cream can be ordered right now. The Face Wash, Shower Gel, Glow Duo and the other combo sets are launching soon.',
     'Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. The complete list is printed on the pack.',
     'Night Cream use: ' + _txt(CREAM_USE),
     'Shipping: free across India, packed in 1 to 2 business days, delivered in 3 to 7 business days. Track orders at /track-order/.',
@@ -671,7 +790,7 @@ LLMS = ['# GlutaNex', '',
         '- Official channels: this website, Instagram @glutanexofficial (%s), WhatsApp %s. Official marketplace listings: ' % (INSTAGRAM, WA_SHOW) + ', '.join('%s (%s)' % (n, u) for n, u in MARKET_LINKS) + '.',
         '- GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. GlutaNex is an Indian brand. "Glutanex" products from Korea, including glutathione injections, tablets and skincare sold online in India, are made by other companies and are not connected with GlutaNex India. Brand page: %s/glutanex/' % SITE, '',
         'Key facts:', '',
-        '- Products: ' + '; '.join('%s (%s) %s, MRP %s' % (x['name'], x['size'], rs(x['price']), rs(x['mrp'])) for x in PRODUCTS) + '. Prices include taxes.',
+        '- Products: ' + '; '.join(('%s (%s) launching soon' % (x['name'], x['size'])) if x.get('soon') else '%s (%s) %s, MRP %s' % (x['name'], x['size'], rs(x['price']), rs(x['mrp'])) for x in PRODUCTS) + '. Prices include taxes. Only the Night Cream can be ordered now.',
         '- Night Cream ingredients: ' + ', '.join(n for n, d in INGREDIENTS) + '. Contains retinol and salicylic acid: night use, start 2-3 nights a week, sunscreen every morning, not for pregnancy or breastfeeding unless a doctor approves.',
         '- Shipping: free across India; packed in 1-2 business days; delivered in 3-7 business days. Payment: online (UPI, cards), Cash on Delivery (nothing paid in advance), or WhatsApp order.',
         '- Returns: sealed products within 7 days of delivery; damaged or wrong items replaced or refunded. Contact: WhatsApp %s, Instagram @glutanexofficial.' % WA_SHOW, '',
@@ -732,7 +851,7 @@ open(os.path.join(ROOT, 'assets', 'site.css'), 'w', encoding='utf-8').write(minc
 for f in ['store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
-_pj = {p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS}
+_pj = {p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS if not p.get('soon')}
 # the ₹1 test product used by /sample-test/ to check live payments (kept in products.json, not listed in the shop)
 _pj['sample'] = {'name': 'GlutaNex Test Sample (₹1)', 'short': 'Test Sample', 'price': 1, 'mrp': 1, 'img': im(BYID['cream']['imgs'][0]), 'url': '/sample-test/'}
 open(os.path.join(ROOT, 'assets', 'products.json'), 'w').write(json.dumps(_pj, ensure_ascii=False))

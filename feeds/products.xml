@@ -22,44 +22,5 @@
   <g:shipping><g:country>IN</g:country><g:service>Standard</g:service><g:price>0.00 INR</g:price></g:shipping>
   <g:shipping_weight>120 g</g:shipping_weight>
 </item>
-<item>
-  <g:id>GNX-WASH-100</g:id>
-  <title>GlutaNex Gluta Boost Glutathione Face Wash 100 ml</title>
-  <description>GlutaNex Gluta Boost Face Wash, 100 ml pump bottle. A gentle glutathione face wash for daily cleansing that cleans without stripping, the first step before a night cream. Use morning and night. Cosmetic product; results vary. Free shipping across India, Cash on Delivery available.</description>
-  <link>https://glutanex.co.in/product/glutanex-gluta-boost-face-wash/</link>
-  <g:image_link>https://glutanex.co.in/assets/img/glutanex-gluta-boost-glutathione-face-wash-100ml.jpg</g:image_link>
-  <g:additional_image_link>https://glutanex.co.in/assets/img/gluta-boost-face-wash-carton-glutanex.jpg</g:additional_image_link>
-  <g:additional_image_link>https://glutanex.co.in/assets/img/gluta-boost-face-wash-foam-glutanex.jpg</g:additional_image_link>
-  <g:availability>in_stock</g:availability>
-  <g:price>399.00 INR</g:price>
-  <g:brand>GlutaNex</g:brand>
-  <g:condition>new</g:condition>
-  <g:identifier_exists>no</g:identifier_exists>
-  <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care &gt; Facial Cleansers</g:google_product_category>
-  <g:product_type>Skin Care &gt; Face Wash</g:product_type>
-  <g:size>100 ml pump bottle</g:size>
-  <g:shipping><g:country>IN</g:country><g:service>Standard</g:service><g:price>0.00 INR</g:price></g:shipping>
-  <g:shipping_weight>140 g</g:shipping_weight>
-</item>
-<item>
-  <g:id>GNX-DUO</g:id>
-  <title>GlutaNex Glow Duo - Glutathione Night Cream 30 g + Face Wash 100 ml</title>
-  <description>GlutaNex Glow Duo: GlutaNex Glutathione Night Cream 30 g and Gluta Boost Face Wash 100 ml together. Cleanse with the face wash, then apply the night cream; use sunscreen every morning. The night cream contains retinol and salicylic acid: start 2 to 3 nights a week, and avoid during pregnancy or breastfeeding unless a doctor approves. Cosmetic products; results vary. Free shipping across India, Cash on Delivery available.</description>
-  <link>https://glutanex.co.in/product/glutanex-glow-duo-night-cream-face-wash/</link>
-  <g:image_link>https://glutanex.co.in/assets/img/glutanex-glow-duo-glutathione-cream-face-wash.jpg</g:image_link>
-  <g:additional_image_link>https://glutanex.co.in/assets/img/glutanex-glutathione-night-cream-30g.jpg</g:additional_image_link>
-  <g:additional_image_link>https://glutanex.co.in/assets/img/glutanex-gluta-boost-glutathione-face-wash-100ml.jpg</g:additional_image_link>
-  <g:availability>in_stock</g:availability>
-  <g:price>2699.00 INR</g:price>
-  <g:brand>GlutaNex</g:brand>
-  <g:condition>new</g:condition>
-  <g:identifier_exists>no</g:identifier_exists>
-  <g:is_bundle>yes</g:is_bundle>
-  <g:google_product_category>Health &amp; Beauty &gt; Personal Care &gt; Cosmetics &gt; Skin Care</g:google_product_category>
-  <g:product_type>Skin Care &gt; Skin Care Sets</g:product_type>
-  <g:size>Night Cream 30 g + Face Wash 100 ml</g:size>
-  <g:shipping><g:country>IN</g:country><g:service>Standard</g:service><g:price>0.00 INR</g:price></g:shipping>
-  <g:shipping_weight>260 g</g:shipping_weight>
-</item>
 </channel>
 </rss>

@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
   let body = req.body || {};
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
   if (body.website) return res.status(200).json({ ok: true }); // form trap for bots
-  const cart = cartFrom(body.items);
+  const cart = cartFrom(body.items, true);
   const c = customer(body);
   if (!cart || !c) return res.status(400).json({ error: 'invalid_details' });
   // Without Delhivery and without the Order Desk the order could not be saved anywhere: the page offers WhatsApp instead.

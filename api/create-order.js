@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
   if (!k) return res.status(503).json({ error: 'not_configured' });
   let body = req.body || {};
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
-  const cart = cartFrom(body.items);
+  const cart = cartFrom(body.items, true);
   const c = customer(body);
   if (!cart || !c) return res.status(400).json({ error: 'invalid_details' });
   if (!(await guard.limit('order:' + c.phone, 15, 3600)) || !(await guard.limit('order', 1000, 3600))) return res.status(429).json({ error: 'busy' });

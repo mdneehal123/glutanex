@@ -896,3 +896,27 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
 /* customer review images */
 .revs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:900px;margin:0 auto}.revs figure{margin:0}.revs img{width:100%;height:auto;display:block}
 @media (max-width:640px){.revs.rail-m>*{flex-basis:80%}}
+
+/* launching-soon products */
+.card.soon .price .soon-txt{font-family:var(--display);font-size:1.15rem;color:var(--gold);font-weight:600}
+.card.soon .acts{flex-wrap:wrap}
+.soon-box{margin:18px 0;padding:18px 20px;border:1px solid rgba(201,160,90,.55);border-radius:var(--r);background:linear-gradient(135deg,#FFF8EA,#FFEFD6);box-shadow:0 14px 34px -18px rgba(134,100,42,.45)}
+.soon-badge{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--btn1),var(--accent));padding:6px 12px;border-radius:99px;margin-bottom:10px}
+.soon-box p{margin:0 0 12px;color:var(--body-ink)}
+.soon-box .acts{margin:0}
+.soon-box .soon-alt{margin:14px 0 0;font-size:.92rem}
+.soon-box .soon-alt a{color:var(--btn1);font-weight:700}
+.tax b{color:var(--gold)}
+.soonband{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);border-radius:30px;overflow:hidden;background:#1A1510;color:#FFF8EE;box-shadow:var(--shadow)}
+.sb-media{margin:0;position:relative;min-height:100%}
+.sb-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sb-copy{padding:clamp(24px,4vw,52px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.sb-copy h2{font-size:clamp(1.9rem,4vw,2.9rem);color:#FFF8EE}
+.sb-copy p{color:#E4D6C3;margin:0}
+.sb-copy .eyebrow{color:var(--gold2)}
+.sb-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.sb-list a{display:inline-block;padding:7px 14px;border:1px solid rgba(255,255,255,.28);border-radius:99px;font-size:.85rem;text-decoration:none;color:#FFF8EE}
+.sb-list a:hover{background:rgba(255,255,255,.12)}
+.soonband .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.soonband .btn.ghost{background:transparent;color:#FFF8EE;border:1px solid rgba(255,255,255,.4)}
+@media(max-width:820px){.soonband{grid-template-columns:minmax(0,1fr)}.sb-media{aspect-ratio:16/10;min-height:0}}

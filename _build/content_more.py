@@ -108,7 +108,7 @@ NEW_GUIDES = [
 <p>No. Research on topical glutathione is still limited (%(review)s), so no price guarantees results. Pay for a sensible formula, honest labelling and a seller you can reach, then use it consistently with sunscreen.</p>''',
          faq=[('What is the price of glutathione cream in India?', 'Glutathione creams range from a few hundred to several thousand rupees. GlutaNex Glutathione Night Cream is %(pcream)s with free shipping.'),
               ('Why are some glutathione creams so cheap?', 'They may contain very little glutathione, skip other useful ingredients, or in the worst cases contain banned substances. Check the full ingredient list and the seller details.'),
-              ('Is the Glow Duo cheaper than buying separately?', 'Yes. The Glow Duo is %(pduo)s, less than the Night Cream and Face Wash bought separately.')]),
+              ('Can I order the Glow Duo now?', 'Not yet. The Glow Duo (Night Cream + Face Wash) is launching soon. The Night Cream is available now.')]),
 
     dict(slug='best-glutathione-cream-in-india', title='How to choose the best glutathione cream in India', short='Best glutathione cream',
          blurb='A simple checklist to judge any glutathione cream before you buy.',

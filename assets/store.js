@@ -60,7 +60,7 @@
   (function(){var d=document.documentElement,strip=document.querySelector('.strip');if(!strip){return;}var cls=d.className,today=d.getAttribute('data-today')||'';
     function say(t){strip.textContent=t;strip.classList.add('live');}
     var hm=new Date().toLocaleTimeString('en-IN',{hour:'numeric',minute:'2-digit'});
-    if(/fest-diwali/.test(cls)){say(today<'2026-11-08'?'🪔 Diwali is on Sun, 8 Nov · Gift a glow: Glow Duo ₹2,699 · free shipping':'🪔 Happy Diwali from GlutaNex · May your days glow ✨');}
+    if(/fest-diwali/.test(cls)){say(today<'2026-11-08'?'🪔 Diwali is on Sun, 8 Nov · Gift a glow: the Night Cream · free shipping':'🪔 Happy Diwali from GlutaNex · May your days glow ✨');}
     else if(/fest-christmas/.test(cls)){say('🎄 Merry Christmas from GlutaNex · free shipping · Cash on Delivery');}
     else if(/fest-newyear/.test(cls)){say('✨ Happy New Year · a fresh routine for a fresh year');}
     else if(/fest-sankranti/.test(cls)){say('🪁 Happy Makar Sankranti & Pongal from GlutaNex');}

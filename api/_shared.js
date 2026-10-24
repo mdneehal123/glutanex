@@ -2,8 +2,8 @@
 // Prices confirmed 11 Oct 2026. They must match _build/build.py.
 const PRODUCTS = {
   cream: { name: 'GlutaNex Glutathione Night Cream 30g', sku: 'GNX-CREAM', price: 2499, mrp: 3000, kg: 0.12 },
-  wash: { name: 'GlutaNex Gluta Boost Face Wash 100ml', sku: 'GNX-WASH-100', price: 399, mrp: 599, kg: 0.14 },
-  duo: { name: 'GlutaNex Glow Duo: Night Cream + Face Wash', sku: 'GNX-DUOx2', price: 2699, mrp: 3599, kg: 0.26 },
+  wash: { name: 'GlutaNex Gluta Boost Face Wash 100ml', sku: 'GNX-WASH-100', price: 399, mrp: 599, kg: 0.14, soon: true },
+  duo: { name: 'GlutaNex Glow Duo: Night Cream + Face Wash', sku: 'GNX-DUOx2', price: 2699, mrp: 3599, kg: 0.26, soon: true },
   // TEMPORARY ₹1 test item for checking online payments (page /sample-test/). Remove after testing.
   sample: { name: 'GlutaNex Test Sample (Rs 1)', sku: 'GNX-TEST', price: 1, mrp: 1, kg: 0.05 }
 };
@@ -25,7 +25,7 @@ function clean(value, max) {
 }
 
 // Accepts [{id, qty}] or the compact "cream:2,wash:1" form stored on the order. Unknown items are dropped.
-function cartFrom(input) {
+function cartFrom(input, fresh) {
   let list = input;
   if (typeof input === 'string') list = input.split(',').map((s) => { const [id, q] = s.split(':'); return { id, qty: q }; });
   if (!Array.isArray(list)) return null;
@@ -34,6 +34,7 @@ function cartFrom(input) {
     const id = String((it && it.id) || '');
     const qty = Math.floor(Number(it && it.qty));
     if (!PRODUCTS[id] || !(qty >= 1)) return;
+    if (fresh && PRODUCTS[id].soon) return; // launching soon: cannot be ordered yet (old orders still read normally)
     merged[id] = Math.min(MAX_QTY, (merged[id] || 0) + qty);
   });
   // A Night Cream plus a Face Wash is always charged as the cheaper Glow Duo (same as the cart on the site).
