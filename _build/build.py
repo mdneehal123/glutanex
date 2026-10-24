@@ -30,10 +30,12 @@ PRODUCTS = [
     dict(id='wash', slug='glutanex-gluta-boost-face-wash', short='Face Wash', sku='GNX-WASH-100',
          name='GlutaNex Gluta Boost Face Wash', size='100 ml pump bottle', price=399, mrp=599,  # confirmed 11 Oct 2026
          tag='New',
-         imgs=['facewash-square', 'facewash'], og='facewash-square',
-         summary='A gentle daily face wash from GlutaNex that cleans without stripping, the first step before your glutathione night cream.',
-         title='GlutaNex Gluta Boost Face Wash 100 ml | Glutathione Face Wash',
-         desc='GlutaNex Gluta Boost Face Wash, 100 ml: a gentle glutathione face wash for daily cleansing. Cash on Delivery across India.'),
+         imgs=['facewash-square', 'facewash', 'facewash-foam'], og='facewash-square',
+         summary='A daily foaming gel face wash made with glutathione and copper peptide, plus niacinamide, aloe, chamomile and panthenol. It lifts away dirt, oil and the day\'s build-up and leaves skin feeling fresh and soft, and it is the first step before your glutathione night cream.',
+         title='GlutaNex Gluta Boost Face Wash 100 ml | Glutathione & Copper Peptide',
+         sub='Glutathione face wash · foaming gel with copper peptide and niacinamide',
+         alt_names=['GlutaNex Glutathione Face Wash', 'Gluta Boost Glutathione Face Wash'],
+         desc='GlutaNex Gluta Boost Face Wash, 100 ml: a foaming glutathione face wash with copper peptide, niacinamide, aloe and panthenol for daily cleansing. For all skin types. COD across India.'),
     dict(id='duo', slug='glutanex-glow-duo-night-cream-face-wash', short='Glow Duo', sku='GNX-DUO',
          name='GlutaNex Glow Duo: Night Cream + Face Wash', size='Night Cream 30 g + Face Wash 100 ml', price=2699, mrp=3599,  # duo: MRP = 3000 + 599; saves 199 vs buying both separately (2898)
          tag='Save more',
@@ -61,7 +63,7 @@ def pct(p):
 SEO_IMG = {'cream-square': 'glutanex-glutathione-night-cream-30g', 'jar-night': 'glutathione-night-cream-jar-glutanex',
            'jar-hand': 'glutanex-glutathione-cream-in-hand', 'jar-bag': 'glutanex-glutathione-night-cream-travel',
            'jar-marble': 'glutanex-glutathione-face-cream', 'facewash-square': 'glutanex-gluta-boost-glutathione-face-wash-100ml',
-           'facewash': 'glutathione-face-wash-glutanex', 'duo-square': 'glutanex-glow-duo-glutathione-cream-face-wash',
+           'facewash': 'gluta-boost-face-wash-carton-glutanex', 'facewash-foam': 'gluta-boost-face-wash-foam-glutanex', 'duo-square': 'glutanex-glow-duo-glutathione-cream-face-wash',
            'night-shift-banner': 'glutathione-night-cream-routine-glutanex', 'jar-cut': 'glutanex-glutathione-night-cream-jar'}
 
 
@@ -147,7 +149,7 @@ def img_ld(u, caption=''):
 
 def product_ld(p):
     extra_p = {'cream': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': ', '.join(n for n, d in INGREDIENTS)}, {'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Night'}]},
-               'wash': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Morning and night'}]},
+               'wash': {'additionalProperty': [{'@type': 'PropertyValue', 'name': 'Key ingredients', 'value': 'Glutathione, copper peptide, niacinamide, aloe, chamomile, panthenol'}, {'@type': 'PropertyValue', 'name': 'Skin type', 'value': 'All skin types'}, {'@type': 'PropertyValue', 'name': 'When to use', 'value': 'Morning and night'}]},
                'duo': {'isRelatedTo': [{'@id': SITE + url(BYID['cream']) + '#product'}, {'@id': SITE + url(BYID['wash']) + '#product'}]}}.get(p['id'], {})
     return dict({'@type': 'Product', '@id': SITE + url(p) + '#product', 'name': p['name'], **({'alternateName': p['alt_names']} if p.get('alt_names') else {}), 'sku': p['sku'], 'mpn': p['sku'], 'size': p['size'], 'category': 'Health & Beauty > Personal Care > Cosmetics > Skin Care', 'brand': {'@type': 'Brand', '@id': SITE + '/#brand', 'name': 'GlutaNex'},
             'image': [img_ld(SITE + im(i, 'jpg'), p['name']) for i in p['imgs']], 'description': p['desc'],
@@ -455,19 +457,24 @@ page('/shop/', 'Shop Glutathione Face Cream & Face Wash | GlutaNex', 'Shop Gluta
      '<div class="tbl"><table class="cmp"><thead><tr><th></th><th>Night Cream</th><th>Face Wash</th><th>Glow Duo</th></tr></thead><tbody>'
      '<tr><td>Size</td><td>30 g jar</td><td>100 ml pump</td><td>30 g + 100 ml</td></tr>'
      '<tr><td>Price</td><td>%s</td><td>%s</td><td>%s <span class="save">save %s</span></td></tr>'
-     '<tr><td>What it does</td><td>Night care for a brighter, more even-looking tone</td><td>Gentle daily cleansing</td><td>The full routine: cleanse, then treat</td></tr>'
-     '<tr><td>Key ingredients</td><td>Glutathione, niacinamide, vitamin C, hyaluronic acid, retinol, ceramides</td><td>Glutathione</td><td>Both</td></tr>'
+     '<tr><td>What it does</td><td>Night care for a brighter, more even-looking tone</td><td>Daily foaming cleanse</td><td>The full routine: cleanse, then treat</td></tr>'
+     '<tr><td>Key ingredients</td><td>Glutathione, niacinamide, vitamin C, hyaluronic acid, retinol, ceramides</td><td>Glutathione, copper peptide, niacinamide, aloe, chamomile, panthenol</td><td>Both</td></tr>'
      '<tr><td>When to use</td><td>Night (start 2–3 nights a week)</td><td>Morning and night</td><td>Wash morning and night, cream at night</td></tr>'
      '<tr><td>Best for</td><td>Tan, dullness, uneven tone</td><td>Clean, fresh skin before your cream</td><td>Best value and best results</td></tr>'
      '<tr><td></td><td><button class="btn sm" type="button" data-add="cream">Add</button></td><td><button class="btn sm" type="button" data-add="wash">Add</button></td><td><button class="btn sm" type="button" data-add="duo">Add</button></td></tr>'
      '</tbody></table></div></div></section>' % (''.join(card(p, 'h2') for p in PRODUCTS), rs(BYID['cream']['price']), rs(BYID['wash']['price']), rs(BYID['duo']['price']), rs(BYID['cream']['price'] + BYID['wash']['price'] - BYID['duo']['price'])), crumbs=[('Shop', '/shop/')], ptype='CollectionPage', main=SITE + '/shop/#products', schema=[{'@type': 'ItemList', '@id': SITE + '/shop/#products', 'name': 'GlutaNex products', 'numberOfItems': len(PRODUCTS), 'itemListElement': [{'@type': 'ListItem', 'position': n + 1, 'item': {'@id': SITE + url(x) + '#product'}, 'url': SITE + url(x), 'name': x['name']} for n, x in enumerate(PRODUCTS)]}] + [product_ld(x) for x in PRODUCTS])
 
 # ---------------- Product pages ----------------
+WASH_ING = ('<ul class="ing ing-sm"><li><b>Glutathione</b><span>The antioxidant this brand is built around, used here for fresher, brighter-looking skin.</span></li>'
+            '<li><b>Copper peptide</b><span>A skin-conditioning ingredient used in skincare for the look of smoother, healthier skin.</span></li>'
+            '<li><b>Niacinamide</b><span>Vitamin B3, used for the look of even tone and smoother texture.</span></li>'
+            '<li><b>Aloe and chamomile</b><span>Soothing plant ingredients that help the wash feel gentle.</span></li>'
+            '<li><b>Panthenol</b><span>Provitamin B5, a hydrating ingredient that helps skin feel soft after rinsing.</span></li></ul>')
 TABS = {
     'cream': [('Key ingredients', ing_html('ing ing-sm') + '<p class="muted" style="margin-top:12px;font-size:.88rem">The complete ingredient list is printed on the pack.</p>'),
               ('How to use', CREAM_USE)],
-    'wash': [('How to use', '<p>Wet your face, work a small amount into a lather and massage gently in circles. Rinse well. Use morning and night.</p>'),
-             ('Ingredients', '<p class="todo">The full ingredient list will appear here exactly as printed on the pack. (CONFIRM from the final label.)</p>')],
+    'wash': [('How to use', '<ol class="steps"><li>Take a small amount on your palm.</li><li>Lather it and massage gently on a wet face in circular motions.</li><li>Rinse thoroughly with water.</li></ol><p>Use morning and night. At night, follow with your glutathione night cream; in the morning, finish with sunscreen.</p>'),
+             ('Key ingredients', WASH_ING + '<p class="muted" style="margin-top:12px;font-size:.88rem">The complete ingredient list is printed on the pack.</p>')],
     'duo': [('What you get', '<p>1 × GlutaNex Glutathione Night Cream 30 g and 1 × GlutaNex Gluta Boost Face Wash 100 ml.</p>'),
             ('How to use', '<p>Night: cleanse with Gluta Boost Face Wash, pat dry, then apply the Night Cream (start with 2 to 3 nights a week, as it contains retinol and salicylic acid). Morning: cleanse and finish with sunscreen.</p>'),
             ('Night Cream key ingredients', ing_html('ing ing-sm'))],
@@ -478,7 +485,18 @@ CREAM_FAQ = [('Can I use it during pregnancy?', 'The Night Cream contains retino
 PDP_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Choose Cash on Delivery at checkout and pay the full amount in cash when your parcel arrives. Nothing is paid in advance.'),
            ('When will I see results?', 'Use it every night with daily sunscreen for at least 6 to 8 weeks before judging. Results vary from person to person.'),
            ('Is it safe for sensitive skin?', 'Patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.')]
-ABOUT = {'cream': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About this glutathione face cream</h2>
+WASH_FAQ = [('Can I pay Cash on Delivery?', 'Yes. Choose Cash on Delivery at checkout and pay the full amount in cash when your parcel arrives. Nothing is paid in advance.'),
+            ('How often can I use it?', 'The pack says morning and night. If your skin feels tight, wash once at night and just rinse with water in the morning.'),
+            ('Is it suitable for all skin types?', 'It is made for all skin types, as printed on the pack. As with any new product, patch test first on a small area for 24 hours. If redness, itching or burning continues, stop and speak to a dermatologist.'),
+            ('Does a face wash work like a glutathione cream?', 'No. A wash stays on your skin for under a minute and is rinsed off, so its main job is cleansing and keeping skin fresh. The leave-on step, such as a night cream, does the longer work. Read <a href="/glutathione-face-wash/">what a glutathione face wash can and cannot do</a>.'),
+            ('What does the pack say it is free from?', 'The carton states paraben-free, sulfate-free and cruelty-free.')]
+ABOUT = {'wash': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About the Gluta Boost Face Wash</h2>
+<p>The GlutaNex Gluta Boost Face Wash is a <b>glutathione face wash</b> in a 100 ml pump bottle. It is a clear, foaming gel that lathers into a rich, creamy foam and rinses off cleanly, so it fits easily into a daily routine.</p>
+<h3>What is in it</h3><p>Glutathione and copper peptide lead the formula, backed by niacinamide, aloe, chamomile and panthenol. Because a wash is rinsed off, these ingredients are there to support a fresh, soft, comfortable feel after cleansing rather than to treat skin.</p>
+<h3>Who it is for</h3><ul><li>Anyone who wants a daily cleanser to go with a <a href="/glutathione-cream/">glutathione cream</a> routine.</li><li>Normal, combination and oily skin that likes a fresh, foaming wash; dry skin can wash once at night.</li><li>People who want one brand across the routine: wash, then <a href="/product/glutanex-glutathione-night-cream/">Night Cream</a>.</li></ul>
+<h3>How it fits your routine</h3><p>Morning: wash, then sunscreen. Night: wash, pat dry, then the Night Cream. Buying both? The <a href="/product/glutanex-glow-duo-night-cream-face-wash/">Glow Duo</a> costs less than the two separately.</p>
+<p class="muted">Want the full picture of what a wash can do? Read our guide to <a href="/glutathione-face-wash/">glutathione face wash</a>.</p></div></div></section>''',
+         'cream': '''<section style="padding-top:10px"><div class="wrap"><div class="prose pdp-about"><h2>About this glutathione face cream</h2>
 <p>The GlutaNex Night Cream is a <b>glutathione face cream</b> made for night use. Glutathione is paired with niacinamide (vitamin B3) and vitamin C, which also help the look of uneven tone, plus retinol for smoother-looking skin and hyaluronic acid and ceramides for moisture.</p>
 <h3>Who it is for</h3><ul><li>Women and men with <a href="/glutathione-cream-for-summer-tan/">tan</a>, dullness or uneven-looking tone.</li><li>Flat <a href="/glutathione-for-acne-marks/">acne marks</a> left after pimples heal.</li><li>Normal, combination and oily skin; dry skin can add a moisturiser on top.</li></ul>
 <h3>What to expect</h3><p>A smoother feel in 2 to 4 weeks, a fresher look in 4 to 8 weeks, and lighter-looking tan and marks in 8 to 12 weeks, with sunscreen every morning. It does not change your natural skin colour. See <a href="/how-long-does-glutathione-take-to-work/">how long glutathione cream takes to work</a>.</p>
@@ -489,7 +507,7 @@ for p in PRODUCTS:
     thumbs = ''.join('<button type="button" data-src="%s"%s aria-label="Picture %d"><img src="%s" alt="" width="78" height="78" loading="lazy"></button>' % (
         im(i), ' class="on"' if n == 0 else '', n + 1, im(i)) for n, i in enumerate(p['imgs']))
     tabs = TABS[p['id']] + [SHIP_TAB]
-    faq_items = PDP_FAQ + (CREAM_FAQ if p['id'] in ('cream', 'duo') else [])
+    faq_items = WASH_FAQ if p['id'] == 'wash' else PDP_FAQ + (CREAM_FAQ if p['id'] in ('cream', 'duo') else [])
     others = [q for q in PRODUCTS if q['id'] != p['id']]
     body = '''<div class="wrap pdp">
   <div class="pdp-media"><div class="pdp-main tilt"><img id="pdp-img" src="%(main)s" alt="%(alt)s" width="800" height="800" fetchpriority="high"></div><div class="thumbs">%(thumbs)s</div></div>
