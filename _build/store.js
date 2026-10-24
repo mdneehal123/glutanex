@@ -227,8 +227,8 @@
     function savedCodes(){var a=load('gn-codes',[]);return Array.isArray(a)?a.filter(function(x){return x&&x.code&&x.exp>Date.now();}):[];}
     function applyCode(code,quiet){code=String(code||'').trim().toUpperCase();if(!code){return;}var ph=mobile(F.phone.value),t=totals();
       if(!ph){if(!quiet){cpnMsg('Enter your mobile number first: codes are linked to it.','bad');}return;}
-      fetch('/api/coupon?code='+encodeURIComponent(code)+'&phone='+ph+'&total='+t.total).then(function(r){return r.json();}).then(function(v){
-        if(v&&v.ok){cpn={code:v.code,off:v.off};$('cpn-row').hidden=true;$('cpn-open').hidden=true;cpnMsg('✓ '+v.code+' applied: '+rs(v.off)+' off. ','ok');var rm=el('button','cpn-rm','Remove');rm.type='button';rm.addEventListener('click',function(){cpn=null;cpnMsg('');$('cpn-open').hidden=false;render();});$('cpn-msg').appendChild(rm);render();}
+      fetch('/api/coupon?code='+encodeURIComponent(code)+'&phone='+ph+'&total='+t.total+'&items='+encodeURIComponent(t.lines.map(function(x){return x.id+':'+x.qty;}).join(','))).then(function(r){return r.json();}).then(function(v){
+        if(v&&v.ok){cpn={code:v.code,off:v.off,pct:v.pct||0};$('cpn-row').hidden=true;$('cpn-open').hidden=true;cpnMsg('✓ '+v.code+' applied: '+rs(v.off)+' off. ','ok');var rm=el('button','cpn-rm','Remove');rm.type='button';rm.addEventListener('click',function(){cpn=null;cpnMsg('');$('cpn-open').hidden=false;render();});$('cpn-msg').appendChild(rm);render();}
         else if(!quiet){cpnMsg((v&&v.message)||'This code cannot be used.','bad');}fit();}).catch(function(){if(!quiet){cpnMsg('Could not check the code. Please try again.','bad');}});}
     $('cpn-open').addEventListener('click',function(){$('cpn-row').hidden=false;$('cpn-open').hidden=true;$('cpn-in').focus();fit();});
     $('cpn-apply').addEventListener('click',function(){applyCode($('cpn-in').value,false);});
@@ -239,7 +239,7 @@
       if(!t.lines.length){box.appendChild(el('p','muted','Your cart is empty.'));var s=el('a','btn','Shop now');s.href='/shop/';box.appendChild(s);btn.disabled=true;return;}
       t.lines.forEach(function(x){box.appendChild(lineNode(x,true,render));});btn.disabled=false;
       if(cpn&&t.total<399){cpn=null;cpnMsg('Codes work on orders of ₹399 or more.','bad');}
-      var off=cpn?Math.min(cpn.off,t.total-199):0,pay=t.total-off;
+      var off=cpn?Math.min(cpn.pct?Math.floor(t.total*cpn.pct/100):cpn.off,t.total-199):0,pay=t.total-off;
       var m=mode();$('amt-online').textContent=$('amt-cod').textContent=$('amt-wa').textContent=rs(pay);
       $('cod-terms').hidden=m!=='cod';
       var rows=[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free']];if(off){rows.push(['Reward code '+cpn.code,'− '+rs(off),'save']);}

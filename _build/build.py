@@ -91,6 +91,13 @@ def pct(p):
     return round((p['mrp'] - p['price']) * 100 / p['mrp']) if p['mrp'] > p['price'] else 0
 
 
+def wl_form(product, cls='', named=False):
+    return ('<form class="wl %s" data-waitlist data-product="%s" hidden novalidate><div class="wl-t"><b>🎁 Join the waitlist · get 10%% off at launch</b><span>Your personal code works for 7 days from launch day.</span></div>'
+            '<div class="wl-row">%s<input name="phone" type="tel" inputmode="numeric" maxlength="16" autocomplete="tel" placeholder="Mobile number" aria-label="Mobile number"><button class="btn" type="submit">Join waitlist</button></div>'
+            '<label class="wl-c"><input type="checkbox" name="consent"><span>You may message me on WhatsApp about this launch and related offers.</span></label><p class="wl-msg" aria-live="polite" hidden></p></form>') % (
+        cls, product, '<input name="name" autocomplete="name" placeholder="Your name (optional)" aria-label="Your name">' if named else '')
+
+
 def notify_url(p):
     return 'https://wa.me/%s?text=%s' % (WA, urllib.parse.quote('Hi GlutaNex, please message me when %s is available.' % p['name']))
 
@@ -260,7 +267,7 @@ def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='webs
             wp['about'] = art['about']
         graph.append(wp)
     robots = 'noindex, nofollow' if (PREVIEW or not index) else 'index, follow, max-image-preview:large'
-    scripts = ''.join('<script src="/assets/%s?v=%s" defer></script>' % (j, AV) for j in (['jar3d.js'] if jar else []) + js.split(',') + (['talk.js'] if '[data-talk]' in body or 'data-talk' in body else []))
+    scripts = ''.join('<script src="/assets/%s?v=%s" defer></script>' % (j, AV) for j in (['jar3d.js'] if jar else []) + js.split(',') + (['talk.js'] if '[data-talk]' in body or 'data-talk' in body else []) + (['waitlist.js'] if 'data-waitlist' in body else []))
     doc = '''<!doctype html>
 <html lang="%(lang)s">
 <head>
@@ -412,6 +419,7 @@ RANGE_CARDS = ''.join('<article class="rcard reveal"><a class="rc-ph" href="%s">
     url(x), im(x['imgs'][0]), html.escape(x['name']), url(x), html.escape(x['name']), html.escape(x['size']), notify_btn(x, 'btn wa sm')) for x in PRODUCTS if x.get('soon'))
 home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="sky" aria-hidden="true"><i class="orb"></i></div><div class="fest" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
   <div class="reveal">
+    %(wlhero)s
     <a class="hero-pill" href="#shop"><b>New</b> Face Wash, Shower Gel and 4 sets launching soon <i aria-hidden="true">→</i></a>
     <h1><span class="h1-brand">GlutaNex Glutathione Night Cream</span>Your skin's <span class="gold">night shift</span> starts here.</h1>
     <p class="lead">A glutathione face cream that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
@@ -504,7 +512,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="b2-cta"><a class="btn" href="%(duourl)s"><span class="l">Glow Duo · launching soon</span><span class="s">Glow Duo · soon</span></a><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), duourl=url(d), soonband=SOONBAND, rangefeature=RANGE_FEATURE, rangecards=RANGE_CARDS, faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
+</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), duourl=url(d), wlhero=wl_form('all', 'wl-hero'), soonband=SOONBAND, rangefeature=RANGE_FEATURE, rangecards=RANGE_CARDS, faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
                                       mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Aqua Fresh shower gel', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), review=REVIEW_SEC, img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
@@ -639,7 +647,7 @@ BUY_TPL = '''    <div class="qty-row"><div class="qty" data-qty><button type="bu
     <p class="eta" data-eta hidden></p>
     <form class="pinchk" data-pinchk hidden><label for="pc-pin">Check delivery to your pincode</label><div><input id="pc-pin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6-digit pincode"><button class="btn sm" type="submit">Check</button></div><p class="pc-out" aria-live="polite" hidden></p></form>
     <ul class="perks"><li>Cash on Delivery: nothing to pay in advance</li><li>Free shipping across India</li><li>Sealed packs: 7-day returns</li></ul>'''
-SOON_TPL = '''<div class="soon-box"><span class="soon-badge">🚀 Launching soon</span><p><b>Not on sale yet.</b> Tap the button and we will message you on WhatsApp the moment %(short)s is ready to order. No payment, no commitment.</p><div class="acts">%(notify)s</div><p class="soon-alt">Want to start today? <a href="/product/glutanex-glutathione-night-cream/">Buy the Glutathione Night Cream</a>: free shipping and Cash on Delivery.</p></div>'''
+SOON_TPL = '''<div class="soon-box"><span class="soon-badge">🚀 Launching soon</span><p><b>Not on sale yet.</b> Join the waitlist for 10%% off at launch, or just tap the button and we will message you on WhatsApp the moment %(short)s is ready. No payment, no commitment.</p>%(wlform)s<div class="acts">%(notify)s</div><p class="soon-alt">Want to start today? <a href="/product/glutanex-glutathione-night-cream/">Buy the Glutathione Night Cream</a>: free shipping and Cash on Delivery.</p></div>'''
 for p in PRODUCTS:
     off = pct(p)
     thumbs = ''.join('<button type="button" data-src="%s"%s aria-label="Picture %d"><img src="%s" alt="" width="78" height="78" loading="lazy"></button>' % (
@@ -667,7 +675,7 @@ for p in PRODUCTS:
         buybar=('<div class="buybar" id="buybar" aria-hidden="true"><img src="%s" alt="" width="44" height="44"><div class="bb-t"><b>%s</b><span>Launching soon</span></div>%s</div>' % (im(p['imgs'][0]), html.escape(p['short']), notify_btn(p, 'btn wa sm')) if p.get('soon') else
                 '<div class="buybar" id="buybar" aria-hidden="true"><img src="%s" alt="" width="44" height="44"><div class="bb-t"><b>%s</b><span>%s · Free shipping · COD</span></div><button class="icon-btn bb-add" type="button" data-add="%s" aria-label="Add to cart">%s</button><button class="btn" type="button" data-buy="%s">Buy now</button></div>' % (im(p['imgs'][0]), html.escape(p['short']), rs(p['price']), p['id'], SVG_BAG, p['id'])),
         pricehtml=('<p class="tax"><b>Launching soon</b> · %s</p>' % html.escape(p['size']) if p.get('soon') else '<div class="price"><b>%s</b>%s%s</div>\n    <p class="tax">Inclusive of all taxes · Free shipping · %s</p>' % (rs(p['price']), '<s>MRP %s</s>' % rs(p['mrp']) if off else '', '<span class="off">%d%% off</span>' % off if off else '', p['size'])),
-        buyhtml=(SOON_TPL % dict(short=html.escape(p['short']), notify=notify_btn(p)) if p.get('soon') else BUY_TPL % dict(id=p['id'], wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG)),
+        buyhtml=(SOON_TPL % dict(short=html.escape(p['short']), notify=notify_btn(p), wlform=wl_form(p['id'], named=True)) if p.get('soon') else BUY_TPL % dict(id=p['id'], wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG)),
         main=im(p['imgs'][0]), alt=html.escape(p['name']), thumbs=thumbs, tag=p['tag'], name=html.escape(p['name']),
         mrp='<s>MRP %s</s>' % rs(p['mrp']) if off else '', off='<span class="off">%d%% off</span>' % off if off else '', size=p['size'], summary=p['summary'], id=p['id'],
         wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order: %s' % p['name']), waimg=WA_IMG,
@@ -868,7 +876,7 @@ page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
 open(os.path.join(ROOT, 'assets', 'site.css'), 'w', encoding='utf-8').write(mincss(open(os.path.join(B, 'site.css'), encoding='utf-8').read()))
-for f in ['store.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
+for f in ['store.js', 'waitlist.js', 'jar3d.js', 'owner.js', 'leads.js', 'reminders.js', 'quiz.js', 'features.js', 'routine.js', 'owner-tools.js', 'talk.js']:
     if os.path.exists(os.path.join(B, f)):
         shutil.copy(os.path.join(B, f), os.path.join(ROOT, 'assets', f))
 _pj = {p['id']: {'name': p['name'], 'short': p['short'], 'price': p['price'], 'mrp': p['mrp'], 'img': im(p['imgs'][0]), 'url': url(p)} for p in PRODUCTS if not p.get('soon')}

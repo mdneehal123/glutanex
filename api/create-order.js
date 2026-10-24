@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
   // reward code: checked here on the server; it is only marked as used once the payment succeeds (api/verify.js)
   let off = 0, code = '';
   if (body.coupon) {
-    const v = await coupons.check(body.coupon, c.phone, cart.total).catch(() => ({ ok: false, reason: 'off' }));
+    const v = await coupons.check(body.coupon, c.phone, cart.total, cart.lines).catch(() => ({ ok: false, reason: 'off' }));
     if (!v.ok) return res.status(400).json({ error: 'coupon', reason: v.reason, message: coupons.REASONS[v.reason] || 'This code cannot be used.' });
     off = v.off; code = v.code;
   }

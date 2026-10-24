@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
   // Reward code: checked here; marked as used only once the order is placed (below).
   let off = 0, code = '';
   if (body.coupon) {
-    const v = await coupons.check(body.coupon, c.phone, cart.total).catch(() => ({ ok: false, reason: 'off' }));
+    const v = await coupons.check(body.coupon, c.phone, cart.total, cart.lines).catch(() => ({ ok: false, reason: 'off' }));
     if (!v.ok) { await release(); return res.status(400).json({ error: 'coupon', reason: v.reason, message: coupons.REASONS[v.reason] || 'This code cannot be used.' }); }
     off = v.off; code = v.code;
   }

@@ -1,4 +1,5 @@
 const coupons = require('./_coupons');
+const { cartFrom } = require('./_shared');
 const guard = require('./_guard');
 
 // GET  /api/coupon?code=GNX-XXXXXX&phone=98xxxxxxxx&total=2499  -> preview a reward code at checkout
@@ -10,8 +11,9 @@ module.exports = async (req, res) => {
       const q = req.query || {};
       const ph = String(q.phone || '').replace(/\D/g, '').slice(-10);
       if (!(await guard.limit('cpn:' + ph, 20, 3600)) || !(await guard.limit('cpn', 3000, 3600))) return res.status(429).json({ ok: false, reason: 'busy', message: 'Too many tries. Please wait a while and try again.' });
-      const v = await coupons.check(q.code, q.phone, Number(q.total) || 0);
-      return res.status(200).json(v.ok ? { ok: true, code: v.code, off: v.off, exp: v.exp } : { ok: false, reason: v.reason, message: coupons.REASONS[v.reason] });
+      const cart = q.items ? cartFrom(String(q.items), true) : null;
+      const v = await coupons.check(q.code, q.phone, Number(q.total) || 0, cart ? cart.lines : []);
+      return res.status(200).json(v.ok ? { ok: true, code: v.code, off: v.off, pct: v.pct || 0, exp: v.exp } : { ok: false, reason: v.reason, message: coupons.REASONS[v.reason] });
     }
     if (req.method === 'POST') {
       const deny = await guard.owner(req);
