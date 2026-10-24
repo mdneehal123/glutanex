@@ -225,8 +225,16 @@ SVG_GRID = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="
 SVG_TRUCK = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.5h11v9.5h-11zM13.5 9.5h4l3 3.2V16h-7z"/><circle cx="6.5" cy="17.5" r="1.8" fill="#fff"/><circle cx="17" cy="17.5" r="1.8" fill="#fff"/></svg>'
 
 
+def range_strip():
+    items = ''.join('<a href="%s"><img src="%s" alt="%s" width="120" height="120" loading="lazy" decoding="async"><b>%s</b><span>%s</span></a>' % (
+        url(x), im(x['imgs'][0]), html.escape(x['name']), html.escape(x['short']), 'Launching soon' if x.get('soon') else 'Available now') for x in PRODUCTS)
+    return '<section class="range-strip"><div class="wrap"><h2>The GlutaNex range</h2><div class="rs-grid">%s</div></div></section>' % items
+
+
 def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='website', ogimg='night-shift-banner', extra='', js='store.js', jar=False, lang='en-IN', ptype='WebPage', main=None):
     full = SITE + path
+    if 'class="side-cta"' in body and 'range-strip' not in body:
+        body += range_strip()
     nav = ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == path else '', t) for h, t in NAV)
     graph = graph_base()
     if crumbs:
@@ -390,12 +398,21 @@ HOME_STORIES = [('glutathione-benefits-for-skin', 'Glutathione for skin: 5 hones
                 ('glutathione-cream-vs-tablets-vs-injections', 'Cream vs tablets vs injections', ''), ('glutathione-cream-ke-fayde', 'ग्लूटाथियोन क्रीम के फायदे', 'hi')]
 _soonp = [x for x in PRODUCTS if x.get('soon')]
 SOONBAND = ('<section style="padding-top:0"><div class="wrap"><div class="soonband reveal"><figure class="sb-media"><img src="%s" alt="GlutaNex Gluta Boost Face Wash, Aqua Fresh Shower Gel and Glutathione Night Cream on satin" width="900" height="900" loading="lazy" decoding="async"></figure>'
-            '<div class="sb-copy"><span class="eyebrow">New from GlutaNex</span><h2>Six new ways to build your routine, <span class="gold">launching soon</span></h2>'
-            '<p>The new Gluta Boost Face Wash and Aqua Fresh Shower Gel are on their way, along with four ready-made sets. Tell us once and we will message you on WhatsApp the day they are ready.</p>'
-            '<ul class="sb-list">%s</ul><div class="cta">%s<a class="btn ghost" href="/shop/">See all products</a></div></div></div></div></section>\n') % (
-    im('trio-square'), ''.join('<li><a href="%s">%s</a></li>' % (url(x), html.escape(x['short'])) for x in _soonp), notify_btn(BYID['trio']))
+            '<div class="sb-copy"><span class="eyebrow">Launching soon</span><h2>The complete range in one set: <span class="gold">the Glow Trio</span></h2>'
+            '<p>Gluta Boost Face Wash, Aqua Fresh Shower Gel and the Glutathione Night Cream together. Tell us once and we will message you on WhatsApp the day it is ready. No payment, no commitment.</p>'
+            '<div class="cta">%s<a class="btn ghost" href="%s">See the Glow Trio</a></div></div></div></div></section>\n') % (
+    im('trio-square'), notify_btn(BYID['trio']), url(BYID['trio']))
+RANGE_FEATURE = ('<article class="range-feat reveal"><a class="rf-ph" href="%s"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><span class="tag">Bestseller · Available now</span></a>'
+                 '<div class="rf-body"><span class="eyebrow">Glutathione Night Cream · %s</span><h3><a href="%s">%s</a></h3>'
+                 '<p>%s</p><ul class="rf-pts"><li>Glutathione with niacinamide, vitamin C and hyaluronic acid</li><li>Night use: start 2 to 3 nights a week, sunscreen every morning</li><li>Free shipping across India · Cash on Delivery · 7-day returns on sealed packs</li></ul>'
+                 '<div class="price"><b>%s</b>%s%s</div><div class="acts"><button class="btn" type="button" data-buy="cream">Buy now</button><button class="btn ghost" type="button" data-add="cream">Add to cart</button><a class="btn ghost" href="%s">Details</a></div></div></article>') % (
+    url(c), im(c['imgs'][0]), html.escape(c['name']), html.escape(c['size']), url(c), html.escape(c['name']), html.escape(c['summary']), rs(c['price']),
+    '<s>MRP %s</s>' % rs(c['mrp']), '<span class="off">%d%% off</span>' % pct(c), url(c))
+RANGE_CARDS = ''.join('<article class="rcard reveal"><a class="rc-ph" href="%s"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><span class="tag">Launching soon</span></a><div class="rc-bd"><h4><a href="%s">%s</a></h4><span class="size">%s</span>%s</div></article>' % (
+    url(x), im(x['imgs'][0]), html.escape(x['name']), url(x), html.escape(x['name']), html.escape(x['size']), notify_btn(x, 'btn wa sm')) for x in PRODUCTS if x.get('soon'))
 home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div><div class="sky" aria-hidden="true"><i class="orb"></i></div><div class="fest" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="hero-word" aria-hidden="true">Glutathione</div><div class="wrap hero-in">
   <div class="reveal">
+    <a class="hero-pill" href="#shop"><b>New</b> Face Wash, Shower Gel and 4 sets launching soon <i aria-hidden="true">→</i></a>
     <h1><span class="h1-brand">GlutaNex Glutathione Night Cream</span>Your skin's <span class="gold">night shift</span> starts here.</h1>
     <p class="lead">A glutathione face cream that works while you sleep: cleanse with Gluta Boost, finish with the Night Cream, wake up to skin that looks brighter and more even.</p>
     <div class="price-line"><b>%(cprice)s</b><span>Glutathione Night Cream · about %(pernight)s a night · free shipping · Cash on Delivery</span></div>
@@ -410,11 +427,14 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
   </div>
 </div></section>
 <div class="marquee" aria-hidden="true"><div>%(mq)s%(mq)s</div></div>
-<section id="shop"><div class="wrap">
-  <div class="sec-h reveal"><span class="eyebrow">The collection</span><h2>Glutathione care, <span class="gold">made simple</span></h2><p>Two products, one ritual. Start with the Night Cream, add the Face Wash, or take the Glow Duo for the full routine.</p></div>
-  <div class="grid rail-m">%(cards)s</div>
+<section id="shop" class="range"><div class="wrap">
+  <div class="sec-h reveal"><span class="eyebrow">The collection</span><h2>Glutathione care, <span class="gold">made simple</span></h2><p>Start with the Night Cream, available now. The Face Wash, the Aqua Fresh Shower Gel and four ready-made sets are launching soon: tap Notify me and we will message you on WhatsApp when they are ready.</p></div>
+  %(rangefeature)s
+  <div class="range-head reveal"><h3>Launching soon</h3><a href="/shop/">See all products →</a></div>
+  <div class="range-rail">%(rangecards)s</div>
   <a class="quizcta reveal" href="/skin-quiz/"><b>Not sure which one?</b><span>Take the 30-second skin quiz →</span></a>
 </div></section>
+%(soonband)s
 <section class="promise-sec" style="padding-top:0"><div class="wrap"><ul class="promise reveal">
   <li><b>Clear ingredients</b><span>Know what goes on your skin: ingredients are printed on every pack.</span></li>
   <li><b>Honest claims</b><span>Gradual results with sunscreen. No "fair in 7 days" promises.</span></li>
@@ -435,7 +455,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">The ritual</span><h2>Three steps, every night</h2></div>
-  <ol class="ritual"><li class="reveal"><h3>Cleanse</h3><p>Massage Gluta Boost Face Wash onto damp skin and rinse. Pat dry.</p></li><li class="reveal"><h3>Apply</h3><p>Smooth a small amount of Glutathione Night Cream over face and neck.</p></li><li class="reveal"><h3>Protect</h3><p>Every morning, finish with a broad-spectrum sunscreen. It protects the work of the night.</p></li></ol>
+  <ol class="ritual"><li class="reveal"><h3>Cleanse</h3><p>Massage a gentle face wash such as Gluta Boost (launching soon) onto damp skin and rinse. Pat dry.</p></li><li class="reveal"><h3>Apply</h3><p>Smooth a small amount of Glutathione Night Cream over face and neck.</p></li><li class="reveal"><h3>Protect</h3><p>Every morning, finish with a broad-spectrum sunscreen. It protects the work of the night.</p></li></ol>
 </div></section>
 <section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">What to expect</span><h2>Your first <span class="gold">12 weeks</span></h2><p>Glutathione works gradually. Here is an honest timeline with nightly use and daily sunscreen.</p></div>
@@ -467,7 +487,7 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
 <section style="padding-top:0"><div class="wrap"><div class="langband reveal"><b>Read about glutathione in your language</b><div>
   <a href="/hi/" lang="hi">हिंदी</a><a href="/hinglish/">Hinglish</a><a href="/ta/glutathione-cream/" lang="ta">தமிழ்</a><a href="/te/glutathione-cream/" lang="te">తెలుగు</a><a href="/mr/glutathione-cream/" lang="mr">मराठी</a><a href="/bn/glutathione-cream/" lang="bn">বাংলা</a><a href="/kn/glutathione-cream/" lang="kn">ಕನ್ನಡ</a>
 </div></div></div></section>
-%(soonband)s<section style="padding-top:0"><div class="wrap">
+<section style="padding-top:0"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">Questions</span><h2>Before you order</h2></div>%(faq)s
   <p style="margin-top:20px"><a class="btn ghost" href="/glutathione-cream-questions/">More glutathione cream questions answered</a></p>
 </div></section>
@@ -484,8 +504,8 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
     <div class="b2-cta"><a class="btn" href="%(duourl)s"><span class="l">Glow Duo · launching soon</span><span class="s">Glow Duo · soon</span></a><a class="btn wa" href="https://wa.me/%(wa)s?text=%(watext)s" target="_blank" rel="noopener">%(waimg)s WhatsApp<span class="l">&nbsp;us</span></a></div>
   </div>
   <figure class="b2-media"><img src="%(img_night)s" alt="GlutaNex Glutathione Night Cream jar beside a swirl of cream" loading="lazy" width="1134" height="680"></figure>
-</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), duourl=url(d), soonband=SOONBAND, cards=''.join(card(p) for p in PRODUCTS), faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
-                                      mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
+</div></div></section>''' % dict(cprice=rs(c['price']), pernight=rs(-(-c['price'] // 56)), storycards=''.join('<a class="scard" href="%s/web-stories/%s/"%s><img src="/assets/img/web-story-%s.jpg" alt="" width="640" height="853" loading="lazy" decoding="async"><span>%s</span></a>' % ('/hi' if l else '', sl, ' lang="hi"' if l else '', sl, t) for sl, t, l in HOME_STORIES), duourl=url(d), soonband=SOONBAND, rangefeature=RANGE_FEATURE, rangecards=RANGE_CARDS, faq=faq_html(HOME_FAQ), jarimg=im('jar-cut'), ing=ing_html(), spots=html.escape(json.dumps([dict(n=INGREDIENTS[i][0], d=INGREDIENTS[i][1], x=x, y=y) for i, x, y in [(0, 50, 9), (1, 17, 31), (3, 83, 29), (2, 27, 50), (4, 76, 47), (5, 50, 88)]], ensure_ascii=False)),
+                                      mq=''.join('<span>%s</span><i>✦</i>' % t for t in ['Glutathione night cream', 'Gluta Boost face wash', 'Aqua Fresh shower gel', 'Free shipping', 'Cash on Delivery', 'Restore your youthness']),
                                       img_marble=im('jar-marble'), img_night=im('jar-night'), img_hand=im('jar-hand'), img_bag=im('jar-bag'), review=REVIEW_SEC, img_banner=im('night-shift-banner'),
                                       wa=WA, watext=urllib.parse.quote('Hi GlutaNex, I want to order.'), waimg=WA_IMG)
 # duo url for the band
