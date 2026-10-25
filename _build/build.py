@@ -435,6 +435,12 @@ home = '''<section class="hero" style="padding:0"><div class="aurora" aria-hidde
   </div>
 </div></section>
 <div class="marquee" aria-hidden="true"><div>%(mq)s%(mq)s</div></div>
+<section class="ritual" aria-labelledby="h-ritual"><div class="wrap"><div class="rit-h reveal"><span class="eyebrow">The GlutaNex ritual</span><h2 id="h-ritual">Three steps. One <span class="gold">quiet glow.</span></h2><p>A simple routine, from face to body, built around glutathione.</p></div>
+<div class="rit-grid">
+<article class="rit reveal"><span class="rit-n">I</span><div class="rit-ph"><img src="/assets/img/glutanex-gluta-boost-glutathione-face-wash-100ml.jpg" alt="GlutaNex Gluta Boost Face Wash" width="600" height="600" loading="lazy" decoding="async"></div><span class="rit-k">Cleanse</span><h3>Gluta Boost Face Wash</h3><p>A foaming gel with glutathione, copper peptide and niacinamide that lifts away the day.</p><em>Launching soon</em></article>
+<article class="rit reveal"><span class="rit-n">II</span><div class="rit-ph"><img src="/assets/img/glutanex-glutathione-night-cream-30g.jpg" alt="GlutaNex Glutathione Night Cream" width="600" height="600" loading="lazy" decoding="async"></div><span class="rit-k">Treat</span><h3>Glutathione Night Cream</h3><p>Glutathione with niacinamide, hyaluronic acid and aloe vera, pressed in as the last step of your night.</p><em>Available now</em></article>
+<article class="rit reveal"><span class="rit-n">III</span><div class="rit-ph"><img src="/assets/img/glutanex-aqua-fresh-glutathione-shower-gel-100ml.jpg" alt="GlutaNex Aqua Fresh Shower Gel" width="600" height="600" loading="lazy" decoding="async"></div><span class="rit-k">Refresh</span><h3>Aqua Fresh Shower Gel</h3><p>Glutathione, hyaluronic acid and aloe vera for skin that feels fresh and soft from neck to toe.</p><em>Launching soon</em></article>
+</div><p class="rit-note">Gradual results, best with daily sunscreen. Cosmetic products, not medicines.</p></div></section>
 <section id="shop" class="range"><div class="wrap">
   <div class="sec-h reveal"><span class="eyebrow">The collection</span><h2>Glutathione care, <span class="gold">made simple</span></h2><p>Start with the Night Cream, available now. The Face Wash, the Aqua Fresh Shower Gel and four ready-made sets are launching soon: tap Notify me and we will message you on WhatsApp when they are ready.</p></div>
   %(rangefeature)s
