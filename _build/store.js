@@ -479,3 +479,19 @@
   ['mouseleave'].forEach(function(e){root.addEventListener(e,start);});
   mark(); start();
 })();
+
+/* Laptop banner carousel */
+(function(){
+  var root=document.querySelector('[data-dban]'); if(!root) return;
+  var track=root.querySelector('.db-track'), slides=[].slice.call(track.children), dots=root.querySelector('.db-dots'), i=0, timer=null;
+  slides.forEach(function(_,k){var d=document.createElement('i'); d.addEventListener('click',function(){go(k); stop();}); dots.appendChild(d);});
+  function mark(){var w=track.clientWidth||1; i=Math.round(track.scrollLeft/w); [].forEach.call(dots.children,function(d,k){d.className=k===i?'on':'';});}
+  function go(n){i=(n+slides.length)%slides.length; track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});}
+  track.addEventListener('scroll',function(){window.clearTimeout(track._t); track._t=window.setTimeout(mark,60);},{passive:true});
+  root.querySelector('.db-prev').addEventListener('click',function(){go(i-1); stop();});
+  root.querySelector('.db-next').addEventListener('click',function(){go(i+1); stop();});
+  function start(){ if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; stop(); timer=window.setInterval(function(){go(i+1);},6000);}
+  function stop(){ if(timer){window.clearInterval(timer); timer=null;} }
+  root.addEventListener('mouseenter',stop); root.addEventListener('mouseleave',start);
+  mark(); start();
+})();

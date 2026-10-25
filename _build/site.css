@@ -1048,3 +1048,25 @@ footer .langs a{display:inline-flex;align-items:center;min-height:40px;padding:0
 .rit em{font-style:normal;font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:#B08D57;border-top:1px solid rgba(217,199,163,.3);padding-top:12px;margin-top:10px}
 .rit-note{text-align:center;margin:30px auto 0;font-size:.8rem;color:#A89A7C;letter-spacing:.04em}
 .ritual{display:block}.ritual .wrap{width:100%}
+
+/* Full-width laptop banner (desktop only); mobile keeps the hero + photo slider */
+.dban{display:none}
+@media(min-width:900px){
+ .dban{display:block;position:relative;background:#120e0a;overflow:hidden;padding:0!important}
+ .hero{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+ .db-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.db-track::-webkit-scrollbar{display:none}
+ .db-s{flex:0 0 100%;position:relative;scroll-snap-align:start;height:clamp(440px,calc(100vw*.4167),780px);max-height:calc(100vh - 110px)}
+ .db-s picture,.db-s img{display:block;width:100%;height:100%}.db-s img{object-fit:cover;object-position:right center}
+ .db-t{position:absolute;left:max(40px,calc((100vw - 1200px)/2 + 20px));top:50%;transform:translateY(-50%);max-width:min(560px,46vw);color:#fff;display:flex;flex-direction:column;gap:16px}
+ .db-e{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:#D9C7A3;display:inline-flex;align-items:center;gap:12px}.db-e:before{content:"";width:34px;height:1px;background:#B08D57}
+ .db-h{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2.6rem,4.6vw,4.8rem);line-height:1.02;margin:0;color:#fff}.db-h em{font-style:italic;color:#D9B77A}
+ .db-p{margin:0;font-size:1.05rem;line-height:1.65;color:#E3D8C2;max-width:460px}
+ .db-c{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+ .db-c .btn{background:linear-gradient(135deg,#C9A15A,#A8783A);color:#17110a;border:0;padding:15px 26px;font-weight:700;letter-spacing:.04em}
+ .db-c .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(233,216,180,.55)}
+ .db-c .btn:hover{filter:brightness(1.1)}
+ .db-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(18,14,10,.4);color:#fff;font-size:1.9rem;line-height:1;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(6px);z-index:3}
+ .db-prev{left:18px}.db-next{right:18px}.db-nav:hover{background:rgba(176,141,87,.9)}
+ .db-dots{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:9px;z-index:3}
+ .db-dots i{width:9px;height:9px;border-radius:5px;background:rgba(255,255,255,.4);transition:width .3s,background .3s;cursor:pointer}.db-dots i.on{width:30px;background:#D9B77A}
+}
