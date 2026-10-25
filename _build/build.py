@@ -313,6 +313,7 @@ d.className+=' t-'+t+(f?' fest-'+f:'');d.setAttribute('data-today',ds);}catch(e)
     <div><h4>Help</h4><a href="/skin-quiz/">Skin quiz</a><a href="/wholesale/">Wholesale</a><a href="/glutanex/">Brand facts</a><a href="/our-standards/">Our standards</a><a href="/image-licence/">Image licence</a><a href="/contact/">Contact</a><a href="/track-order/">Track order</a><a href="/reminders/">Reminders</a><a href="/web-stories/">Web Stories</a>%(pol)s</div>
   </div>
   <div class="markets"><span>Also available on</span>%(markets)s</div>
+  <div class="markets"><span>Also from our family</span><a href="https://mircglow.com/" target="_blank" rel="noopener">Mirc Glow avocado night creams</a></div>
   <div class="install" id="install-app" hidden><img src="/icon-192.png" alt="" width="40" height="40"><div><b>Get the GlutaNex app</b><span id="install-hint">Add GlutaNex to your home screen for quick access.</span></div><button class="btn sm" type="button" id="install-btn">Install</button></div>
   <div class="legal"><span>© 2026 GlutaNex · %(owner)s · %(addr)s</span><span>Cosmetic products. Results vary from person to person. Payments secured by Razorpay.</span></div>
 </div></footer>
