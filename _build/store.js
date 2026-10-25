@@ -462,3 +462,20 @@
     var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;if(ios){box.hidden=false;}
     window.addEventListener('appinstalled',function(){box.hidden=true;});})();
 })();
+
+/* Hero photo slider */
+(function(){
+  var root=document.querySelector('[data-hs]'); if(!root) return;
+  var track=root.querySelector('.hs-track'), slides=[].slice.call(track.children), dots=root.querySelector('.hs-dots'), i=0, timer=null;
+  slides.forEach(function(){var d=document.createElement('i'); dots.appendChild(d);});
+  function mark(){var w=track.clientWidth||1; i=Math.round(track.scrollLeft/w); [].forEach.call(dots.children,function(d,k){d.className=k===i?'on':'';});}
+  function go(n){i=(n+slides.length)%slides.length; track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});}
+  track.addEventListener('scroll',function(){window.clearTimeout(track._t); track._t=window.setTimeout(mark,60);},{passive:true});
+  root.querySelector('.hs-prev').addEventListener('click',function(){go(i-1); stop();});
+  root.querySelector('.hs-next').addEventListener('click',function(){go(i+1); stop();});
+  function start(){ if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; stop(); timer=window.setInterval(function(){go(i+1);},4500);}
+  function stop(){ if(timer){window.clearInterval(timer); timer=null;} }
+  ['mouseenter','touchstart','focusin'].forEach(function(e){root.addEventListener(e,stop,{passive:true});});
+  ['mouseleave'].forEach(function(e){root.addEventListener(e,start);});
+  mark(); start();
+})();
