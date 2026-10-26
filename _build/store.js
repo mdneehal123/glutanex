@@ -219,6 +219,9 @@
       if(!c&&!lead.sent){return;}lead.sent=lead.sent||c;
       var body=st==='done'||!c?{phone:mobile(F.phone.value),status:'done'}:{phone:mobile(F.phone.value),consent:true,name:F.name.value.trim(),address:F.address.value.trim(),city:F.city.value.trim(),pin:F.pin.value.trim(),step:st,items:lines().map(function(x){return {id:x.id,qty:x.qty};})};
       try{fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true}).catch(function(){});}catch(e){}}
+    /* save the number as soon as it is typed and the box is ticked, not only on Continue (people often leave before that) */
+    F.phone.addEventListener('change',function(){lead(1);});F.phone.addEventListener('blur',function(){lead(1);});
+    if($('co-consent')){$('co-consent').addEventListener('change',function(){lead(1);});}
     [].slice.call(document.querySelectorAll('[data-next]')).forEach(function(b){b.addEventListener('click',function(){var p=check(step);if(p){show(p);return;}clearErr();remember();lead(step+1);go(step+1);});});
     [].slice.call(document.querySelectorAll('[data-back]')).forEach(function(b){b.addEventListener('click',function(){go(step-1);});});
     function mode(){return document.querySelector('input[name=pay]:checked').value;}
