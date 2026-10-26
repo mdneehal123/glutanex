@@ -11,5 +11,5 @@ module.exports = (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   const cod = delhiveryOn() || deskOn();
   res.status(200).json({ razorpay: !!keys(), cod, delhivery: delhiveryOn(), orderdesk: deskOn(), pincode: delhiveryOn() || !!shiprocket.settings(),
-    leads: !!kv.cfg(), push: !!kv.cfg(), ask: !!process.env.ANTHROPIC_API_KEY, rewards: !!kv.cfg() });
+    leads: !!kv.cfg() || deskOn(), push: !!kv.cfg(), ask: !!process.env.ANTHROPIC_API_KEY, rewards: !!kv.cfg() });
 };

@@ -10,7 +10,7 @@ const TTL = 30 * 24 * 3600;
 module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ ok: false });
-  if (!kv.cfg()) return res.status(503).json({ ok: false, error: 'not_configured' });
+  if (!kv.cfg() && !desk.deskOn()) return res.status(503).json({ ok: false, error: 'not_configured' });
   let b = req.body || {};
   if (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }
   let phone = clean(b.phone, 20).replace(/\D/g, '');
@@ -18,6 +18,12 @@ module.exports = async (req, res) => {
   if (!/^[6-9]\d{9}$/.test(phone)) return res.status(400).json({ ok: false, error: 'phone' });
   if (!(await guard.limit('lead:' + phone, 30, 3600)) || !(await guard.limit('lead', 5000, 86400))) return res.status(429).json({ ok: false, error: 'busy' });
   const key = 'lead:' + phone;
+  if (!kv.cfg()) { // no database connected: send the consented number straight to the Order Desk (it keeps one entry per number)
+    if (b.status === 'done' || b.consent !== true) return res.status(200).json({ ok: true });
+    const cart = cartFrom(b.items);
+    try { await desk.pushLead({ phone, name: clean(b.name, 80), product: cart ? cart.label : '' }); } catch (e) { /* never blocks checkout */ }
+    return res.status(200).json({ ok: true });
+  }
   try {
     if (b.status === 'done' || b.consent === false) {
       await kv.pipe([['DEL', key], ['ZREM', 'leads', phone]]);
