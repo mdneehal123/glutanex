@@ -40,13 +40,13 @@
   "pub": "2026-10-20"
  },
  "/face-and-body-glutathione-routine/": {
-  "h": "260abc417f6fa254",
-  "mod": "2026-10-25",
+  "h": "c07a1d70937fb744",
+  "mod": "2026-10-27",
   "pub": "2026-10-24"
  },
  "/face-wash-vs-shower-gel/": {
-  "h": "7cd128253c03925d",
-  "mod": "2026-10-25",
+  "h": "0279de91cfb8ebea",
+  "mod": "2026-10-27",
   "pub": "2026-10-24"
  },
  "/faq/": {
@@ -79,6 +79,11 @@
   "mod": "2026-10-25",
   "pub": "2026-10-20"
  },
+ "/glutathione-and-neem/": {
+  "h": "5401fceef7cbc0c7",
+  "mod": "2026-10-27",
+  "pub": "2026-10-27"
+ },
  "/glutathione-and-niacinamide/": {
   "h": "c3ad09e8e5915055",
   "mod": "2026-10-25",
@@ -93,6 +98,11 @@
   "h": "7f28d0595b5fdc5d",
   "mod": "2026-10-25",
   "pub": "2026-10-22"
+ },
+ "/glutathione-and-turmeric/": {
+  "h": "daf9aac212c00837",
+  "mod": "2026-10-27",
+  "pub": "2026-10-27"
  },
  "/glutathione-before-wedding/": {
   "h": "02035aee9c35dd06",
@@ -300,8 +310,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "224c401899a45da4",
-  "mod": "2026-10-24",
+  "h": "45ec13c76bffbbc3",
+  "mod": "2026-10-27",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
