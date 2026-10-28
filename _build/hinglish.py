@@ -95,7 +95,7 @@ HL = [
     dict(slug='glutathione-cream-price-aur-best-kaise-chune', en='/glutathione-cream-price-in-india/', short='Glutathione cream price',
          title='Glutathione cream price India mein, aur best cream kaise chunein',
          seo='Glutathione Cream Price Aur Best Cream Kaise Chunein',
-         desc='Glutathione cream ka price India mein kitna hai, sasti aur mehngi cream mein kya farak hai, aur best glutathione cream kaise chunein: aasan checklist Hinglish mein.',
+         desc='Glutathione cream ka price India mein kitna hai, sasti aur mehngi cream mein kya farak hai, aur best glutathione cream kaise chunein: aasan checklist.',
          qa=[('Glutathione cream ka price kitna hai?', 'India mein glutathione creams kuch sau se lekar kai hazaar rupaye tak milti hain. Sirf price na dekhein: price per gram aur poora ingredient list dekhein. %(cream)s 30 g ki hai, aur iska price %(pcream)s hai, free shipping aur COD ke saath.', ''),
              ('Best glutathione cream kaise chunein?', 'Aisi cream chunein jismein glutathione saaf likha ho, saath mein niacinamide ya vitamin C jaise ingredients hon, poora ingredient list, batch aur expiry ho, claims sach hon aur seller se contact ho sake. "7 din mein gora" jaise claims wali cream se bachein.', '')],
          body='''<h2>Checklist</h2><ul><li>Glutathione ingredient list mein saaf likha ho</li><li>Partner ingredients: niacinamide, vitamin C, hyaluronic acid</li><li>Batch number, expiry aur manufacturer ka naam</li><li>Sach claims: "dheere dheere", "sunscreen ke saath"</li><li>Seller ka phone ya WhatsApp</li></ul>

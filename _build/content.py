@@ -52,7 +52,7 @@ GUIDES = [
     dict(slug='glutathione-cream-vs-tablets-vs-injections', title='Glutathione cream vs tablets vs injections', short='Cream vs tablets vs injections',
          blurb='The honest differences, including the safety warnings.',
          seo='Glutathione Cream vs Tablets vs Injections: Which Is Safe?',
-         desc='Glutathione cream vs tablets vs injections compared: how each is used, what the evidence says, safety warnings on injections, and which makes sense for skincare.',
+         desc='Glutathione cream vs tablets vs injections compared: how each is used, what the evidence says, injection safety warnings, and which suits skincare.',
          body='''<p>For everyday skincare, a <b>glutathione cream or face wash</b> is the simple, low-risk option. Tablets are supplements with mixed evidence, and injections carry real safety risks.</p>
 <div class="tbl"><table><thead><tr><th></th><th>Cream / face wash</th><th>Tablets</th><th>Injections</th></tr></thead><tbody>
 <tr><td>What it is</td><td>Cosmetic applied to skin</td><td>Oral supplement</td><td>Medical procedure</td></tr>
@@ -335,7 +335,7 @@ _bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
     ('Customer support', 'WhatsApp %s, Monday to Saturday, 10 am to 7 pm' % WA_SHOW)])
 _bp_mkts = ''.join('<li><a href="%s" target="_blank" rel="noopener">GlutaNex on %s</a></li>' % (html.escape(u), n) for n, u in MARKET_LINKS)
 page('/glutanex/', 'GlutaNex: Official Brand Information | Glutathione Skincare India',
-     'Official facts about GlutaNex, the Indian glutathione skincare brand: who makes it, products and prices, official website and marketplaces, and how to buy genuine.',
+     'Official facts about GlutaNex, the Indian glutathione skincare brand: who makes it, products and prices, official site and marketplaces, and how to buy genuine.',
      top('Brand facts', '<span class="gold">GlutaNex</span>: official brand information', 'Who we are, what we make and where to buy genuine GlutaNex.') + """<section style="padding-top:24px"><div class="wrap prose">
 <p class="answer"><b>GlutaNex</b> is an Indian glutathione skincare brand from %s, Bhatkal, Karnataka. It makes a Glutathione Night Cream and a Gluta Boost Face Wash, sold on its official website glutanex.co.in and on Amazon, Flipkart and Myntra.</p>
 <h2>GlutaNex at a glance</h2><div class="tbl"><table class="facts"><tbody>%s</tbody></table></div>

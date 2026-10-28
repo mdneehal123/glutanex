@@ -6,7 +6,7 @@ HI_OCT20 = [
     dict(slug='diwali-par-glow-ke-liye-glutathione', en='/glutathione-cream-for-diwali/',
          title='दिवाली पर ग्लो कैसे लाएं: ग्लूटाथियोन के साथ 19 दिन का सच्चा प्लान (Diwali par glow kaise laye)', short='दिवाली पर ग्लो',
          seo='Diwali Par Glow Kaise Laye: Glutathione के साथ 19 दिन',
-         desc='Diwali par glow kaise laye glutathione के साथ: 8 नवंबर की दिवाली तक 19 दिन का ईमानदार प्लान, जल्दी क्या दिखेगा और क्या नहीं, और पटाखों के धुएं के बाद त्वचा की देखभाल।',
+         desc='Diwali par glow kaise laye glutathione के साथ: 8 नवंबर की दिवाली तक 19 दिन का आसान प्लान और पटाखों के धुएं के बाद त्वचा की देखभाल।',
          body='''<p><b>छोटा जवाब:</b> दिवाली रविवार, 8 नवंबर 2026 को है और धनतेरस 6 नवंबर को, यानी आज (20 अक्टूबर) से लगभग 19 दिन। इतने समय में ग्लूटाथियोन क्रीम और सही रूटीन से त्वचा <b>ज़्यादा नम, मुलायम और फ्रेश</b> दिख सकती है। लेकिन टैन, दाग-धब्बों और असमान रंगत में साफ बदलाव आमतौर पर <b>8–12 हफ्ते</b> लेता है। इसलिए इस दिवाली का लक्ष्य रखें: शांत, आरामदायक त्वचा, बिना किसी जलन के। और रूटीन को त्योहार के बाद भी जारी रखें।</p>
 <h2>19 दिन में क्या उम्मीद करें, क्या नहीं</h2><div class="tbl"><table><thead><tr><th>बदलाव</th><th>दिवाली तक (लगभग 19 दिन)</th><th>सच्चाई</th></tr></thead><tbody>
 <tr><td>नमी और मुलायमपन</td><td>हां, अक्सर पहले 1–2 हफ्तों में</td><td>नियमित मॉइस्चराइज़र और अच्छी नींद से भी मदद मिलती है</td></tr>
@@ -63,7 +63,7 @@ HL_OCT20 = [
     dict(slug='glutathione-cream-roz-laga-sakte-hai', en='/can-i-use-glutathione-cream-daily/', short='Roz laga sakte hai?',
          title='Glutathione cream roz laga sakte hai? Daily use ka sahi tarika',
          seo='Glutathione Cream Roz Laga Sakte Hai? Daily Use (Hinglish)',
-         desc='Glutathione cream roz laga sakte hai: haan, lekin retinol wali cream dheere shuru karke. Hafte-dar-hafte plan, kab kam karein, aur daily use mein kin galtiyon se bachein.',
+         desc='Glutathione cream roz laga sakte hai: haan, lekin retinol wali cream dheere shuru karke. Hafte-dar-hafte plan, kab kam karein, aur kin galtiyon se bachein.',
          qa=[('Glutathione cream roz laga sakte hai?', 'Haan, zyada tar log glutathione cream roz raat laga sakte hain, jab skin uski aadi ho jaaye. Retinol ya salicylic acid wali cream ho to pehle 2 hafte, hafte mein 2 se 3 raat se shuru karein, phir ek din chhod kar, aur skin comfortable ho to roz raat. Subah sunscreen zaroori hai.', ''),
              ('Kya glutathione cream din mein do baar laga sakte hain?', 'Retinol wali night cream din mein do baar na lagayein; ek baar raat ko kaafi hai. Zyada lagane se result jaldi nahi aata, ulta dryness aur jalan badh sakti hai. Subah ke liye face wash, moisturiser aur SPF 30+ sunscreen rakhein.', ''),
              ('Roz glutathione cream lagane se koi nuksan hai?', 'Aam taur par nahi, agar dheere shuru kiya ho. Kuch logon ko shuru mein halki dryness, chubhan ya peeling hoti hai, khaaskar retinol se. Aisa ho to ek din chhod kar lagayein. Sujan, rash ya tez jalan ho to band karein aur doctor ko dikhayein.', '')],
@@ -87,7 +87,7 @@ HL_OCT20 = [
     dict(slug='glutathione-cream-result-kitne-din-me', en='/glutathione-cream-results/', short='Result kitne din me',
          title='Glutathione cream result kitne din me dikhta hai? Hafte-dar-hafte sach',
          seo='Glutathione Cream Result Kitne Din Me? Hafte-Dar-Hafte',
-         desc='Glutathione cream result kitne din me: softness 1–2 hafte mein, fresh look 4–8 hafte mein aur tan halka 8–12 hafte mein. Kya result rokta hai aur kab doctor ko dikhayein.',
+         desc='Glutathione cream result kitne din me dikhta hai: kya umeed rakhein, results har skin par alag hote hain, kya progress rokta hai aur kab doctor ko dikhayein.',
          qa=[('Glutathione cream result kitne din me dikhta hai?', 'Zyada tar logon ko 1 se 2 hafte mein skin soft aur moist lagti hai, 4 se 8 hafte mein thodi fresh aur bright dikhti hai, aur tan ya uneven tone 8 se 12 hafte mein halka dikhta hai. Iske liye roz raat use aur subah sunscreen zaroori hai. Results har insaan mein alag hote hain.', ''),
              ('Glutathione cream se 7 din mein result milta hai?', '7 din mein skin thodi soft lag sakti hai, lekin tan ya dark spots mein asli farak nahi aata. Jo cream 7 din mein rang badalne ka daava kare, usmein steroid ya mercury ho sakta hai. Aisi creams se bachein.', ''),
              ('Glutathione cream ka asar kyun nahi dikh raha?', 'Sabse aam wajah: sunscreen na lagana, beech mein cream band karna, ya 8 hafte se pehle hi umeed chhod dena. Melasma jaise patches ya purane gehre daag cream se kam hi badalte hain. 3 mahine baad bhi koi farak na ho to dermatologist ko dikhayein.', '')],

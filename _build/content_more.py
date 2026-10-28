@@ -113,7 +113,7 @@ NEW_GUIDES = [
     dict(slug='best-glutathione-cream-in-india', title='How to choose the best glutathione cream in India', short='Best glutathione cream',
          blurb='A simple checklist to judge any glutathione cream before you buy.',
          seo='Best Glutathione Cream in India: How to Choose (Checklist)',
-         desc='Looking for the best glutathione cream in India? Use this checklist: ingredients that matter, safe concentrations, red flags, skin type advice and a simple routine.',
+         desc='Looking for the best glutathione cream in India? Use this checklist: key ingredients, safe concentrations, red flags, skin type advice and a simple routine.',
          refs=['study', 'review', 'ijdvl'],
          body='''<p>The "best" glutathione cream is the one that suits your skin, has an honest, sensible formula, and that you will use every night for at least two months. Rather than a paid ranking, here is a checklist you can apply to <b>any</b> glutathione cream, including ours.</p>
 <h2>The 7-point checklist</h2>
@@ -151,7 +151,7 @@ NEW_GUIDES = [
     dict(slug='is-glutathione-safe-for-skin', title='Is glutathione safe for skin?', short='Is it safe?',
          blurb='Creams, tablets and injections: what is safe and what is not.',
          seo='Is Glutathione Safe for Skin? Creams vs Injections Explained',
-         desc='Is glutathione safe? What the research says about glutathione creams, tablets and injections, who should avoid it, how to patch test, and warning signs to watch for.',
+         desc='Is glutathione safe? What the research says about glutathione creams, tablets and injections, who should avoid it, how to patch test, and warning signs.',
          refs=['study', 'review', 'ijdvl', 'fda'],
          body='''<p><b>Short answer:</b> glutathione creams and face washes are generally safe for most adults when used as directed. Glutathione <b>injections</b> for skin lightening are not considered safe and should be avoided.</p>
 <h2>Glutathione creams</h2><p>In the 10-week study of a 2%% glutathione lotion (%(study)s), only one of 30 women had mild redness, which cleared within two days without stopping. A 2025 systematic review (%(review)s) found topical glutathione generally well tolerated, but noted that safety data are still limited. As with any skincare, irritation is possible, especially in products that also contain retinol or acids.</p>
@@ -203,7 +203,7 @@ NEW_GUIDES = [
     dict(slug='glutathione-rich-foods', title='Glutathione-rich foods: how to support your body\'s glutathione naturally', short='Glutathione-rich foods',
          blurb='Indian foods that help your body make and recycle glutathione.',
          seo='Glutathione-Rich Foods: 15 Indian Foods That Support Glutathione',
-         desc='Glutathione-rich foods and how to boost glutathione naturally: sulphur vegetables, vitamin C foods, protein sources, everyday Indian options and lifestyle habits.',
+         desc='Glutathione-rich foods and how to boost glutathione naturally: sulphur vegetables, vitamin C foods, protein, everyday Indian options and lifestyle habits.',
          refs=['ijdvl'],
          body='''<p>Your body makes its own glutathione from three amino acids: glutamic acid, cysteine and glycine. You can support that process with everyday foods, especially those rich in <b>sulphur</b>, <b>protein</b> and <b>vitamin C</b>.</p>
 <h2>Foods that contain glutathione or its building blocks</h2><div class="tbl"><table><thead><tr><th>Group</th><th>Everyday Indian examples</th><th>Why it helps</th></tr></thead><tbody>
@@ -333,7 +333,7 @@ QA_PAGE = dict(
     slug='glutathione-cream-questions', title='Glutathione cream: answers to the most-asked questions', short='Glutathione cream questions',
     blurb='Straight answers to what people ask Google about glutathione cream: does it work, daily use, whitening, the best one, retinol and more.',
     seo='Glutathione Cream Questions: Does It Work, Daily Use, Best One',
-    desc='Honest answers to the most-asked glutathione cream questions: what it is used for, does it work, can you use it daily, whitening, best brand, retinol vs glutathione.',
+    desc='Honest answers to the most-asked glutathione cream questions: what it is used for, does it work, daily use, best brand, retinol vs glutathione.',
     refs=['study', 'review', 'ijdvl', 'fda'],
     qa=[
         ('What is glutathione cream used for?',
@@ -661,7 +661,7 @@ NEW_GUIDES += [
          faq=[('Can men use glutathione cream?', 'Yes. It works the same for men; use it at night and sunscreen every morning.'), ('Can I use glutathione cream after shaving?', 'Wait until the skin has settled, ideally apply at night if you shave in the morning, and avoid nicks.')]),
     dict(slug='glutathione-for-acne-marks', title='Glutathione for acne marks: does it help?', short='Acne marks',
          blurb='What causes dark marks after pimples, how glutathione fits in, and how long they take to fade.',
-         seo='Glutathione for Acne Marks & Pimple Spots: Does It Help?', desc='Does glutathione help acne marks? What causes dark spots after pimples, how glutathione, niacinamide and sunscreen help, timelines and when to see a dermatologist.',
+         seo='Glutathione for Acne Marks & Pimple Spots: Does It Help?', desc='Does glutathione help acne marks? What causes dark spots after pimples, how glutathione, niacinamide and sunscreen help, and when to see a dermatologist.',
          refs=['study', 'ijdvl'],
          body='''<p>The flat brown marks left after pimples are called post-inflammatory hyperpigmentation. They are very common on Indian skin and usually fade on their own, slowly. A glutathione routine with daily sunscreen can help them look lighter sooner.</p>
 <h2>Marks vs scars</h2><ul><li><b>Marks:</b> flat brown or dark spots. Brightening care helps.</li><li><b>Scars:</b> dents or raised bumps. Creams do not fix these; a dermatologist can.</li></ul>
@@ -671,7 +671,7 @@ NEW_GUIDES += [
          faq=[('Does glutathione remove pimple marks?', 'It can help flat dark marks look lighter over 6 to 12 weeks with daily sunscreen; it does not fix dented or raised scars.'), ('Is glutathione cream good for acne-prone skin?', 'A light formula with niacinamide or salicylic acid suits acne-prone skin; introduce it slowly and patch test.')]),
     dict(slug='glutathione-for-oily-skin', title='Glutathione for oily skin: how to choose and use it', short='Oily skin',
          blurb='The right texture and partners for oily, shiny skin, and mistakes to avoid.',
-         seo='Glutathione Cream for Oily Skin: How to Choose & Use', desc='Glutathione for oily skin: choosing a light texture, helpful partners like niacinamide and salicylic acid, how much to apply, and mistakes that make oiliness worse.',
+         seo='Glutathione Cream for Oily Skin: How to Choose & Use', desc='Glutathione for oily skin: choosing a light texture, helpful partners like niacinamide and salicylic acid, how much to apply, and mistakes that add shine.',
          refs=['review'],
          body='''<p>Oily skin can use glutathione happily; the key is a light, non-greasy formula and not over-washing.</p>
 <h2>What to look for</h2><ul><li>A light cream or gel-cream texture.</li><li><b>Niacinamide</b> for shine and pores.</li><li><b>Salicylic acid</b> to keep pores clear.</li><li>Hyaluronic acid for oil-free hydration.</li></ul>
@@ -749,7 +749,7 @@ HI += [
               ('ग्लूटाथियोन इंजेक्शन सुरक्षित हैं?', 'त्वचा गोरी करने के लिए इनके समर्थन में कोई ट्रायल नहीं है और नियामकों ने चेतावनी दी है। इनसे बचें।')]),
     dict(slug='glutathione-cream-sawal-jawab', en='/glutathione-cream-questions/',
          title='ग्लूटाथियोन क्रीम: सबसे ज्यादा पूछे जाने वाले सवाल', short='सवाल-जवाब',
-         seo='Glutathione Cream Sawal Jawab: ग्लूटाथियोन क्रीम के सवालों के जवाब',
+         seo='Glutathione Cream Sawal Jawab: ग्लूटाथियोन क्रीम के सवाल-जवाब',
          desc='ग्लूटाथियोन क्रीम के सवालों के आसान जवाब हिंदी में: क्या यह काम करती है, रोज लगा सकते हैं, कितने दिन में असर, कौन सी अच्छी है, और सुरक्षा।',
          body='''<p>ग्लूटाथियोन क्रीम के बारे में सबसे ज्यादा पूछे जाने वाले सवालों के छोटे और सही जवाब।</p>''',
          faq=[('क्या ग्लूटाथियोन क्रीम सुरक्षित है?', 'ज्यादातर वयस्कों के लिए हां। पहले पैच टेस्ट करें और जलन लगातार हो तो बंद करें।')]),
@@ -777,7 +777,7 @@ REG = [
        faq=[('குளுதாதயோன் கிரீம் சருமத்தை வெண்மையாக்குமா?', 'இல்லை. இது டான் மற்றும் சீரற்ற நிறத்தை மங்கலாகக் காட்ட உதவும், ஆனால் இயற்கையான நிறத்தை மாற்றாது.'),
             ('தினமும் பயன்படுத்தலாமா?', 'ஆம், இரவில் பயன்படுத்தலாம். ரெட்டினால் உள்ள கிரீமை முதல் 2 வாரங்கள் வாரத்திற்கு 2–3 இரவுகள் மட்டும் பயன்படுத்தவும்.')]),
   dict(lang='te', code='te-IN', name='తెలుగు', slug='glutathione-cream',
-       seo='Glutathione Cream Benefits in Telugu: గ్లూటాథియోన్ క్రీమ్ ప్రయోజనాలు',
+       seo='Glutathione Cream in Telugu: గ్లూటాథియోన్ క్రీమ్ ప్రయోజనాలు',
        title='గ్లూటాథియోన్ క్రీమ్: ప్రయోజనాలు, వాడే విధానం, భద్రత',
        desc='Glutathione cream benefits in Telugu: గ్లూటాథియోన్ అంటే ఏమిటి, చర్మానికి ప్రయోజనాలు, ఎలా వాడాలి మరియు భద్రతా సూచనలు.',
        ui=dict(by='GlutaNex బృందం · నవీకరణ: 11 అక్టోబర్ 2026', en='ఇంగ్లీష్‌లో చదవండి', note='ఇది సాధారణ సౌందర్య సమాచారం, వైద్య సలహా కాదు. ఫలితాలు వ్యక్తిని బట్టి మారుతాయి.', buy='ఇప్పుడే కొనండి', faq='తరచుగా అడిగే ప్రశ్నలు', toc='ఈ పేజీలో', guide='తెలుగు గైడ్'),
@@ -801,7 +801,7 @@ REG = [
        faq=[('ग्लुटाथायोन क्रीमने त्वचा गोरी होते का?', 'नाही. टॅन आणि असमान रंग फिकट दिसण्यास मदत होते, पण नैसर्गिक रंग बदलत नाही.'),
             ('रोज वापरू शकतो का?', 'हो, रात्री वापरू शकता. रेटिनॉल असलेली क्रीम पहिले 2 आठवडे आठवड्यातून 2–3 रात्रीच वापरा.')]),
   dict(lang='bn', code='bn-IN', name='বাংলা', slug='glutathione-cream',
-       seo='Glutathione Cream Benefits in Bengali: গ্লুটাথিয়ন ক্রিমের উপকারিতা',
+       seo='Glutathione Cream in Bengali: গ্লুটাথিয়ন ক্রিমের উপকারিতা',
        title='গ্লুটাথিয়ন ক্রিম: উপকারিতা, ব্যবহারের নিয়ম ও নিরাপত্তা',
        desc='Glutathione cream benefits in Bengali: গ্লুটাথিয়ন কী, ত্বকের জন্য উপকারিতা, কীভাবে ব্যবহার করবেন এবং নিরাপত্তার পরামর্শ।',
        ui=dict(by='GlutaNex টিম · আপডেট: 11 অক্টোবর 2026', en='ইংরেজিতে পড়ুন', note='এটি সাধারণ প্রসাধনী তথ্য, চিকিৎসা পরামর্শ নয়। ফলাফল ব্যক্তিভেদে আলাদা হতে পারে।', buy='এখনই কিনুন', faq='প্রায়ই জিজ্ঞাসিত প্রশ্ন', toc='এই পাতায়', guide='বাংলা গাইড'),
@@ -813,7 +813,7 @@ REG = [
        faq=[('গ্লুটাথিয়ন ক্রিম কি ত্বক ফর্সা করে?', 'না। এটি ট্যান ও অসমান রং হালকা দেখাতে সাহায্য করে, কিন্তু স্বাভাবিক রং বদলায় না।'),
             ('রোজ ব্যবহার করা যায়?', 'হ্যাঁ, রাতে ব্যবহার করা যায়। রেটিনল থাকা ক্রিম প্রথম 2 সপ্তাহ সপ্তাহে 2–3 রাত ব্যবহার করুন।')]),
   dict(lang='kn', code='kn-IN', name='ಕನ್ನಡ', slug='glutathione-cream',
-       seo='Glutathione Cream Benefits in Kannada: ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್ ಪ್ರಯೋಜನಗಳು',
+       seo='Glutathione Cream in Kannada: ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್ ಪ್ರಯೋಜನಗಳು',
        title='ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್: ಪ್ರಯೋಜನಗಳು, ಬಳಸುವ ವಿಧಾನ ಮತ್ತು ಸುರಕ್ಷತೆ',
        desc='Glutathione cream benefits in Kannada: ಗ್ಲುಟಾಥಿಯೋನ್ ಎಂದರೇನು, ಚರ್ಮಕ್ಕೆ ಪ್ರಯೋಜನಗಳು, ಹೇಗೆ ಬಳಸಬೇಕು ಮತ್ತು ಸುರಕ್ಷತಾ ಸಲಹೆಗಳು.',
        ui=dict(by='GlutaNex ತಂಡ · ನವೀಕರಣ: 11 ಅಕ್ಟೋಬರ್ 2026', en='ಇಂಗ್ಲಿಷ್‌ನಲ್ಲಿ ಓದಿ', note='ಇದು ಸಾಮಾನ್ಯ ಸೌಂದರ್ಯ ಮಾಹಿತಿ, ವೈದ್ಯಕೀಯ ಸಲಹೆ ಅಲ್ಲ. ಫಲಿತಾಂಶಗಳು ವ್ಯಕ್ತಿಯಿಂದ ವ್ಯಕ್ತಿಗೆ ಬದಲಾಗಬಹುದು.', buy='ಈಗ ಖರೀದಿಸಿ', faq='ಆಗಾಗ್ಗೆ ಕೇಳುವ ಪ್ರಶ್ನೆಗಳು', toc='ಈ ಪುಟದಲ್ಲಿ', guide='ಕನ್ನಡ ಮಾರ್ಗದರ್ಶಿ'),
@@ -915,7 +915,7 @@ TLDR = {
 NEW_GUIDES += [
     dict(slug='glutathione-cream-in-winter', title='Glutathione cream in winter: a routine for dry skin', short='Winter routine',
          blurb='How to use a glutathione cream in cold, dry weather without flaking, and why sunscreen still matters.',
-         seo='Glutathione Cream in Winter: Dry Skin Routine & Sunscreen Tips', desc='Can you use glutathione cream in winter? Yes: how to adjust for dry skin, layer a moisturiser, use retinol in cold weather, and why winter sunscreen still matters.',
+         seo='Glutathione Cream in Winter: Dry Skin Routine & Sunscreen Tips', desc='Can you use glutathione cream in winter? Yes: how to adjust for dry skin, layer a moisturiser, use retinol in cold weather, and why sunscreen still matters.',
          refs=['study'],
          qa=[('Can I use glutathione cream in winter?', 'Yes. Winter is a good time to start a glutathione cream: the sun is milder, so tan fades more easily. Apply it at night on clean skin, add a moisturiser on top if your skin feels dry, and keep wearing SPF 30+ sunscreen every morning.', ''),
              ('Do I need sunscreen in winter?', 'Yes. UVA rays, which drive tan and dark spots, stay strong through Indian winters and pass through haze, clouds and window glass. Use a broad-spectrum SPF 30 or higher with a good PA rating every morning, even on cool or foggy days.', '')],
@@ -1031,7 +1031,7 @@ NEW_GUIDES += [
               ('What dose of glutathione was used in studies?', 'Tablet studies used 250 to 500 mg a day for 4 to 12 weeks. The best-known cream study used a 2%% oxidised glutathione lotion twice daily for 10 weeks.')]),
     dict(slug='glutathione-for-underarms-and-body', title='Glutathione for dark underarms, knees and elbows: what helps', short='Underarms and body',
          blurb='Why underarms, knees and elbows get darker, what glutathione can and cannot do there, and a gentle routine.',
-         seo='Glutathione for Dark Underarms, Knees & Elbows: What Helps', desc='Can glutathione lighten dark underarms, knees and elbows? Common causes, a gentle routine, when to see a doctor, and why retinol face creams are not for underarms.',
+         seo='Glutathione for Dark Underarms, Knees & Elbows: What Helps', desc='Can glutathione lighten dark underarms, knees and elbows? Common causes, a gentle routine, when to see a doctor, and why retinol face creams are not for them.',
          refs=['ijdvl', 'review'],
          qa=[('Can glutathione lighten dark underarms?', 'It may help a little where darkness comes from friction or shaving irritation, but evidence is for the face and is modest. Underarm skin is thin and easily irritated, so gentle care matters most. Velvety, thick dark skin can be a sign of insulin resistance and needs a doctor.', ''),
              ('Can I use glutathione face cream on my underarms?', 'Not a cream with retinol or salicylic acid, like the GlutaNex Night Cream: it can sting and irritate thin underarm skin, especially after shaving. On knees and elbows, patch test first and use a thin layer at night.', '')],
@@ -1059,7 +1059,7 @@ NEW_GUIDES += [
               ('Is glutathione safe around the eyes?', 'Glutathione itself is gentle, but many creams also contain retinol or acids that irritate the eye area. Keep those creams away from the eyes.')]),
     dict(slug='glutathione-serum-vs-cream-vs-soap', title='Glutathione serum vs cream vs soap: which works best?', short='Serum vs cream vs soap',
          blurb='How glutathione serums, creams, soaps and face washes differ, and which format makes sense for your skin.',
-         seo='Glutathione Serum vs Cream vs Soap: Which Works Best?', desc='Glutathione serum, cream, soap or face wash: how long each stays on skin, which suits oily or dry skin, what the research used, and how to build a simple routine.',
+         seo='Glutathione Serum vs Cream vs Soap: Which Works Best?', desc='Glutathione serum, cream, soap or face wash: how long each stays on skin, which suits oily or dry skin, what research used, and how to build a simple routine.',
          refs=['study', 'review'],
          qa=[('Which is better, glutathione serum or cream?', 'Both are leave-on, which is what the research used. Serums are lighter and suit oily skin under a moisturiser; creams also moisturise and suit normal to dry skin. The formula, regular use and daily sunscreen matter more than the format.', ''),
              ('Does glutathione soap work?', 'Soaps and face washes are rinsed off within a minute, so they mainly clean. They are a fine first step, but visible change needs a leave-on product and sunscreen.', '')],

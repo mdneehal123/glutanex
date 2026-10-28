@@ -32,10 +32,11 @@ PRODUCTS = [
          tag='Launching soon', soon=True,
          imgs=['facewash-square', 'facewash', 'facewash-foam'], og='facewash-square',
          summary='A daily foaming gel face wash made with glutathione and copper peptide, plus niacinamide, aloe, chamomile and panthenol. It lifts away dirt, oil and the day\'s build-up and leaves skin feeling fresh and soft, and it is the first step before your glutathione night cream.',
-         title='GlutaNex Gluta Boost Face Wash 100 ml | Glutathione & Copper Peptide',
+         title='Gluta Boost Face Wash 100 ml | Glutathione & Copper Peptide',
          sub='Glutathione face wash · foaming gel with copper peptide and niacinamide',
          alt_names=['GlutaNex Glutathione Face Wash', 'Gluta Boost Glutathione Face Wash'],
-         desc='GlutaNex Gluta Boost Face Wash, 100 ml: a foaming glutathione face wash with copper peptide, niacinamide, aloe and panthenol for daily cleansing. For all skin types. COD across India.'),
+         desc='GlutaNex Gluta Boost Face Wash, 100 ml: a foaming glutathione face wash with copper peptide, niacinamide, aloe and panthenol for daily cleansing. For all skin types. COD across India.',
+         meta_desc='GlutaNex Gluta Boost Face Wash 100 ml: foaming glutathione face wash with copper peptide, niacinamide, aloe and panthenol. All skin types. COD across India.'),
     dict(id='duo', slug='glutanex-glow-duo-night-cream-face-wash', short='Glow Duo', sku='GNX-DUO',
          name='GlutaNex Glow Duo: Night Cream + Face Wash', size='Night Cream 30 g + Face Wash 100 ml', price=2699, mrp=3599,  # duo: MRP = 3000 + 599; saves 199 vs buying both separately (2898)
          tag='Launching soon', soon=True,
@@ -50,7 +51,8 @@ PRODUCTS = [
          title='Glutathione Shower Gel 100 ml | GlutaNex Aqua Fresh',
          sub='Glutathione shower gel · with hyaluronic acid and aloe vera',
          alt_names=['GlutaNex Glutathione Body Wash', 'Aqua Fresh Glutathione Shower Gel'],
-         desc='GlutaNex Aqua Fresh Shower Gel, 100 ml: a glutathione shower gel with hyaluronic acid and aloe vera that cleanses, refreshes and moisturises. For all skin types. Launching soon.'),
+         desc='GlutaNex Aqua Fresh Shower Gel, 100 ml: a glutathione shower gel with hyaluronic acid and aloe vera that cleanses, refreshes and moisturises. For all skin types. Launching soon.',
+         meta_desc='GlutaNex Aqua Fresh Shower Gel 100 ml: a glutathione shower gel with hyaluronic acid and aloe vera that cleanses and refreshes. All skin types. Launching soon.'),
     dict(id='washgel', slug='glutanex-face-wash-shower-gel-combo', short='Wash + Gel Combo', sku='GNX-WASHGEL', soon=True, price=0, mrp=0,
          name='GlutaNex Face Wash + Shower Gel Combo', size='Face Wash 100 ml + Shower Gel 100 ml', tag='Launching soon',
          imgs=['washgel-square', 'gel-square', 'facewash-square'], og='washgel-square',
@@ -58,7 +60,8 @@ PRODUCTS = [
          title='Glutathione Face Wash + Shower Gel Combo | GlutaNex',
          sub='Glutathione face wash and shower gel combo · 100 ml + 100 ml',
          alt_names=['GlutaNex Glutathione Cleansing Combo'],
-         desc='GlutaNex Face Wash + Shower Gel combo: Gluta Boost Face Wash 100 ml with Aqua Fresh Shower Gel 100 ml, a glutathione cleansing set for face and body. Launching soon.'),
+         desc='GlutaNex Face Wash + Shower Gel combo: Gluta Boost Face Wash 100 ml with Aqua Fresh Shower Gel 100 ml, a glutathione cleansing set for face and body. Launching soon.',
+         meta_desc='GlutaNex Face Wash + Shower Gel combo: Gluta Boost Face Wash 100 ml and Aqua Fresh Shower Gel 100 ml, a glutathione set for face and body. Launching soon.'),
     dict(id='creamgel', slug='glutanex-night-cream-shower-gel-combo', short='Cream + Gel Combo', sku='GNX-CREAMGEL', soon=True, price=0, mrp=0,
          name='GlutaNex Night Cream + Shower Gel Combo', size='Night Cream 30 g + Shower Gel 100 ml', tag='Launching soon',
          imgs=['creamgel-square', 'cream-square', 'gel-square'], og='creamgel-square',
@@ -66,7 +69,8 @@ PRODUCTS = [
          title='Glutathione Night Cream + Shower Gel Combo | GlutaNex',
          sub='Glutathione night cream 30 g and shower gel 100 ml set',
          alt_names=['GlutaNex Night Cream and Shower Gel Set'],
-         desc='GlutaNex Night Cream + Shower Gel combo: Glutathione Night Cream 30 g with Aqua Fresh Shower Gel 100 ml. A glutathione skincare set for night care and daily bathing. Launching soon.'),
+         desc='GlutaNex Night Cream + Shower Gel combo: Glutathione Night Cream 30 g with Aqua Fresh Shower Gel 100 ml. A glutathione skincare set for night care and daily bathing. Launching soon.',
+         meta_desc='GlutaNex Night Cream + Shower Gel combo: Glutathione Night Cream 30 g with Aqua Fresh Shower Gel 100 ml, for night care and daily bathing. Launching soon.'),
     dict(id='trio', slug='glutanex-glow-trio-night-cream-face-wash-shower-gel', short='Glow Trio', sku='GNX-TRIO', soon=True, price=0, mrp=0,
          name='GlutaNex Glow Trio: Night Cream + Face Wash + Shower Gel', size='Night Cream 30 g + Face Wash 100 ml + Shower Gel 100 ml', tag='Launching soon',
          imgs=['trio-square', 'trio-sun', 'cream-square'], og='trio-square',
@@ -74,7 +78,8 @@ PRODUCTS = [
          title='GlutaNex Glow Trio: Glutathione Skincare Set of 3',
          sub='Glutathione night cream + face wash + shower gel set',
          alt_names=['GlutaNex Glutathione Skincare Combo Pack', 'GlutaNex 3-in-1 Skincare Set'],
-         desc='GlutaNex Glow Trio: Glutathione Night Cream 30 g, Gluta Boost Face Wash 100 ml and Aqua Fresh Shower Gel 100 ml together. The full GlutaNex glutathione skincare set. Launching soon.'),
+         desc='GlutaNex Glow Trio: Glutathione Night Cream 30 g, Gluta Boost Face Wash 100 ml and Aqua Fresh Shower Gel 100 ml together. The full GlutaNex glutathione skincare set. Launching soon.',
+         meta_desc='GlutaNex Glow Trio: Glutathione Night Cream 30 g, Gluta Boost Face Wash 100 ml and Aqua Fresh Shower Gel 100 ml. The full GlutaNex set. Launching soon.'),
 ]
 BYID = {p['id']: p for p in PRODUCTS}
 
@@ -689,7 +694,7 @@ for p in PRODUCTS:
         tabs=''.join('<details%s><summary>%s</summary><div class="in">%s</div></details>' % (' open' if n == 0 else '', t, x) for n, (t, x) in enumerate(tabs)),
         faq=faq_html(faq_items), rel=''.join(card(q) for q in others),
         sub='<p class="pdp-sub">%s</p>' % html.escape(p['sub']) if p.get('sub') else '', about=(ABOUT_SOON.get(p['id']) or ABOUT.get(p['id'], '')), review=REVIEW_SEC if p['id'] in ('cream', 'duo') else '')
-    page(url(p), p['title'], p['desc'], body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)], ptype='ItemPage', main=SITE + url(p) + '#product',
+    page(url(p), p['title'], p.get('meta_desc', p['desc']), body, og='product', ogimg=p['og'], crumbs=[('Shop', '/shop/'), (p['short'], url(p))], schema=[product_ld(p), faq_ld(faq_items)], ptype='ItemPage', main=SITE + url(p) + '#product',
          extra=('' if p.get('soon') else '<meta property="product:price:amount" content="%d"><meta property="product:price:currency" content="INR">\n' % p['price']))
 
 # ---------------- Cart & checkout ----------------
