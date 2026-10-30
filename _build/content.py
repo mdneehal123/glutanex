@@ -89,10 +89,10 @@ GUIDES = [
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
 exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
 # 20 Oct 2026 batch: new guides (English), Hindi and Hinglish pages, each in its own file
-for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py']:
+for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py']:
     if os.path.exists(os.path.join(B, _f)):
         exec(open(os.path.join(B, _f), encoding='utf-8').read())
-NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', [])
+NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', [])
 HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', [])
 HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, gel='<a href="/product/glutanex-aqua-fresh-shower-gel/">GlutaNex Aqua Fresh Shower Gel</a>', uduo=url(BYID['duo']),
