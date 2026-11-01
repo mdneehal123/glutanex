@@ -3,61 +3,66 @@
 
 OCT20_A = [
     dict(slug='glutathione-cream-for-diwali',
-         title='Glutathione cream for Diwali glow: an honest 19-day plan',
+         title='Glutathione cream for Diwali glow: an honest last-week plan',
          short='Diwali glow',
-         blurb='What a glutathione cream can and cannot do before Diwali on 8 November, a day-by-day plan, festival-night care and a gifting note.',
-         seo='Glutathione Cream for Diwali Glow: Honest 19-Day Plan',
-         desc='Glutathione cream for Diwali glow: what can change in the 19 days before 8 November, how to start retinol slowly, festival-night care and gifting tips.',
+         blurb='What a glutathione cream can and cannot do in the last week before Diwali on 8 November, festival-night care, Chhath tips and when to start after the festival.',
+         seo='Glutathione Cream for Diwali Glow: Honest Last-Week Plan',
+         desc='Glutathione cream for Diwali glow: what can change in the last week before 8 November, why not to start retinol now, festival-night and post-Diwali care.',
          refs=['study', 'review'],
          qa=[("Can glutathione cream give a glow before Diwali?",
-              "In the 19 days before Diwali on 8 November, a glutathione cream can help skin feel smoother, look more hydrated and rested, and less dull. Tan and dark marks usually need 8 to 12 weeks, so they will not fade by the festival. Sunscreen and sleep matter as much as the cream.", ''),
+              "In the last week before Diwali on 8 November, a cream you already use can keep skin feeling smooth and hydrated, but tan and dark marks usually need 8 to 12 weeks, so they will not fade by the festival. Sleep, water, a moisturiser and sunscreen matter more this week than any new product.", ''),
              ("Is it safe to start a new night cream just before Diwali?",
-              "It can be, if you go slowly. Patch test first, use a retinol night cream only 2 to 3 nights a week, and stop any new active about 3 to 4 days before the festival. If your skin is sensitive or easily red, it is safer to start after Diwali instead.", '')],
-         body='''<h2>What can change by 8 November, and what cannot</h2><p>Diwali (Lakshmi Puja) falls on Sunday 8 November 2026, with Dhanteras on Friday 6 November. From 20 October that is about 19 days. Be clear about what fits into that window:</p>
-<div class="tbl"><table><thead><tr><th>Realistic in 19 days</th><th>Needs longer (8–12 weeks)</th></tr></thead><tbody>
+              "With a week or less to go, it is safer not to. A retinol night cream can cause some dryness or flaking in the first weeks, and there is no time for skin to settle. Start after Diwali instead: patch test, then 2 to 3 nights a week, with sunscreen every morning.", '')],
+         body='''<h2>What can change by 8 November, and what cannot</h2><p>Diwali (Lakshmi Puja) falls on Sunday 8 November 2026, with Dhanteras on Friday 6 November and Bhai Dooj on Wednesday 11 November. From 1 November that is one week. Be clear about what fits into that window:</p>
+<div class="tbl"><table><thead><tr><th>Realistic in one week</th><th>Needs longer (8–12 weeks)</th></tr></thead><tbody>
 <tr><td>Better-hydrated, softer-feeling skin</td><td>Tan looking lighter</td></tr>
 <tr><td>Smoother texture, makeup sitting better</td><td>Acne marks and dark spots fading</td></tr>
 <tr><td>A more rested, less dull look (with sleep and water)</td><td>A more even-looking tone overall</td></tr></tbody></table></div>
-<p>The only placebo-controlled study of a glutathione lotion on the face measured changes after 10 weeks, not days (%(study)s), and a 2025 review called the effects modest (%(review)s). Anything sold as a "Diwali glow in 7 days" is promising more than skin can do. If you are thinking further ahead, read <a href="/how-long-does-glutathione-take-to-work/">how long glutathione cream takes to work</a>.</p>
-<h2>A day-by-day plan from 20 October</h2><ol>
-<li><b>20–21 October: patch test.</b> Apply a small amount behind the ear or on the jawline for 24 hours. No redness, itching or burning? You can begin.</li>
-<li><b>22 October–2 November: go slow.</b> Use a retinol night cream such as %(cream)s only 2–3 nights a week, with a gap night in between. A pea-sized amount covers the whole face. On the other nights, cleanse and use a plain moisturiser.</li>
+<p>The only placebo-controlled study of a glutathione lotion on the face measured changes after 10 weeks, not days (%(study)s), and a 2025 review called the effects modest (%(review)s). Anything sold as a "Diwali glow in 7 days" is promising more than skin can do.</p>
+<h2>A plan for the last week (1–8 November)</h2><ol>
+<li><b>Already using a glutathione cream comfortably?</b> Keep your usual routine through the festival. Just do not add anything new.</li>
+<li><b>Not started yet?</b> Do not start a retinol night cream now. With a week or less to go there is no time to settle any dryness or flaking it can cause at first. Use a gentle cleanser, a plain moisturiser and sunscreen instead, and plan to begin after the festival.</li>
 <li><b>Every morning: sunscreen.</b> SPF 30 or higher with a good PA rating, even if you are mostly indoors shopping and cleaning. Retinol and salicylic acid make skin more sun-sensitive. See <a href="/glutathione-cream-with-sunscreen/">glutathione cream and sunscreen</a>.</li>
-<li><b>3 or 4 November: last night of the new active.</b> If you only started this month, stop it 3–4 days before the festival. Skin then has time to settle from any dryness or flaking before Dhanteras and Lakshmi Puja.</li>
-<li><b>5–8 November: keep it boring.</b> Gentle cleanser, moisturiser, sunscreen by day. No new creams, peels, bleach or first-time facials.</li>
-<li><b>From 10 November: restart.</b> Go back to 2–3 nights a week and build up. This is where the slower, real changes begin.</li></ol>
-<p>If you have used the cream comfortably for weeks already, you do not need to stop: keep your usual routine and simply avoid adding anything new.</p>
+<li><b>3–4 November: last night of anything you started recently.</b> If you began a new active only in late October, stop it now so skin can settle before Dhanteras and Lakshmi Puja.</li>
+<li><b>5–8 November: keep it boring.</b> Gentle cleanser, moisturiser, sunscreen by day. No new creams, peels, bleach or first-time facials.</li></ol>
+<h2>From 9 November: the real start</h2><p>The weeks after Diwali are a better time to begin. Patch test for 24 hours, then use a retinol night cream such as %(cream)s only 2–3 nights a week, with a gap night in between. A pea-sized amount covers the whole face. If your skin stays comfortable for two weeks, move to every other night. Started around 10 November, 8–12 weeks of steady use with daily sunscreen takes you to late January or early February, which is when a brighter, more even look usually starts to show. If you are thinking further ahead, read <a href="/how-long-does-glutathione-take-to-work/">how long glutathione cream takes to work</a>.</p>
 <h2>Small things that make the biggest difference</h2><ul>
 <li><b>Sleep.</b> Late nights of cleaning, cooking and card parties show up as dullness and dark circles faster than anything a cream can fix. See <a href="/glutathione-for-dark-circles/">dark circles</a>.</li>
 <li><b>Water and a lighter plate.</b> Sweets and fried snacks are part of the festival; balance them with water, fruit and dal rather than skipping meals.</li>
-<li><b>Threading and waxing.</b> Book them at least 2–3 days before the festival, and keep retinol and acid creams off freshly waxed or threaded skin for a day or two.</li>
+<li><b>Threading and waxing.</b> Book them by Wednesday 4 or Thursday 5 November, at least 2–3 days before the festival, and keep retinol and acid creams off freshly waxed or threaded skin for a day or two.</li>
 <li><b>No experiments.</b> Bleach creams, lemon, baking soda and unlabelled "fairness" creams can sting or leave marks. Why these claims do not hold up: <a href="/glutathione-for-skin-whitening/">glutathione and skin whitening</a>.</li></ul>
 <h2>Adjusting the plan for your skin</h2><ul>
-<li><b>Oily or acne-prone skin:</b> a light gel moisturiser is enough on gap nights. Do not squeeze pimples before the festival; picked spots leave marks that last far longer than 19 days. See <a href="/glutathione-for-oily-skin/">oily skin</a>.</li>
+<li><b>Oily or acne-prone skin:</b> a light gel moisturiser is enough on gap nights. Do not squeeze pimples before the festival; picked spots leave marks that last for weeks. See <a href="/glutathione-for-oily-skin/">oily skin</a>.</li>
 <li><b>Dry skin:</b> November mornings are turning cooler in much of north India. Add a plain moisturiser over the night cream and keep at least one gap night between uses.</li>
 <li><b>Sensitive skin, eczema or rosacea:</b> skip new actives entirely until after Diwali. Focus on gentle cleansing, moisturiser and sunscreen now.</li>
 <li><b>Men:</b> shave the night before the festival rather than on the morning, and keep retinol off freshly shaved skin until any razor sting has settled. More in <a href="/glutathione-cream-for-men/">glutathione cream for men</a>.</li>
-<li><b>Only a week left?</b> Do not start a retinol cream at all. A gentle cleanser, moisturiser, sunscreen and sleep will do more for how you look on the day.</li></ul>
+<li><b>Only a few days left?</b> Do not start a retinol cream at all. A gentle cleanser, moisturiser, sunscreen and sleep will do more for how you look on the day.</li></ul>
 <h2>On the festival day</h2><ul>
 <li>Morning: gentle cleanse, moisturiser, sunscreen, then makeup.</li>
 <li>Choose makeup you have worn before; a new foundation on festival day is a gamble.</li>
 <li>Night: remove makeup fully, then a mild face wash such as %(wash)s. Skip the night cream if your skin feels tired or irritated, and use a plain moisturiser instead.</li>
 <li>Never put a retinol night cream under makeup or in the daytime. It is a night-only product.</li></ul>
-<h2>After crackers and late nights</h2><p>Cracker smoke, dust and late nights can leave skin dry, dull and a little irritated for a few days. For two or three nights after Diwali, cleanse gently, moisturise, and give actives a rest if your skin stings. Sunscreen still goes on every morning.</p>
+<h2>After crackers and late nights</h2><p>Cracker smoke, dust and late nights can leave skin dry, dull and a little irritated for a few days, and in much of north India the air often stays smoggy well into November. For two or three nights after Diwali, cleanse gently, moisturise, and give actives a rest if your skin stings. On smoggy days, wash your face once when you get home rather than scrubbing it several times, and keep a moisturiser on so skin does not dry out. Sunscreen still goes on every morning.</p>
 <p>For a small burn from a sparkler or diya, hold it under cool running water for about 20 minutes, do not apply any cream to it, and see a doctor if it blisters, is larger than a coin or is on the face. Do not put retinol or acid creams on burnt, cut or broken skin.</p>
-<h2>Gifting a skincare set for Diwali</h2><p>If you are buying for someone else, the <a href="%(uduo)s">Glow Duo</a> pairs the Night Cream with the Face Wash and is launching soon. For a gift today, the Night Cream is available now. A few honest notes so the gift is used well:</p><ul>
-<li><b>Order by about 1 November.</b> Delivery usually takes 3–7 days, depending on your pin code. Details are on the <a href="/shipping-policy/">shipping page</a>. Free shipping and Cash on Delivery are available.</li>
+<h2>Chhath Puja (13–16 November)</h2><p>For many families in Bihar, Jharkhand, eastern UP and beyond, Chhath follows a week after Diwali: Nahay Khay on Friday 13 November, Kharna on Saturday 14 November, Sandhya Arghya at sunset on Sunday 15 November and Usha Arghya at sunrise on Monday 16 November. Long fasts, early mornings and standing in river or pond water are hard on skin.</p><ul>
+<li>After bathing at the ghat, pat skin dry and apply a plain moisturiser, and use a lip balm through the fast.</li>
+<li>If you use a retinol night cream, skip it on the nights your skin feels tight or stings, and go back to it once Chhath is over.</li>
+<li>Do not try a new cream, pack or bleach in the week of the puja.</li></ul>
+<h2>Gifting a skincare set</h2><p>If you are buying for someone else, the <a href="%(uduo)s">Glow Duo</a> pairs the Night Cream with the Face Wash and is launching soon. For a gift today, the Night Cream is available now. A few honest notes so the gift is used well:</p><ul>
+<li><b>Ordering now?</b> Delivery usually takes 3–7 days, depending on your pin code, so an order placed from 1 November may arrive after Diwali or Bhai Dooj. It still works well as a wedding-season or "start after the festival" gift. Details are on the <a href="/shipping-policy/">shipping page</a>. Free shipping and Cash on Delivery are available.</li>
 <li><b>Tell them it is a night cream with retinol.</b> It should not be used in pregnancy or while breastfeeding unless their doctor says it is fine. See <a href="/glutathione-in-pregnancy/">glutathione in pregnancy</a>.</li>
 <li><b>Add a note:</b> start 2–3 nights a week, sunscreen every morning, and give it 8–12 weeks. A gift that comes with honest expectations is a better gift.</li></ul>
-<h2>The honest bottom line</h2><p>For Diwali itself, aim for comfortable, hydrated, rested skin rather than a different shade. Start slowly, protect your skin from the sun, stop new actives a few days before the festival, and think of the weeks after Diwali as the real start. Your natural skin colour is not something to fix for a festival.</p>''',
+<h2>The honest bottom line</h2><p>For Diwali itself, aim for comfortable, hydrated, rested skin rather than a different shade. Keep the last week simple, protect your skin from the sun, and think of the weeks after Diwali as the real start. Your natural skin colour is not something to fix for a festival.</p>''',
          faq=[("Can I use glutathione cream on Diwali night?",
                "If you have used it comfortably for weeks, yes, after removing makeup fully. If it is new to you or your skin feels irritated after a long day, skip it that night and use a plain moisturiser."),
               ("Should I get a facial or bleach before Diwali?",
                "Avoid a first-time bleach or peel in the last two weeks. If you have a facial you already know suits you, book it at least a week before, and tell the parlour you use a retinol night cream."),
               ("Can I wear makeup over glutathione night cream?",
                "No. A retinol night cream like the GlutaNex Night Cream is for night only. In the day use moisturiser and sunscreen under makeup."),
-              ("When should I order a skincare gift for Diwali?",
-               "Order by about 1 November. Delivery usually takes 3 to 7 days depending on your pin code.")]),
+              ("Can I order a skincare gift now and get it before Diwali?",
+               "Delivery usually takes 3 to 7 days depending on your pin code, so an order placed in the first week of November may arrive after Diwali. If the date matters, check the delivery estimate for your pin code on WhatsApp before ordering."),
+              ("When should I start glutathione cream if I missed the Diwali window?",
+               "Start a few days after Diwali, once late nights and cracker smoke are behind you. Patch test, use it 2 to 3 nights a week at first, and give it 8 to 12 weeks with daily sunscreen.")]),
 
     dict(slug='glutathione-cream-results',
          title='Glutathione cream results: what to expect, honestly',

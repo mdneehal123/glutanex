@@ -18,3 +18,17 @@
 | 2026-10-31 | glutathione cream with lemon | /glutathione-cream-with-lemon/ | Results were K-beauty 'lemon glutathione' product listings with no answer; nimbu is one of the most shared Indian tan remedies; honest 'skip raw lemon' guide (acidity, sun reaction, retinol + salicylic acid), safer swaps table, no tan-removal or fairness claims. |
 | 2026-11-01 | glutathione cream with honey | /glutathione-cream-with-honey/ | Results were only foreign glutathione/honey product listings and shop pages with no answer; shahad is a very common Indian home mask and dry season starts now; wash-off mask first then cream, not in the jar, bee-allergy and retinol-night cautions, no fairness claims. |
 | 2026-11-01 | glutathione cream after shaving | /glutathione-cream-after-shaving/ | Results were foreign shaving-cream shops, forum spam and a men's lightening-cream listing; real question for men using a retinol + salicylic acid night cream; shave-timing table, razor-burn rules, razor bumps → dermatologist, no fairness claims. |
+
+## Freshness
+Monthly freshness updater. Do not refresh the same page again within 3 months of the date shown.
+
+| date | page | what changed |
+|---|---|---|
+| 2026-11-01 | /glutathione-cream-for-diwali/ | 19-day plan (from 20 Oct) replaced with a last-week plan (1–8 Nov) and "from 9 November" start plan; title/SEO title now "last-week plan"; outdated "order by 1 November" gift note replaced with honest delivery-timing note; new Chhath Puja (13–16 Nov) section; post-Diwali smog advice; 2 FAQs replaced/added |
+| 2026-11-01 | /hi/diwali-par-glow-ke-liye-glutathione/ | Hindi: 19-day dated plan replaced with 1–8 Nov plan + after-Diwali start; title/SEO title updated; Bhai Dooj date; new Chhath (13–16 Nov) section; FAQ on post-Diwali smog care |
+| 2026-11-01 | /glutathione-cream-in-winter/ | New "November to early January" table (post-Diwali smog, room heaters, wedding season, Christmas/New Year hill trips, lips and hands); 2 FAQs (retinol peeling in winter, high-pollution days) |
+| 2026-11-01 | /glutathione-before-wedding/ | New "Wedding this season? Your start date" table (Nov/Dec, Jan, Feb, later weddings) and waxing/threading timing; 2 FAQs (stopping retinol before the wedding, when to wax/thread); removed stale "Diwali is close" heading |
+| 2026-11-01 | /hi/shaadi-se-pehle-glutathione/ | Hindi: new wedding-season start-date table and waxing/threading timing; FAQ on stopping retinol before the wedding |
+| 2026-11-01 | /glutathione-cream-for-men/ | New "Winter and wedding season" section (dry skin after shaving, beard area, grooms, bike commute in smog); link to after-shaving guide; FAQ on using it with a beard |
+| 2026-11-01 | /glutathione-for-oily-skin/ | New "Oily skin in winter" section (T-zone vs tight cheeks, heaters); FAQ on moisturiser for oily skin in winter |
+| 2026-11-01 | /glutathione-cream-for-summer-tan/ | New "Winter holidays: beach and hill trips" section for Christmas/New Year travel; FAQ "Can you get tanned in winter?" |
