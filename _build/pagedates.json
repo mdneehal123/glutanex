@@ -119,6 +119,11 @@
   "mod": "2026-10-25",
   "pub": "2026-10-11"
  },
+ "/glutathione-cream-after-shaving/": {
+  "h": "a61a7ce5294c678b",
+  "mod": "2026-11-01",
+  "pub": "2026-11-01"
+ },
  "/glutathione-cream-and-moisturizer/": {
   "h": "52bb37974f059bdf",
   "mod": "2026-10-25",
@@ -225,13 +230,18 @@
   "pub": "2026-10-30"
  },
  "/glutathione-cream-with-glycerin/": {
-  "h": "61a9cd9213c44087",
-  "mod": "2026-10-31",
+  "h": "e49e778bb6ce6eee",
+  "mod": "2026-11-01",
   "pub": "2026-10-31"
  },
+ "/glutathione-cream-with-honey/": {
+  "h": "d1cb38969eb35b0e",
+  "mod": "2026-11-01",
+  "pub": "2026-11-01"
+ },
  "/glutathione-cream-with-lemon/": {
-  "h": "b57633cafb6257ac",
-  "mod": "2026-10-31",
+  "h": "bb69578ba93a58e7",
+  "mod": "2026-11-01",
   "pub": "2026-10-31"
  },
  "/glutathione-cream-with-multani-mitti/": {
@@ -340,8 +350,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "214bc98d02129d30",
-  "mod": "2026-10-31",
+  "h": "aef22f11314306e5",
+  "mod": "2026-11-01",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
