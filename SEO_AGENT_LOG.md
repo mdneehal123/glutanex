@@ -32,3 +32,13 @@ Monthly freshness updater. Do not refresh the same page again within 3 months of
 | 2026-11-01 | /glutathione-cream-for-men/ | New "Winter and wedding season" section (dry skin after shaving, beard area, grooms, bike commute in smog); link to after-shaving guide; FAQ on using it with a beard |
 | 2026-11-01 | /glutathione-for-oily-skin/ | New "Oily skin in winter" section (T-zone vs tight cheeks, heaters); FAQ on moisturiser for oily skin in winter |
 | 2026-11-01 | /glutathione-cream-for-summer-tan/ | New "Winter holidays: beach and hill trips" section for Christmas/New Year travel; FAQ "Can you get tanned in winter?" |
+
+## Boosts
+
+| date | page | keyword | what changed |
+|---|---|---|---|
+| 2026-11-01 | /best-glutathione-cream-in-india/ | best glutathione cream in India | Title "Best Glutathione Cream in India: Buyer's Checklist", new description; new sections on label names (L-/oxidised glutathione), cream vs serum vs face wash table, pack size/value, where to buy safely; 3 FAQs; linked from serum-vs-cream-vs-soap, reduced-vs-oxidised and tablets guides. |
+| 2026-11-01 | /glutathione-cream-price-in-india/ | glutathione cream price in India | Title drops "(2026)"; GlutaNex price in the first sentence; price per gram/per night, whole-routine budget, cream vs tablets vs injections cost, where to buy; 3 FAQs; linked from percentage, storage and 40s guides. |
+| 2026-11-01 | /glutathione-night-cream/ | glutathione night cream | Title/description; direct answer first; how often (retinol build-up), what not to layer, winter/summer, who should ask a doctor; 3 FAQs; linked from daily-use, salicylic acid and winter guides. |
+| 2026-11-01 | /glutathione-cream-for-men/ | glutathione cream for men | Title drops "Skin Brightening"; direct yes-answer first; 3-step routine table, beard area, bike/helmet tan, razor bumps; 3 FAQs (incl. correcting "make men fair"); linked from oily skin, summer tan and sunscreen guides. |
+| 2026-11-01 | /glutathione-face-wash/ | glutathione face wash | Title/description; how to pick one, foam vs cream cleanser table, face wash vs soap; 2 FAQs; linked from oily skin, sunscreen and dull skin guides. |

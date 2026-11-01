@@ -177,7 +177,8 @@ OCT20_A = [
 <p>If any week feels uncomfortable, repeat the previous week instead of moving forward. There is no prize for speed.</p>
 <h2>Using it daily in different seasons</h2><p>Many people in India find nightly use easy in humid months and harder in dry winter air or air-conditioned offices. It is fine to use the cream nightly from June to September and drop to every other night from December to February. In peak summer, daily sunscreen and reapplying outdoors matter even more because retinol and salicylic acid leave skin more sun-sensitive. See <a href="/glutathione-cream-with-sunscreen/">glutathione cream and sunscreen</a>.</p>
 <h2>What if I miss several nights?</h2><p>Missing a few nights does not undo your progress. Simply pick up where you left off. If you have been away from the cream for two weeks or more, for example while travelling or unwell, step back to every other night for a week before returning to nightly use. Skin can lose some of its tolerance to retinol after a long break, and restarting at full pace is a common reason for sudden dryness.</p><p>Travelling? A small amount of moisturiser and sunscreen matter more on the road than the night cream. Hotel air conditioning and long hours outdoors are hard on skin, so it is fine to keep the cream for home. When you are back, give your skin a night or two of plain moisturiser before restarting, especially after a beach holiday or a long flight.</p>
-<h2>A note on the face wash</h2><p>A gentle face wash such as %(wash)s can be used every day, morning and night. On mornings when your skin feels dry, plain water is enough before moisturiser and sunscreen.</p>''',
+<h2>A note on the face wash</h2><p>A gentle face wash such as %(wash)s can be used every day, morning and night. On mornings when your skin feels dry, plain water is enough before moisturiser and sunscreen.</p>
+<p>Choosing a cream for bedtime? Read our <a href="/glutathione-night-cream/">glutathione night cream</a> guide.</p>''',
          faq=[("Can I skip a night of glutathione cream?",
                "Yes. Skipping a night does no harm, and gap nights are part of building up with a retinol cream. Just keep the routine steady over weeks."),
               ("Is it okay to use glutathione cream every day for months?",
@@ -303,7 +304,8 @@ OCT20_A = [
 <li>Relying on SPF in makeup or moisturiser alone; you would need far too much of it to get the label protection.</li>
 <li>Skipping it on "indoor" days.</li>
 <li>Applying once at 8 am and spending the afternoon outside.</li>
-<li>Thinking darker skin does not need sunscreen. Brown skin still tans, and dark marks on brown skin are slower to fade.</li></ul>''',
+<li>Thinking darker skin does not need sunscreen. Brown skin still tans, and dark marks on brown skin are slower to fade.</li></ul>
+<p>In the morning, wash with a gentle <a href="/glutathione-face-wash/">glutathione face wash</a> before sunscreen. Men: see the <a href="/glutathione-cream-for-men/">glutathione cream for men</a> routine.</p>''',
          faq=[("Is SPF 30 enough for Indian skin?",
                "For everyday use, a broad-spectrum SPF 30 with PA+++ is enough if you apply the full amount and reapply when outdoors. For long hours in strong sun, choose SPF 50."),
               ("Do I need sunscreen at home?",

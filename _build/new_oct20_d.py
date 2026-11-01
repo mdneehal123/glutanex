@@ -112,7 +112,8 @@ OCT20_D = [
 <li>Can they share a batch number and expiry date for the pack you received?</li>
 <li>Do they avoid claims like whitening, permanent results or results in days?</li></ul>
 <p>A brand that answers these plainly is usually a better bet than one with an impressive percentage and vague answers.</p>
-<h2>Percentages in serums, soaps and face washes</h2><p>Serums often show a percentage because they are simpler formulas. Soaps and face washes stay on skin for under a minute before rinsing, so their glutathione percentage tells you little about results. Use a face wash such as %(wash)s for gentle cleansing, and rely on a leave-on cream for the active part of the routine. Compare formats: <a href="/glutathione-serum-vs-cream-vs-soap/">serum vs cream vs soap</a>.</p>''',
+<h2>Percentages in serums, soaps and face washes</h2><p>Serums often show a percentage because they are simpler formulas. Soaps and face washes stay on skin for under a minute before rinsing, so their glutathione percentage tells you little about results. Use a face wash such as %(wash)s for gentle cleansing, and rely on a leave-on cream for the active part of the routine. Compare formats: <a href="/glutathione-serum-vs-cream-vs-soap/">serum vs cream vs soap</a>.</p>
+<p>Since percentages are rarely printed, compare value another way: <a href="/glutathione-cream-price-in-india/">glutathione cream price in India and price per gram</a>.</p>''',
          faq=[("What percentage of glutathione is in GlutaNex Night Cream?",
                "GlutaNex does not publish ingredient percentages. The full ingredient list is on the product page and pack."),
               ("Is 2%% glutathione cream good?",
@@ -298,7 +299,8 @@ OCT20_D = [
 <li><b>Water</b> through the day, more in summer heat and air-conditioned offices.</li>
 <li><b>Fruit, vegetables and dal</b>, with amla, guava and citrus for vitamin C.</li>
 <li><b>Clean pillowcases and phone screens</b>, and washing your face after sweaty commutes.</li>
-<li><b>Seasonal tweaks:</b> lighter textures in monsoon, more moisturiser in winter (<a href="/glutathione-cream-in-winter/">winter routine</a>).</li></ul>''',
+<li><b>Seasonal tweaks:</b> lighter textures in monsoon, more moisturiser in winter (<a href="/glutathione-cream-in-winter/">winter routine</a>).</li></ul>
+<p>Dull skin often starts with harsh cleansing; a gentle <a href="/glutathione-face-wash/">glutathione face wash</a> used twice a day is enough.</p>''',
          faq=[("Which is better for dull skin, glutathione or vitamin C?",
                "They work well together. Both are antioxidants; glutathione is studied for melanin, and vitamin C adds a fresher look. Many creams, including GlutaNex Night Cream, contain both."),
               ("Can glutathione face wash fix dull skin?",

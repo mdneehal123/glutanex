@@ -87,10 +87,10 @@ PILLAR = dict(
 NEW_GUIDES = [
     dict(slug='glutathione-cream-price-in-india', title='Glutathione cream price in India: what you are paying for', short='Price in India',
          blurb='Why glutathione creams cost what they do, and how to judge value.',
-         seo='Glutathione Cream Price in India (2026): What Affects It',
-         desc='Glutathione cream price in India explained: what drives the price, how to compare value per gram, red flags with very cheap creams, and GlutaNex prices.',
+         seo='Glutathione Cream Price in India: What You Pay For',
+         desc='Glutathione cream price in India explained: what drives the cost, price per gram and per night, red flags with very cheap creams and GlutaNex prices with COD.',
          refs=['ijdvl', 'review'],
-         body='''<p>Glutathione creams in India range from a few hundred rupees to several thousand. The price depends less on the word "glutathione" on the label and more on <b>what else is in the formula, how much you get, and who stands behind it</b>.</p>
+         body='''<p>Glutathione creams in India range from a few hundred rupees to several thousand; the GlutaNex Glutathione Night Cream (30 g) is %(pcream)s with free shipping and Cash on Delivery. The price depends less on the word "glutathione" on the label and more on <b>what else is in the formula, how much you get, and who stands behind it</b>.</p>
 <h2>GlutaNex prices</h2>
 <div class="tbl"><table><thead><tr><th>Product</th><th>Price</th><th>MRP</th><th>Shipping</th></tr></thead><tbody>
 <tr><td>%(cream)s</td><td>%(pcream)s</td><td>%(mcream)s</td><td>Free</td></tr>
@@ -105,15 +105,22 @@ NEW_GUIDES = [
 <h2>Red flags with very cheap or "miracle" creams</h2>
 <ul><li>Promises like "fair in 7 days" or "permanent whitening".</li><li>No full ingredient list, or only "glutathione + herbal extracts".</li><li>No manufacturer address, licence or batch details.</li><li>A burning feeling followed by fast lightening: some illegal "fairness" creams contain steroids, hydroquinone or mercury, which can seriously damage skin.</li></ul>
 <h2>Is a more expensive glutathione cream always better?</h2>
-<p>No. Research on topical glutathione is still limited (%(review)s), so no price guarantees results. Pay for a sensible formula, honest labelling and a seller you can reach, then use it consistently with sunscreen.</p>''',
+<p>No. Research on topical glutathione is still limited (%(review)s), so no price guarantees results. Pay for a sensible formula, honest labelling and a seller you can reach, then use it consistently with sunscreen.</p>
+<h2>Price per gram and per night</h2><p>Divide the price by the grams to get the price per gram. Then think in nights: a pea-sized amount is used each night, so a 30 g jar usually lasts about 6 to 8 weeks. At %(pcream)s for 30 g, the GlutaNex Night Cream works out to roughly ₹83 per gram. If you start 2 to 3 nights a week, as advised for retinol creams, the first jar lasts longer.</p>
+<h2>Budget for the whole routine, not just the cream</h2><ul><li><b>Sunscreen:</b> the step that protects your results. Without it, new tan forms faster than any cream can help.</li><li><b>A gentle face wash</b> you already own is fine; you do not need a matching one.</li><li><b>Skip extra actives</b> at first. Buying several brightening products at once costs more and raises the risk of irritation.</li></ul><p>How to use it well: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>
+<h2>Cream vs tablets vs injections: the cost question</h2><p>A cream is the simplest, lowest-cost and lowest-risk way to use glutathione for skin. Tablets are supplements that should only be taken with a doctor's advice, and injections for skin lightening are not recommended at any price. Compare the three in <a href="/glutathione-cream-vs-tablets-vs-injections/">glutathione cream vs tablets vs injections</a>.</p>
+<h2>Where to buy at a sensible price</h2><p>Buy from the brand's website or its official marketplace store, check the seal, batch number and expiry date, and keep the invoice for returns. GlutaNex is also sold on Amazon and Flipkart. To check our packs, read <a href="/genuine-glutanex/">how to spot a genuine GlutaNex jar</a>, and to compare brands use the <a href="/best-glutathione-cream-in-india/">buying checklist</a>.</p>''',
          faq=[('What is the price of glutathione cream in India?', 'Glutathione creams range from a few hundred to several thousand rupees. GlutaNex Glutathione Night Cream is %(pcream)s with free shipping.'),
               ('Why are some glutathione creams so cheap?', 'They may contain very little glutathione, skip other useful ingredients, or in the worst cases contain banned substances. Check the full ingredient list and the seller details.'),
-              ('Can I order the Glow Duo now?', 'Not yet. The Glow Duo (Night Cream + Face Wash) is launching soon. The Night Cream is available now.')]),
+              ('Can I order the Glow Duo now?', 'Not yet. The Glow Duo (Night Cream + Face Wash) is launching soon. The Night Cream is available now.'),
+              ('How long does a 30 g glutathione cream last?', 'Used as a pea-sized amount each night, a 30 g jar usually lasts about 6 to 8 weeks, and longer if you start 2 to 3 nights a week.'),
+              ('Is an expensive glutathione cream worth it?', 'Only if the extra cost buys a fuller formula, protective packaging, honest labelling and a seller you can reach. Price alone does not decide results; regular use and sunscreen matter more.'),
+              ('Can I pay cash on delivery for GlutaNex cream?', 'Yes. Cash on Delivery is available across India with no COD fee, and shipping is free.')]),
 
     dict(slug='best-glutathione-cream-in-india', title='How to choose the best glutathione cream in India', short='Best glutathione cream',
          blurb='A simple checklist to judge any glutathione cream before you buy.',
-         seo='Best Glutathione Cream in India: How to Choose (Checklist)',
-         desc='Looking for the best glutathione cream in India? Use this checklist: key ingredients, safe concentrations, red flags, skin type advice and a simple routine.',
+         seo='Best Glutathione Cream in India: Buyer\'s Checklist',
+         desc='Best glutathione cream in India? Judge any cream with this checklist: ingredients, label wording, pack size, price per gram, red flags and safe places to buy.',
          refs=['study', 'review', 'ijdvl'],
          body='''<p>The "best" glutathione cream is the one that suits your skin, has an honest, sensible formula, and that you will use every night for at least two months. Rather than a paid ranking, here is a checklist you can apply to <b>any</b> glutathione cream, including ours.</p>
 <h2>The 7-point checklist</h2>
@@ -128,25 +135,44 @@ NEW_GUIDES = [
 <h2>How GlutaNex Night Cream measures up</h2>
 <p>%(cream)s pairs glutathione with niacinamide, vitamin C, hyaluronic acid, retinol, ceramides, salicylic acid, peptides, aloe vera, turmeric and neem. Because it contains retinol and salicylic acid, it is a <b>night cream</b>: start 2 to 3 nights a week and use sunscreen every morning. It is not suitable during pregnancy or breastfeeding unless your doctor approves.</p>
 <h2>What the evidence can and cannot tell you</h2>
-<p>The best-known topical study used a 2%% oxidised glutathione lotion for 10 weeks (%(study)s) and found a modest improvement in skin tone. A 2025 systematic review (%(review)s) called topical glutathione promising but under-studied. So be wary of any brand that claims clinical proof of dramatic results.</p>''',
+<p>The best-known topical study used a 2%% oxidised glutathione lotion for 10 weeks (%(study)s) and found a modest improvement in skin tone. A 2025 systematic review (%(review)s) called topical glutathione promising but under-studied. So be wary of any brand that claims clinical proof of dramatic results.</p>
+<h2>Reading the label: glutathione, L-glutathione or oxidised glutathione</h2><p>Labels in India use several names for the same family of ingredient. <b>Glutathione</b> and <b>L-glutathione</b> usually mean the reduced form your body makes. <b>Oxidised glutathione (GSSG)</b> is a more stable form that is often used in creams, and it was the form used in the best-known topical study. Neither name tells you how much is inside, and most brands, including GlutaNex, do not publish percentages. Read <a href="/reduced-vs-oxidized-glutathione/">reduced vs oxidised glutathione</a> for the detail.</p>
+<h2>Cream, serum, soap or face wash: which form to buy</h2><div class="tbl"><table><thead><tr><th>Form</th><th>Time on skin</th><th>Best for</th></tr></thead><tbody>
+<tr><td>Cream</td><td>Stays on overnight</td><td>The main step for tan and uneven-looking tone</td></tr>
+<tr><td>Serum</td><td>Stays on, under a moisturiser</td><td>People who already have a moisturiser they like</td></tr>
+<tr><td>Face wash or soap</td><td>Under a minute, then rinsed</td><td>Gentle cleansing before a leave-on product</td></tr>
+</tbody></table></div><p>If you buy only one product, make it a leave-on cream plus a sunscreen you will wear daily. More: <a href="/glutathione-serum-vs-cream-vs-soap/">glutathione serum vs cream vs soap</a>.</p>
+<h2>Pack size and value</h2><p>Jars range from small tubes to large tubs, so compare <b>price per gram</b>, not price per jar. A pea-sized amount each night means a 30 g jar usually lasts about 6 to 8 weeks, which is roughly how long you need before judging any cream. See <a href="/glutathione-cream-price-in-india/">glutathione cream price in India</a> for how to work it out.</p>
+<h2>Where to buy a glutathione cream safely</h2><ul><li><b>The brand's own website</b> or its official store on a marketplace, so returns and support are clear.</li><li><b>A sealed pack</b> with batch number, manufacturing and expiry dates, and the full ingredient list.</li><li><b>Avoid loose or unbranded creams</b> sold in salons, on social media or by the gram with no label: these are where hidden steroids and mercury turn up.</li><li><b>Check the seller name</b> on marketplace listings matches the brand or an authorised seller.</li></ul><p>For our own packs, see <a href="/genuine-glutanex/">how to check a genuine GlutaNex jar</a>.</p>''',
          faq=[('Which glutathione cream is best for Indian skin?', 'Choose one with glutathione clearly listed, supporting ingredients like niacinamide and hyaluronic acid, realistic claims and a seller you can contact. Use it nightly with daily sunscreen.'),
               ('Is a glutathione cream with niacinamide better?', 'Niacinamide is well studied for even-looking tone and the skin barrier, so it is a sensible partner for glutathione.'),
-              ('Can I use a glutathione cream in the day?', 'Some are for day use, but creams with retinol or exfoliating acids, such as the GlutaNex Night Cream, should be used at night.')]),
+              ('Can I use a glutathione cream in the day?', 'Some are for day use, but creams with retinol or exfoliating acids, such as the GlutaNex Night Cream, should be used at night.'),
+              ('Is oxidised glutathione better than L-glutathione in a cream?', 'Oxidised glutathione is more stable in a jar and was the form used in the best-known topical study, but no label name tells you the amount inside. Judge the whole formula, packaging and seller.'),
+              ('Is it safe to buy glutathione cream on Amazon or Flipkart?', 'It can be, if you buy from the brand or an authorised seller, get a sealed pack with batch and expiry dates, and avoid listings that promise whitening or fast results.'),
+              ('How long should I try a glutathione cream before switching?', 'Give one cream about 8 weeks of regular night use with daily sunscreen. Switching every few weeks makes it impossible to tell what works, and adds irritation risk.')]),
 
     dict(slug='glutathione-face-wash', title='Glutathione face wash: does it work and how to use it', short='Glutathione face wash',
          blurb='What a glutathione face wash can do, and how it fits your routine.',
-         seo='Glutathione Face Wash: Benefits, How to Use & What to Expect',
-         desc='Glutathione face wash explained: what it can and cannot do in a short contact time, how to use it, who it suits, and how to pair it with a glutathione cream.',
+         seo='Glutathione Face Wash: Benefits and How to Use It',
+         desc='Glutathione face wash: what it can and cannot do in under a minute, how often to use it, foam vs gel, face wash vs soap and how to pair it with a night cream.',
          refs=['review'],
          body='''<p>A glutathione face wash is a gentle cleanser that contains glutathione. Because a face wash is rinsed off within a minute, it is best thought of as the <b>first step of a glutathione routine</b>, not the whole treatment.</p>
 <h2>What a glutathione face wash can do</h2><ul><li><b>Clean without stripping</b>, removing oil, sweat, sunscreen and pollution.</li><li><b>Prepare the skin</b> so your night cream spreads evenly.</li><li>Leave skin feeling <b>fresh and soft</b>, especially with hydrating ingredients.</li></ul>
 <h2>What it cannot do on its own</h2><p>Ingredients in a wash have only a short time on the skin. The research on glutathione for skin tone used leave-on lotions applied for weeks (%(review)s). For visible change in tone, pair the face wash with a leave-on cream and daily sunscreen.</p>
 <h2>How to use a glutathione face wash</h2><ol><li>Wet your face with lukewarm water.</li><li>Lather a small amount between your palms.</li><li>Massage gently in circles for 30 to 60 seconds.</li><li>Rinse well and pat dry with a clean towel.</li><li>Use morning and night.</li></ol>
 <h2>The simple routine</h2><ul><li><b>Morning:</b> %(wash)s, then sunscreen.</li><li><b>Night:</b> %(wash)s, then %(cream)s.</li></ul><p>Or get both together in the <a href="%(uduo)s">Glow Duo</a>.</p>
-<h2>Who it suits</h2><p>Most skin types. If your skin is very dry or sensitive, use it once a day and patch test first.</p>''',
+<h2>Who it suits</h2><p>Most skin types. If your skin is very dry or sensitive, use it once a day and patch test first.</p>
+<h2>How to pick a good glutathione face wash</h2><ul><li><b>Skin feels clean, not tight</b> after rinsing. A squeaky feeling means it is too harsh.</li><li><b>No scrub beads</b> for daily use, especially if you also use a retinol or acid cream at night.</li><li><b>A full ingredient list</b> on the pack, with batch and expiry dates.</li><li><b>Honest claims.</b> "Fresh and clean" is honest; "whitening in 7 days" is not possible from a rinse-off product.</li></ul>
+<h2>Foam, gel or cream cleanser?</h2><div class="tbl"><table><thead><tr><th>Type</th><th>Feels like</th><th>Suits</th></tr></thead><tbody>
+<tr><td>Foaming gel</td><td>Light lather, fresh finish</td><td>Oily, combination and humid weather</td></tr>
+<tr><td>Cream cleanser</td><td>Little lather, soft finish</td><td>Dry skin, winter, AC rooms</td></tr>
+</tbody></table></div><p>In winter, oily-skin users can switch to once a day if skin feels tight.</p>
+<h2>Face wash or soap?</h2><p>Bar soaps are often more alkaline and can feel drying on the face. A face wash is usually gentler for daily use; keep soaps for the body. More: <a href="/glutathione-soap-benefits/">glutathione soap benefits</a> and <a href="/face-wash-vs-shower-gel/">face wash vs shower gel</a>.</p>''',
          faq=[('Does glutathione face wash lighten skin?', 'A face wash is rinsed off quickly, so on its own it mainly cleans and refreshes. For brighter-looking skin, pair it with a leave-on glutathione cream and daily sunscreen.'),
               ('Can I use glutathione face wash twice a day?', 'Yes, most people can use it morning and night. If your skin feels tight or dry, use it once a day.'),
-              ('Can men use a glutathione face wash?', 'Yes. It suits men and women.')]),
+              ('Can men use a glutathione face wash?', 'Yes. It suits men and women.'),
+              ('Can I use a glutathione face wash with a glutathione cream?', 'Yes. Wash first, pat dry, then apply the cream at night. In the morning, follow the wash with sunscreen.'),
+              ('How long should I keep a glutathione face wash on my face?', 'About 30 to 60 seconds of gentle massage is enough. Leaving it longer does not add brightening and can dry the skin.')]),
 
     dict(slug='is-glutathione-safe-for-skin', title='Is glutathione safe for skin?', short='Is it safe?',
          blurb='Creams, tablets and injections: what is safe and what is not.',
@@ -396,10 +422,10 @@ NEW_GUIDES += [
               ('Is glutathione gentler than retinol?', 'Generally yes. Retinol often causes dryness and peeling at first, while glutathione is usually well tolerated.')]),
     dict(slug='glutathione-night-cream', title='Glutathione night cream: how to choose and use one', short='Glutathione night cream',
          blurb='Why night is the best time for glutathione, what to look for, and options for oily and sensitive skin.',
-         seo='Glutathione Night Cream: Benefits, How to Choose & Use (2026)',
-         desc='Glutathione night cream guide: why use it at night, ingredients to look for, choosing for oily or sensitive skin, how to apply, and what results to expect.',
+         seo='Glutathione Night Cream: How to Choose and Use It',
+         desc='Glutathione night cream guide: why night is best, ingredients to look for, how often to apply, what not to layer, winter and summer tips, realistic results.',
          refs=['study', 'review'],
-         body='''<p>A <b>glutathione night cream</b> is a leave-on cream with glutathione designed for your evening routine. Night is a good time for brightening care: there is no sun exposure, and creams with retinol or exfoliating acids must be used at night anyway.</p>
+         body='''<p>A <b>glutathione night cream</b> is a leave-on cream with glutathione that you apply after cleansing at bedtime, then follow with sunscreen the next morning. Night is a good time for brightening care: there is no sun exposure, and creams with retinol or exfoliating acids must be used at night anyway.</p>
 <h2>Why use glutathione at night?</h2><ul><li>Skin repairs itself overnight, without sun and pollution.</li><li>Night creams can be richer and more nourishing.</li><li>Partners such as retinol and salicylic acid belong at night.</li></ul>
 <h2>What to look for</h2><div class="tbl"><table><thead><tr><th>Ingredient</th><th>Why it helps at night</th></tr></thead><tbody>
 <tr><td>Glutathione</td><td>Antioxidant for brighter, more even-looking tone</td></tr>
@@ -412,9 +438,16 @@ NEW_GUIDES += [
 <h2>Glutathione night cream for sensitive skin</h2><p>Patch test, start 2 to 3 nights a week, and avoid layering other actives. A soothing ingredient such as aloe vera helps. Stop if burning lasts.</p>
 <h2>How to apply</h2><ol><li>Cleanse with a gentle face wash such as %(wash)s and pat dry.</li><li>Use a pea-sized amount on face and neck, avoiding eyes and lips.</li><li>Sunscreen every morning.</li></ol>
 <h2>Results to expect</h2><p>Softer skin within days; a brighter, more even look over 4 to 8 weeks; tan and marks lighter over 8 to 12 weeks with daily sunscreen. The topical study used a 2%% glutathione lotion for 10 weeks (%(study)s).</p>
+<h2>How often to use it</h2><p>If your night cream has retinol or salicylic acid, as ours does, start <b>2 to 3 nights a week</b> for the first two weeks, then move to every other night and, if skin stays comfortable, every night. A plain glutathione cream without these can usually be used nightly from the start. More: <a href="/can-i-use-glutathione-cream-daily/">can I use glutathione cream daily?</a></p>
+<h2>What not to layer on the same night</h2><ul><li>Another retinol or retinoid product.</li><li>Strong exfoliating acids (glycolic, lactic or a second salicylic product) or scrubs.</li><li>Raw lemon, baking soda or toothpaste "hacks".</li></ul><p>A simple moisturiser on top is fine if your skin feels dry. See <a href="/glutathione-and-salicylic-acid/">glutathione and salicylic acid</a> and <a href="/retinol-vs-glutathione/">retinol vs glutathione</a>.</p>
+<h2>Winter and summer at night</h2><p>In dry North Indian winters or AC rooms, apply the cream on slightly damp skin and add a plain moisturiser if you feel tight. In humid summers and the monsoon, a thin layer is enough. Read <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a>.</p>
+<h2>Who should check with a doctor first</h2><p>If you are pregnant or breastfeeding, avoid retinol night creams unless your doctor says they are fine. If you use prescription creams for acne or pigmentation, ask before adding another active at night. Patchy brown pigment on both cheeks may be melasma, which needs a dermatologist.</p>
 <p>Our pick: %(cream)s (30 g), made for night use.</p>''',
          faq=[('Is glutathione cream better at night or in the day?', 'Night is usually best, especially if the cream contains retinol or acids. Use sunscreen every morning.'),
-              ('Which glutathione night cream is good for oily skin?', 'Look for a light texture with niacinamide or salicylic acid, applied as a thin layer.')]),
+              ('Which glutathione night cream is good for oily skin?', 'Look for a light texture with niacinamide or salicylic acid, applied as a thin layer.'),
+              ('Can I apply glutathione night cream every night?', 'If it contains retinol or salicylic acid, start 2 to 3 nights a week and build up slowly. A gentle formula without them can usually be used nightly.'),
+              ('Should I wash my face in the morning after a glutathione night cream?', 'Yes. Rinse or use a gentle face wash, then apply sunscreen. Sun protection is what keeps tan and marks from coming back.'),
+              ('Can I use moisturiser over a glutathione night cream?', 'Yes, if your skin feels dry. Apply the night cream first, wait a minute, then a plain, fragrance-free moisturiser.')]),
 ]
 
 # "People also ask" for the search "glutathione" (11 Oct 2026), placed at the top of the pillar page.
@@ -497,7 +530,8 @@ NEW_GUIDES.append(dict(slug='glutathione-tablets', title='Glutathione tablets: b
 <tr><td>Who decides</td><td>Best with medical advice</td><td>Most adults, after a patch test</td></tr>
 </tbody></table></div>
 <h2>Who should not take glutathione tablets without a doctor</h2><ul><li>Pregnant or breastfeeding women.</li><li>People with liver or kidney disease, asthma, or on chemotherapy or other regular medicines.</li><li>Children and teenagers.</li></ul>
-<h2>A simpler option for skin</h2><p>If your goal is brighter, more even-looking skin, a leave-on cream puts glutathione where you want it, with no pills to swallow. %(cream)s pairs glutathione with niacinamide, vitamin C and hyaluronic acid. Use it at night with sunscreen every morning.</p>''',
+<h2>A simpler option for skin</h2><p>If your goal is brighter, more even-looking skin, a leave-on cream puts glutathione where you want it, with no pills to swallow. %(cream)s pairs glutathione with niacinamide, vitamin C and hyaluronic acid. Use it at night with sunscreen every morning.</p>
+<p>If you settle on a cream instead, here is how to choose the <a href="/best-glutathione-cream-in-india/">best glutathione cream in India</a>.</p>''',
     faq=[]))
 QA_EXTRA['glutathione-tablets'] = [
     ('What are the benefits of glutathione tablets?',
@@ -651,16 +685,27 @@ NEW_GUIDES += [
 NEW_GUIDES += [
     dict(slug='glutathione-cream-for-men', title='Glutathione cream for men: does it work and how to use it', short='For men',
          blurb='Why men use glutathione cream, how to fit it around shaving, and what to expect.',
-         seo='Glutathione Cream for Men: Skin Brightening Cream Guide', desc='Glutathione cream for men: benefits for tan, dullness and oily skin, how to use it around shaving, a simple routine and realistic results.',
+         seo='Glutathione Cream for Men: Benefits and How to Use', desc='Glutathione cream for men: help with tan, dullness and oily skin, a 3-step routine around shaving, beard and helmet tips, and honest results for Indian men.',
          refs=['study'],
-         body='''<p>Glutathione cream works the same way for men as for women. Men often have oilier skin, more sun exposure from commuting and sport, and razor irritation, so a few adjustments help.</p>
+         body='''<p>Yes, men can use glutathione cream: it works the same way for men as for women, helping tan and dullness look lighter and more even over weeks when used at night with sunscreen every morning. Men often have oilier skin, more sun exposure from commuting and sport, and razor irritation, so a few adjustments help.</p>
 <h2>Why men use it</h2><ul><li>Tan from bikes, sport and outdoor work.</li><li>Dull, tired-looking skin.</li><li>Dark marks after pimples or ingrown hairs.</li></ul>
 <h2>A simple routine for men</h2><ol><li><b>Night:</b> wash with a gentle face wash such as %(wash)s, then a pea-sized amount of %(cream)s.</li><li><b>Morning:</b> wash and apply a light, non-greasy sunscreen.</li></ol>
 <h2>Around shaving</h2><p>Freshly shaved skin can sting. Shave in the morning and apply the night cream at night, or wait a few hours after shaving. Skip the cream on any nicks. The full routine is in <a href="/glutathione-cream-after-shaving/">glutathione cream after shaving</a>.</p>
 <h2>Winter and wedding season</h2><ul><li><b>Dry, tight skin after shaving:</b> cold air and hot showers make razor sting worse in November and December. Use lukewarm water, a fragrance-free moisturiser after shaving, and use the night cream every other night if you see flaking. See <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a>.</li><li><b>Beard area:</b> apply only on the skin you can reach easily, in a thin layer; do not rub cream deep into a thick beard.</li><li><b>Groom or a big function soon?</b> Start 8–12 weeks before if you can, shave the night before rather than on the morning, and do not try anything new in the final two weeks. Plan in <a href="/glutathione-before-wedding/">glutathione before your wedding</a>.</li><li><b>Bike commute in fog and smog:</b> wash your face once when you get home and keep sunscreen on by day, even when it is overcast.</li></ul>
-<h2>What to expect</h2><p>Softer skin within days; a brighter, more even look over 4 to 8 weeks; tan lighter over 8 to 12 weeks with daily sunscreen.</p>''',
+<h2>What to expect</h2><p>Softer skin within days; a brighter, more even look over 4 to 8 weeks; tan lighter over 8 to 12 weeks with daily sunscreen.</p>
+<h2>The 3-step routine at a glance</h2><div class="tbl"><table><thead><tr><th>When</th><th>Step</th><th>Tip for men</th></tr></thead><tbody>
+<tr><td>Morning</td><td>Face wash, then sunscreen</td><td>A gel or matte sunscreen suits oily skin and beards</td></tr>
+<tr><td>After shaving</td><td>Plain, soothing moisturiser</td><td>Keep the night cream for bedtime</td></tr>
+<tr><td>Night</td><td>Face wash, then a pea-sized amount of glutathione cream</td><td>Start 2 to 3 nights a week if it has retinol</td></tr>
+</tbody></table></div>
+<h2>Beard, stubble and moustache areas</h2><p>Use a thin layer on the cheeks and jaw where skin shows; you do not need to work cream deep into a full beard. Keep it off the lips and away from the eyes. If you get itchy or red skin under the beard, stop and use only a plain moisturiser for a few days.</p>
+<h2>Bike, helmet and outdoor work</h2><p>Indian men often get the darkest tan on the forehead, nose and cheeks from riding or working outdoors. Sunscreen every morning, reapplied if you are out for hours, does more for this than any cream. See <a href="/glutathione-cream-for-summer-tan/">glutathione cream for summer tan</a>.</p>
+<h2>Razor bumps and ingrown hairs</h2><p>Dark marks left by ingrown hairs can look lighter over 8 to 12 weeks with a night cream and sunscreen. Painful, pus-filled or keloid-like bumps need a dermatologist. Detailed shaving timing: <a href="/glutathione-cream-after-shaving/">glutathione cream after shaving</a>.</p>
+<p>Oily skin? Read <a href="/glutathione-for-oily-skin/">glutathione for oily skin</a>. It does not change natural skin colour, for men or women.</p>''',
          faq=[('Can men use glutathione cream?', 'Yes. It works the same for men; use it at night and sunscreen every morning.'), ('Can I use glutathione cream after shaving?', 'Wait until the skin has settled, ideally apply at night if you shave in the morning, and avoid nicks.'),
-              ('Can men use glutathione cream with a beard?', 'Yes, on the visible skin of the cheeks, forehead and nose, in a thin layer at night. There is no need to work it into a thick beard; a pea-sized amount for the whole face is enough.')]),
+              ('Can men use glutathione cream with a beard?', 'Yes, on the visible skin of the cheeks, forehead and nose, in a thin layer at night. There is no need to work it into a thick beard; a pea-sized amount for the whole face is enough.'),
+              ('Is there a separate glutathione cream for men?', 'Not really. Men and women have the same skin biology; what matters is texture. Oily skin does better with a thin layer of a light cream and a matte sunscreen.'),
+              ('Does glutathione cream make men fair?', 'No. It can help tan and dark marks look lighter over weeks with daily sunscreen, but it does not change natural skin colour.')]),
     dict(slug='glutathione-for-acne-marks', title='Glutathione for acne marks: does it help?', short='Acne marks',
          blurb='What causes dark marks after pimples, how glutathione fits in, and how long they take to fade.',
          seo='Glutathione for Acne Marks & Pimple Spots: Does It Help?', desc='Does glutathione help acne marks? What causes dark spots after pimples, how glutathione, niacinamide and sunscreen help, and when to see a dermatologist.',
@@ -679,7 +724,8 @@ NEW_GUIDES += [
 <h2>What to look for</h2><ul><li>A light cream or gel-cream texture.</li><li><b>Niacinamide</b> for shine and pores.</li><li><b>Salicylic acid</b> to keep pores clear.</li><li>Hyaluronic acid for oil-free hydration.</li></ul>
 <h2>How to use</h2><ol><li>Cleanse with a gentle face wash, such as %(wash)s, morning and night.</li><li>Apply a thin layer of glutathione cream at night.</li><li>Use a light, matte sunscreen every morning.</li></ol>
 <h2>Mistakes to avoid</h2><ul><li>Washing more than twice a day or scrubbing hard, which triggers more oil.</li><li>Skipping moisturiser: dehydrated skin can look oilier.</li><li>Layering many actives at once.</li></ul>
-<h2>Oily skin in winter</h2><p>Oily skin often turns combination in November and December: the T-zone still shines while the cheeks feel tight, especially in heated rooms and after hot showers. Keep the thin layer of night cream, but add a light gel moisturiser on the cheeks only, and use a retinol and salicylic acid cream such as %(cream)s every other night if you see dry patches. Do not switch to a heavy cold cream on the whole face, which can clog pores. More in <a href="/glutathione-cream-for-combination-skin/">glutathione cream for combination skin</a> and <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a>.</p>''',
+<h2>Oily skin in winter</h2><p>Oily skin often turns combination in November and December: the T-zone still shines while the cheeks feel tight, especially in heated rooms and after hot showers. Keep the thin layer of night cream, but add a light gel moisturiser on the cheeks only, and use a retinol and salicylic acid cream such as %(cream)s every other night if you see dry patches. Do not switch to a heavy cold cream on the whole face, which can clog pores. More in <a href="/glutathione-cream-for-combination-skin/">glutathione cream for combination skin</a> and <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a>.</p>
+<p>Men with oily skin can follow our <a href="/glutathione-cream-for-men/">glutathione cream for men</a> routine, and start with a gentle <a href="/glutathione-face-wash/">glutathione face wash</a>.</p>''',
          faq=[('Is glutathione good for oily skin?', 'Yes, in a light, non-greasy formula, ideally with niacinamide or salicylic acid.'), ('Will glutathione cream make my face oily?', 'A thin layer of a light formula should not. Apply at night and use a matte sunscreen in the morning.'),
               ('Does oily skin need moisturiser in winter?', 'Yes. Cold air and heaters can dehydrate even oily skin, which then looks shinier and feels tight at the same time. A light gel moisturiser on drier areas is usually enough.')]),
     dict(slug='glutathione-cream-for-summer-tan', title='Glutathione cream for summer tan: a simple routine', short='Summer tan',
@@ -691,7 +737,8 @@ NEW_GUIDES += [
 <h2>Night: care</h2><p>Cleanse with %(wash)s, then apply %(cream)s. On sunburnt or peeling skin, pause actives and use a plain moisturiser until it calms.</p>
 <h2>How long tan takes to fade</h2><p>Usually a few weeks once you protect your skin consistently; deep tan from months outdoors can take longer.</p>
 <h2>Avoid</h2><p>Lemon juice, baking soda, harsh scrubs and bleach creams: they irritate skin and can leave it patchy.</p>
-<h2>Winter holidays: beach and hill trips</h2><p>Tan is not only a summer problem. Christmas and New Year trips to Goa and other beaches, or to the hills and snow, can tan skin quickly: water, sand and snow reflect sunlight, and the sun is stronger at altitude even when the air is cold. Pack your sunscreen, reapply every 2 to 3 hours outdoors, and wear a cap and sunglasses. If your skin gets wind-burnt, red or peels, pause the night cream and use a plain moisturiser until it settles. Back home, continue the routine above; see also <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a> and <a href="/glutathione-for-dark-spots-and-tan/">dark spots and tan</a>.</p>''',
+<h2>Winter holidays: beach and hill trips</h2><p>Tan is not only a summer problem. Christmas and New Year trips to Goa and other beaches, or to the hills and snow, can tan skin quickly: water, sand and snow reflect sunlight, and the sun is stronger at altitude even when the air is cold. Pack your sunscreen, reapply every 2 to 3 hours outdoors, and wear a cap and sunglasses. If your skin gets wind-burnt, red or peels, pause the night cream and use a plain moisturiser until it settles. Back home, continue the routine above; see also <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a> and <a href="/glutathione-for-dark-spots-and-tan/">dark spots and tan</a>.</p>
+<p>Riding a bike or working outdoors? See <a href="/glutathione-cream-for-men/">glutathione cream for men</a>.</p>''',
          faq=[('Can you get tanned in winter?', 'Yes. UVA rays, which drive tan, stay strong through Indian winters, and beaches, snow and high altitude add reflected or stronger sun. Use SPF 30+ sunscreen every morning and reapply outdoors.'),
               ('How can I remove summer tan fast?', 'Protect your skin daily with SPF 30+ sunscreen and reapply outdoors; a glutathione night cream can help tan look lighter within a few weeks.'), ('Can I use glutathione cream on sunburnt skin?', 'Wait until sunburn has healed; use a plain, soothing moisturiser meanwhile.')]),
     dict(slug='glutathione-in-pregnancy', title='Is glutathione safe in pregnancy?', short='Pregnancy',
@@ -934,7 +981,8 @@ NEW_GUIDES += [
 <tr><td>Room heaters and blowers</td><td>Heated rooms dry the air fast. Do not sit facing the heater, keep a moisturiser by the bed, and add it over the night cream on heater nights. More in <a href="/glutathione-cream-for-dry-skin/">glutathione cream for dry skin</a>.</td></tr>
 <tr><td>Wedding season (late November to February)</td><td>If your own wedding or a big function is coming, plan backwards: 8–12 weeks of steady use, and nothing new in the final two weeks. See <a href="/glutathione-before-wedding/">glutathione before your wedding</a>.</td></tr>
 <tr><td>Christmas and New Year trips to the hills</td><td>Cold wind and high-altitude sun are harsh together. Pack sunscreen and a thicker moisturiser, reapply sunscreen outdoors, and pause retinol if your cheeks get wind-burnt or chapped.</td></tr>
-<tr><td>Chapped lips and dry hands</td><td>Use a lip balm and a hand cream. The night cream is not for lips; see <a href="/glutathione-for-dark-lips/">dark lips</a> and <a href="/glutathione-for-hands-and-feet/">hands and feet</a>.</td></tr></tbody></table></div>''',
+<tr><td>Chapped lips and dry hands</td><td>Use a lip balm and a hand cream. The night cream is not for lips; see <a href="/glutathione-for-dark-lips/">dark lips</a> and <a href="/glutathione-for-hands-and-feet/">hands and feet</a>.</td></tr></tbody></table></div>
+<p>New to night creams? See <a href="/glutathione-night-cream/">glutathione night cream: how to choose and use one</a>.</p>''',
          faq=[('Is glutathione cream drying?', 'Glutathione itself is not drying, but creams that also contain retinol or salicylic acid, like the GlutaNex Night Cream, can feel drying in cold weather. Use it every other night and add a moisturiser.'),
               ('Should I apply moisturiser before or after glutathione cream?', 'Apply the glutathione cream first on clean, dry skin, wait about a minute, then apply your moisturiser on top.'),
               ('Why does my retinol night cream peel more in winter?', 'Cold outside air and heated rooms both hold less moisture, so skin loses water faster and retinol or salicylic acid can feel stronger. Use it every other night, apply it on fully dry skin, and add a plain moisturiser on top.'),
@@ -1098,7 +1146,8 @@ NEW_GUIDES += [
 <tr><td>Body lotion</td><td>Leave-on</td><td>Arms, legs</td><td>Moisture; modest tone care</td></tr></tbody></table></div>
 <h2>What the research used</h2><p>The best-known study used a leave-on 2%% glutathione lotion twice daily for 10 weeks (%(study)s). A 2025 review found studies of leave-on glutathione promising but small (%(review)s). There is little evidence for soaps.</p>
 <h2>A simple routine</h2><ol><li>Night: cleanse with a gentle face wash such as %(wash)s.</li><li>Apply one leave-on glutathione product (a cream like %(cream)s, or a serum).</li><li>Morning: sunscreen SPF 30 or higher.</li></ol><p>Using several glutathione products at once does not speed results and adds irritation risk.</p>
-<h2>Red flags in any format</h2><p>Promises to whiten in days, no ingredient list, or no seller details.</p>''',
+<h2>Red flags in any format</h2><p>Promises to whiten in days, no ingredient list, or no seller details.</p>
+<p>Ready to compare products? Use our checklist for the <a href="/best-glutathione-cream-in-india/">best glutathione cream in India</a>.</p>''',
          faq=[('Can I use glutathione serum and cream together?', 'You can, but it is rarely needed. One leave-on product used consistently, with sunscreen, is simpler and gentler.'),
               ('Is glutathione face wash enough on its own?', 'It cleans and refreshes, but for a brighter, more even look you need a leave-on product and daily sunscreen.')]),
 ]
@@ -1248,7 +1297,8 @@ NEW_GUIDES += [
 <tr><td>Skin studies</td><td>250 mg tablets, 12 weeks (%(wesch)s)</td><td>2%% lotion, 10 weeks (%(study)s); 250 mg tablets (%(wesch)s)</td></tr></tbody></table></div>
 <h2>What the studies used</h2><p>The 10-week lotion study used oxidised glutathione and found a lower melanin index than placebo (%(study)s). A 12-week tablet study compared both forms; both trended towards lower melanin, and the reduced form also showed some wrinkle improvement (%(wesch)s). A 2025 review found no strong reason to prefer one form in creams (%(review)s).</p>
 <h2>What matters more than the form</h2><ul><li><b>Packaging:</b> an airtight, opaque jar or tube protects glutathione from air and light. Close the lid after use.</li><li><b>The whole formula:</b> partners like niacinamide and vitamin C do much of the work.</li><li><b>Regular use and sunscreen:</b> they decide results more than GSH vs GSSG.</li><li><b>A faint sulphur smell</b> is normal for glutathione products.</li></ul>
-<h2>On labels</h2><p>You may see "glutathione", "reduced glutathione", "L-glutathione" or "oxidised/oxidized glutathione". All are the same molecule family; check the full ingredient list and honest claims.</p>''',
+<h2>On labels</h2><p>You may see "glutathione", "reduced glutathione", "L-glutathione" or "oxidised/oxidized glutathione". All are the same molecule family; check the full ingredient list and honest claims.</p>
+<p>Label names are only one part of choosing; see how to pick the <a href="/best-glutathione-cream-in-india/">best glutathione cream in India</a>.</p>''',
          faq=[('What is L-glutathione?', 'L-glutathione is simply the natural form of glutathione, the one the body makes. Most products labelled glutathione contain the L form.'),
               ('Why does my glutathione cream smell?', 'Glutathione contains sulphur, so a faint smell is normal. A strong change in smell, colour or texture after opening means the product may have gone off.')]),
 
