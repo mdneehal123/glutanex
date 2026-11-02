@@ -120,9 +120,14 @@
   "pub": "2026-10-11"
  },
  "/glutathione-cream-after-shaving/": {
-  "h": "a61a7ce5294c678b",
-  "mod": "2026-11-01",
+  "h": "e7f4c04bfcb2ebe4",
+  "mod": "2026-11-02",
   "pub": "2026-11-01"
+ },
+ "/glutathione-cream-after-waxing-threading/": {
+  "h": "66fa93c14220e1bd",
+  "mod": "2026-11-02",
+  "pub": "2026-11-02"
  },
  "/glutathione-cream-and-moisturizer/": {
   "h": "52bb37974f059bdf",
@@ -235,8 +240,8 @@
   "pub": "2026-10-31"
  },
  "/glutathione-cream-with-honey/": {
-  "h": "d1cb38969eb35b0e",
-  "mod": "2026-11-01",
+  "h": "eebc07a87b9a08b4",
+  "mod": "2026-11-02",
   "pub": "2026-11-01"
  },
  "/glutathione-cream-with-lemon/": {
@@ -350,8 +355,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "f3e2025cfb6be759",
-  "mod": "2026-11-01",
+  "h": "693e3e9b1b459b4d",
+  "mod": "2026-11-02",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
@@ -628,6 +633,11 @@
   "h": "035121425a20e551",
   "mod": "2026-10-25",
   "pub": "2026-10-14"
+ },
+ "/makeup-after-glutathione-cream/": {
+  "h": "cc40e792c89baae9",
+  "mod": "2026-11-02",
+  "pub": "2026-11-02"
  },
  "/mr/glutathione-cream/": {
   "h": "5461516d9881b768",
