@@ -24,6 +24,10 @@
 | 2026-11-03 | glutathione cream with curd (dahi) | /glutathione-cream-with-curd/ | Results were foreign K-beauty/shop listings plus generic 'curd for face' articles with no answer; dahi is a common home mask; explains curd as a mild lactic-acid step, separate nights from retinol cream, mixes table, no fairness claims |
 | 2026-11-03 | vita glow night cream vs glutanex | /vita-glow-night-cream-vs-glutanex/ | Owner request: competitor comparison for brand-search traffic; only facts from public listings (IndiaMART), no safety claims about the other brand, general regulator warning on unlabelled whitening creams, price per gram, label checklist |
 | 2026-11-03 | rayglow cream vs glutanex | /rayglow-cream-vs-glutanex/ | Owner request: competitor comparison; ingredients from rayglow.in and Apollo Pharmacy listing, AHA vs retinol + BHA explained, skin-type fit table, no fairness claims |
+| 2026-11-03 | night cream for glowing skin | /night-cream-for-glowing-skin/ | Owner request: night cream cluster. Results are big-brand listicles; honest buyer's guide by ingredient and skin type, how to apply, claims to ignore; feeds /glutathione-night-cream/ |
+| 2026-11-03 | night cream for pigmentation | /night-cream-for-pigmentation/ | Results were product pages only; pigmentation-type table, ingredients, routine, mistakes, timeline, when to see a dermatologist |
+| 2026-11-03 | night cream vs day cream | /night-cream-vs-day-cream/ | Common comparison question; differences table, swap table, Indian-weather routine, why retinol/acids stay at night |
+| 2026-11-03 | retinol night cream for beginners | /retinol-night-cream-for-beginners/ | Night Cream contains retinol; week-by-week start plan, purging vs irritation, what not to mix, who should avoid retinol |
 
 ## Freshness
 Monthly freshness updater. Do not refresh the same page again within 3 months of the date shown.

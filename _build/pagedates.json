@@ -365,7 +365,7 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "67ba33bb4fd5562b",
+  "h": "dbcbeef0c6438a1f",
   "mod": "2026-11-03",
   "pub": "2026-10-11"
  },
@@ -375,8 +375,8 @@
   "pub": "2026-10-11"
  },
  "/glutathione-night-cream/": {
-  "h": "5aaa70fa2bbc51ec",
-  "mod": "2026-11-01",
+  "h": "bc708b66f32f6cdd",
+  "mod": "2026-11-03",
   "pub": "2026-10-11"
  },
  "/glutathione-rich-foods/": {
@@ -654,6 +654,21 @@
   "mod": "2026-10-25",
   "pub": "2026-10-11"
  },
+ "/night-cream-for-glowing-skin/": {
+  "h": "a21d5b3ae198e398",
+  "mod": "2026-11-03",
+  "pub": "2026-11-03"
+ },
+ "/night-cream-for-pigmentation/": {
+  "h": "b150b77ae5bfecfa",
+  "mod": "2026-11-03",
+  "pub": "2026-11-03"
+ },
+ "/night-cream-vs-day-cream/": {
+  "h": "ea24e4ca5dbf5783",
+  "mod": "2026-11-03",
+  "pub": "2026-11-03"
+ },
  "/our-standards/": {
   "h": "9191bd4a6e2fdd0e",
   "mod": "2026-10-12",
@@ -700,7 +715,7 @@
   "pub": "2026-10-24"
  },
  "/rayglow-cream-vs-glutanex/": {
-  "h": "3f08cd76cc8a7a69",
+  "h": "a9570103c7912f40",
   "mod": "2026-11-03",
   "pub": "2026-11-03"
  },
@@ -713,6 +728,11 @@
   "h": "2446e1672ddc9c30",
   "mod": "2026-10-12",
   "pub": "2026-10-11"
+ },
+ "/retinol-night-cream-for-beginners/": {
+  "h": "5ee5fd46f4f13a16",
+  "mod": "2026-11-03",
+  "pub": "2026-11-03"
  },
  "/retinol-vs-glutathione/": {
   "h": "7b745aafea42839f",
@@ -765,7 +785,7 @@
   "pub": "2026-10-11"
  },
  "/vita-glow-night-cream-vs-glutanex/": {
-  "h": "9d326927167d051b",
+  "h": "7cb5c6aa3e5b42d5",
   "mod": "2026-11-03",
   "pub": "2026-11-03"
  },
