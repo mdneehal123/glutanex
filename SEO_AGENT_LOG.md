@@ -22,6 +22,8 @@
 | 2026-11-02 | can I apply makeup after glutathione cream | /makeup-after-glutathione-cream/ | Results were foreign shop product pages (K-beauty, UK/EU stores) with no real answer; honest night-only answer for GlutaNex (retinol), day makeup routine, removal before cream, party/wedding nights |
 | 2026-11-03 | glutathione cream with besan | /glutathione-cream-with-besan/ | Results were only foreign glutathione-cream listings, pharmacy pages and spam; besan packs/ubtan are routine in India in wedding season; wash-off pack then cream, rest-night plan for retinol + salicylic acid, add-ins table, no fairness claims |
 | 2026-11-03 | glutathione cream with curd (dahi) | /glutathione-cream-with-curd/ | Results were foreign K-beauty/shop listings plus generic 'curd for face' articles with no answer; dahi is a common home mask; explains curd as a mild lactic-acid step, separate nights from retinol cream, mixes table, no fairness claims |
+| 2026-11-03 | vita glow night cream vs glutanex | /vita-glow-night-cream-vs-glutanex/ | Owner request: competitor comparison for brand-search traffic; only facts from public listings (IndiaMART), no safety claims about the other brand, general regulator warning on unlabelled whitening creams, price per gram, label checklist |
+| 2026-11-03 | rayglow cream vs glutanex | /rayglow-cream-vs-glutanex/ | Owner request: competitor comparison; ingredients from rayglow.in and Apollo Pharmacy listing, AHA vs retinol + BHA explained, skin-type fit table, no fairness claims |
 
 ## Freshness
 Monthly freshness updater. Do not refresh the same page again within 3 months of the date shown.
