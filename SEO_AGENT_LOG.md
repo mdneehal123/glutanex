@@ -20,6 +20,8 @@
 | 2026-11-01 | glutathione cream after shaving | /glutathione-cream-after-shaving/ | Results were foreign shaving-cream shops, forum spam and a men's lightening-cream listing; real question for men using a retinol + salicylic acid night cream; shave-timing table, razor-burn rules, razor bumps → dermatologist, no fairness claims. |
 | 2026-11-02 | glutathione cream after waxing or threading | /glutathione-cream-after-waxing-threading/ | Results were only beauty forums, salon booking/aftercare forms and a govt PDF; no clear answer for a retinol + salicylic night cream; parlour visits are routine in India; wait times table, upper-lip care, no promises |
 | 2026-11-02 | can I apply makeup after glutathione cream | /makeup-after-glutathione-cream/ | Results were foreign shop product pages (K-beauty, UK/EU stores) with no real answer; honest night-only answer for GlutaNex (retinol), day makeup routine, removal before cream, party/wedding nights |
+| 2026-11-03 | glutathione cream with besan | /glutathione-cream-with-besan/ | Results were only foreign glutathione-cream listings, pharmacy pages and spam; besan packs/ubtan are routine in India in wedding season; wash-off pack then cream, rest-night plan for retinol + salicylic acid, add-ins table, no fairness claims |
+| 2026-11-03 | glutathione cream with curd (dahi) | /glutathione-cream-with-curd/ | Results were foreign K-beauty/shop listings plus generic 'curd for face' articles with no answer; dahi is a common home mask; explains curd as a mild lactic-acid step, separate nights from retinol cream, mixes table, no fairness claims |
 
 ## Freshness
 Monthly freshness updater. Do not refresh the same page again within 3 months of the date shown.
