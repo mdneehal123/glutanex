@@ -1,4 +1,4 @@
-const { BRAND, keys, cartFrom, customer, orderRef } = require('./_shared');
+const { BRAND, keys, cartFrom, customer, orderRef, onlineOff } = require('./_shared');
 const coupons = require('./_coupons');
 const guard = require('./_guard');
 
@@ -22,7 +22,8 @@ module.exports = async (req, res) => {
     if (!v.ok) return res.status(400).json({ error: 'coupon', reason: v.reason, message: coupons.REASONS[v.reason] || 'This code cannot be used.' });
     off = v.off; code = v.code;
   }
-  const payable = cart.total - off;
+  const save = onlineOff(cart.total - off); // saving for paying online
+  const payable = cart.total - off - save;
   const ref = orderRef(body.ref);
   try {
     const r = await fetch('https://api.razorpay.com/v1/orders', {
@@ -33,14 +34,14 @@ module.exports = async (req, res) => {
         notes: {
           brand: BRAND, ref, product: BRAND + ': ' + cart.label.slice(0, 200), items: cart.code, total: String(cart.total),
           name: c.name, phone: c.phone, address: c.address, city: c.city, pincode: c.pin,
-          payment: 'Paid in full online' + (off ? ' (code ' + code + ' -Rs ' + off + ')' : ''),
-          coupon: code, coupon_off: String(off)
+          payment: 'Paid in full online' + (off ? ' (code ' + code + ' -Rs ' + off + ')' : '') + (save ? ' (online -Rs ' + save + ')' : ''),
+          coupon: code, coupon_off: String(off), online_off: String(save)
         }
       })
     });
     const data = await r.json();
     if (!r.ok || !data.id) return res.status(502).json({ error: 'gateway_error' });
-    return res.status(200).json({ order_id: data.id, amount: data.amount, currency: data.currency, key_id: k.id, total: payable, off, ref });
+    return res.status(200).json({ order_id: data.id, amount: data.amount, currency: data.currency, key_id: k.id, total: payable, off, save, ref });
   } catch (e) {
     return res.status(502).json({ error: 'gateway_unreachable' });
   }

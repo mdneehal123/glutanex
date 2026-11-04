@@ -37,8 +37,8 @@ module.exports = async (req, res) => {
     return res.status(200).json({ ok: true, savedToDesk: false });
   }
   const confirmed = !!p;
-  const charged = confirmed ? p.amount / 100 : args.cart.total - args.off;
-  const priced = args.cart.total - args.off; // server price (cart from the fixed price table, minus the reward code)
+  const charged = confirmed ? p.amount / 100 : args.cart.total - args.off - args.onlineOff;
+  const priced = args.cart.total - args.off - args.onlineOff; // server price (fixed price table, minus the reward code and the online saving)
   const warn = [];
   if (!confirmed) warn.push('⚠ could not confirm the payment with Razorpay: check the dashboard before shipping');
   if (confirmed && p.amount !== priced * 100) warn.push('⚠ amount ₹' + charged + ' differs from the price ₹' + priced);
@@ -51,9 +51,9 @@ module.exports = async (req, res) => {
     { name: String(args.name || ''), phone: String(args.phone || ''), address: String(args.address || ''), city: String(args.city || ''), pin: String(args.pincode || ''), state: '' };
   const ref = args.ref || ('GX' + orderId.replace(/^order_/, '').toUpperCase()).slice(0, 20);
   const desk = await pushToDesk({
-    ref, c, lines: args.cart.lines, sub: args.cart.total, disc: args.off, coupon: args.coupon, total: charged,
+    ref, c, lines: args.cart.lines, sub: args.cart.total, disc: args.off + args.onlineOff, coupon: args.coupon, total: charged,
     pay: 'upi', paid: confirmed, payId: paymentId,
-    note: ['Paid online via Razorpay' + (confirmed && p.method ? ' (' + p.method + ')' : '') + ' ' + paymentId + ' · ' + orderId].concat(args.coupon ? ['reward code ' + args.coupon + ' −₹' + args.off] : [], warn).join(' · ')
+    note: ['Paid online via Razorpay' + (confirmed && p.method ? ' (' + p.method + ')' : '') + ' ' + paymentId + ' · ' + orderId].concat(args.coupon ? ['reward code ' + args.coupon + ' −₹' + args.off] : [], args.onlineOff ? ['online payment −₹' + args.onlineOff] : [], warn).join(' · ')
   });
   if (!desk.ok) console.error('order desk push failed', ref, orderId, desk.error);
   return res.status(200).json({ ok: true, ref, savedToDesk: desk.ok });

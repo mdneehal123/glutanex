@@ -74,7 +74,7 @@ async function apply(k, o, off, how, addonOrderId, addonPaymentId) {
   } catch (e) {
     console.error('addon hand-off failed', e && e.message);
   }
-  return { ok: true, item: off.item, name: off.name, total: off.after.total - Math.floor(Number(n.coupon_off || 0)), collect: args ? args.collect : 0, shipping };
+  return { ok: true, item: off.item, name: off.name, total: off.after.total - Math.floor(Number(n.coupon_off || 0)) - Math.floor(Number(n.online_off || 0)), collect: args ? args.collect : 0, shipping };
 }
 
 module.exports = async (req, res) => {

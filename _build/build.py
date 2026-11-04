@@ -719,10 +719,11 @@ checkout = top('Secure checkout', 'Checkout') + '''<div class="wrap co" id="chec
     <div class="step" data-step="3"><h2>How would you like to pay?</h2>
       <div class="review" id="co-review"></div>
       <fieldset class="pay"><legend class="muted" style="font-size:.82rem;margin-bottom:6px">Choose one</legend>
-        <label><em class="rec">Recommended</em><input type="radio" name="pay" value="online" checked><span>Pay online<small>UPI, cards, netbanking · nothing to pay at the door</small></span><b id="amt-online"></b></label>
+        <label><em class="rec">Recommended</em><input type="radio" name="pay" value="online" checked><span>Pay online<small><b id="online-save"></b>UPI, cards, netbanking · nothing to pay at the door</small></span><b id="amt-online"></b></label>
         <label><input type="radio" name="pay" value="cod"><span>Cash on Delivery<small id="cod-note">Nothing to pay now · pay in cash when it arrives</small></span><b id="amt-cod"></b></label>
         <label><input type="radio" name="pay" value="wa"><span>Order on WhatsApp<small>Send your order, we confirm on chat</small></span><b id="amt-wa"></b></label>
       </fieldset>
+      <div class="notyet" id="cod-nudge" hidden><p><b id="cod-nudge-h"></b><span id="cod-nudge-t"></span></p><button type="button" class="btn" id="cod-nudge-go">Pay online instead</button></div>
       <p class="muted" id="cod-terms" style="font-size:.82rem" hidden>Delivered by Delhivery. Please keep the exact amount ready; there is no Cash on Delivery fee. You get a Delhivery tracking number as soon as the order is placed.</p>
       <div class="notyet" id="not-yet" hidden><p><b>Your order isn't placed yet.</b> The payment window closed before it finished. Your details are saved.</p><button type="button" class="btn" id="ny-retry">Try payment again</button><button type="button" class="btn ghost" id="ny-switch">Switch to Cash on Delivery</button></div>
       <p class="oerr" id="co-err" role="alert" hidden></p>
