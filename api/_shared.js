@@ -109,9 +109,14 @@ function shipArgs(o) {
   const legacyCod = n.mode === 'advance';
   const extra = Math.max(0, Math.floor(Number(n.extra_paid || 0))); // after-payment add-on paid online
   const off = Math.max(0, Math.floor(Number(n.coupon_off || 0))); // reward code discount
+  const onlineOff = Math.max(0, Math.floor(Number(n.online_off || 0))); // saving for paying online
   const paidOnline = Math.max(0, Math.floor(Number(o.amount_paid || o.amount || 0) / 100));
-  return { id: o.id, ref: n.ref || '', cart, name: n.name, phone: n.phone, address: n.address, city: n.city, pincode: n.pincode, off, coupon: n.coupon || '',
-    cod: legacyCod, collect: legacyCod ? Math.max(0, cart.total - off - paidOnline - extra) : 0, paid: legacyCod ? null : cart.total - off };
+  return { id: o.id, ref: n.ref || '', cart, name: n.name, phone: n.phone, address: n.address, city: n.city, pincode: n.pincode, off, onlineOff, coupon: n.coupon || '',
+    cod: legacyCod, collect: legacyCod ? Math.max(0, cart.total - off - paidOnline - extra) : 0, paid: legacyCod ? null : cart.total - off - onlineOff };
 }
 
-module.exports = { PRODUCTS, BRAND, DESK_BRAND, DESK_ID, REF_PREFIX, keys, clean, cartFrom, shipArgs, orderRef, parcel, stateFor, customer };
+// Saving for paying online (₹ off the order, after any reward code). Cash on Delivery pays the full price.
+const ONLINE_OFF = 50;
+const onlineOff = (amount) => Math.max(0, Math.min(ONLINE_OFF, amount - 1));
+
+module.exports = { ONLINE_OFF, onlineOff, PRODUCTS, BRAND, DESK_BRAND, DESK_ID, REF_PREFIX, keys, clean, cartFrom, shipArgs, orderRef, parcel, stateFor, customer };

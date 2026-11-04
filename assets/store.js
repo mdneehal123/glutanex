@@ -191,7 +191,7 @@
     var F={name:$('co-name'),phone:$('co-phone'),address:$('co-address'),pin:$('co-pin'),city:$('co-city')};
     var btn=$('co-pay'),err=$('co-err'),busy=false,lastMode='online',step=1,stage=$('stage3d'),steps=[].slice.call(document.querySelectorAll('.step')),nav=[].slice.call(document.querySelectorAll('#steps-nav span'));
     var saved=load(DETAILS,null);if(saved){Object.keys(F).forEach(function(k){if(typeof saved[k]==='string'){F[k].value=saved[k].slice(0,300);}});}
-    var online=true,codOn=true,pinNoCod='';
+    var online=true,codOn=true,pinNoCod='',ONLINE_OFF=50; /* ₹ off for paying online: keep the same as ONLINE_OFF in api/_shared.js */
     /* one order number per checkout (GX + 8 digits): a retry of the same order is never booked twice */
     var REF='';function ref(){if(!REF){var a=new Uint32Array(1);try{crypto.getRandomValues(a);}catch(e){a[0]=Math.floor(Math.random()*1e9);}REF='GX'+String(a[0]%1e8+1e8).slice(1);}return REF;}
     var leadsOn=false;
@@ -243,15 +243,22 @@
       t.lines.forEach(function(x){box.appendChild(lineNode(x,true,render));});btn.disabled=false;
       if(cpn&&t.total<399){cpn=null;cpnMsg('Codes work on orders of ₹399 or more.','bad');}
       var off=cpn?Math.min(cpn.pct?Math.floor(t.total*cpn.pct/100):cpn.off,t.total-199):0,pay=t.total-off;
-      var m=mode();$('amt-online').textContent=$('amt-cod').textContent=$('amt-wa').textContent=rs(pay);
+      var m=mode(),save=online?Math.max(0,Math.min(ONLINE_OFF,pay-1)):0,payOn=pay-save;
+      $('amt-online').textContent=rs(payOn);$('amt-cod').textContent=$('amt-wa').textContent=rs(pay);
+      $('online-save').textContent=save?'Save '+rs(save)+' · ':'';
       $('cod-terms').hidden=m!=='cod';
+      /* Cash on Delivery chosen: suggest paying online, with the exact saving */
+      $('cod-nudge').hidden=!(m==='cod'&&save>0);
+      if(save){$('cod-nudge-h').textContent='Save '+rs(save)+' by paying online.';$('cod-nudge-t').textContent=' Pay '+rs(payOn)+' instead of '+rs(pay)+' by UPI, card or netbanking, with nothing to pay at the door.';}
       var rows=[['MRP',rs(t.mrp)],['You save','− '+rs(t.mrp-t.total),'save'],['Shipping','Free']];if(off){rows.push(['Reward code '+cpn.code,'− '+rs(off),'save']);}
+      if(m==='online'&&save){rows.push(['Online payment','− '+rs(save),'save']);pay=payOn;}
       if(m==='cod'){rows.push(['Pay now','₹0']);rows.push(['Pay at delivery',rs(pay),'total']);}else{rows.push([m==='wa'?'Order total':'You pay',rs(pay),'total']);}
       sumRows($('co-sum'),rows);
       if(!busy){btn.textContent=m==='online'?'Pay '+rs(pay)+' securely':m==='cod'?'Place order · '+rs(pay)+' on delivery':'Send on WhatsApp';}
       if(step===3){fit();setTimeout(fit,60);}
     }
     [].slice.call(document.querySelectorAll('input[name=pay]')).forEach(function(r){r.addEventListener('change',render);});
+    $('cod-nudge-go').addEventListener('click',function(){var on=document.querySelector('input[name=pay][value=online]');if(!on.disabled){on.checked=true;render();}});
     render();setTimeout(fit,60);
     var pend=load(PENDING,null);if(pend&&Date.now()-pend.at<3*864e5&&lines().length&&!check(1)&&!check(2)){go(3);}
     var pinSeen='',cityAuto='';
