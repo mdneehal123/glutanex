@@ -256,12 +256,15 @@
     var pend=load(PENDING,null);if(pend&&Date.now()-pend.at<3*864e5&&lines().length&&!check(1)&&!check(2)){go(3);}
     var pinSeen='',cityAuto='';
     function pinLookup(){var pin=F.pin.value.trim();if(!/^[1-9]\d{5}$/.test(pin)){$('pin-note').hidden=true;pinSeen='';return;}if(pin===pinSeen){return;}pinSeen=pin;
-      fetch('/api/pincode?pin='+pin).then(function(r){return r.ok?r.json():null;}).then(function(d){if(!d||!d.ok||F.pin.value.trim()!==pin){return;}
+      /* Cash on Delivery only when Delhivery allows it for this pincode; a failed check also turns it off. Online payment is never affected. */
+      var NO_COD='Cash on Delivery is not available for this pincode. Please pay online.';
+      fetch('/api/pincode?pin='+pin).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}).then(function(d){if(F.pin.value.trim()!==pin){return;}
+        if(!d||!d.ok){pinNoCod=pin;payOpt('cod',false);render();$('pin-note').textContent=NO_COD;$('pin-note').hidden=false;fit();return;}
         if(d.city&&(!F.city.value.trim()||F.city.value===cityAuto)){F.city.value=d.city;cityAuto=d.city;}
         var parts=[[d.city,d.state].filter(Boolean).join(', ')];
         if(d.days){var by=new Date();by.setDate(by.getDate()+2+d.days);parts.push('delivery by '+by.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'}));}
-        if(d.cod===false){parts.push('Cash on Delivery not available here');pinNoCod=pin;payOpt('cod',false);render();}else if(pinNoCod&&codOn){pinNoCod='';payOpt('cod',true);render();}
-        $('pin-note').textContent=parts.filter(Boolean).join(' · ');$('pin-note').hidden=false;fit();}).catch(function(){});}
+        if(d.cod!==true){parts.push(NO_COD);pinNoCod=pin;payOpt('cod',false);render();}else if(pinNoCod&&codOn){pinNoCod='';payOpt('cod',true);render();}
+        $('pin-note').textContent=parts.filter(Boolean).join(' · ');$('pin-note').hidden=false;fit();});}
     F.pin.addEventListener('input',pinLookup);pinLookup();
     function loadRzp(done,fail){if(window.Razorpay){done();return;}var s=document.createElement('script');s.src='https://checkout.razorpay.com/v1/checkout.js';s.onload=done;s.onerror=fail;document.head.appendChild(s);}
     function stop(text){busy=false;render();if(text){err.textContent=text;err.hidden=false;fit();}}
@@ -275,7 +278,7 @@
       .then(function(x){var j=x.j;btn.disabled=false;
         if(x.s===200&&j.ok){finishOrder({kind:'cod',res:j});return;}
         if(j.error==='coupon'){codeFail(j);return;}
-        if(j.codUnavailable){pinNoCod=F.pin.value.trim();payOpt('cod',false);stop(j.message||'Cash on Delivery is not available for this pincode. Please pay online.');return;}
+        if(j.codUnavailable){pinNoCod=F.pin.value.trim();payOpt('cod',false);stop('Cash on Delivery is not available for this pincode. Please pay online.');return;}
         if(x.s===429){stop('Too many tries from this number. Please wait a while, pay online, or order on WhatsApp.');return;}
         stop('We could not place the Cash on Delivery order right now. Please try again, pay online, or order on WhatsApp.');})
       .catch(function(){btn.disabled=false;stop('Could not reach our server. Check your connection and try again, or order on WhatsApp.');});
