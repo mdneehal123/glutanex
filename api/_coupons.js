@@ -10,7 +10,7 @@ const MIN_ORDER = 399;
 const MAX_OFF = 500;
 // Launch waitlist: 10% off for 7 days from launch day. The code is issued when someone joins, but only works from launchAt.
 // TO LAUNCH: set launchAt to the launch moment, e.g. '2026-11-01T00:00:00+05:30', in the same change that makes the new products orderable.
-const WL = { pct: 10, days: 7, launchAt: null, maxOff: 1000 };
+const WL = { pct: 10, days: 7, launchAt: '2026-11-05T17:00:00+05:30', maxOff: 1000 }; // launched 5 Nov 2026: codes work until 12 Nov 2026, 5 pm
 
 function norm(code) { return String(code || '').toUpperCase().replace(/[^A-Z0-9]/g, '').replace(/^GNX/, ''); }
 function fmt(raw) { return 'GNX-' + raw; }
