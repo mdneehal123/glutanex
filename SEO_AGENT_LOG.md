@@ -54,3 +54,10 @@ Monthly freshness updater. Do not refresh the same page again within 3 months of
 | 2026-11-01 | /glutathione-night-cream/ | glutathione night cream | Title/description; direct answer first; how often (retinol build-up), what not to layer, winter/summer, who should ask a doctor; 3 FAQs; linked from daily-use, salicylic acid and winter guides. |
 | 2026-11-01 | /glutathione-cream-for-men/ | glutathione cream for men | Title drops "Skin Brightening"; direct yes-answer first; 3-step routine table, beard area, bike/helmet tan, razor bumps; 3 FAQs (incl. correcting "make men fair"); linked from oily skin, summer tan and sunscreen guides. |
 | 2026-11-01 | /glutathione-face-wash/ | glutathione face wash | Title/description; how to pick one, foam vs cream cleanser table, face wash vs soap; 2 FAQs; linked from oily skin, sunscreen and dull skin guides. |
+
+## 2026-11-05: SEO plan implementation (all products live)
+- Product pages: new search titles, meta descriptions and extra FAQs for Face Wash, Shower Gel (now also "Body Wash"), Glow Duo and the three new combos.
+- Guides: mid-article product card now matches the topic (body guides show the Shower Gel, face-wash and oily-skin guides show the Face Wash, wedding, festival and gift guides show the Glow Trio).
+- New guides: /glutathione-wedding-skincare-kit/, /skincare-gift-sets-india/, /body-tan-removal-routine/, /dark-knees-and-elbows/, /glutathione-face-wash-for-oily-skin/, /skin-care-before-and-after-holi/.
+- Trust: "GlutaNex at a glance" facts table on /about/; brand facts page lists all 3 products and combos; new /review/ page that collects real reviews on WhatsApp (no star ratings or review schema until real reviews exist).
+- Removed the ₹1 test product and /sample-test/ page.

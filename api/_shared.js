@@ -7,9 +7,7 @@ const PRODUCTS = {
   gel: { name: 'GlutaNex Aqua Fresh Shower Gel 100ml', sku: 'GNX-GEL-100', price: 399, mrp: 499, kg: 0.14 },
   washgel: { name: 'GlutaNex Face Wash + Shower Gel Combo', sku: 'GNX-WASHGEL', price: 699, mrp: 1098, kg: 0.28 },
   creamgel: { name: 'GlutaNex Night Cream + Shower Gel Combo', sku: 'GNX-CREAMGEL', price: 2699, mrp: 3499, kg: 0.26 },
-  trio: { name: 'GlutaNex Glow Trio: Night Cream + Face Wash + Shower Gel', sku: 'GNX-TRIO', price: 2999, mrp: 4098, kg: 0.4 },
-  // TEMPORARY ₹1 test item for checking online payments (page /sample-test/). Remove after testing.
-  sample: { name: 'GlutaNex Test Sample (Rs 1)', sku: 'GNX-TEST', price: 1, mrp: 1, kg: 0.05 }
+  trio: { name: 'GlutaNex Glow Trio: Night Cream + Face Wash + Shower Gel', sku: 'GNX-TRIO', price: 2999, mrp: 4098, kg: 0.4 }
 };
 const BRAND = 'GlutaNex';
 const MAX_QTY = 10;

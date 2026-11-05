@@ -89,15 +89,17 @@ GUIDES = [
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
 exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
 # 20 Oct 2026 batch: new guides (English), Hindi and Hinglish pages, each in its own file
-for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py']:
+for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py']:
     if os.path.exists(os.path.join(B, _f)):
         exec(open(os.path.join(B, _f), encoding='utf-8').read())
-NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', []) + globals().get('OCT31', []) + globals().get('NOV01', []) + globals().get('NOV02', []) + globals().get('NOV03', []) + globals().get('CMP_NOV03', []) + globals().get('NIGHT_NOV03', []) + globals().get('KW_NOV04', []) + globals().get('NOV05', [])
+NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', []) + globals().get('OCT31', []) + globals().get('NOV01', []) + globals().get('NOV02', []) + globals().get('NOV03', []) + globals().get('CMP_NOV03', []) + globals().get('NIGHT_NOV03', []) + globals().get('KW_NOV04', []) + globals().get('NOV05', []) + globals().get('PLAN05', [])
 HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', [])
 HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, gel='<a href="/product/glutanex-aqua-fresh-shower-gel/">GlutaNex Aqua Fresh Shower Gel</a>', uduo=url(BYID['duo']),
          pcream=rs(BYID['cream']['price']), mcream=rs(BYID['cream']['mrp']), pwash=rs(BYID['wash']['price']), mwash=rs(BYID['wash']['mrp']),
-         pduo=rs(BYID['duo']['price']), mduo=rs(BYID['duo']['mrp']))
+         pduo=rs(BYID['duo']['price']), mduo=rs(BYID['duo']['mrp']),
+         trio='<a href="%s">GlutaNex Glow Trio</a>' % url(BYID['trio']), ptrio=rs(BYID['trio']['price']),
+         pwashgel=rs(BYID['washgel']['price']), uduolink='<a href="%s">Glow Duo</a>' % url(BYID['duo']))
 for g in GUIDES:
     ex = EXPAND.get(g['slug'])
     g.setdefault('refs', ['study', 'fda'] if '%(fda)s' in g['body'] else ['study'])
@@ -145,15 +147,37 @@ def with_toc(body, label='On this page'):
     return toc + body
 
 
-NO_CARD = {'glutathione-in-pregnancy', 'glutathione-vs-hydroquinone', 'glutathione-for-underarms-and-body', 'glutathione-for-dark-circles'}
+NO_CARD = {'glutathione-in-pregnancy', 'glutathione-vs-hydroquinone', 'glutathione-for-dark-circles'}
+# Which product the mid-article card shows: matched on the guide's slug first, then on how often its text mentions each topic.
+CARD_RULES = [
+    ('trio', ('wedding', 'shaadi', 'bride', 'groom', 'gift', 'diwali', 'festival', 'valentine', 'holi', 'karwa', 'bhai-dooj', 'christmas', 'new-year')),
+    ('gel', ('body', 'underarm', 'shower', 'bath', 'back-acne', 'knees', 'elbows', 'neck', 'hard-water', 'soap')),
+    ('wash', ('face-wash', 'cleanser', 'cleansing', 'oily', 'acne', 'pimple', 'pollution', 'smog', 'sweat', 'gym', 'shaving', 'double-cleans')),
+]
+CARD_COPY = {
+    'cream': ('Try it: GlutaNex Night Cream', 'Glutathione + niacinamide + vitamin C · 30 g'),
+    'wash': ('Try it: GlutaNex Gluta Boost Face Wash', 'Glutathione + copper peptide · foaming gel · 100 ml'),
+    'gel': ('Try it: GlutaNex Aqua Fresh Body Wash', 'Glutathione + hyaluronic acid + aloe · 100 ml'),
+    'trio': ('The full set: GlutaNex Glow Trio', 'Night Cream + Face Wash + Body Wash · a ready gift'),
+}
+def card_product(slug, body):
+    for pid, words in CARD_RULES:
+        if any(w in slug for w in words):
+            return pid
+    low = re.sub(r'<[^>]+>', ' ', body).lower()
+    hits = {pid: sum(low.count(w.replace('-', ' ')) for w in words) for pid, words in CARD_RULES}
+    pid = max(hits, key=hits.get)
+    return pid if hits[pid] >= 6 else 'cream'
 def mid_card(slug, body):
     if slug in NO_CARD:
         return body
     idx = [m.start() for m in re.finditer(r'<h2 ', body)]
     if len(idx) < 4:
         return body
-    card = ('<aside class="midcard"><img src="%s" alt="GlutaNex Glutathione Night Cream 30 g" width="80" height="80" loading="lazy"><div><b>Try it: GlutaNex Night Cream</b>'
-            '<span>Glutathione + niacinamide + vitamin C · 30 g · %s · free shipping · COD</span></div><a class="btn sm" href="%s">View</a></aside>') % (im('cream-square'), rs(BYID['cream']['price']), url(BYID['cream']))
+    pid = card_product(slug, body)
+    p = BYID[pid]; head, line = CARD_COPY[pid]
+    card = ('<aside class="midcard"><img src="%s" alt="%s" width="80" height="80" loading="lazy"><div><b>%s</b>'
+            '<span>%s · %s · free shipping · COD</span></div><a class="btn sm" href="%s">View</a></aside>') % (im(p['imgs'][0]), html.escape(p['name']), head, line, rs(p['price']), url(p))
     k = idx[len(idx) // 2]
     return body[:k] + card + body[k:]
 
@@ -313,19 +337,48 @@ for r in REG:
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': r['code'], 'about': GSH_THING}, faq_ld(r['faq'])])
 
 # ---------------- Information pages ----------------
+_ab_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [('Company', OWNER), ('Based in', 'Bhatkal, Karnataka, India'),
+    ('Products', '3 products and 4 combos, from ' + rs(min(x['price'] for x in PRODUCTS))), ('Shipping', 'Free across India, Cash on Delivery available'),
+    ('Dispatch', 'Packed in 1 to 2 business days, delivered in 3 to 7'), ('Returns', 'Sealed products within 7 days of delivery'),
+    ('Support', 'WhatsApp %s, Monday to Saturday, 10 am to 7 pm' % WA_SHOW)])
 page('/about/', 'About GlutaNex | Glutathione Skincare', 'About GlutaNex: glutathione skincare for a simple night routine, sold and shipped by %s.' % OWNER,
-     top('About', 'About <span class="gold">GlutaNex</span>', 'Glutathione skincare for a simple, consistent night routine.') + '''<section style="padding-top:24px"><div class="wrap prose">
+     top('About', 'About <span class="gold">GlutaNex</span>', 'Glutathione skincare for a simple, consistent night routine.') + ('''<section style="padding-top:24px"><div class="wrap prose">
 <p>GlutaNex makes glutathione skincare for people who want a short routine they can keep: a gentle face wash and a night cream, with sunscreen in the morning.</p>
 <h2>What we believe</h2><ul><li><b>Honest claims.</b> Glutathione works gradually and does not change your natural skin colour. We say so.</li><li><b>Clear information.</b> Full ingredient lists, clear prices, no hidden charges.</li><li><b>Safety first.</b> We recommend creams, not injections, and we explain why.</li></ul>
 <h2>Who we are</h2><p>GlutaNex products on this website are sold and shipped by %s, %s. You can reach us on WhatsApp at %s. See the official <a href="/glutanex/">GlutaNex brand facts</a>.</p>
-<p style="margin-top:24px"><a class="btn" href="/shop/">Shop GlutaNex</a></p></div></section>''' % (OWNER, ADDR, WA_SHOW), crumbs=[('About', '/about/')])
+<h2>GlutaNex at a glance</h2><div class="tbl"><table class="facts"><tbody>@@FACTS@@</tbody></table></div>
+<p>Bought from us? <a href="/review/">Share your review</a>.</p>
+<p style="margin-top:24px"><a class="btn" href="/shop/">Shop GlutaNex</a></p></div></section>''' % (OWNER, ADDR, WA_SHOW)).replace('@@FACTS@@', _ab_rows), crumbs=[('About', '/about/')])
+
+# review page: collects real customer reviews on WhatsApp (no star ratings or review schema until real reviews exist)
+_rv_opts = ''.join('<option>%s</option>' % html.escape(x['name']) for x in PRODUCTS)
+page('/review/', 'Review Your GlutaNex Order | Share Your Experience', 'Bought GlutaNex? Share an honest review of your Night Cream, Face Wash, Shower Gel or combo on WhatsApp. It takes one minute.',
+     top('Reviews', 'Share your <span class="gold">GlutaNex</span> review', 'Honest reviews help other customers choose. It takes one minute.') + """<section style="padding-top:24px"><div class="wrap prose">
+<p>Tell us how your GlutaNex product worked for you, good or bad. We read every review. With your permission, we may share it on this website, shown with your first name and city only.</p>
+<form id="rvForm" class="rv-form" onsubmit="return false" style="display:grid;gap:12px;max-width:520px">
+<label>Product<select id="rvP" required>%s</select></label>
+<label>Your rating<select id="rvR"><option>5 - Excellent</option><option>4 - Good</option><option>3 - Okay</option><option>2 - Not great</option><option>1 - Poor</option></select></label>
+<label>How long have you used it?<select id="rvT"><option>Less than 2 weeks</option><option>2 to 4 weeks</option><option>1 to 2 months</option><option>More than 2 months</option></select></label>
+<label>Your review<textarea id="rvX" rows="5" required placeholder="What did you like? What could be better? Your skin type helps too."></textarea></label>
+<label>First name and city<input id="rvN" placeholder="e.g. Priya, Mangaluru"></label>
+<label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="rvOk" style="width:auto;margin-top:4px"> GlutaNex may show my review on its website with my first name and city.</label>
+<button class="btn" id="rvGo" type="button">Send review on WhatsApp</button>
+</form>
+<p class="muted" style="font-size:.9rem">Photos are welcome: attach them in WhatsApp after the message opens. Please do not include your phone number or address in the review.</p>
+<h2>Our review policy</h2><ul><li>We show reviews from real customers only, with their permission.</li><li>We do not edit what you say, apart from removing personal details.</li><li>We do not pay for reviews or offer discounts in exchange for a good rating.</li><li>Results vary from person to person, and we show mixed reviews too.</li></ul>
+<p>Problem with an order? Message us at %s or see <a href="/refund-policy/">returns and refunds</a>.</p>
+</div></section>
+<script>document.getElementById('rvGo').addEventListener('click',function(){var g=function(i){return document.getElementById(i).value.trim()};var x=g('rvX');if(x.length<10){document.getElementById('rvX').focus();return}
+var m='GlutaNex review\\nProduct: '+g('rvP')+'\\nRating: '+g('rvR')+'\\nUsed for: '+g('rvT')+'\\nReview: '+x+'\\nName and city: '+(g('rvN')||'-')+'\\nOK to show on website: '+(document.getElementById('rvOk').checked?'Yes':'No');
+window.open('https://wa.me/%s?text='+encodeURIComponent(m),'_blank','noopener')});</script>""" % (_rv_opts, WA_SHOW, WA),
+     crumbs=[('Reviews', '/review/')])
 
 # brand facts page: the page for searches of the brand name itself, so search engines and AI tools get one clear, official answer
 _BRAND_FAQ = [('Is GlutaNex an Indian brand?', 'Yes. GlutaNex is an Indian skincare brand from %s, based in Bhatkal, Karnataka.' % OWNER),
               ('What is the official GlutaNex website?', 'The official website is glutanex.co.in. GlutaNex is also sold on Amazon, Flipkart and Myntra, and the official listings are linked on this page.'),
-              ('What products does GlutaNex make?', 'GlutaNex makes a Glutathione Night Cream (30 g), a Gluta Boost Face Wash (100 ml) and the Glow Duo, which combines both.'),
+              ('What products does GlutaNex make?', 'GlutaNex makes a Glutathione Night Cream (30 g), a Gluta Boost Face Wash (100 ml) and an Aqua Fresh Shower Gel (100 ml), plus combos: the Glow Duo (cream and face wash), Face Wash + Shower Gel, Night Cream + Shower Gel and the Glow Trio (all three).'),
               ('How do I know my GlutaNex product is genuine?', 'Buy from glutanex.co.in or the official marketplace listings linked on this page, check that the pack is sealed and the name reads GlutaNex, and send us a photo on WhatsApp if you are unsure.'),
-              ('Does GlutaNex sell glutathione injections or tablets?', 'No. GlutaNex makes only skincare you apply to the skin: a Night Cream and a Face Wash. Glutanex glutathione injections and tablets from Korea, sometimes sold online in India, are made by other companies and are not GlutaNex products.'),
+              ('Does GlutaNex sell glutathione injections or tablets?', 'No. GlutaNex makes only skincare you apply to the skin: a Night Cream, a Face Wash and a Shower Gel. Glutanex glutathione injections and tablets from Korea, sometimes sold online in India, are made by other companies and are not GlutaNex products.'),
               ('Is GlutaNex the same as the Korean brand Glutanex?', 'GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. GlutaNex is an Indian brand. "Glutanex" products from Korea, including glutathione injections, tablets and skincare sold online in India, are made by other companies and are not connected with GlutaNex India.')]
 _bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
     ('Brand', 'GlutaNex'), ('Company', OWNER), ('Based in', 'Bhatkal, Uttara Kannada, Karnataka, India'),
@@ -337,7 +390,7 @@ _bp_mkts = ''.join('<li><a href="%s" target="_blank" rel="noopener">GlutaNex on 
 page('/glutanex/', 'GlutaNex: Official Brand Information | Glutathione Skincare India',
      'Official facts about GlutaNex, the Indian glutathione skincare brand: who makes it, products and prices, official site and marketplaces, and how to buy genuine.',
      top('Brand facts', '<span class="gold">GlutaNex</span>: official brand information', 'Who we are, what we make and where to buy genuine GlutaNex.') + """<section style="padding-top:24px"><div class="wrap prose">
-<p class="answer"><b>GlutaNex</b> is an Indian glutathione skincare brand from %s, Bhatkal, Karnataka. It makes a Glutathione Night Cream and a Gluta Boost Face Wash, sold on its official website glutanex.co.in and on Amazon, Flipkart and Myntra.</p>
+<p class="answer"><b>GlutaNex</b> is an Indian glutathione skincare brand from %s, Bhatkal, Karnataka. It makes a Glutathione Night Cream, a Gluta Boost Face Wash and an Aqua Fresh Shower Gel, sold on its official website glutanex.co.in and on Amazon, Flipkart and Myntra.</p>
 <h2>GlutaNex at a glance</h2><div class="tbl"><table class="facts"><tbody>%s</tbody></table></div>
 <h2>Where to buy genuine GlutaNex</h2><ul><li><a href="/shop/">glutanex.co.in</a>: free shipping and Cash on Delivery across India</li>%s</ul>
 <h2>How to check your product is genuine</h2><ul><li>Buy from this website or the official listings above.</li><li>The pack should be sealed, and the name should read <b>GlutaNex</b>.</li><li>Not sure? Send a photo of the pack to us on WhatsApp at %s and we will check it.</li></ul>
