@@ -28,6 +28,8 @@
 | 2026-11-03 | night cream for pigmentation | /night-cream-for-pigmentation/ | Results were product pages only; pigmentation-type table, ingredients, routine, mistakes, timeline, when to see a dermatologist |
 | 2026-11-03 | night cream vs day cream | /night-cream-vs-day-cream/ | Common comparison question; differences table, swap table, Indian-weather routine, why retinol/acids stay at night |
 | 2026-11-03 | retinol night cream for beginners | /retinol-night-cream-for-beginners/ | Night Cream contains retinol; week-by-week start plan, purging vs irritation, what not to mix, who should avoid retinol |
+| 2026-11-05 | glutathione cream for dark forehead | /glutathione-cream-for-dark-forehead/ | Results were only pharmacy/marketplace cream listings with no explanation; very common Indian concern; cause table (sun, helmet/cap, hair oil, friction, acne marks, hair-dye reaction, melasma), night routine, doctor flags, no fairness promise |
+| 2026-11-05 | glutathione cream for pollution / smog | /glutathione-cream-for-pollution/ | Results were supplement listings and thin brand blogs; smog season in north India (Nov–Feb); antioxidant role stated honestly, gentle evening routine, skin-type table, over-washing mistakes; distinct from winter page (links to it) |
 
 ## Freshness
 Monthly freshness updater. Do not refresh the same page again within 3 months of the date shown.
