@@ -1,9 +1,13 @@
 // GlutaNex store: prices are fixed here, on the server, so the amount charged cannot be changed from the browser.
-// Prices confirmed 11 Oct 2026. They must match _build/build.py.
+// Prices confirmed 11 Oct 2026 (Night Cream, Face Wash, Glow Duo) and 5 Nov 2026 (Shower Gel and combos). They must match _build/build.py.
 const PRODUCTS = {
   cream: { name: 'GlutaNex Glutathione Night Cream 30g', sku: 'GNX-CREAM', price: 2499, mrp: 3000, kg: 0.12 },
-  wash: { name: 'GlutaNex Gluta Boost Face Wash 100ml', sku: 'GNX-WASH-100', price: 399, mrp: 599, kg: 0.14, soon: true },
-  duo: { name: 'GlutaNex Glow Duo: Night Cream + Face Wash', sku: 'GNX-DUOx2', price: 2699, mrp: 3599, kg: 0.26, soon: true },
+  wash: { name: 'GlutaNex Gluta Boost Face Wash 100ml', sku: 'GNX-WASH-100', price: 399, mrp: 599, kg: 0.14 },
+  duo: { name: 'GlutaNex Glow Duo: Night Cream + Face Wash', sku: 'GNX-DUOx2', price: 2699, mrp: 3599, kg: 0.26 },
+  gel: { name: 'GlutaNex Aqua Fresh Shower Gel 100ml', sku: 'GNX-GEL-100', price: 399, mrp: 499, kg: 0.14 },
+  washgel: { name: 'GlutaNex Face Wash + Shower Gel Combo', sku: 'GNX-WASHGEL', price: 699, mrp: 1098, kg: 0.28 },
+  creamgel: { name: 'GlutaNex Night Cream + Shower Gel Combo', sku: 'GNX-CREAMGEL', price: 2699, mrp: 3499, kg: 0.26 },
+  trio: { name: 'GlutaNex Glow Trio: Night Cream + Face Wash + Shower Gel', sku: 'GNX-TRIO', price: 2999, mrp: 4098, kg: 0.4 },
   // TEMPORARY ₹1 test item for checking online payments (page /sample-test/). Remove after testing.
   sample: { name: 'GlutaNex Test Sample (Rs 1)', sku: 'GNX-TEST', price: 1, mrp: 1, kg: 0.05 }
 };

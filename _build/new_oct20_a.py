@@ -48,7 +48,7 @@ OCT20_A = [
 <li>After bathing at the ghat, pat skin dry and apply a plain moisturiser, and use a lip balm through the fast.</li>
 <li>If you use a retinol night cream, skip it on the nights your skin feels tight or stings, and go back to it once Chhath is over.</li>
 <li>Do not try a new cream, pack or bleach in the week of the puja.</li></ul>
-<h2>Gifting a skincare set</h2><p>If you are buying for someone else, the <a href="%(uduo)s">Glow Duo</a> pairs the Night Cream with the Face Wash and is launching soon. For a gift today, the Night Cream is available now. A few honest notes so the gift is used well:</p><ul>
+<h2>Gifting a skincare set</h2><p>If you are buying for someone else, the <a href="%(uduo)s">Glow Duo</a> pairs the Night Cream with the Face Wash in one set. For a single gift, the Night Cream is available now. A few honest notes so the gift is used well:</p><ul>
 <li><b>Ordering now?</b> Delivery usually takes 3–7 days, depending on your pin code, so an order placed from 1 November may arrive after Diwali or Bhai Dooj. It still works well as a wedding-season or "start after the festival" gift. Details are on the <a href="/shipping-policy/">shipping page</a>. Free shipping and Cash on Delivery are available.</li>
 <li><b>Tell them it is a night cream with retinol.</b> It should not be used in pregnancy or while breastfeeding unless their doctor says it is fine. See <a href="/glutathione-in-pregnancy/">glutathione in pregnancy</a>.</li>
 <li><b>Add a note:</b> start 2–3 nights a week, sunscreen every morning, and give it 8–12 weeks. A gift that comes with honest expectations is a better gift.</li></ul>

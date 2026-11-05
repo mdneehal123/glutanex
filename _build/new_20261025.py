@@ -35,7 +35,7 @@ OCT25 = [
 <li><b>Hydrating ingredients</b> such as hyaluronic acid, glycerin and aloe vera help the skin feel less tight after washing.</li>
 <li><b>No dramatic promises.</b> A shower gel that claims to whiten or permanently change your skin is not being honest.</li>
 <li><b>A complete ingredient list</b> printed on the pack.</li></ul>
-<p>%(gel)s is made with glutathione, hyaluronic acid and aloe vera, according to its label, and it is launching soon.</p>
+<p>%(gel)s is made with glutathione, hyaluronic acid and aloe vera, according to its label.</p>
 
 <h2>How to use a glutathione shower gel</h2>
 <ol><li>Wet your skin with lukewarm water. Very hot water dries the skin out.</li>
@@ -94,7 +94,7 @@ OCT25 = [
 <li><b>Rinse well</b> and pat the skin dry instead of rubbing.</li>
 <li><b>Moisturise within a few minutes,</b> while the skin is still slightly damp.</li>
 <li><b>Wear sunscreen</b> on any skin that will be out in the sun.</li></ol>
-<p>%(gel)s lists glutathione, hyaluronic acid and aloe vera on its label. It is launching soon. For a full face and body routine, see our <a href="/face-and-body-glutathione-routine/">face and body routine guide</a>.</p>
+<p>%(gel)s lists glutathione, hyaluronic acid and aloe vera on its label. For a full face and body routine, see our <a href="/face-and-body-glutathione-routine/">face and body routine guide</a>.</p>
 
 <h2>Common mistakes</h2>
 <ul><li>Using the body wash on your face. See <a href="/face-wash-vs-shower-gel/">face wash vs shower gel</a>.</li>
@@ -142,7 +142,7 @@ OCT25 = [
 <ul><li><b>Face:</b> a gentle face wash such as %(wash)s, morning and night. See <a href="/glutathione-face-wash/">glutathione face wash</a> for what a wash can do.</li>
 <li><b>Body:</b> a shower gel such as %(gel)s once a day.</li>
 <li><b>After both:</b> moisturiser on the face and body, and sunscreen in the morning.</li></ul>
-<p>Both GlutaNex products are launching soon. If you want them together, look at the <a href="/product/glutanex-face-wash-shower-gel-combo/">Face Wash + Shower Gel combo</a>.</p>
+<p>Both GlutaNex products are available now. If you want them together, look at the <a href="/product/glutanex-face-wash-shower-gel-combo/">Face Wash + Shower Gel combo</a>.</p>
 
 <h2>A simple way to decide</h2>
 <ol><li>If it touches your face, it should say "face" on the label.</li>
@@ -198,7 +198,7 @@ OCT25 = [
 <li>Changing products every two weeks.</li></ul>
 
 <h2>Where the products fit</h2>
-<p>The GlutaNex range covers each step: the <a href="/product/glutanex-glutathione-night-cream/">Night Cream</a> is available now, and the <a href="/product/glutanex-gluta-boost-face-wash/">Face Wash</a>, the <a href="/product/glutanex-aqua-fresh-shower-gel/">Shower Gel</a> and the <a href="/product/glutanex-glow-trio-night-cream-face-wash-shower-gel/">Glow Trio</a> set are launching soon. Join the waitlist on any of those pages.</p>
+<p>The GlutaNex range covers each step: the <a href="/product/glutanex-glutathione-night-cream/">Night Cream</a> is available now, and the <a href="/product/glutanex-gluta-boost-face-wash/">Face Wash</a>, the <a href="/product/glutanex-aqua-fresh-shower-gel/">Shower Gel</a> and the <a href="/product/glutanex-glow-trio-night-cream-face-wash-shower-gel/">Glow Trio</a> set are available too, with free shipping and Cash on Delivery.</p>
 
 <h2>When to see a dermatologist</h2>
 <p>See a dermatologist for rashes, melasma, very sensitive skin, or if you are pregnant or breastfeeding and unsure about any product, because the night cream contains retinol.</p>''',
