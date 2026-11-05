@@ -61,3 +61,7 @@ Monthly freshness updater. Do not refresh the same page again within 3 months of
 - New guides: /glutathione-wedding-skincare-kit/, /skincare-gift-sets-india/, /body-tan-removal-routine/, /dark-knees-and-elbows/, /glutathione-face-wash-for-oily-skin/, /skin-care-before-and-after-holi/.
 - Trust: "GlutaNex at a glance" facts table on /about/; brand facts page lists all 3 products and combos; new /review/ page that collects real reviews on WhatsApp (no star ratings or review schema until real reviews exist).
 - Removed the ₹1 test product and /sample-test/ page.
+
+## 2026-11-05 (evening): Kannada pages and quiz
+- 6 new Kannada guides under /kn/ (face wash, how to use, side effects, wedding skincare, body tan, price) plus a /kn/ hub; each links to its English twin with hreflang, and the side card shows the matching product.
+- Skin quiz (/skin-quiz/) now covers the whole range: new answers "Face and body" (Glow Trio) and "Only a gentle wash" (Face Wash); pregnancy and prescription answers are offered rinse-off products only, never the retinol night cream.

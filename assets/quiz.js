@@ -9,7 +9,7 @@
     {k:'goal',q:'What bothers you most?',o:[['tan','Sun tan','Darker after time outdoors'],['spots','Dark spots','Patches or pigmentation'],['dull','Dull skin','Looks tired, no glow'],['marks','Acne marks','Dark marks left by pimples'],['uneven','Uneven tone','Different shades across the face']]},
     {k:'use',q:'Are you using any of these now?',o:[['rx','A prescription cream','Tretinoin, adapalene or a cream from a doctor'],['acid','Exfoliating acids or peels','AHA, BHA, glycolic, peels'],['vitc','Vitamin C serum',''],['none','None of these','Just basics, or nothing']]},
     {k:'preg',q:'Are you pregnant, breastfeeding or planning a pregnancy?',o:[['no','No',''],['yes','Yes','']]},
-    {k:'want',q:'How many steps do you want?',o:[['one','Just one product','Night cream only'],['two','A full routine','Face wash + night cream']]}
+    {k:'want',q:'What would you like to use?',o:[['one','Just one product','Night cream only'],['two','A face routine','Face wash + night cream'],['full','Face and body','Face wash, night cream and shower gel'],['wash','Only a gentle wash','No leave-on cream']]}
   ];
   var A={},i=0;
   function el(t,c,x){var e=document.createElement(t);if(c){e.className=c;}if(x!=null){e.textContent=x;}return e;}
@@ -43,14 +43,19 @@
       card.appendChild(el('h2','qz-q','Talk to your doctor first'));
       card.appendChild(el('p','qz-lead','Glutathione has not been well studied in pregnancy or breastfeeding, and the GlutaNex Night Cream contains retinol, which is usually avoided. We do not recommend it for you right now.'));
       var u=el('ul','qz-list');li(u,'<b>Safe basics:</b> a gentle cleanser, a simple moisturiser and sunscreen every morning.');li(u,'Pregnancy can make dark patches (melasma) more likely, so daily sunscreen matters even more.');li(u,'Ask your doctor before adding any active ingredient.');card.appendChild(u);
-      var a=el('a','btn ghost block','Read: glutathione in pregnancy');a.href='/glutathione-in-pregnancy/';card.appendChild(a);
+      li(u,'<b>Rinse-off option:</b> the Gluta Boost Face Wash and Aqua Fresh Shower Gel are washed off and contain no retinol. If you are unsure about any ingredient, show the pack to your doctor.');var pa=el('div','qz-acts');var pb=el('button','btn block','Get Face Wash + Shower Gel');pb.type='button';pb.setAttribute('data-buy','washgel');pa.appendChild(pb);card.appendChild(pa);var a=el('a','btn ghost block','Read: glutathione in pregnancy');a.href='/glutathione-in-pregnancy/';card.appendChild(a);
     } else {
-      var duo=A.want==='two'&&!rx;
-      card.appendChild(el('h2','qz-q',rx?'Check with your dermatologist first':duo?'Your routine: the Glow Duo':'Your routine: the Night Cream'));
-      card.appendChild(el('p','qz-lead',rx?'You are already using a prescription cream. The GlutaNex Night Cream contains retinol and salicylic acid, so using both can irritate. Ask your dermatologist before adding it.':
+      var W=A.want,pid=W==='wash'?'wash':W==='full'?(rx?'washgel':'trio'):W==='two'&&!rx?'duo':rx?'wash':'cream',duo=pid==='duo'||pid==='trio',cream=/cream|duo|trio/.test(pid);
+      var NAME={cream:'the Night Cream',duo:'the Glow Duo',trio:'the Glow Trio',wash:'the Gluta Boost Face Wash',washgel:'Face Wash + Shower Gel'};
+      card.appendChild(el('h2','qz-q',rx&&W!=='wash'&&W!=='full'?'Check with your dermatologist first':'Your routine: '+NAME[pid]));
+      card.appendChild(el('p','qz-lead',!cream&&!(rx&&(W==='one'||W==='two'))?'A gentle glutathione wash cleans away oil, sweat and pollution without stripping. On its own it will not fade tan; daily sunscreen does most of that work.'+(rx?' It is a rinse-off product, so it usually sits fine alongside a prescription routine.':''):rx?'You are already using a prescription cream. The GlutaNex Night Cream contains retinol and salicylic acid, so using both can irritate. Ask your dermatologist before adding it. A gentle rinse-off face wash, like the Gluta Boost Face Wash, is usually fine meanwhile.':
         'Glutathione with niacinamide and vitamin C, used at night with sunscreen every morning, can help '+({tan:'tan',spots:'dark spots',dull:'dull skin',marks:'acne marks',uneven:'uneven tone'}[A.goal])+' look lighter and more even over 8 to 12 weeks.'));
       var r=el('ul','qz-list');
-      if(!rx){
+      if(!cream){
+        li(r,'<b>Morning and night:</b> wash with the Gluta Boost Face Wash for 30–60 seconds, rinse, then moisturiser.');li(r,'<b>Morning:</b> sunscreen SPF 30 or higher, every day.');
+        if(pid==='washgel'){li(r,'<b>Bath:</b> Aqua Fresh Shower Gel with lukewarm water, moisturiser on damp skin after.');}
+        if(rx){li(r,'Keep following your dermatologist\'s routine for your prescription cream.');}
+      } else if(!rx){
         li(r,'<b>Night:</b> '+(duo?'cleanse with the Gluta Boost Face Wash, pat dry, then':'cleanse gently, pat dry, then')+' a pea-sized amount of Night Cream on face and neck.');
         li(r,'<b>Morning:</b> sunscreen SPF 30 or higher'+(A.goal==='tan'?', reapplied every 2–3 hours outdoors.':', every day.'));
         var start=A.skin==='sens'?'1–2 nights a week for two weeks':'2–3 nights a week for two weeks';
@@ -61,14 +66,15 @@
         if(A.use==='acid'){li(r,'<b>Acids or peels:</b> use the Night Cream on different nights from your acids, never on the same night.');}
         if(A.use==='vitc'){li(r,'<b>Vitamin C:</b> keep it for the morning under sunscreen; Night Cream at night.');}
         if(A.goal==='marks'){li(r,'<b>Acne marks:</b> treat active pimples first, and do not pick them.');}
+        if(pid==='trio'){li(r,'<b>Bath:</b> Aqua Fresh Shower Gel with lukewarm water; sunscreen on arms and neck too.');}
       } else {
         li(r,'Keep following your dermatologist\'s routine, with sunscreen every morning.');li(r,'If they agree, the Night Cream is usually used on different nights from your prescription cream.');
       }
       li(r,'<b>Give it time:</b> a fresher look in 4–8 weeks, lighter tan and marks in 8–12 weeks. It does not change your natural skin colour.');
       card.appendChild(r);
       var acts=el('div','qz-acts');
-      if(!rx){var buy=el('button','btn block',duo?'Get the Glow Duo':'Get the Night Cream');buy.type='button';buy.setAttribute('data-buy',duo?'duo':'cream');acts.appendChild(buy);
-        var add=el('button','btn ghost block','Add to cart');add.type='button';add.setAttribute('data-add',duo?'duo':'cream');acts.appendChild(add);}
+      if(!rx||!cream){var buy=el('button','btn block','Get '+NAME[pid]);buy.type='button';buy.setAttribute('data-buy',pid);acts.appendChild(buy);
+        var add=el('button','btn ghost block','Add to cart');add.type='button';add.setAttribute('data-add',pid);acts.appendChild(add);}
       card.appendChild(acts);
       var reads=el('p','qz-reads');reads.appendChild(document.createTextNode('Read next: '));[GUIDE[A.goal],SKIN[A.skin]].filter(Boolean).forEach(function(g,n){if(n){reads.appendChild(document.createTextNode(' · '));}var a2=el('a',null,g[1]);a2.href=g[0];reads.appendChild(a2);});card.appendChild(reads);
     }

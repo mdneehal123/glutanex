@@ -1,3 +1,4 @@
+import json
 # Guides, information pages and policies. Read by build.py with exec(), so it uses the helpers defined there.
 STUDY = '<a href="https://www.dovepress.com/skin-whitening-and-skin-condition-improving-effects-of-topical-oxidize-peer-reviewed-fulltext-article-CCID" rel="noopener">Watanabe et al., 2014</a>'
 FDA = '<a href="https://www.medestheticsmag.com/fda-warns-against-skin-lightening-injectables" rel="noopener">US FDA warning, 2015</a>'
@@ -89,10 +90,11 @@ GUIDES = [
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
 exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
 # 20 Oct 2026 batch: new guides (English), Hindi and Hinglish pages, each in its own file
-for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py']:
+for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py', 'new_20261105_kn.py']:
     if os.path.exists(os.path.join(B, _f)):
         exec(open(os.path.join(B, _f), encoding='utf-8').read())
 NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', []) + globals().get('OCT31', []) + globals().get('NOV01', []) + globals().get('NOV02', []) + globals().get('NOV03', []) + globals().get('CMP_NOV03', []) + globals().get('NIGHT_NOV03', []) + globals().get('KW_NOV04', []) + globals().get('NOV05', []) + globals().get('PLAN05', [])
+REG += globals().get('KN05', [])
 HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', [])
 HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, gel='<a href="/product/glutanex-aqua-fresh-shower-gel/">GlutaNex Aqua Fresh Shower Gel</a>', uduo=url(BYID['duo']),
@@ -205,7 +207,7 @@ def hreflang_cluster(en_path):
         alts.append(('hi-IN', EN2HI[en_path]))
     if en_path in EN2HL:
         alts.append(('hi-Latn', EN2HL[en_path]))
-    alts += [(r['code'], '/%s/%s/' % (r['lang'], r['slug'])) for r in REG if en_path == '/glutathione-cream/']
+    alts += [(r['code'], '/%s/%s/' % (r['lang'], r['slug'])) for r in REG if r.get('en', '/glutathione-cream/') == en_path]
     if len(alts) < 2:
         return ''
     return ''.join('<link rel="alternate" hreflang="%s" href="%s%s">\n' % (c, SITE, u) for c, u in alts) + '<link rel="alternate" hreflang="x-default" href="%s%s">\n' % (SITE, en_path)
@@ -327,14 +329,22 @@ page('/hinglish/', 'Glutathione Ki Jaankari Hinglish Mein: Fayde, Nuksan, Use',
 # ---------------- Regional language pages ----------------
 for r in REG:
     path = '/%s/%s/' % (r['lang'], r['slug'])
-    u = r['ui']
+    u = r['ui']; _en = r.get('en', '/glutathione-cream/'); _rp = BYID[r.get('pid', 'cream')]
     body = top(u['guide'], r['title'], r['desc'].split(':', 1)[-1].strip()) + \
-        '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">%s · <a href="/glutathione-cream/" lang="en">%s</a></p>%s%s<p class="note">%s</p></div>' \
-        '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>%s · COD</span><button class="btn block" type="button" data-buy="cream">%s</button></aside></div></section>' % (
-            u['by'], u['en'], with_toc(r['body'], u['toc']), faq_block(r['faq'], u['faq']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'])
-    page(path, r['seo'], r['desc'], body, og='article', lang=r['code'], crumbs=[(u['guide'], path)], extra=hreflang_cluster('/glutathione-cream/'),
+        '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">%s · <a href="%s" lang="en">%s</a></p>%s%s<p class="note">%s</p></div>' \
+        '<aside class="side-cta"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><b>%s</b><span>%s · COD</span><button class="btn block" type="button" data-buy="%s">%s</button></aside></div></section>' % (
+            u['by'], _en, u['en'], with_toc(r['body'], u['toc']), faq_block(r['faq'], u['faq']), u['note'], (im('cream-square') if _rp['id'] == 'cream' else im(_rp['imgs'][0])), html.escape(_rp['name']), html.escape(_rp['name']), rs(_rp['price']), _rp['id'], u['buy'])
+    page(path, r['seo'], r['desc'], body, og='article', lang=r['code'], crumbs=([(u['guide'], '/kn/'), (r['title'].split(':')[0], path)] if r['lang'] == 'kn' else [(u['guide'], path)]), extra=hreflang_cluster(_en),
          schema=[{'@type': 'Article', 'headline': r['title'], 'description': r['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': r['code'], 'about': GSH_THING}, faq_ld(r['faq'])])
+# Kannada hub
+_kn = [r for r in REG if r['lang'] == 'kn']
+page('/kn/', 'Glutathione Kannada Guide: ಗ್ಲುಟಾಥಿಯೋನ್ ಮಾಹಿತಿ ಕನ್ನಡದಲ್ಲಿ', 'ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್, ಫೇಸ್ ವಾಶ್, ಅಡ್ಡ ಪರಿಣಾಮಗಳು, ಮದುವೆ ಚರ್ಮದ ಆರೈಕೆ ಮತ್ತು ಟ್ಯಾನ್ ಬಗ್ಗೆ ಕನ್ನಡದಲ್ಲಿ ಸರಳ ಮಾಹಿತಿ.',
+     top('ಕನ್ನಡ', 'ಗ್ಲುಟಾಥಿಯೋನ್ ಮಾಹಿತಿ <span class="gold">ಕನ್ನಡದಲ್ಲಿ</span>', 'ಸರಳ, ಪ್ರಾಮಾಣಿಕ ಚರ್ಮದ ಆರೈಕೆ ಮಾಹಿತಿ.') +
+     '<section style="padding-top:22px"><div class="wrap prose"><ul>%s</ul><p><a href="/glutathione-guides/" lang="en">English guides</a></p></div></section>' %
+     ''.join('<li><a href="/kn/%s/">%s</a><br><span class="muted">%s</span></li>' % (r['slug'], r['title'], html.escape(r['desc'].split(':', 1)[-1].strip())) for r in _kn),
+     lang='kn-IN', crumbs=[('ಕನ್ನಡ', '/kn/')])
+
 
 # ---------------- Information pages ----------------
 _ab_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [('Company', OWNER), ('Based in', 'Bhatkal, Karnataka, India'),
