@@ -90,11 +90,11 @@ GUIDES = [
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
 exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
 # 20 Oct 2026 batch: new guides (English), Hindi and Hinglish pages, each in its own file
-for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py', 'new_20261105_kn.py', 'new_20261105_kw.py']:
+for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py', 'new_20261105_kn.py', 'new_20261105_kw.py', 'new_20261105_ta.py', 'new_20261105_te.py', 'new_20261105_mr.py', 'new_20261105_bn.py']:
     if os.path.exists(os.path.join(B, _f)):
         exec(open(os.path.join(B, _f), encoding='utf-8').read())
 NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', []) + globals().get('OCT31', []) + globals().get('NOV01', []) + globals().get('NOV02', []) + globals().get('NOV03', []) + globals().get('CMP_NOV03', []) + globals().get('NIGHT_NOV03', []) + globals().get('KW_NOV04', []) + globals().get('NOV05', []) + globals().get('PLAN05', []) + globals().get('KW_NOV05', [])
-REG += globals().get('KN05', [])
+REG += globals().get('KN05', []) + globals().get('REG_NOV05', [])
 HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', []) + globals().get('HI_NOV05', [])
 HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, gel='<a href="/product/glutanex-aqua-fresh-shower-gel/">GlutaNex Aqua Fresh Shower Gel</a>', uduo=url(BYID['duo']),
@@ -334,16 +334,26 @@ for r in REG:
         '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">%s · <a href="%s" lang="en">%s</a></p>%s%s<p class="note">%s</p></div>' \
         '<aside class="side-cta"><img src="%s" alt="%s" width="800" height="800" loading="lazy"><b>%s</b><span>%s · COD</span><button class="btn block" type="button" data-buy="%s">%s</button></aside></div></section>' % (
             u['by'], _en, u['en'], with_toc(r['body'], u['toc']), faq_block(r['faq'], u['faq']), u['note'], (im('cream-square') if _rp['id'] == 'cream' else im(_rp['imgs'][0])), html.escape(_rp['name']), html.escape(_rp['name']), rs(_rp['price']), _rp['id'], u['buy'])
-    page(path, r['seo'], r['desc'], body, og='article', lang=r['code'], crumbs=([(u['guide'], '/kn/'), (r['title'].split(':')[0], path)] if r['lang'] == 'kn' else [(u['guide'], path)]), extra=hreflang_cluster(_en),
+    page(path, r['seo'], r['desc'], body, og='article', lang=r['code'], crumbs=[(u['guide'], '/%s/' % r['lang']), (r['title'].split(':')[0], path)], extra=hreflang_cluster(_en),
          schema=[{'@type': 'Article', 'headline': r['title'], 'description': r['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': r['code'], 'about': GSH_THING}, faq_ld(r['faq'])])
-# Kannada hub
-_kn = [r for r in REG if r['lang'] == 'kn']
-page('/kn/', 'Glutathione Kannada Guide: ಗ್ಲುಟಾಥಿಯೋನ್ ಮಾಹಿತಿ ಕನ್ನಡದಲ್ಲಿ', 'ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್, ಫೇಸ್ ವಾಶ್, ಅಡ್ಡ ಪರಿಣಾಮಗಳು, ಮದುವೆ ಚರ್ಮದ ಆರೈಕೆ ಮತ್ತು ಟ್ಯಾನ್ ಬಗ್ಗೆ ಕನ್ನಡದಲ್ಲಿ ಸರಳ ಮಾಹಿತಿ.',
-     top('ಕನ್ನಡ', 'ಗ್ಲುಟಾಥಿಯೋನ್ ಮಾಹಿತಿ <span class="gold">ಕನ್ನಡದಲ್ಲಿ</span>', 'ಸರಳ, ಪ್ರಾಮಾಣಿಕ ಚರ್ಮದ ಆರೈಕೆ ಮಾಹಿತಿ.') +
-     '<section style="padding-top:22px"><div class="wrap prose"><ul>%s</ul><p><a href="/glutathione-guides/" lang="en">English guides</a></p></div></section>' %
-     ''.join('<li><a href="/kn/%s/">%s</a><br><span class="muted">%s</span></li>' % (r['slug'], r['title'], html.escape(r['desc'].split(':', 1)[-1].strip())) for r in _kn),
-     lang='kn-IN', crumbs=[('ಕನ್ನಡ', '/kn/')])
+# Language hubs: one per regional language, listing its guides
+_HUBS = {
+    'kn': ('Glutathione Kannada Guide: ಗ್ಲುಟಾಥಿಯೋನ್ ಮಾಹಿತಿ ಕನ್ನಡದಲ್ಲಿ', 'ಗ್ಲುಟಾಥಿಯೋನ್ ಮಾಹಿತಿ', 'ಕನ್ನಡದಲ್ಲಿ', 'ಸರಳ, ಪ್ರಾಮಾಣಿಕ ಚರ್ಮದ ಆರೈಕೆ ಮಾಹಿತಿ.', 'ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್, ಫೇಸ್ ವಾಶ್, ಅಡ್ಡ ಪರಿಣಾಮಗಳು, ಮದುವೆ ಚರ್ಮದ ಆರೈಕೆ ಮತ್ತು ಟ್ಯಾನ್ ಬಗ್ಗೆ ಕನ್ನಡದಲ್ಲಿ ಸರಳ ಮಾಹಿತಿ.'),
+    'ta': ('Glutathione Tamil Guide: குளுதாதயோன் தகவல் தமிழில்', 'குளுதாதயோன் தகவல்', 'தமிழில்', 'எளிய, நேர்மையான சரும பராமரிப்பு தகவல்.', 'குளுதாதயோன் கிரீம், ஃபேஸ் வாஷ், பக்க விளைவுகள், திருமண சரும பராமரிப்பு மற்றும் டான் பற்றி தமிழில் எளிய தகவல்.'),
+    'te': ('Glutathione Telugu Guide: గ్లూటాథియోన్ సమాచారం తెలుగులో', 'గ్లూటాథియోన్ సమాచారం', 'తెలుగులో', 'సులభమైన, నిజాయితీ గల చర్మ సంరక్షణ సమాచారం.', 'గ్లూటాథియోన్ క్రీమ్, ఫేస్ వాష్, దుష్ప్రభావాలు, పెళ్లి చర్మ సంరక్షణ మరియు టాన్ గురించి తెలుగులో సులభమైన సమాచారం.'),
+    'mr': ('Glutathione Marathi Guide: ग्लुटाथायोनची माहिती मराठीत', 'ग्लुटाथायोनची माहिती', 'मराठीत', 'सोपी, प्रामाणिक त्वचा काळजी माहिती.', 'ग्लुटाथायोन क्रीम, फेस वॉश, दुष्परिणाम, लग्नापूर्वी त्वचेची काळजी आणि टॅन याबद्दल मराठीत सोपी माहिती.'),
+    'bn': ('Glutathione Bengali Guide: গ্লুটাথিয়নের তথ্য বাংলায়', 'গ্লুটাথিয়নের তথ্য', 'বাংলায়', 'সহজ, সৎ ত্বকের যত্নের তথ্য।', 'গ্লুটাথিয়ন ক্রিম, ফেস ওয়াশ, পার্শ্বপ্রতিক্রিয়া, বিয়ের আগে ত্বকের যত্ন ও ট্যান নিয়ে বাংলায় সহজ তথ্য।'),
+}
+for _lg, (_t, _h1, _h1b, _sub, _d) in _HUBS.items():
+    _rs = [r for r in REG if r['lang'] == _lg]
+    if not _rs:
+        continue
+    page('/%s/' % _lg, _t, _d,
+         top(_rs[0]['name'], '%s <span class="gold">%s</span>' % (_h1, _h1b), _sub) +
+         '<section style="padding-top:22px"><div class="wrap prose"><ul>%s</ul><p><a href="/glutathione-guides/" lang="en">English guides</a></p></div></section>' %
+         ''.join('<li><a href="/%s/%s/">%s</a><br><span class="muted">%s</span></li>' % (_lg, r['slug'], r['title'], html.escape(r['desc'].split(':', 1)[-1].strip())) for r in _rs),
+         lang=_rs[0]['code'], crumbs=[(_rs[0]['ui']['guide'], '/%s/' % _lg)])
 
 
 # ---------------- Information pages ----------------

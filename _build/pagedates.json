@@ -1,6 +1,6 @@
 {
  "/": {
-  "h": "1ceb6d90748fc41e",
+  "h": "6265337fd9f9439e",
   "mod": "2026-11-05",
   "pub": "2026-10-11"
  },
@@ -14,10 +14,40 @@
   "mod": "2026-11-05",
   "pub": "2026-10-11"
  },
+ "/bn/": {
+  "h": "65e76a85001d1c13",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/bn/biyer-age-skincare/": {
+  "h": "61e23d11a1dca393",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/bn/body-tan-komano/": {
+  "h": "14450950d8451e9a",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/bn/glutathione-cream-kivabe-byabohar-korben/": {
+  "h": "a76fb0bbceedff07",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
  "/bn/glutathione-cream/": {
-  "h": "1917577956a53830",
+  "h": "64de3a716adffdf8",
   "mod": "2026-11-05",
   "pub": "2026-10-11"
+ },
+ "/bn/glutathione-face-wash/": {
+  "h": "2fb9f01f8e5be400",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/bn/glutathione-parshwaprotikriya/": {
+  "h": "d4b9d2832c6581e8",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
  },
  "/body-tan-removal-routine/": {
   "h": "de69e6a715de9eb8",
@@ -715,7 +745,7 @@
   "pub": "2026-10-11"
  },
  "/kn/": {
-  "h": "9d3b06eb0910ec63",
+  "h": "a6c86187c76d65ab",
   "mod": "2026-11-05",
   "pub": "2026-11-05"
  },
@@ -764,10 +794,40 @@
   "mod": "2026-11-05",
   "pub": "2026-11-02"
  },
+ "/mr/": {
+  "h": "c03dd79b4f2870e9",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/mr/body-tan-kami-karne/": {
+  "h": "4204066122e6e7b0",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/mr/glutathione-cream-kasa-vaparava/": {
+  "h": "402650bcd16325ce",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
  "/mr/glutathione-cream/": {
-  "h": "2610cf4ac6cdff32",
+  "h": "cdf09b02ccf65cb7",
   "mod": "2026-11-05",
   "pub": "2026-10-11"
+ },
+ "/mr/glutathione-dushparinam/": {
+  "h": "4c06ff8142bc11b5",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/mr/glutathione-face-wash/": {
+  "h": "dbc62b68020c43dc",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/mr/lagnapurvi-skincare/": {
+  "h": "de8579bb1c53c221",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
  },
  "/night-cream-for-glowing-skin/": {
   "h": "09bb0cfa3e1f4758",
@@ -894,15 +954,75 @@
   "mod": "2026-11-05",
   "pub": "2026-11-05"
  },
+ "/ta/": {
+  "h": "20c51317ae932395",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/ta/glutathione-cream-payanpaduthum-murai/": {
+  "h": "4fd7b5c3e26962f7",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
  "/ta/glutathione-cream/": {
-  "h": "4f7cf154ed2ce553",
+  "h": "0bcb564997d55956",
   "mod": "2026-11-05",
   "pub": "2026-10-11"
  },
+ "/ta/glutathione-face-wash/": {
+  "h": "db0c9ea5ed6c6989",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/ta/glutathione-pakka-vilaivugal/": {
+  "h": "4a0afc339833a14a",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/ta/thirumana-skincare/": {
+  "h": "40a954207798d8a4",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/ta/udal-tan-neekkuvathu/": {
+  "h": "5e495051bc7bb01a",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/te/": {
+  "h": "a9f42d2c61552609",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/te/body-tan-taggadam/": {
+  "h": "fd4df34f5cbf9adb",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/te/glutathione-cream-ela-vadali/": {
+  "h": "7d24db8b441ef0e2",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
  "/te/glutathione-cream/": {
-  "h": "9bc37c05ffdbf121",
+  "h": "3fa727b5b89c382f",
   "mod": "2026-11-05",
   "pub": "2026-10-11"
+ },
+ "/te/glutathione-face-wash/": {
+  "h": "df015039d302f02a",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/te/glutathione-side-effects/": {
+  "h": "b79696423a9b44be",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
+ },
+ "/te/pelli-skincare/": {
+  "h": "bbd96e3f452d70a0",
+  "mod": "2026-11-05",
+  "pub": "2026-11-05"
  },
  "/terms/": {
   "h": "4f30c48e97c6a0b1",
