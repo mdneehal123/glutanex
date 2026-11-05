@@ -90,18 +90,18 @@ GUIDES = [
 exec(open(os.path.join(B, 'content_more.py'), encoding='utf-8').read())
 exec(open(os.path.join(B, 'hinglish.py'), encoding='utf-8').read())
 # 20 Oct 2026 batch: new guides (English), Hindi and Hinglish pages, each in its own file
-for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py', 'new_20261105_kn.py']:
+for _f in ['new_oct20_a.py', 'new_oct20_b.py', 'new_oct20_c.py', 'new_oct20_hi.py', 'new_oct20_d.py', 'new_oct20_e.py', 'new_oct20_f.py', 'new_oct20_hi2.py', 'new_20261022.py', 'new_20261024.py', 'new_20261025.py', 'new_20261027.py', 'new_20261028.py', 'new_20261029.py', 'new_20261030.py', 'new_20261031.py', 'new_20261101.py', 'new_20261102.py', 'new_20261103.py', 'new_20261103_cmp.py', 'new_20261103_night.py', 'new_20261104_kw.py', 'new_20261105.py', 'new_20261105_plan.py', 'new_20261105_kn.py', 'new_20261105_kw.py']:
     if os.path.exists(os.path.join(B, _f)):
         exec(open(os.path.join(B, _f), encoding='utf-8').read())
-NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', []) + globals().get('OCT31', []) + globals().get('NOV01', []) + globals().get('NOV02', []) + globals().get('NOV03', []) + globals().get('CMP_NOV03', []) + globals().get('NIGHT_NOV03', []) + globals().get('KW_NOV04', []) + globals().get('NOV05', []) + globals().get('PLAN05', [])
+NEW_GUIDES += globals().get('OCT20_A', []) + globals().get('OCT20_B', []) + globals().get('OCT20_C', []) + globals().get('OCT20_D', []) + globals().get('OCT20_E', []) + globals().get('OCT20_F', []) + globals().get('OCT22', []) + globals().get('OCT24', []) + globals().get('OCT25', []) + globals().get('OCT27', []) + globals().get('OCT28', []) + globals().get('OCT29', []) + globals().get('OCT30', []) + globals().get('OCT31', []) + globals().get('NOV01', []) + globals().get('NOV02', []) + globals().get('NOV03', []) + globals().get('CMP_NOV03', []) + globals().get('NIGHT_NOV03', []) + globals().get('KW_NOV04', []) + globals().get('NOV05', []) + globals().get('PLAN05', []) + globals().get('KW_NOV05', [])
 REG += globals().get('KN05', [])
-HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', [])
+HI += globals().get('HI_OCT20', []) + globals().get('HI_OCT20B', []) + globals().get('HI_NOV05', [])
 HL += globals().get('HL_OCT20', [])
 P = dict(REFS, fda=FDA, cream=CREAM, wash=WASH, gel='<a href="/product/glutanex-aqua-fresh-shower-gel/">GlutaNex Aqua Fresh Shower Gel</a>', uduo=url(BYID['duo']),
          pcream=rs(BYID['cream']['price']), mcream=rs(BYID['cream']['mrp']), pwash=rs(BYID['wash']['price']), mwash=rs(BYID['wash']['mrp']),
          pduo=rs(BYID['duo']['price']), mduo=rs(BYID['duo']['mrp']),
          trio='<a href="%s">GlutaNex Glow Trio</a>' % url(BYID['trio']), ptrio=rs(BYID['trio']['price']),
-         pwashgel=rs(BYID['washgel']['price']), uduolink='<a href="%s">Glow Duo</a>' % url(BYID['duo']))
+         pwashgel=rs(BYID['washgel']['price']), pgel=rs(BYID['gel']['price']), uduolink='<a href="%s">Glow Duo</a>' % url(BYID['duo']))
 for g in GUIDES:
     ex = EXPAND.get(g['slug'])
     g.setdefault('refs', ['study', 'fda'] if '%(fda)s' in g['body'] else ['study'])

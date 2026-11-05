@@ -65,3 +65,12 @@ Monthly freshness updater. Do not refresh the same page again within 3 months of
 ## 2026-11-05 (evening): Kannada pages and quiz
 - 6 new Kannada guides under /kn/ (face wash, how to use, side effects, wedding skincare, body tan, price) plus a /kn/ hub; each links to its English twin with hreflang, and the side card shows the matching product.
 - Skin quiz (/skin-quiz/) now covers the whole range: new answers "Face and body" (Glow Trio) and "Only a gentle wash" (Face Wash); pregnancy and prescription answers are offered rinse-off products only, never the retinol night cream.
+
+## 2026-11-05 (night): low-competition keyword pages
+Chosen from a page-1 check of each keyword (Keyword Planner quota used up until 16 Nov; add volumes then).
+- /glutathione-night-cream-with-retinol/ (page 1 was listings and spam)
+- /glutathione-face-wash-side-effects/ (pharmacy listings)
+- /glutathione-face-wash-vs-vitamin-c-face-wash/ (auto-generated comparison pages)
+- /glutathione-soap-vs-body-wash/ (marketplace blogs)
+- /glutathione-face-wash-for-men/ (mostly one brand's product page)
+- /hi/glutathione-face-wash-kaise-use-kare/ (no Hindi article on page 1), linked to /glutathione-face-wash/ with hreflang
