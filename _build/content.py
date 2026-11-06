@@ -273,6 +273,25 @@ for i, g in enumerate(GUIDES):
          extra=hreflang_cluster(guide_url(g)))
 
 # ---------------- Hindi pages ----------------
+# Hindi and Hinglish pages: the side buy box shows the product that fits the topic (same rule as the English mid card).
+_SIDE_NAME = {'cream': 'GlutaNex Night Cream', 'wash': 'GlutaNex Gluta Boost Face Wash', 'gel': 'GlutaNex Aqua Fresh Shower Gel', 'trio': 'GlutaNex Glow Trio'}
+def side_swap(body, en_path, text):
+    pid = card_product(en_path.strip('/'), text)
+    if pid == 'cream' or pid not in BYID:
+        return body
+    i = body.find('<aside class="side-cta">')
+    if i < 0:
+        return body
+    j = body.find('</aside>', i)
+    aside = body[i:j]
+    x = BYID[pid]
+    aside = (aside.replace(im('cream-square'), im(x['imgs'][0])).replace('alt="GlutaNex Glutathione Night Cream"', 'alt="%s"' % html.escape(x['name']))
+             .replace('<b>GlutaNex Night Cream</b>', '<b>%s</b>' % _SIDE_NAME.get(pid, html.escape(x['name']))).replace('data-buy="cream"', 'data-buy="%s"' % pid)
+             .replace(rs(BYID['cream']['price']), rs(x['price']))
+             .replace('ग्लूटाथियोन नाइट क्रीम', {'wash': 'ग्लूटाथियोन फेस वॉश', 'gel': 'ग्लूटाथियोन शावर जेल', 'trio': 'क्रीम + फेस वॉश + शावर जेल'}.get(pid, ''))
+             .replace('Glutathione night cream', {'wash': 'Glutathione face wash', 'gel': 'Glutathione shower gel', 'trio': 'Cream + face wash + shower gel'}.get(pid, '')))
+    return body[:i] + aside + body[j:]
+
 for h in HI:
     path = '/hi/%s/' % h['slug']
     _qa = HI_QA.get(h['slug'], [])
@@ -289,6 +308,7 @@ for h in HI:
             im('cream-square'), rs(BYID['cream']['price']),
             ''.join('<a href="/hi/%s/" lang="hi"><span class="eyebrow">हिंदी</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HI if x is not h) +
             '<a href="/glutathione/"><span class="eyebrow">English</span><h3>Glutathione: the complete guide</h3></a>')
+    body = side_swap(body, h['en'], h['body'])
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN', 'about': GSH_THING},
@@ -314,6 +334,7 @@ for h in HL:
             u['by'], h['en'], hi_link, tldr_box(h['slug'], TLDR_HL, 'Mukhya baatein') + with_toc((qa_html + h['body']) % P, u['toc']), faq_block([(q, a % P) for q, a in h['faq']], u['faq']),
             sources_block(['study', 'fda'], u['src']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'], u['more'],
             ''.join('<a href="/hinglish/%s/"><span class="eyebrow">Hinglish</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HL if x is not h))
+    body = side_swap(body, h['en'], h['body'] + qa_html)
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-Latn', crumbs=[(u['hub'], '/hinglish/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-Latn', 'about': GSH_THING,
