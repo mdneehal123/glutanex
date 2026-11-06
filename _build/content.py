@@ -275,8 +275,8 @@ for i, g in enumerate(GUIDES):
 # ---------------- Hindi pages ----------------
 # Hindi and Hinglish pages: the side buy box shows the product that fits the topic (same rule as the English mid card).
 _SIDE_NAME = {'cream': 'GlutaNex Night Cream', 'wash': 'GlutaNex Gluta Boost Face Wash', 'gel': 'GlutaNex Aqua Fresh Shower Gel', 'trio': 'GlutaNex Glow Trio'}
-def side_swap(body, en_path, text):
-    pid = card_product(en_path.strip('/'), text)
+def side_swap(body, en_path, text, slug=''):
+    pid = 'cream' if ('cream' in slug or 'cream' in en_path) else card_product(en_path.strip('/'), text)
     if pid == 'cream' or pid not in BYID:
         return body
     i = body.find('<aside class="side-cta">')
@@ -308,7 +308,7 @@ for h in HI:
             im('cream-square'), rs(BYID['cream']['price']),
             ''.join('<a href="/hi/%s/" lang="hi"><span class="eyebrow">हिंदी</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HI if x is not h) +
             '<a href="/glutathione/"><span class="eyebrow">English</span><h3>Glutathione: the complete guide</h3></a>')
-    body = side_swap(body, h['en'], h['body'])
+    body = side_swap(body, h['en'], h['body'], h['slug'])
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-IN', crumbs=[('हिंदी गाइड', '/hi/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-IN', 'about': GSH_THING},
@@ -334,7 +334,7 @@ for h in HL:
             u['by'], h['en'], hi_link, tldr_box(h['slug'], TLDR_HL, 'Mukhya baatein') + with_toc((qa_html + h['body']) % P, u['toc']), faq_block([(q, a % P) for q, a in h['faq']], u['faq']),
             sources_block(['study', 'fda'], u['src']), u['note'], im('cream-square'), rs(BYID['cream']['price']), u['buy'], u['more'],
             ''.join('<a href="/hinglish/%s/"><span class="eyebrow">Hinglish</span><h3>%s</h3></a>' % (x['slug'], x['title']) for x in HL if x is not h))
-    body = side_swap(body, h['en'], h['body'] + qa_html)
+    body = side_swap(body, h['en'], h['body'] + qa_html, h['slug'])
     page(path, h['seo'], h['desc'], body, og='article', lang='hi-Latn', crumbs=[(u['hub'], '/hinglish/'), (h['short'], path)], extra=hreflang_cluster(h['en']),
          schema=[{'@type': 'Article', 'headline': h['title'], 'description': h['desc'], 'datePublished': TODAY, 'dateModified': TODAY, 'mainEntityOfPage': SITE + path,
                   'author': {'@id': SITE + '/#org'}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + im('cream-square', 'jpg'), 'inLanguage': 'hi-Latn', 'about': GSH_THING,
