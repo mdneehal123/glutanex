@@ -7,9 +7,9 @@ OCT25 = [
          title='Glutathione shower gel: what it can and cannot do for your skin',
          short='Glutathione shower gel',
          blurb='What a glutathione shower gel does in a rinse-off product, what to expect from it, how to use it and how it fits with a leave-on glutathione cream.',
-         seo='Glutathione Shower Gel: What It Can and Cannot Do',
-         desc='Glutathione shower gel explained: what a rinse-off body wash can do, how to use it, who it suits and how to pair it with a glutathione night cream.',
-         refs=['review'],
+         seo='Glutathione Shower Gel and Body Wash: What It Can Do',
+         desc='Glutathione shower gel and body wash explained: what a rinse-off wash can do for body tan, how to use it, soap vs body wash, winter tips and who it suits.',
+         refs=['review'], show_faq=True,
          qa=[("What does a glutathione shower gel do?",
               "A glutathione shower gel is first of all a cleanser: it lifts sweat, dust and oil off your body and rinses away in a minute or two. The glutathione in it is an antioxidant ingredient, but because the gel is washed off quickly, treat it as part of a pleasant, fresh-feeling bath rather than a treatment for tone.", ''),
              ("Will a glutathione shower gel make my body fairer?",
@@ -49,9 +49,31 @@ OCT25 = [
 <p>It is the same idea as <a href="/glutathione-soap-benefits/">glutathione soap</a> in a gel form that many people find gentler and easier to lather. If you want a leave-on step, read <a href="/glutathione-for-underarms-and-body/">glutathione for the body</a> and our comparison of <a href="/glutathione-serum-vs-cream-vs-soap/">serum, cream and soap</a>.</p>
 
 <h2>When to be careful</h2>
-<p>Stop using any new wash if you get redness, itching or burning. Patch test on a small area first. If you have eczema, a skin condition or are pregnant and unsure about a product, ask a doctor. Cosmetics are not treatments.</p>''',
+<p>Stop using any new wash if you get redness, itching or burning. Patch test on a small area first. If you have eczema, a skin condition or are pregnant and unsure about a product, ask a doctor. Cosmetics are not treatments.</p>
+
+<h2>Shower gel or body wash: is there a difference?</h2>
+<p>Not much. Both are liquid body cleansers; "shower gel" usually means a clearer, gel-like texture and "body wash" can also mean a creamier lotion-style wash. What matters more is how your skin feels after rinsing. Compared with a bar soap, a liquid wash is usually milder and leaves less residue in hard water. The full comparison is in <a href="/glutathione-soap-vs-body-wash/">glutathione soap vs body wash</a>.</p>
+
+<h2>Using a body wash on tanned or darker areas</h2>
+<ul><li><b>Arms, neck and back:</b> wash gently with your hands or a soft cloth. Tan fades over weeks with sunscreen and covering up, not with harder scrubbing.</li>
+<li><b>Underarms:</b> rinse well, pat dry and let the skin settle before deodorant. Friction, shaving and strong deodorants are common reasons underarms look darker.</li>
+<li><b>Knees and elbows:</b> skip rough loofahs; moisturise straight after the bath. See <a href="/dark-knees-and-elbows/">dark knees and elbows</a>.</li></ul>
+<p>A body wash is one small, pleasant step in a <a href="/body-tan-removal-routine/">body tan routine</a>; it does not lighten skin by itself.</p>
+
+<h2>Winter and hard-water tips</h2>
+<ul><li>Keep baths short and the water lukewarm, even on cold mornings.</li>
+<li>Use a small amount: a coin-sized squeeze is enough for arms and legs.</li>
+<li>Rinse well; in hard-water areas, leftover wash can make skin feel tight or itchy.</li>
+<li>Moisturise within a few minutes, while the skin is still slightly damp. More winter care: <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a>.</li></ul>
+
+<h2>Where the GlutaNex Aqua Fresh Shower Gel fits</h2>
+<p>%(gel)s is a 100 ml pump bottle at %(pgel)s, made with glutathione, hyaluronic acid and aloe vera and meant for all skin types. It is the bath step in a face-and-body routine: the Gluta Boost Face Wash for the face, the shower gel for the body and the Night Cream on the face at night. It also comes in the <a href="/product/glutanex-face-wash-shower-gel-combo/">Face Wash + Shower Gel combo</a> (%(pwashgel)s) and the %(trio)s (%(ptrio)s). How the three work together: <a href="/face-and-body-glutathione-routine/">face and body glutathione routine</a>.</p>''',
          faq=[("Is a glutathione shower gel safe for daily use?", "Most mild shower gels are made for daily use, but check the pack and patch test first. Use lukewarm water and a moisturiser afterwards."),
-              ("Can I use a glutathione shower gel with a glutathione cream?", "Yes. The gel cleans your body in the shower, while a cream such as the GlutaNex Night Cream is a leave-on product for the face and neck at night.")]),
+              ("Can I use a glutathione shower gel with a glutathione cream?", "Yes. The gel cleans your body in the shower, while a cream such as the GlutaNex Night Cream is a leave-on product for the face and neck at night."),
+              ("Is a glutathione body wash better than soap?", "For most people a body wash feels gentler and rinses off more easily in hard water. A soap is fine if your skin feels comfortable after it. Neither changes skin tone by itself."),
+              ("How long should I leave a shower gel on my skin?", "About a minute while you lather is enough. Leaving it on longer does not make the glutathione do more, and it can dry the skin."),
+              ("Can I use a glutathione shower gel on intimate areas?", "It is better not to. Intimate skin is delicate; plain lukewarm water is usually enough there. See a doctor for itching, irritation or darkening in that area."),
+              ("Can men use a glutathione shower gel?", "Yes. It is a body cleanser for anyone. After the gym or a hot commute, rinse well and moisturise if your skin feels dry.")]),
 
     dict(slug='hyaluronic-acid-aloe-vera-body-wash',
          title='Hyaluronic acid and aloe vera in a body wash: what each ingredient does',

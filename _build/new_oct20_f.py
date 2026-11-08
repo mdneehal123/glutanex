@@ -142,8 +142,8 @@ OCT20_F = [
          short='Glutathione serum benefits',
          blurb='What a glutathione serum is, the realistic benefits, how to layer it with a night cream, and when a cream alone is enough.',
          seo='Glutathione Serum Benefits: What It Does & How to Layer',
-         desc='Glutathione serum benefits explained honestly: what a serum is, realistic results, how to layer it with a night cream, and when a cream alone is enough.',
-         refs=['study', 'review'],
+         desc='Glutathione serum benefits explained honestly: realistic results, what percentage means, layering with niacinamide, vitamin C or a night cream, who it suits.',
+         refs=['study', 'review'], show_faq=True,
          qa=[("What are the benefits of glutathione serum?",
               "The realistic glutathione serum benefits are a brighter, more even-looking tone and help with dullness and tan over 8 to 12 weeks, with daily sunscreen. A serum is light and absorbs fast, so it suits oily skin and layering under a moisturiser. Results are gradual and modest, not dramatic.", ''),
              ("Is glutathione serum better than cream?",
@@ -211,19 +211,35 @@ OCT20_F = [
 <ul><li>A full ingredient list on the pack, not just "glutathione + herbal extracts".</li>
 <li>Opaque or dark bottle, tightly closed after use. A faint sulphur smell is normal; a strong change in smell or colour is not.</li>
 <li>Honest claims: "brighter-looking" yes, "whitening in 7 days" no.</li>
-<li>Batch number, expiry date and a seller you can contact.</li></ul>''',
-         faq=[("Does GlutaNex make a glutathione serum?", "No. GlutaNex makes a Glutathione Night Cream and a Gluta Boost Face Wash. You can use a simple serum from your own routine alongside the cream, following the layering steps above."),
+<li>Batch number, expiry date and a seller you can contact.</li></ul>
+
+<h2>What percentage of glutathione serum is good?</h2>
+<p>There is no proven ideal strength. The best-known study used a 2%% oxidised glutathione lotion twice a day for 10 weeks (%(study)s), and no study has compared strengths to show that a higher number works better or faster. A big percentage on the front of a bottle tells you less than a full ingredient list, a stable dark bottle and honest claims. More on this in <a href="/glutathione-cream-percentage/">glutathione cream percentage</a>.</p>
+
+<h2>Glutathione serum with niacinamide or vitamin C</h2>
+<ul><li><b>Niacinamide:</b> a gentle partner that suits most skin types and can be used morning or night. See <a href="/glutathione-and-niacinamide/">glutathione and niacinamide</a>.</li>
+<li><b>Vitamin C:</b> another antioxidant; a vitamin C serum is usually worn in the morning under sunscreen. See <a href="/glutathione-vs-vitamin-c/">glutathione vs vitamin C</a>.</li>
+<li><b>One new product at a time:</b> add each serum for two weeks before the next, so you know what suits you.</li></ul>
+
+<h2>Glutathione serum for oily skin, acne marks and under the eyes</h2>
+<ul><li><b>Oily skin:</b> a light serum with a gel moisturiser often feels better than a rich cream in humid weather; see <a href="/glutathione-for-oily-skin/">glutathione for oily skin</a>.</li>
+<li><b>Acne marks:</b> they fade slowly with any leave-on product, and only with daily sunscreen and no picking; see <a href="/glutathione-for-acne-marks/">glutathione for acne marks</a>.</li>
+<li><b>Under the eyes:</b> keep serums off the eyelids and lash line. Dark circles have many causes, from genes to sleep and rubbing; see <a href="/glutathione-for-dark-circles/">glutathione for dark circles</a>.</li></ul>''',
+         faq=[("Does GlutaNex make a glutathione serum?", "No. GlutaNex makes a Glutathione Night Cream, the Gluta Boost Face Wash and the Aqua Fresh Shower Gel, plus sets of these. You can use a simple serum from your own routine alongside the cream, following the layering steps above."),
               ("Can I use glutathione serum in the morning?", "Yes, if it has no retinol or exfoliating acids. Apply it under moisturiser and sunscreen."),
               ("How many drops of serum should I use?", "Usually 2 to 3 drops for the whole face. More does not work faster."),
-              ("Can I use a glutathione serum and cream together?", "You can, but it is rarely needed. One leave-on product used consistently, with sunscreen, is simpler and gentler.")]),
+              ("Can I use a glutathione serum and cream together?", "You can, but it is rarely needed. One leave-on product used consistently, with sunscreen, is simpler and gentler."),
+              ("What percentage of glutathione serum is effective?", "No strength is proven best. The main study used a 2%% glutathione lotion, and higher percentages have not been shown to work better or faster."),
+              ("Can I use glutathione serum with niacinamide?", "Yes. Niacinamide is a gentle partner for glutathione and suits most skin types. Apply the thinner product first and add one new product at a time."),
+              ("Is glutathione serum good for sensitive skin?", "It is usually gentle, but the rest of the formula matters. Patch test for 24 hours, avoid strong fragrance and do not layer it with retinol or acids while your skin settles.")]),
 
     dict(slug='glutathione-soap-benefits',
          title='Glutathione soap benefits: what a soap can do, and soap vs face wash',
          short='Glutathione soap benefits',
          blurb='What a glutathione soap can realistically do, why bar soaps can dry the face, soap vs face wash, body use and how to avoid unsafe lightening soaps.',
          seo='Glutathione Soap Benefits: Does It Work? Soap vs Face Wash',
-         desc='Glutathione soap benefits explained: why soap contact time is short, bar soap vs face wash pH, body use, and how to spot unsafe lightening soaps.',
-         refs=['study', 'review'],
+         desc='Glutathione soap benefits explained: what a soap can and cannot do, soap vs face wash and body wash, how to choose a safe soap, and how to avoid unsafe soaps.',
+         refs=['study', 'review'], show_faq=True,
          qa=[("What are the benefits of glutathione soap?",
               "The main glutathione soap benefits are cleaning and a fresh feel. A soap is rinsed off within a minute, so glutathione has little time on the skin; research used leave-on products for weeks. For a brighter, more even look, pair any cleanser with a leave-on cream and daily sunscreen.", ''),
              ("Glutathione soap vs face wash: which is better for the face?",
@@ -281,11 +297,28 @@ OCT20_F = [
 <h2>A simple routine that includes a cleanser</h2>
 <ul><li><b>Morning:</b> face wash, moisturiser if needed, sunscreen SPF 30+. Body soap in the shower.</li>
 <li><b>Night:</b> face wash, then a leave-on glutathione cream such as %(cream)s (night only, start 2 to 3 nights a week because it contains retinol and salicylic acid).</li></ul>
-<p>Using several glutathione products at once, such as a soap, a wash, a serum and a cream, does not speed things up. One cleanser, one leave-on product and sunscreen is enough. To compare formats in one table, see <a href="/glutathione-serum-vs-cream-vs-soap/">serum vs cream vs soap</a>.</p>''',
+<p>Using several glutathione products at once, such as a soap, a wash, a serum and a cream, does not speed things up. One cleanser, one leave-on product and sunscreen is enough. To compare formats in one table, see <a href="/glutathione-serum-vs-cream-vs-soap/">serum vs cream vs soap</a>.</p>
+
+<h2>How to choose a glutathione soap</h2>
+<ol><li><b>Full ingredient list</b> on the wrapper or box, not only "glutathione + herbal extracts".</li>
+<li><b>Maker's name, address, batch number and expiry date</b> printed clearly.</li>
+<li><b>Honest wording.</b> "Fresh", "clean" and "brighter-looking" are fine; "skin whitening" and "fair in 7 days" are claims no soap can back up.</li>
+<li><b>A milder bar for the face.</b> A "syndet" or "pH-balanced" bar is usually gentler than a traditional alkaline soap.</li>
+<li><b>Light or no fragrance</b> if your skin is sensitive or you also use a retinol night cream.</li></ol>
+<p>For transparency: GlutaNex does not make a soap. Our cleansers are the Gluta Boost Face Wash and the <a href="/glutathione-shower-gel/">Aqua Fresh glutathione shower gel</a>.</p>
+
+<h2>Glutathione soap for oily skin and body acne</h2>
+<p>On an oily back or chest in humid weather, a bar soap can feel pleasantly clean. On an oily face, a strong bar often backfires: skin feels tight, then makes more oil. A gentle face wash used twice a day is the safer choice; see <a href="/glutathione-face-wash-for-oily-skin/">glutathione face wash for oily skin</a>. Neither a soap nor a face wash treats acne. Painful, frequent or scarring breakouts need a dermatologist.</p>
+
+<h2>Soap or body wash for the body?</h2>
+<p>Both are rinse-off cleansers. A body wash is usually closer to skin pH and rinses off more easily in hard water; a soap is cheaper per bath and suits people who like a squeaky-clean feel. If your skin feels dry or itchy after bathing, try a body wash and moisturise on damp skin. Details: <a href="/glutathione-soap-vs-body-wash/">glutathione soap vs body wash</a>.</p>''',
          faq=[("Can I use glutathione soap on my face daily?", "If it is a mild bar and your skin feels comfortable, yes. If your face feels tight or dry after washing, switch to a pH-balanced face wash, especially if you also use a retinol night cream."),
               ("Does glutathione soap remove tan?", "Not by itself. It is rinsed off too quickly. Tan fades over weeks with sunscreen, covering up and, if you like, a leave-on product."),
               ("Is glutathione soap safe?", "A soap from a known maker with a full ingredient list is generally safe for most people. Avoid unlabelled lightening soaps, which may contain harmful substances."),
-              ("Can I use soap and glutathione face wash together?", "Use the face wash on your face and the soap on your body. Washing the face with both is unnecessary and can dry it out.")]),
+              ("Can I use soap and glutathione face wash together?", "Use the face wash on your face and the soap on your body. Washing the face with both is unnecessary and can dry it out."),
+              ("Which glutathione soap is best in India?", "No single soap is best for everyone. Choose one with a full ingredient list, maker details, batch and expiry dates and no whitening promises, and keep strong bars for the body."),
+              ("How long should I keep glutathione soap on my skin?", "About a minute of lathering is enough. Leaving soap on longer does not let the glutathione do more and can dry or irritate the skin."),
+              ("Can glutathione soap cause side effects?", "The usual problems are dryness, tightness and irritation, especially on the face. Stop if you get redness, itching or burning, and see a doctor if it does not settle.")]),
 
     dict(slug='glutathione-for-open-pores',
          title='Glutathione for open pores: what helps pores look smaller',

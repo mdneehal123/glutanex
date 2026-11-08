@@ -7,9 +7,9 @@ WASH = '<a href="%s">Gluta Boost Face Wash</a>' % url(BYID['wash'])
 
 GUIDES = [
     dict(slug='glutathione-cream', title='Glutathione cream: what it is and how to choose one', short='Glutathione cream guide',
-         blurb='What glutathione cream does, what the research says, and what to look for.',
-         seo='What Is Glutathione Cream? Benefits, Uses & How to Choose',
-         desc='What glutathione cream is, what a glutathione face cream can and cannot do, uses and benefits, what research shows, and how to choose one safely.',
+         blurb='A glutathione cream is a leave-on cosmetic with the antioxidant glutathione, used for brighter, more even-looking skin over weeks. Here is what it can and cannot do, and how to choose one.',
+         seo='Glutathione Cream: What It Is, Benefits and How to Choose',
+         desc='Glutathione cream explained: what it is, what it can and cannot do for face and body, who should be careful, how to read labels and how to choose one.',
          body='''<p>A glutathione cream is a skincare cream that contains glutathione, an antioxidant the body makes naturally. It is used in products made for <b>brighter-looking, more even skin</b>. It is a cosmetic, not a medicine, and it works gradually. Most are made as a <b>glutathione face cream</b> for night use, like the <a href="/product/glutanex-glutathione-night-cream/">GlutaNex glutathione face cream</a>.</p>
 <h2>What is glutathione?</h2><p>Glutathione is a small molecule made of three amino acids (cysteine, glutamic acid and glycine). Inside the body it acts as an antioxidant, helping cells deal with everyday stress from things like UV light and pollution. In skincare, it is added to creams, serums and face washes, often together with niacinamide or vitamin C.</p>
 <h2>What can a glutathione cream do?</h2><ul><li>Help skin look <b>brighter and more even</b> with regular use.</li><li>Support the look of <b>dark spots and tan</b> fading, alongside daily sunscreen.</li><li>Add an antioxidant step to a simple night routine.</li></ul>
@@ -28,7 +28,7 @@ GUIDES = [
 <h2>3. Smoother-feeling skin</h2><p>The same study also reported better skin moisture and smoothness in later weeks. Much of this also comes from the cream base itself and from regular moisturising.</p>
 <h2>What to expect, realistically</h2><div class="tbl"><table><thead><tr><th>Time</th><th>What you may notice</th></tr></thead><tbody><tr><td>Week 1–2</td><td>Skin feels softer and more comfortable</td></tr><tr><td>Week 4–6</td><td>Skin may look a little brighter and more even</td></tr><tr><td>Week 8+</td><td>Dark spots and tan may look lighter, with daily sunscreen</td></tr></tbody></table></div>
 <p>Results vary from person to person. Glutathione does not change your natural skin colour.</p>
-<h2>Getting the most from it</h2><ul><li>Use it every night, not occasionally.</li><li>Wear sunscreen every morning; without it, new tan and spots keep forming.</li><li>Pair it with gentle cleansing, such as %(wash)s.</li></ul>
+<h2>Getting the most from it</h2><ul><li>Use it every night, not occasionally.</li><li>Wear sunscreen every morning; without it, new tan and spots keep forming.</li><li>Pair it with gentle cleansing, such as %(wash)s.</li><li>Choose a leave-on <a href="/">glutathione face cream</a> for the night; wash-off products alone rinse away too quickly.</li></ul>
 <p>Read next: <a href="/glutathione-side-effects/">glutathione side effects</a> · <a href="/glutathione-cream/">how to choose a glutathione cream</a></p>'''),
     dict(slug='glutathione-side-effects', title='Glutathione side effects and safe use', short='Side effects',
          blurb='Who should be careful, and how to use glutathione creams safely.',
@@ -44,7 +44,7 @@ GUIDES = [
          blurb='A simple night routine, step by step.',
          seo='How to Use Glutathione Cream: Simple Night Routine',
          desc='How to use glutathione cream on the face: a simple step-by-step night routine, how much to apply, what to pair it with, and mistakes to avoid.',
-         body='''<p>Use glutathione cream at night on clean, dry skin, and use sunscreen every morning. That's the whole routine.</p>
+         body='''<p>Use glutathione cream at night on clean, dry skin, and use sunscreen every morning. That's the whole routine. It is the routine our <a href="/">glutathione cream for face</a> is made for.</p>
 <h2>Night routine</h2><ol><li><b>Cleanse:</b> wash your face with a gentle cleanser such as %(wash)s and pat dry.</li><li><b>Apply:</b> take a pea-sized amount and dot it on forehead, cheeks and chin, then smooth over face and neck. Avoid the eyes.</li><li><b>Let it absorb:</b> give it a few minutes before lying down.</li></ol>
 <h2>Morning</h2><p>Cleanse, then apply a broad-spectrum sunscreen (SPF 30 or higher). Sun exposure keeps creating new tan and dark spots, so this step protects the work of the night.</p>
 <h2>Good pairings</h2><ul><li><b>Niacinamide:</b> a gentle, well-studied ingredient often used with glutathione.</li><li><b>Vitamin C:</b> another antioxidant; use it in the morning if you have it.</li><li><b>A simple moisturiser:</b> if your skin feels dry.</li></ul>
@@ -119,6 +119,7 @@ for _g in [PILLAR] + GUIDES + NEW_GUIDES:
     if _g.get('qa'):
         _g['body'] = ''.join('<h2>%s</h2><p class="answer">%s</p>%s' % (q, a, d) for q, a, d in _g['qa']) + _g['body']
         _g['faq_ld'] = [(q, a) for q, a, d in _g['qa']] + list(_g.get('faq', []))
+        _g['faq_more'] = list(_g.get('faq', [])) if _g.get('show_faq') else []  # shown on the page too, not only in the schema
         _g['faq'] = []
 GUIDES = [PILLAR] + GUIDES + NEW_GUIDES + [QA_PAGE]
 EN2HI = {h['en']: '/hi/%s/' % h['slug'] for h in HI}
@@ -240,7 +241,7 @@ for i, g in enumerate(GUIDES):
     else:
         more = [GUIDES[0]] + [GUIDES[(i + j) % len(GUIDES)] for j in (1, 2) if GUIDES[(i + j) % len(GUIDES)]['slug'] != 'glutathione']
         more = more[:3]
-    faq = [(q % P, a % P) for q, a in g.get('faq', [])]
+    faq = [(q % P, a % P) for q, a in (g.get('faq') or g.get('faq_more') or [])]
     body = top('Glutathione guide', g['title'], g['blurb']) + \
         '<section style="padding-top:22px"><div class="wrap article"><div class="prose"><p class="byline">By the GlutaNex team · Updated 11 October 2026 · %d sources cited</p>%s%s%s<p class="note">General information about cosmetic skincare, not medical advice. Results vary from person to person. See a dermatologist for persistent or changing pigmentation.</p></div>' \
         '<aside class="side-cta"><img src="%s" alt="GlutaNex Glutathione Night Cream" width="800" height="800" loading="lazy"><b>GlutaNex Night Cream</b><span>Glutathione + niacinamide + vitamin C · %s · Cash on Delivery</span><button class="btn block" type="button" data-buy="cream">Buy now</button><a class="btn ghost block sm" href="%s">View product</a></aside></div></section>' \

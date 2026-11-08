@@ -103,7 +103,7 @@ PLAN05 = [
 <h2>Daily routine</h2>
 <div class="tbl"><table><thead><tr><th>When</th><th>Step</th><th>Why</th></tr></thead><tbody>
 <tr><td>Morning</td><td>Sunscreen SPF 30+ on arms, neck, hands and feet; reapply if you are out for hours</td><td>Stops new tan</td></tr>
-<tr><td>Bath</td><td>Gentle body wash such as %(gel)s, lukewarm water</td><td>Cleans sweat and dirt without drying</td></tr>
+<tr><td>Bath</td><td>Gentle body wash such as %(gel)s, lukewarm water (what a <a href="/glutathione-shower-gel/">glutathione shower gel</a> can and cannot do)</td><td>Cleans sweat and dirt without drying</td></tr>
 <tr><td>After bath</td><td>Moisturiser on damp skin</td><td>Dry skin looks duller and darker</td></tr>
 <tr><td>1 to 2 times a week</td><td>Gentle exfoliation with a soft loofah or mild exfoliating lotion</td><td>Removes dull surface skin</td></tr>
 </tbody></table></div>
@@ -145,7 +145,7 @@ PLAN05 = [
 </tbody></table></div>
 
 <h2>Gentle routine</h2>
-<ol><li>Wash with a mild body wash such as %(gel)s; avoid hard scrubbing.</li><li>Pat dry and apply a thick moisturiser while skin is still damp.</li><li>Once or twice a week, exfoliate gently with a soft cloth or a mild lactic or urea lotion.</li><li>Moisturise again at night.</li></ol>
+<ol><li>Wash with a mild body wash such as %(gel)s; avoid hard scrubbing. A <a href="/glutathione-shower-gel/">glutathione body wash</a> cleans gently but does not lighten skin by itself.</li><li>Pat dry and apply a thick moisturiser while skin is still damp.</li><li>Once or twice a week, exfoliate gently with a soft cloth or a mild lactic or urea lotion.</li><li>Moisturise again at night.</li></ol>
 <p>Expect a softer feel in 2 to 3 weeks and a more even look in 6 to 12 weeks.</p>
 
 <h2>When to see a doctor</h2>

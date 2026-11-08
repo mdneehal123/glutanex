@@ -117,7 +117,7 @@ OCT20_A = [
 <li><b>Are your photos like for like?</b> Compare pictures taken in the same light and place, not a bathroom selfie with a sunny-day photo.</li>
 <li><b>Is it the right kind of mark?</b> Old acne marks, melasma and deep spots may need prescription care. A dermatologist can tell you which type you have and what is likely to help.</li></ul>
 <p>A plateau after 12 weeks often means you have reached what a cosmetic cream can do. From there, the routine is about keeping the result, mainly through sun protection.</p>
-<h2>What results will never look like</h2><p>A cream will not make you a different skin colour, and it should not try to. The honest goal is skin that looks healthier, smoother and more even than it did when you started. If that is the result you get, the cream is working.</p>''',
+<h2>What results will never look like</h2><p>A cream will not make you a different skin colour, and it should not try to. The honest goal is skin that looks healthier, smoother and more even than it did when you started. If that is the result you get, the cream is working. For the basics, read <a href="/glutathione-cream/">what glutathione cream can and cannot do</a>.</p>''',
          faq=[("Why am I not seeing results from glutathione cream?",
                "The usual reasons are skipping sunscreen, using the cream only now and then, judging before 8 weeks, or having melasma or very old marks, which respond slowly. If nothing has changed after 12 weeks, see a dermatologist."),
               ("Do glutathione cream results last?",
@@ -217,7 +217,7 @@ OCT20_A = [
 <li><b>Night shift?</b> Use it before your main sleep, whenever that is, and keep it off skin that will be in the sun soon after.</li>
 <li><b>Out late?</b> If you get home very late and tired, a gentle cleanse and plain moisturiser is better than skipping makeup removal.</li></ul>
 <h2>What goes in the morning instead</h2><p>Mornings are for protection. A broad-spectrum sunscreen does more for tan and dark marks than any day cream, because it stops new tan from forming while the night routine works on the old. Indian sun is strong for most of the year, so wear it even when it is cloudy or you are mostly indoors near windows. Details are in <a href="/glutathione-cream-with-sunscreen/">glutathione cream and sunscreen</a>.</p>
-<p>If you also want a vitamin C serum, mornings are a common choice because vitamin C is an antioxidant that pairs well with sunscreen. Keep it simple, though: the GlutaNex Night Cream already contains vitamin C, so a separate serum is optional. See <a href="/glutathione-vs-vitamin-c/">glutathione vs vitamin C</a>.</p>
+<p>If you also want a vitamin C serum, mornings are a common choice because vitamin C is an antioxidant that pairs well with sunscreen. Keep it simple, though: the GlutaNex Night Cream already contains vitamin C, so a separate serum is optional. See <a href="/glutathione-vs-vitamin-c/">glutathione vs vitamin C</a> and <a href="/glutathione-serum-benefits/">glutathione serum benefits and layering</a>.</p>
 <h2>Using other products at night</h2><ul>
 <li><b>Do not stack</b> another retinol, AHA (glycolic, lactic) or BHA product on the same night.</li>
 <li><b>Niacinamide serums</b> usually sit well under a night cream; see <a href="/glutathione-and-niacinamide/">glutathione and niacinamide</a>.</li>
