@@ -324,6 +324,11 @@
   "mod": "2026-11-05",
   "pub": "2026-11-03"
  },
+ "/glutathione-cream-with-ghee/": {
+  "h": "97002d76b1391f91",
+  "mod": "2026-11-08",
+  "pub": "2026-11-08"
+ },
  "/glutathione-cream-with-glycerin/": {
   "h": "7864df7fa9c77a0c",
   "mod": "2026-11-05",
@@ -345,13 +350,18 @@
   "pub": "2026-10-29"
  },
  "/glutathione-cream-with-petroleum-jelly/": {
-  "h": "dfb2c3db5f227e01",
-  "mod": "2026-11-07",
+  "h": "9558c32a38be9bb7",
+  "mod": "2026-11-08",
   "pub": "2026-11-07"
  },
+ "/glutathione-cream-with-saffron/": {
+  "h": "6734441bf7ee826c",
+  "mod": "2026-11-08",
+  "pub": "2026-11-08"
+ },
  "/glutathione-cream-with-sandalwood/": {
-  "h": "d55defe17194f808",
-  "mod": "2026-11-07",
+  "h": "c037509637733f84",
+  "mod": "2026-11-08",
   "pub": "2026-11-07"
  },
  "/glutathione-cream-with-sunscreen/": {
@@ -475,8 +485,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "f7ff9bf1603f6270",
-  "mod": "2026-11-07",
+  "h": "1b5abe084c45d566",
+  "mod": "2026-11-08",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
