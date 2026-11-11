@@ -345,8 +345,8 @@
   "pub": "2026-11-01"
  },
  "/glutathione-cream-with-kumkumadi-oil/": {
-  "h": "5dabae4685a452d0",
-  "mod": "2026-11-10",
+  "h": "faf0bd612faa1609",
+  "mod": "2026-11-11",
   "pub": "2026-11-10"
  },
  "/glutathione-cream-with-lemon/": {
@@ -359,6 +359,16 @@
   "mod": "2026-11-05",
   "pub": "2026-10-29"
  },
+ "/glutathione-cream-with-mustard-oil/": {
+  "h": "443d4ea55a73daa4",
+  "mod": "2026-11-11",
+  "pub": "2026-11-11"
+ },
+ "/glutathione-cream-with-papaya/": {
+  "h": "75c882bc5b0e95bc",
+  "mod": "2026-11-11",
+  "pub": "2026-11-11"
+ },
  "/glutathione-cream-with-petroleum-jelly/": {
   "h": "9558c32a38be9bb7",
   "mod": "2026-11-08",
@@ -370,8 +380,8 @@
   "pub": "2026-11-09"
  },
  "/glutathione-cream-with-raw-milk/": {
-  "h": "1db5a2cb9d036e5e",
-  "mod": "2026-11-10",
+  "h": "f37cf1b47067b5be",
+  "mod": "2026-11-11",
   "pub": "2026-11-10"
  },
  "/glutathione-cream-with-saffron/": {
@@ -505,8 +515,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "5fb8d19c48e04162",
-  "mod": "2026-11-10",
+  "h": "c3c304ff7230b01e",
+  "mod": "2026-11-11",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
