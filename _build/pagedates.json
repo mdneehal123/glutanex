@@ -319,6 +319,11 @@
   "mod": "2026-11-05",
   "pub": "2026-11-03"
  },
+ "/glutathione-cream-with-castor-oil/": {
+  "h": "60bc8233c690ad84",
+  "mod": "2026-11-12",
+  "pub": "2026-11-12"
+ },
  "/glutathione-cream-with-coconut-oil/": {
   "h": "7216ef1f9b60a87f",
   "mod": "2026-11-05",
@@ -360,13 +365,13 @@
   "pub": "2026-10-29"
  },
  "/glutathione-cream-with-mustard-oil/": {
-  "h": "443d4ea55a73daa4",
-  "mod": "2026-11-11",
+  "h": "a23ecdbe885f5510",
+  "mod": "2026-11-12",
   "pub": "2026-11-11"
  },
  "/glutathione-cream-with-papaya/": {
-  "h": "75c882bc5b0e95bc",
-  "mod": "2026-11-11",
+  "h": "92706fedf34de663",
+  "mod": "2026-11-12",
   "pub": "2026-11-11"
  },
  "/glutathione-cream-with-petroleum-jelly/": {
@@ -398,6 +403,11 @@
   "h": "bdf14c764122254d",
   "mod": "2026-11-05",
   "pub": "2026-10-20"
+ },
+ "/glutathione-cream-with-tomato/": {
+  "h": "4f78919f32ae1f56",
+  "mod": "2026-11-12",
+  "pub": "2026-11-12"
  },
  "/glutathione-cream-with-vitamin-c-serum/": {
   "h": "693e35b65a2e08d5",
@@ -515,8 +525,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "c3c304ff7230b01e",
-  "mod": "2026-11-11",
+  "h": "e42533a304dd05eb",
+  "mod": "2026-11-12",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
