@@ -6,6 +6,9 @@ import json, os, re, html, shutil, urllib.parse
 
 B = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(B)
+import sys as _vsys
+_vsys.path.insert(0, B)
+import videos as VID
 
 # ---------------- Settings (CONFIRM before launch) ----------------
 PREVIEW = False                         # True: shows a "preview" ribbon and asks search engines not to index anything
@@ -246,6 +249,8 @@ def range_strip():
 
 def page(path, title, desc, body, schema=None, crumbs=None, index=True, og='website', ogimg='night-shift-banner', extra='', js='store.js', jar=False, lang='en-IN', ptype='WebPage', main=None):
     full = SITE + path
+    if index and path in VID.EMBEDS:
+        body += VID.embed_block(VID.EMBEDS[path])
     if 'class="side-cta"' in body and 'range-strip' not in body:
         body += range_strip()
     nav = ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == path else '', t) for h, t in NAV)
@@ -913,6 +918,31 @@ exec(open(os.path.join(B, 'features.py'), encoding='utf-8').read())
 page('/offline/', 'You are offline | GlutaNex', 'No internet connection.', top('Offline', 'You are offline', 'Check your internet connection and try again. Pages you opened before still work.') +
      '<section style="padding-top:20px"><div class="wrap"><button class="btn" type="button" onclick="location.reload()">Try again</button></div></section>', index=False)
 
+# ---------------- Videos: hub + one watch page per video ----------------
+for _v in VID.VIDEOS:
+    _vp = VID.vurl(_v)
+    _tr = ''.join('<li>%s</li>' % html.escape(t) for t in _v['transcript'])
+    _lk = ''.join('<li><a href="%s">%s</a></li>' % (u, html.escape(t)) for u, t in _v['links'])
+    _others = ''.join('<li><a href="%s">%s</a></li>' % (VID.vurl(o), html.escape(o['name'])) for o in VID.VIDEOS if o is not _v)
+    page(_vp, _v['seo'] + ' | GlutaNex', _v['desc'],
+         top('Video', html.escape(_v['name'])) +
+         '<section style="padding-top:20px"><div class="wrap vid-watch"><div class="vid-main">' + VID.player(_v, lazy=False) +
+         '<p class="muted vid-note">' + VID.note(_v) + '</p></div><div class="vid-text">' + _v['about'] +
+         '<h2>What is said in the video</h2><ul class="vid-tr">' + _tr + '</ul>'
+         '<h2>Read next</h2><ul>' + _lk + '<li><a href="' + url(BYID['cream']) + '">GlutaNex Glutathione Night Cream</a></li></ul>'
+         '<h2>More videos</h2><ul>' + _others + '</ul></div></div></section>',
+         crumbs=[('Videos', '/videos/'), (_v['name'], _vp)], ogimg='night-shift-banner',
+         schema=[VID.video_ld(SITE, _v, SITE + _vp)], main=SITE + _vp + '#video')
+page('/videos/', 'GlutaNex Videos: Night Routine, Texture and Ingredients | GlutaNex',
+     'Short GlutaNex videos: a night routine with the Glutathione Night Cream, the real cream texture from a fresh batch, and the key ingredients explained.',
+     top('Videos', 'GlutaNex <span class="gold">videos</span>', 'Short videos on how the Night Cream is used, what is in it and what the real texture looks like.') +
+     '<section style="padding-top:20px"><div class="wrap"><div class="vid-row">' +
+     ''.join('<figure class="vid-card">%s<figcaption><a href="%s">%s</a><span>%s</span></figcaption></figure>' % (VID.player(v), VID.vurl(v), html.escape(v['name']), VID.note(v)) for v in VID.VIDEOS) +
+     '</div><p class="muted" style="font-size:.85rem;margin-top:14px">Videos marked "Made with AI tools" use an AI-generated model, not a customer. They show how the cream is used, not results. Results vary from person to person.</p></div></section>',
+     crumbs=[('Videos', '/videos/')], ptype='CollectionPage', main=SITE + '/videos/#list',
+     schema=[{'@type': 'ItemList', '@id': SITE + '/videos/#list', 'name': 'GlutaNex videos', 'numberOfItems': len(VID.VIDEOS),
+              'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + VID.vurl(v), 'name': v['name']} for i, v in enumerate(VID.VIDEOS)]}])
+
 # ---------------- Assets, sitemap, robots, vercel ----------------
 os.makedirs(os.path.join(ROOT, 'assets'), exist_ok=True)
 open(os.path.join(ROOT, 'assets', 'site.css'), 'w', encoding='utf-8').write(mincss(open(os.path.join(B, 'site.css'), encoding='utf-8').read()))
@@ -977,12 +1007,21 @@ for pth in pages:
     sm.append('  <url><loc>%s%s</loc><lastmod>%s</lastmod>%s</url>' % (SITE, pth, _dates.get(pth, {}).get('mod', TODAY), _imgs(pth)))
 sm.append('</urlset>')
 open(os.path.join(ROOT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
+# video sitemap: one entry per watch page
+_vs = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">']
+for _v in VID.VIDEOS:
+    _vs.append('  <url><loc>%s%s</loc><video:video><video:thumbnail_loc>%s/assets/video/%s.jpg</video:thumbnail_loc><video:title>%s</video:title><video:description>%s</video:description>'
+               '<video:content_loc>%s/assets/video/%s.mp4</video:content_loc><video:duration>%d</video:duration><video:publication_date>%s</video:publication_date><video:family_friendly>yes</video:family_friendly></video:video></url>' % (
+                   SITE, VID.vurl(_v), SITE, _v['slug'], html.escape(_v['name']), html.escape(_v['desc']), SITE, _v['slug'], _v['secs'], VID.UPLOAD))
+_vs.append('</urlset>')
+open(os.path.join(ROOT, 'sitemap-video.xml'), 'w').write('\n'.join(_vs) + '\n')
 # Google Search Console ownership file (HTML file method). Must stay at the site root.
 open(os.path.join(ROOT, 'google68c163c347b9f153.html'), 'w').write('google-site-verification: google68c163c347b9f153.html')
-open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE))
+open(os.path.join(ROOT, 'robots.txt'), 'w').write(('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: OAI-SearchBot\nUser-agent: ChatGPT-User\nUser-agent: GPTBot\nUser-agent: PerplexityBot\nUser-agent: Perplexity-User\nUser-agent: ClaudeBot\nUser-agent: Claude-SearchBot\nUser-agent: Claude-User\nUser-agent: Google-Extended\nUser-agent: Applebot-Extended\nUser-agent: Bingbot\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /leads/\nDisallow: /api/\nAllow: /\n\nUser-agent: *\nDisallow: /cart/\nDisallow: /checkout/\nDisallow: /reorder/\nDisallow: /leads/\nDisallow: /offline/\nDisallow: /reminders/\nDisallow: /api/\nAllow: /\n\nSitemap: %s/sitemap.xml\nSitemap: %s/sitemap-video.xml\n' % (SITE, SITE)))
 vercel = {'cleanUrls': False, 'rewrites': [{'source': '/api/:fn(addon|indexnow|coupon|scratch|routine|parcel-photo|cod-order|delhivery-check)', 'destination': '/api/hub?fn=:fn'}], 'crons': [{'path': '/api/push-cron', 'schedule': '0 16 * * *'}, {'path': '/api/hub?fn=indexnow', 'schedule': '30 3 * * *'}], 'headers': [{'source': '/(.*)', 'headers': [{'key': 'X-Content-Type-Options', 'value': 'nosniff'}, {'key': 'Referrer-Policy', 'value': 'strict-origin-when-cross-origin'},
                 {'key': 'Permissions-Policy', 'value': 'camera=(self), microphone=(self), geolocation=(), browsing-topics=()'}, {'key': 'Strict-Transport-Security', 'value': 'max-age=63072000; includeSubDomains'}]},
                {'source': '/((?!web-stories|hi/web-stories).*)', 'headers': [{'key': 'X-Frame-Options', 'value': 'SAMEORIGIN'}]},
+               {'source': '/assets/video/(.*)\\.mp4', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=604800'}]},
                {'source': '/assets/(.*)\\.(webp|jpg|png|svg)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=86400, stale-while-revalidate=604800'}]},
                                          {'source': '/assets/(.*)\\.(css|js)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]}, {'source': '/assets/fonts/(.*)', 'headers': [{'key': 'Cache-Control', 'value': 'public, max-age=31536000, immutable'}]},
                                          {'source': '/(cart|checkout|reorder|leads|offline|reminders)/(.*)', 'headers': [{'key': 'X-Robots-Tag', 'value': 'noindex'}]},

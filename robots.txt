@@ -26,3 +26,4 @@ Disallow: /api/
 Allow: /
 
 Sitemap: https://glutanex.co.in/sitemap.xml
+Sitemap: https://glutanex.co.in/sitemap-video.xml

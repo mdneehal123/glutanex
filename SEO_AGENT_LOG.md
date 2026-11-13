@@ -93,3 +93,10 @@ Chosen from a page-1 check of each keyword (Keyword Planner quota used up until 
 - /glutathione-soap-vs-body-wash/ (marketplace blogs)
 - /glutathione-face-wash-for-men/ (mostly one brand's product page)
 - /hi/glutathione-face-wash-kaise-use-kare/ (no Hindi article on page 1), linked to /glutathione-face-wash/ with hreflang
+
+## 2026-11-13: Videos (video SEO)
+- New /videos/ hub and 4 watch pages (/videos/<slug>/), each with the video as main content, VideoObject schema (thumbnail, duration, contentUrl, transcript), a written summary, transcript and links to guides. Data lives in _build/videos.py.
+- New sitemap-video.xml (listed in robots.txt). Submit it in Search Console.
+- Videos also embedded (no extra schema) on: Night Cream product page, /how-to-use-glutathione-cream/, /glutathione-cream-ingredients/, /glutathione-night-cream/, /genuine-glutanex/.
+- 3 videos use an AI-generated model made from photos of the real jar: every page that shows one says so. The fresh-batch video is real footage. No before/after or results claims; retinol/night-only rules stated on the watch pages.
+- Skipped the older 11-ingredients reel (its "by morning" line implies quick results).
