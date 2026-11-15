@@ -349,6 +349,11 @@
   "mod": "2026-11-05",
   "pub": "2026-10-31"
  },
+ "/glutathione-cream-with-green-tea/": {
+  "h": "49c181e7581065f2",
+  "mod": "2026-11-15",
+  "pub": "2026-11-15"
+ },
  "/glutathione-cream-with-honey/": {
   "h": "b810a5ae9c492e88",
   "mod": "2026-11-05",
@@ -374,9 +379,14 @@
   "mod": "2026-11-12",
   "pub": "2026-11-11"
  },
+ "/glutathione-cream-with-olive-oil/": {
+  "h": "9ca1eff08df95d95",
+  "mod": "2026-11-15",
+  "pub": "2026-11-15"
+ },
  "/glutathione-cream-with-orange-peel-powder/": {
-  "h": "36794b4f69ecced1",
-  "mod": "2026-11-14",
+  "h": "3c5117e87f889f7e",
+  "mod": "2026-11-15",
   "pub": "2026-11-14"
  },
  "/glutathione-cream-with-papaya/": {
@@ -540,8 +550,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "644398fa7ae39f22",
-  "mod": "2026-11-14",
+  "h": "b56ab4357eb62fe8",
+  "mod": "2026-11-15",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
@@ -825,8 +835,8 @@
   "pub": "2026-10-24"
  },
  "/ice-cube-with-glutathione-cream/": {
-  "h": "28edf490c2921638",
-  "mod": "2026-11-14",
+  "h": "9160733f6f950ddd",
+  "mod": "2026-11-15",
   "pub": "2026-11-14"
  },
  "/image-licence/": {
