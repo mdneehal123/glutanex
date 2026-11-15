@@ -115,7 +115,7 @@ PLAN05 = [
 <ul><li>Lemon, baking soda or bleach on the skin: they irritate and can leave darker patches.</li><li>Hard scrubbing with stones or harsh scrubs.</li><li>"Instant whitening" body lotions with unclear ingredients.</li></ul>
 
 <h2>When to see a dermatologist</h2>
-<p>See one for velvety dark patches on the neck or underarms (these can be linked to blood sugar), itchy or spreading patches, or darkening that does not fade after 3 months of sun protection. For underarms and folds, read <a href="/glutathione-for-underarms-and-body/">glutathione for underarms and body</a>.</p>
+<p>See one for velvety dark patches on the neck or underarms (these can be linked to blood sugar), itchy or spreading patches, or darkening that does not fade after 3 months of sun protection. For underarms and folds, read <a href="/glutathione-for-underarms-and-body/">glutathione for underarms and body</a>; for tan and spots on the face, <a href="/glutathione-for-dark-spots-and-tan/">glutathione for dark spots and tan</a>.</p>
 ''',
          faq=[("Can I use a face cream on my body for tan?", "Face creams come in small amounts and the GlutaNex Night Cream is made for the face. For the body, focus on sunscreen, a gentle body wash and a moisturiser."),
               ("Does tan go away on its own?", "Yes, usually, once new sun exposure stops, because skin renews itself over weeks."),

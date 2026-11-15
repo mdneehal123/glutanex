@@ -167,7 +167,7 @@ NEW_GUIDES = [
 <tr><td>Foaming gel</td><td>Light lather, fresh finish</td><td>Oily, combination and humid weather</td></tr>
 <tr><td>Cream cleanser</td><td>Little lather, soft finish</td><td>Dry skin, winter, AC rooms</td></tr>
 </tbody></table></div><p>In winter, oily-skin users can switch to once a day if skin feels tight.</p>
-<h2>Face wash or soap?</h2><p>Bar soaps are often more alkaline and can feel drying on the face. A face wash is usually gentler for daily use; keep soaps for the body. More: <a href="/glutathione-soap-benefits/">glutathione soap benefits</a> and <a href="/face-wash-vs-shower-gel/">face wash vs shower gel</a>.</p>''',
+<h2>Face wash or soap?</h2><p>Bar soaps are often more alkaline and can feel drying on the face. A face wash is usually gentler for daily use; keep soaps for the body. More: <a href="/glutathione-soap-benefits/">glutathione soap benefits</a> and <a href="/face-wash-vs-shower-gel/">face wash vs shower gel</a>. After washing, see <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a> at night; for shiny skin, <a href="/glutathione-for-oily-skin/">glutathione cream for oily skin</a>.</p>''',
          faq=[('Does glutathione face wash lighten skin?', 'A face wash is rinsed off quickly, so on its own it mainly cleans and refreshes. For brighter-looking skin, pair it with a leave-on glutathione cream and daily sunscreen.'),
               ('Can I use glutathione face wash twice a day?', 'Yes, most people can use it morning and night. If your skin feels tight or dry, use it once a day.'),
               ('Can men use a glutathione face wash?', 'Yes. It suits men and women.'),
@@ -206,7 +206,7 @@ NEW_GUIDES = [
 <h2>Which is better?</h2><p>Neither is "stronger" in every way. Glutathione is usually the gentler choice for everyday use and adds antioxidant protection. Kojic acid may suit stubborn spots but is more likely to irritate. Evidence for both comes mostly from small studies (%(ijdvl)s, %(review)s).</p>
 <h2>Can you use them together?</h2><p>Yes, many products combine them. If you use separate products, introduce one at a time, patch test, and avoid layering several strong actives on the same night.</p>
 <h2>Whatever you choose</h2><p>Sunscreen every morning matters more than any single ingredient. Without it, new tan and spots keep forming.</p>
-<p>GlutaNex uses glutathione with niacinamide and vitamin C: %(cream)s.</p>''',
+<p>GlutaNex uses glutathione with niacinamide and vitamin C: %(cream)s. Also comparing a gentler spot ingredient? See <a href="/glutathione-vs-alpha-arbutin/">glutathione vs alpha arbutin</a>, and for tan, <a href="/glutathione-for-dark-spots-and-tan/">glutathione for dark spots and tan</a>.</p>''',
          faq=[('Is glutathione better than kojic acid?', 'Glutathione is usually gentler and adds antioxidant protection; kojic acid may help stubborn spots but irritates some skin. The better choice depends on your skin.'),
               ('Can I use kojic acid and glutathione together?', 'Yes, but introduce one product at a time, patch test and avoid stacking many strong actives on the same night.')]),
 
@@ -296,9 +296,22 @@ EXPAND = {
 <tr><td>3–4</td><td>Cream every other night if comfortable</td><td>Cleanser + sunscreen</td></tr>
 <tr><td>5–8</td><td>Cream every night</td><td>Cleanser + sunscreen, reapply outdoors</td></tr>
 </tbody></table></div>
-<h2>Glutathione cream for men</h2><p>The routine is the same. Apply after shaving only once the skin has settled, as freshly shaved skin can sting.</p>''',
+<h2>Glutathione cream for men</h2><p>The routine is the same. Apply after shaving only once the skin has settled, as freshly shaved skin can sting.</p>
+<h2>Where to apply it, and where not</h2><ul><li><b>Yes:</b> forehead, cheeks, nose, chin, jawline and neck, in one thin layer.</li><li><b>Keep away from:</b> the lips, the skin right around the eyes, inside the nostrils, and broken, sunburnt or freshly waxed skin.</li><li><b>Body:</b> a small face-cream jar is not made for arms or legs. For body tan, see the <a href="/body-tan-removal-routine/">body tan routine</a>.</li></ul>
+<h2>Layering order at night</h2><div class="tbl"><table><thead><tr><th>Step</th><th>What</th><th>Note</th></tr></thead><tbody>
+<tr><td>1</td><td>Gentle face wash</td><td>Pat dry; slightly damp skin is fine</td></tr>
+<tr><td>2</td><td>Light serum (optional)</td><td>Hydrating serums such as hyaluronic acid; skip strong actives on the same night</td></tr>
+<tr><td>3</td><td>Glutathione cream</td><td>Pea-sized amount, thin layer</td></tr>
+<tr><td>4</td><td>Plain moisturiser (optional)</td><td>Only if skin still feels dry, for example in winter</td></tr>
+</tbody></table></div><p>Thinnest to thickest is the simple rule. More on this in <a href="/glutathione-cream-and-moisturizer/">moisturiser after glutathione cream</a> and <a href="/glutathione-cream-with-vitamin-c-serum/">glutathione cream with vitamin C serum</a>.</p>
+<h2>If your skin stings or peels</h2><p>Mild tingling for a minute or two, or light dryness in the first two weeks, is common with creams that contain retinol or salicylic acid. Go back to 2 nights a week, add a plain moisturiser and keep sunscreen daily. Burning that lasts, swelling or a rash means stop: see <a href="/glutathione-cream-burning/">glutathione cream burning sensation</a>.</p>
+<h2>How long to keep using it</h2><p>Judge one routine after 8 to 12 weeks, with photos in the same light. Tan often looks lighter first; older marks take longer. If your skin is comfortable, you can keep it as a regular night step. See <a href="/glutathione-cream-results/">glutathione cream results week by week</a>.</p>''',
         faq=[('Can I apply glutathione cream every day?', 'Yes, once your skin is used to it. With creams containing retinol, start 2 to 3 nights a week.'),
-             ('Should I wash off glutathione cream in the morning?', 'Yes, cleanse in the morning and apply sunscreen.')]),
+             ('Should I wash off glutathione cream in the morning?', 'Yes, cleanse in the morning and apply sunscreen.'),
+             ('Can I leave glutathione cream on overnight?', 'Yes. A glutathione night cream is a leave-on product: apply it as the last or second-last step at night and wash it off in the morning.'),
+             ('Can I use glutathione cream in the morning?', 'It depends on the formula. Creams with retinol or salicylic acid, like the GlutaNex Night Cream, are for night use only. Mornings are for a gentle wash and sunscreen.'),
+             ('Should I apply moisturiser after glutathione cream?', 'Only if your skin still feels dry. Most people need nothing more; in winter or on dry skin, a plain moisturiser on top works well.'),
+             ('How much glutathione cream should I apply on my face?', 'A pea-sized amount for the face, and a little more for the neck. A thicker layer does not work faster and can irritate.')]),
     'glutathione-cream-vs-tablets-vs-injections': dict(refs=['study', 'oral', 'wesch', 'ijdvl'], body='''
 <h2>What the studies used</h2><ul><li><b>Cream:</b> a 2%% oxidised glutathione lotion for 10 weeks (%(study)s).</li><li><b>Tablets:</b> 500 mg a day for 4 weeks (%(oral)s), and 250 mg a day for 12 weeks (%(wesch)s).</li><li><b>Injections:</b> no clinical trial for skin lightening (%(ijdvl)s).</li></ul>
 <h2>Cost and convenience</h2><p>Creams are the most affordable and simplest to use every day. Injections are expensive, need repeated visits, and cheap versions may be counterfeit.</p>''',
@@ -316,9 +329,17 @@ EXPAND = {
 <tr><td>Sun spots</td><td>Small brown spots, often on cheeks and hands</td><td>Months; may lighten only partly</td></tr>
 <tr><td>Melasma</td><td>Patchy brown areas on both cheeks, forehead or upper lip</td><td>Needs a dermatologist</td></tr>
 </tbody></table></div>
-<h2>Home remedies to avoid</h2><p>Lemon juice, baking soda, toothpaste and harsh scrubs can irritate the skin and make marks darker. Stick to gentle care and sunscreen.</p>''',
+<h2>Home remedies to avoid</h2><p>Lemon juice, baking soda, toothpaste and harsh scrubs can irritate the skin and make marks darker. Stick to gentle care and sunscreen.</p>
+<h2>Sunscreen that actually protects</h2><ul><li>Broad-spectrum SPF 30 or higher, with a high PA rating (PA+++ or more).</li><li>Enough of it: about two finger-lengths for the face and neck.</li><li>Reapply every 2 to 3 hours when you are outdoors, and after sweating.</li><li>Cloudy, hazy and winter days count too.</li></ul><p>More in <a href="/glutathione-cream-with-sunscreen/">glutathione cream and sunscreen</a>.</p>
+<h2>Ingredients that pair well</h2><p><b>Niacinamide</b> helps reduce how much pigment reaches the skin surface, <b>vitamin C</b> adds daytime antioxidant support, and <b>alpha arbutin</b> is often chosen for single spots. %(cream)s combines glutathione with niacinamide and vitamin C. Comparing options? See <a href="/glutathione-vs-alpha-arbutin/">glutathione vs alpha arbutin</a> and <a href="/glutathione-vs-kojic-acid/">glutathione vs kojic acid</a>.</p>
+<h2>Face tan vs body tan</h2><p>A face cream is sized and made for the face and neck. Tanned arms, hands, feet and knees respond to the same basics: sunscreen on exposed skin, covering up, a gentle body wash and a moisturiser. See the <a href="/body-tan-removal-routine/">body tan routine</a> and <a href="/glutathione-for-hands-and-feet/">hands and feet tan</a>.</p>
+<h2>How to track the change</h2><p>Take a photo on day one in daylight by the same window, with no makeup, and repeat every 4 weeks. Day-to-day changes are too small to see in the mirror.</p>''',
         faq=[('Does glutathione remove dark spots?', 'It may help dark spots look lighter over 8 to 12 weeks with daily sunscreen. Older spots may lighten only partly.'),
-             ('How fast does glutathione remove tan?', 'With daily sunscreen, a recent tan usually fades over a few weeks.')]),
+             ('How fast does glutathione remove tan?', 'With daily sunscreen, a recent tan usually fades over a few weeks.'),
+             ('Can glutathione remove tan permanently?', 'No. Tan is the skin protecting itself from sun, so new exposure brings it back. Daily sunscreen keeps the lighter look; no cream changes your natural skin colour.'),
+             ('Is glutathione or vitamin C better for dark spots?', 'Vitamin C has more research as a daytime brightener; glutathione is a gentle option for tan and uneven tone at night. Many people use vitamin C in the morning and glutathione at night.'),
+             ('Can I use glutathione cream on a tanned neck?', 'Yes, a thin layer at night as part of the face routine. Velvety, thick dark skin on the neck is different and needs a doctor; see glutathione for dark neck.'),
+             ('Does glutathione work on melasma?', 'Melasma needs a dermatologist. A gentle cosmetic cream can be part of their plan, but it is not a treatment for melasma.')]),
 }
 
 # ---------------- Hindi pages ----------------
@@ -502,6 +523,25 @@ QA_EXTRA = {
 }
 
 # "People also ask" / related searches for "glutathione side effects" (11 Oct 2026)
+QA_EXTRA['how-to-use-glutathione-cream'] = [
+    ('How do you use glutathione cream on the face?',
+     'At night, wash your face with a gentle cleanser and pat dry, then spread a pea-sized amount over the face and neck in a thin layer, avoiding the eyes and lips. Use SPF 30 or higher sunscreen every morning. With a cream that has retinol, start 2 to 3 nights a week.', ''),
+    ('How long should I use glutathione cream?',
+     'Give one routine 8 to 12 weeks of regular use with daily sunscreen before you judge it. Tan often looks lighter first; older dark spots take longer and may fade only partly. You can keep using it for as long as your skin is comfortable.', ''),
+]
+QA_EXTRA['glutathione-for-dark-spots-and-tan'] = [
+    ('Does glutathione help dark spots and tan?',
+     'It can help, modestly. Used every night with daily sunscreen, a glutathione cream can help tan and flat dark spots look lighter over weeks. A recent tan changes first; older spots fade slowly and sometimes only partly.',
+     '<p>The evidence is small: in one placebo-controlled study (%(study)s), a glutathione lotion gradually lowered skin melanin readings over 10 weeks.</p>'),
+    ('How long does glutathione take to remove tan?',
+     'A recent tan usually looks lighter over a few weeks once you protect your skin every day; flat dark spots and acne marks often take 8 to 12 weeks or more. No cream removes tan or spots for good, because new sun exposure brings them back.', ''),
+]
+QA_EXTRA['glutathione-vs-alpha-arbutin'] = [
+    ('Which is better for dark spots, glutathione or alpha arbutin?',
+     'For a specific dark spot or patch, alpha arbutin is the more targeted choice; for overall dullness, tan and uneven tone, glutathione is a gentle option with antioxidant support. Both work slowly, over 8 to 12 weeks with daily sunscreen, and they can be used together.', ''),
+    ('Can I use alpha arbutin and glutathione together?',
+     'Yes. Both slow tyrosinase, the enzyme behind melanin, and they are often combined in one product. Patch test, add one new product at a time and use sunscreen every morning.', ''),
+]
 QA_EXTRA['glutathione-side-effects'] = [
     ('What are the serious side effects of glutathione?',
      'Serious side effects are rare and usually signs of an allergic reaction: breathing problems or wheezing, a racing heart, rash or swelling, fever and swollen lymph nodes. The highest risk is with glutathione injections. Stop using it and get medical help straight away if these happen.',
@@ -671,10 +711,22 @@ NEW_GUIDES += [
           ('Gentleness', 'Generally gentle', 'Generally gentle at usual cosmetic levels'),
           ('Best for', 'Dullness, tan, antioxidant support', 'Targeted dark spots')],
          '''<h2>Which is better?</h2><p>Alpha arbutin is often chosen for specific dark spots, while glutathione suits overall dullness and tan and adds antioxidant protection. Both are gentle options compared with prescription lighteners.</p>
-<h2>Can you combine them?</h2><p>Yes, many brightening products contain both. Introduce one new product at a time, patch test, and keep using sunscreen daily.</p>''',
+<h2>Can you combine them?</h2><p>Yes, many brightening products contain both. Introduce one new product at a time, patch test, and keep using sunscreen daily.</p>
+<h2>Which to choose for your concern</h2><div class="tbl"><table><thead><tr><th>Concern</th><th>Good starting point</th></tr></thead><tbody>
+<tr><td>Tan on face and neck</td><td>Sunscreen first, then a glutathione night cream</td></tr>
+<tr><td>A few stubborn dark spots or acne marks</td><td>Alpha arbutin, or a routine with both</td></tr>
+<tr><td>Dull, tired-looking skin</td><td>Glutathione or vitamin C, with a gentle face wash</td></tr>
+<tr><td>Uneven tone overall</td><td>Glutathione with niacinamide</td></tr>
+<tr><td>Patchy brown areas on both cheeks</td><td>A dermatologist: this may be <a href="/glutathione-for-melasma/">melasma</a></td></tr>
+</tbody></table></div>
+<h2>How to use both in one routine</h2><ol><li><b>Morning:</b> gentle face wash, an alpha arbutin serum if you use one, then SPF 30 or higher sunscreen.</li><li><b>Night:</b> gentle face wash, then a glutathione cream such as %(cream)s.</li><li>Add the second product only after two weeks on the first, so you know what your skin is reacting to.</li></ol><p>The GlutaNex Night Cream contains glutathione, niacinamide and vitamin C; it does not contain alpha arbutin. Full ingredient notes: <a href="/glutathione-cream-ingredients/">glutathione cream ingredients</a>.</p>
+<h2>Side effects and safety</h2><p>Both are generally gentle at usual cosmetic levels. Either can cause mild redness or itching on some skin, so patch test. Be wary of any product, with either ingredient, that promises results in days or a permanent change: such claims can point to harsh or undisclosed ingredients (%(ijdvl)s).</p>
+<p>For a wider view of dark spots, see <a href="/glutathione-for-dark-spots-and-tan/">glutathione for dark spots and tan</a> and <a href="/glutathione-for-pigmentation/">glutathione for pigmentation</a>.</p>''',
          [('Is alpha arbutin better than glutathione for dark spots?', 'Alpha arbutin is often used for targeted dark spots, while glutathione suits overall tone. Both work gradually with daily sunscreen.'),
-          ('Can I use alpha arbutin and glutathione together?', 'Yes, they are commonly combined. Patch test first and add one new product at a time.')],
-         'Glutathione vs Alpha Arbutin: Which Is Better for Dark Spots?', 'Glutathione vs alpha arbutin compared: how each works on dark spots and uneven tone, gentleness, evidence, and whether to use them together.'),
+          ('Is alpha arbutin safer than glutathione?', 'Both are generally well tolerated in cosmetics. Alpha arbutin is a gentler relative of hydroquinone, and glutathione is an antioxidant the body makes itself. Patch test either one.'),
+          ('Which works faster, glutathione or alpha arbutin?', 'Neither is fast. Expect 8 to 12 weeks of daily use with sunscreen for either, and older spots may fade only partly.'),
+          ('Do glutathione or alpha arbutin change skin colour permanently?', 'No. Both can help spots and tan look lighter over weeks, but neither changes your natural skin colour, and sun exposure brings new pigment back.')],
+         'Glutathione vs Alpha Arbutin for Dark Spots: Which to Use?', 'Glutathione vs alpha arbutin for dark spots: how each works, which suits your concern, how to use both in one routine, gentleness and side effects.'),
     _cmp('glutathione-vs-hydroquinone', 'hydroquinone', 'hydroquinone',
          [('What it is', 'Cosmetic antioxidant', 'Strong skin-lightening medicine'),
           ('Availability in India', 'Sold in cosmetics', 'Sold as a prescription medicine'),
@@ -717,26 +769,52 @@ NEW_GUIDES += [
               ('Does glutathione cream make men fair?', 'No. It can help tan and dark marks look lighter over weeks with daily sunscreen, but it does not change natural skin colour.')]),
     dict(slug='glutathione-for-acne-marks', title='Glutathione for acne marks: does it help?', short='Acne marks',
          blurb='What causes dark marks after pimples, how glutathione fits in, and how long they take to fade.',
-         seo='Glutathione for Acne Marks & Pimple Spots: Does It Help?', desc='Does glutathione help acne marks? What causes dark spots after pimples, how glutathione, niacinamide and sunscreen help, and when to see a dermatologist.',
-         refs=['study', 'ijdvl'],
+         seo='Glutathione for Acne Marks: Does It Help Pimple Spots?', desc='Does glutathione help acne marks? Brown vs red marks, marks vs scars, a routine that helps, ingredients to pair, mistakes to avoid and how long they take.',
+         refs=['study', 'ijdvl'], show_faq=True,
+         qa=[('Does glutathione help acne marks?', 'It can help flat brown or dark marks left after pimples look lighter over 6 to 12 weeks, used nightly with daily sunscreen. It does not fix dented or raised acne scars, and it works best once new pimples are under control.', ''),
+             ('Can glutathione cream cause pimples?', 'Glutathione itself is not known for causing pimples, but any new cream can clog pores on some skin, and creams with retinol or salicylic acid can bring a short phase of small breakouts at first. Patch test on the jawline and start slowly.', '<p>How to tell purging from a reaction: <a href="/can-glutathione-cream-cause-pimples/">can glutathione cream cause pimples</a>.</p>')],
          body='''<p>The flat brown marks left after pimples are called post-inflammatory hyperpigmentation. They are very common on Indian skin and usually fade on their own, slowly. A glutathione routine with daily sunscreen can help them look lighter sooner.</p>
 <h2>Marks vs scars</h2><ul><li><b>Marks:</b> flat brown or dark spots. Brightening care helps.</li><li><b>Scars:</b> dents or raised bumps. Creams do not fix these; a dermatologist can.</li></ul>
 <h2>A routine that helps</h2><ol><li>Do not pick or squeeze pimples; it makes marks darker and longer-lasting.</li><li>At night, a cream with glutathione, niacinamide and salicylic acid, such as %(cream)s.</li><li>Sunscreen every morning: sun makes marks darker.</li></ol>
 <h2>How long it takes</h2><p>New marks often lighten in 6 to 12 weeks; older ones may take months and may fade only partly.</p>
-<h2>When to see a dermatologist</h2><p>If you still get many new pimples, or have painful, deep acne, treat the acne first with a doctor's help.</p>''',
-         faq=[('Does glutathione remove pimple marks?', 'It can help flat dark marks look lighter over 6 to 12 weeks with daily sunscreen; it does not fix dented or raised scars.'), ('Is glutathione cream good for acne-prone skin?', 'A light formula with niacinamide or salicylic acid suits acne-prone skin; introduce it slowly and patch test.')]),
+<h2>When to see a dermatologist</h2><p>If you still get many new pimples, or have painful, deep acne, treat the acne first with a doctor's help.</p>
+<h2>Brown marks vs red marks</h2><div class="tbl"><table><thead><tr><th></th><th>Brown or dark marks</th><th>Red or pink marks</th></tr></thead><tbody>
+<tr><td>What they are</td><td>Extra pigment left after a pimple</td><td>Redness from small blood vessels after a pimple</td></tr>
+<tr><td>Common on</td><td>Medium to deep skin tones, so very common in India</td><td>Lighter skin, or very fresh marks</td></tr>
+<tr><td>What helps</td><td>Sunscreen, no picking, brightening care such as glutathione and niacinamide</td><td>Time, sunscreen and gentle care; brightening creams help less</td></tr>
+</tbody></table></div>
+<h2>Why marks last longer on Indian skin</h2><p>Skin with more natural pigment reacts to inflammation by making extra melanin, so even a small pimple can leave a mark that lasts for weeks. Sun darkens these marks further, which is why sunscreen matters as much as any cream.</p>
+<h2>Ingredients that help with marks</h2><ul><li><b>Niacinamide:</b> helps marks look more even and is gentle on acne-prone skin.</li><li><b>Salicylic acid:</b> keeps pores clear, so fewer new pimples and fewer new marks; see <a href="/glutathione-and-salicylic-acid/">glutathione and salicylic acid</a>.</li><li><b>Azelaic acid and alpha arbutin:</b> other options for marks; see <a href="/glutathione-vs-azelaic-acid/">glutathione vs azelaic acid</a>.</li><li><b>Vitamin C:</b> a morning antioxidant under sunscreen.</li></ul><p>%(cream)s already has glutathione, niacinamide and salicylic acid, so skip other acids on the same night.</p>
+<h2>Mistakes that make marks darker</h2><ul><li>Picking or squeezing pimples.</li><li>Toothpaste, lemon or baking soda on spots.</li><li>Harsh scrubs or face brushes on inflamed skin.</li><li>Going out without sunscreen.</li></ul>''',
+         faq=[('Does glutathione remove pimple marks?', 'It can help flat dark marks look lighter over 6 to 12 weeks with daily sunscreen; it does not fix dented or raised scars.'), ('Is glutathione cream good for acne-prone skin?', 'A light formula with niacinamide or salicylic acid suits acne-prone skin; introduce it slowly and patch test.'),
+              ('Can glutathione remove acne scars?', 'No. Dents and raised scars are changes in the skin\'s structure, and creams do not fix them. A dermatologist can suggest procedures for scars.'),
+              ('Can I apply glutathione cream on active pimples?', 'A thin layer over the face is fine, but do not rub it into open, painful or crusted pimples. Severe acne needs a doctor first.'),
+              ('How can I remove pimple marks naturally?', 'Time, daily sunscreen and not picking are the most reliable natural steps. Skip lemon, toothpaste and baking soda, which irritate skin and can make marks darker.'),
+              ('Which is better for acne marks, glutathione or niacinamide?', 'Niacinamide is better studied for marks and oily, acne-prone skin; glutathione adds brightening and antioxidant support. A cream with both covers the two.')]),
     dict(slug='glutathione-for-oily-skin', title='Glutathione for oily skin: how to choose and use it', short='Oily skin',
          blurb='The right texture and partners for oily, shiny skin, and mistakes to avoid.',
-         seo='Glutathione Cream for Oily Skin: How to Choose & Use', desc='Glutathione for oily skin: choosing a light texture, helpful partners like niacinamide and salicylic acid, how much to apply, and mistakes that add shine.',
-         refs=['review'],
+         seo='Glutathione Cream for Oily Skin: How to Choose and Use It', desc='Glutathione cream for oily skin: light textures, partners like niacinamide and salicylic acid, how much to use, summer and monsoon tips, mistakes to avoid.',
+         refs=['review'], show_faq=True,
+         qa=[('Is glutathione cream good for oily skin?', 'Yes, in a light, non-greasy formula used as a thin layer at night. Oily skin does best when the cream is paired with niacinamide or salicylic acid, a gentle face wash and a matte sunscreen in the morning.', ''),
+             ('How do I use glutathione cream on oily skin without shine?', 'Wash with a gentle face wash, wait until the skin is dry, and spread a pea-sized amount or a little less over the whole face at night. Use it as your last step and skip heavy creams or oils on top.', '')],
          body='''<p>Oily skin can use glutathione happily; the key is a light, non-greasy formula and not over-washing.</p>
 <h2>What to look for</h2><ul><li>A light cream or gel-cream texture.</li><li><b>Niacinamide</b> for shine and pores.</li><li><b>Salicylic acid</b> to keep pores clear.</li><li>Hyaluronic acid for oil-free hydration.</li></ul>
 <h2>How to use</h2><ol><li>Cleanse with a gentle face wash, such as %(wash)s, morning and night.</li><li>Apply a thin layer of glutathione cream at night.</li><li>Use a light, matte sunscreen every morning.</li></ol>
 <h2>Mistakes to avoid</h2><ul><li>Washing more than twice a day or scrubbing hard, which triggers more oil.</li><li>Skipping moisturiser: dehydrated skin can look oilier.</li><li>Layering many actives at once.</li></ul>
 <h2>Oily skin in winter</h2><p>Oily skin often turns combination in November and December: the T-zone still shines while the cheeks feel tight, especially in heated rooms and after hot showers. Keep the thin layer of night cream, but add a light gel moisturiser on the cheeks only, and use a retinol and salicylic acid cream such as %(cream)s every other night if you see dry patches. Do not switch to a heavy cold cream on the whole face, which can clog pores. More in <a href="/glutathione-cream-for-combination-skin/">glutathione cream for combination skin</a> and <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a>.</p>
-<p>Men with oily skin can follow our <a href="/glutathione-cream-for-men/">glutathione cream for men</a> routine, and start with a gentle <a href="/glutathione-face-wash/">glutathione face wash</a>.</p>''',
+<p>Men with oily skin can follow our <a href="/glutathione-cream-for-men/">glutathione cream for men</a> routine, and start with a gentle <a href="/glutathione-face-wash/">glutathione face wash</a>.</p>
+<h2>Gel, cream or serum for oily skin?</h2><div class="tbl"><table><thead><tr><th>Format</th><th>Feel on oily skin</th><th>Tip</th></tr></thead><tbody>
+<tr><td>Serum</td><td>Lightest, absorbs quickly</td><td>Still needs sunscreen in the morning</td></tr>
+<tr><td>Gel-cream</td><td>Light, little shine</td><td>A good fit for humid weather</td></tr>
+<tr><td>Cream</td><td>Richer; fine at night in a thin layer</td><td>Use less in summer, a little more in winter</td></tr>
+</tbody></table></div>
+<h2>Humid summer and monsoon</h2><p>Sweat and humidity make oily skin feel heavier. Keep the night cream to a thin layer, wash your face after sweaty commutes or workouts, and use a matte, gel sunscreen in the day. Blotting paper beats washing a third or fourth time.</p>
+<h2>Oily and acne-prone</h2><p>Oily skin often comes with clogged pores and pimples. A night cream with salicylic acid can help keep pores clear; introduce it slowly. For the marks pimples leave behind, see <a href="/glutathione-for-acne-marks/">glutathione for acne marks</a>, and if new bumps appear after starting a cream, read <a href="/can-glutathione-cream-cause-pimples/">can glutathione cream cause pimples</a>.</p>''',
          faq=[('Is glutathione good for oily skin?', 'Yes, in a light, non-greasy formula, ideally with niacinamide or salicylic acid.'), ('Will glutathione cream make my face oily?', 'A thin layer of a light formula should not. Apply at night and use a matte sunscreen in the morning.'),
-              ('Does oily skin need moisturiser in winter?', 'Yes. Cold air and heaters can dehydrate even oily skin, which then looks shinier and feels tight at the same time. A light gel moisturiser on drier areas is usually enough.')]),
+              ('Does oily skin need moisturiser in winter?', 'Yes. Cold air and heaters can dehydrate even oily skin, which then looks shinier and feels tight at the same time. A light gel moisturiser on drier areas is usually enough.'),
+              ('Does glutathione reduce oil on the face?', 'Glutathione itself is not an oil-control ingredient. Niacinamide is the one better known for shine and pores, which is why creams for oily skin often pair the two.'),
+              ('Can I use glutathione cream on oily skin in summer?', 'Yes. Use a thinner layer at night only, wash after heavy sweating and choose a matte gel sunscreen for the day.'),
+              ('Which sunscreen suits oily skin?', 'A broad-spectrum SPF 30 or higher gel or matte sunscreen with a high PA rating. Use enough, about two finger-lengths for face and neck, and reapply outdoors.')]),
     dict(slug='glutathione-cream-for-summer-tan', title='Glutathione cream for summer tan: a simple routine', short='Summer tan',
          blurb='How to protect your skin in Indian summers and help tan fade faster.',
          seo='Glutathione Cream for Summer Tan: Routine & Sun Protection Tips', desc='How to remove summer tan with a glutathione routine: sunscreen that works in Indian heat, reapplying, night care, how long tan takes to fade and what to avoid.',
@@ -1258,7 +1336,7 @@ NEW_GUIDES += [
 <h2>A routine that helps most pigmentation</h2><ol><li><b>Night:</b> gentle face wash such as %(wash)s, then a leave-on glutathione cream such as %(cream)s.</li><li><b>Morning:</b> broad-spectrum SPF 30+ sunscreen, reapplied outdoors.</li><li><b>Hands off:</b> do not pick pimples or scrub hard; irritation makes new marks.</li><li><b>Wait:</b> 8 to 12 weeks before judging. See <a href="/how-long-does-glutathione-take-to-work/">how long glutathione takes to work</a>.</li></ol>
 <h2>What the research shows</h2><p>In the best-known study, a 2%% glutathione lotion lowered the melanin index more than placebo over 10 weeks (%(study)s). A 2025 review called topical glutathione promising but noted that studies are few and small (%(review)s).</p>
 <h2>What to avoid</h2><ul><li>Steroid or unlabelled "fairness" creams that promise results in days (%(ijdvl)s).</li><li>Lemon, baking soda or toothpaste on the face.</li><li>Starting several strong actives at once.</li></ul>
-<h2>When to see a dermatologist</h2><p>Patches on both cheeks, a spot that changes size, shape or colour, bleeding, or no change after 3 months of care.</p>''',
+<h2>When to see a dermatologist</h2><p>Patches on both cheeks, a spot that changes size, shape or colour, bleeding, or no change after 3 months of care.</p><p>Choosing an ingredient for single spots? Read <a href="/glutathione-vs-alpha-arbutin/">glutathione vs alpha arbutin for dark spots</a>.</p>''',
          faq=[('How long does glutathione take to reduce pigmentation?', 'Most people need 8 to 12 weeks of nightly use with daily sunscreen to see tan or acne marks look lighter. Deeper pigmentation takes longer or needs a dermatologist.'),
               ('Can pigmentation come back after stopping glutathione?', 'Yes, if the cause continues. Sun exposure brings tan and spots back, which is why daily sunscreen matters more than any single cream.')]),
 
@@ -1391,3 +1469,8 @@ HI += [
 TLDR_HI['jhaiyan-aur-glutathione'] = ['ग्लूटाथियोन झाइयों का साबित इलाज नहीं है।',
                                       'रोज़ SPF 30+ रंगीन सनस्क्रीन झाइयों में सबसे ज़्यादा मदद करती है।',
                                       'झाइयां हों तो त्वचा-विशेषज्ञ को दिखाएं; स्टेरॉयड क्रीम से बचें।']
+
+# weekly booster 2026-11-15: show the extra FAQs on the page too (not only in the schema)
+for _g in NEW_GUIDES:
+    if _g['slug'] == 'glutathione-vs-alpha-arbutin':
+        _g['show_faq'] = True

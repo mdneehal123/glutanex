@@ -65,7 +65,7 @@ OCT22 = [
 
 <h2>Purging or breakout?</h2>
 <p>Exfoliants can bring existing clogged pores to the surface in the first few weeks, usually in your normal breakout areas. New pimples in places you never get them, or itchy bumps, point more to irritation or a product that does not suit you. <a href="/can-glutathione-cream-cause-pimples/">Can glutathione cream cause pimples?</a> covers how to tell them apart.</p>
-<p>What else to keep off the same night: <a href="/glutathione-night-cream/">how to use a glutathione night cream</a>.</p>''',
+<p>What else to keep off the same night: <a href="/glutathione-night-cream/">how to use a glutathione night cream</a>. Shiny skin? See <a href="/glutathione-for-oily-skin/">glutathione cream for oily skin</a>; for marks left by pimples, <a href="/glutathione-for-acne-marks/">glutathione for acne marks</a>.</p>''',
          faq=[("Can I use a salicylic acid face wash with glutathione cream?", "Yes. A salicylic face wash is rinsed off quickly, so it is milder than a leave-on product. If your night cream also contains salicylic acid or retinol, use the salicylic wash only on some nights and a plain wash on the others."),
               ("Can I use glutathione and salicylic acid in the morning?", "Salicylic acid is usually best at night. If you do use it in the morning, sunscreen on top is essential. GlutaNex Night Cream is night-only because it contains retinol and salicylic acid."),
               ("Will glutathione and salicylic acid remove blackheads?", "Salicylic acid can help blackheads look smaller and fewer over several weeks of regular use, but it does not make them disappear for good. Pores refill, so consistent, gentle use works better than occasional harsh scrubbing."),

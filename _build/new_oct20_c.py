@@ -373,7 +373,7 @@ OCT20_C = [
 <tr><td>Weeks 3–6</td><td>Recent tan starts to look lighter if sunscreen is daily</td></tr>
 <tr><td>Weeks 8–12</td><td>Post-acne marks and patchy areas look more even; older marks may only fade partly</td></tr>
 </tbody></table></div>
-<p>This varies from person to person. More detail: <a href="/how-long-does-glutathione-take-to-work/">how long glutathione takes to work</a>, and for spot-by-spot advice, <a href="/glutathione-for-dark-spots-and-tan/">glutathione for dark spots and tan</a>.</p>
+<p>This varies from person to person. More detail: <a href="/how-long-does-glutathione-take-to-work/">how long glutathione takes to work</a>, and for spot-by-spot advice, <a href="/glutathione-for-dark-spots-and-tan/">glutathione for dark spots and tan</a> or <a href="/glutathione-vs-alpha-arbutin/">glutathione vs alpha arbutin</a>.</p>
 
 <h2>When to see a dermatologist</h2>
 <ul><li>Brown patches on both cheeks, forehead or upper lip, especially if they began with pregnancy or hormonal pills.</li>

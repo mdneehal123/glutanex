@@ -41,9 +41,9 @@ GUIDES = [
 <h2>Ask a doctor first if you</h2><ul><li>are pregnant or breastfeeding;</li><li>have eczema, rosacea or very sensitive skin;</li><li>use prescription skin treatments;</li><li>have patchy pigmentation that may be <a href="/glutathione-for-melasma/">melasma</a>.</li></ul>
 <p>See also: <a href="/glutathione-cream-vs-tablets-vs-injections/">cream vs tablets vs injections</a></p>'''),
     dict(slug='how-to-use-glutathione-cream', title='How to use glutathione cream', short='How to use',
-         blurb='A simple night routine, step by step.',
-         seo='How to Use Glutathione Cream: Simple Night Routine',
-         desc='How to use glutathione cream on the face: a simple step-by-step night routine, how much to apply, what to pair it with, and mistakes to avoid.',
+         blurb='A simple night routine, step by step.', show_faq=True,
+         seo='How to Use Glutathione Cream on Face: Step-by-Step Guide',
+         desc='How to use glutathione cream on the face: when and how often to apply, how much, layering with serum and sunscreen, how long to use it and mistakes to avoid.',
          body='''<p>Use glutathione cream at night on clean, dry skin, and use sunscreen every morning. That's the whole routine. It is the routine our <a href="/">glutathione cream for face</a> is made for.</p>
 <h2>Night routine</h2><ol><li><b>Cleanse:</b> wash your face with a gentle cleanser such as %(wash)s and pat dry.</li><li><b>Apply:</b> take a pea-sized amount and dot it on forehead, cheeks and chin, then smooth over face and neck. Avoid the eyes.</li><li><b>Let it absorb:</b> give it a few minutes before lying down.</li></ol>
 <h2>Morning</h2><p>Cleanse, then apply a broad-spectrum sunscreen (SPF 30 or higher). Sun exposure keeps creating new tan and dark spots, so this step protects the work of the night.</p>
@@ -77,9 +77,9 @@ GUIDES = [
 <h2>A simple way to layer</h2><ul><li><b>Morning:</b> cleanser → vitamin C (optional) → sunscreen.</li><li><b>Night:</b> cleanser → glutathione cream (with niacinamide if your product has it).</li></ul>
 <h2>Keep it gentle</h2><p>Add one new product at a time, patch test, and avoid stacking strong acids or retinol on the same night. Read <a href="/glutathione-side-effects/">side effects and safe use</a>.</p>'''),
     dict(slug='glutathione-for-dark-spots-and-tan', title='Glutathione for dark spots and tan', short='Dark spots and tan',
-         blurb='What helps tan and dark spots fade, and how long it takes.',
-         seo='Glutathione for Dark Spots and Tan: Does It Work?',
-         desc='Does glutathione help dark spots and tan? What causes them, how glutathione creams fit in, the role of sunscreen, realistic timelines and when to see a doctor.',
+         blurb='What helps tan and dark spots fade, and how long it takes.', show_faq=True,
+         seo='Glutathione for Dark Spots and Tan: What Helps, How Long',
+         desc='Does glutathione help dark spots and tan? What causes them, sunscreen that protects, ingredients that pair well, face vs body tan, and realistic timelines.',
          body='''<p>Glutathione creams can support the look of tan and dark spots fading, but <b>sunscreen does most of the work</b>. Without it, new tan and spots keep forming.</p>
 <h2>What causes them</h2><ul><li><b>Tan:</b> the skin's response to UV light.</li><li><b>Marks after pimples:</b> very common on Indian skin.</li><li><b>Sun spots:</b> from years of sun exposure.</li><li><b>Melasma:</b> patchy brown areas linked to hormones and sun; needs a dermatologist.</li></ul>
 <h2>A routine that helps</h2><ol><li>Sunscreen every morning, reapplied if you are outdoors for long.</li><li>A glutathione cream every night, such as %(cream)s.</li><li>No squeezing pimples, no harsh scrubs or lemon juice.</li></ol>

@@ -236,7 +236,7 @@ OCT20_A = [
 <li><b>Skipping morning cleansing.</b> Leftover night cream under sunscreen can feel heavy and pill.</li>
 <li><b>Sleeping in makeup or sunscreen.</b> Always cleanse first so the night cream goes on clean skin.</li>
 <li><b>Changing the routine every week.</b> Pick a simple routine and keep it for at least 8 weeks before judging. See <a href="/glutathione-cream-results/">glutathione cream results</a>.</li></ul>
-<h2>Where not to apply it</h2><p>Keep the night cream off the lips, the skin right around the eyes, inside the nostrils, and any broken, sunburnt or freshly waxed skin. Do not use it in pregnancy or while breastfeeding unless your doctor says it is fine (<a href="/glutathione-in-pregnancy/">pregnancy guide</a>). If it stings for more than a few minutes, read <a href="/glutathione-cream-burning/">glutathione cream burning sensation</a>.</p>''',
+<h2>Where not to apply it</h2><p>Keep the night cream off the lips, the skin right around the eyes, inside the nostrils, and any broken, sunburnt or freshly waxed skin. Do not use it in pregnancy or while breastfeeding unless your doctor says it is fine (<a href="/glutathione-in-pregnancy/">pregnancy guide</a>). If it stings for more than a few minutes, read <a href="/glutathione-cream-burning/">glutathione cream burning sensation</a>. Step-by-step application: <a href="/how-to-use-glutathione-cream/">how to use glutathione cream on the face</a>.</p>''',
          faq=[("Can I apply glutathione cream after sunscreen?",
                "No. Sunscreen is always the last step of the morning routine. A retinol glutathione night cream goes on at night, on clean skin."),
               ("Can I use glutathione cream at night and vitamin C in the morning?",
@@ -305,7 +305,7 @@ OCT20_A = [
 <li>Skipping it on "indoor" days.</li>
 <li>Applying once at 8 am and spending the afternoon outside.</li>
 <li>Thinking darker skin does not need sunscreen. Brown skin still tans, and dark marks on brown skin are slower to fade.</li></ul>
-<p>In the morning, wash with a gentle <a href="/glutathione-face-wash/">glutathione face wash</a> before sunscreen. Men: see the <a href="/glutathione-cream-for-men/">glutathione cream for men</a> routine.</p>''',
+<p>In the morning, wash with a gentle <a href="/glutathione-face-wash/">glutathione face wash</a> before sunscreen. Men: see the <a href="/glutathione-cream-for-men/">glutathione cream for men</a> routine. Sun is the main reason <a href="/glutathione-for-acne-marks/">acne marks</a> stay dark, so this step matters most if you have them.</p>''',
          faq=[("Is SPF 30 enough for Indian skin?",
                "For everyday use, a broad-spectrum SPF 30 with PA+++ is enough if you apply the full amount and reapply when outdoors. For long hours in strong sun, choose SPF 50."),
               ("Do I need sunscreen at home?",
