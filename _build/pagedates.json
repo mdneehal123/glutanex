@@ -320,8 +320,8 @@
   "pub": "2026-11-09"
  },
  "/glutathione-cream-with-beetroot/": {
-  "h": "4ce4f213541df82f",
-  "mod": "2026-11-17",
+  "h": "eb7a293bbb56b9b2",
+  "mod": "2026-11-18",
   "pub": "2026-11-17"
  },
  "/glutathione-cream-with-besan/": {
@@ -449,6 +449,11 @@
   "mod": "2026-11-13",
   "pub": "2026-11-12"
  },
+ "/glutathione-cream-with-ubtan/": {
+  "h": "f11c559b974b8f71",
+  "mod": "2026-11-18",
+  "pub": "2026-11-18"
+ },
  "/glutathione-cream-with-vitamin-c-serum/": {
   "h": "693e35b65a2e08d5",
   "mod": "2026-11-05",
@@ -565,8 +570,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "9711d23c12195f08",
-  "mod": "2026-11-17",
+  "h": "c05f3f8014e83164",
+  "mod": "2026-11-18",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
@@ -685,8 +690,8 @@
   "pub": "2026-10-11"
  },
  "/gua-sha-with-glutathione-cream/": {
-  "h": "8cbcf58a1f6a76e1",
-  "mod": "2026-11-17",
+  "h": "81ad7082882b45fc",
+  "mod": "2026-11-18",
   "pub": "2026-11-17"
  },
  "/hi/": {
@@ -1058,6 +1063,11 @@
   "h": "28fd8391399cad6e",
   "mod": "2026-11-05",
   "pub": "2026-10-28"
+ },
+ "/sheet-mask-with-glutathione-cream/": {
+  "h": "bd6fc3cd8a9f7a83",
+  "mod": "2026-11-18",
+  "pub": "2026-11-18"
  },
  "/shipping-policy/": {
   "h": "d0ca5d0a12ad2591",
