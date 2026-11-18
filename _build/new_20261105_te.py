@@ -4,7 +4,7 @@ _TEB = dict(lang='te', code='te-IN', name='తెలుగు', ui=_TE)
 
 REG_NOV05 = globals().get('REG_NOV05', []) + [
   dict(_TEB, slug='glutathione-face-wash', en='/glutathione-face-wash/', pid='wash',
-       seo='Glutathione Face Wash in Telugu: గ్లూటాథియోన్ ఫేస్ వాష్ ప్రయోజనాలు',
+       seo='Glutathione Face Wash in Telugu: ఫేస్ వాష్ ప్రయోజనాలు',
        title='గ్లూటాథియోన్ ఫేస్ వాష్: ప్రయోజనాలు మరియు వాడే విధానం',
        desc='Glutathione face wash in Telugu: ఫేస్ వాష్ ఏమి చేస్తుంది, జిడ్డు చర్మానికి సరిపోతుందా, రోజుకు ఎన్నిసార్లు వాడాలి.',
        body='''<p>గ్లూటాథియోన్ ఫేస్ వాష్ ముఖంపై ఉన్న జిడ్డు, చెమట మరియు దుమ్మును <b>చర్మం పొడిబారకుండా</b> తొలగిస్తుంది. ఇది ఒక నిమిషంలోపే కడిగేయబడుతుంది కాబట్టి, దీని ప్రధాన పని శుభ్రత మరియు తాజాదనం.</p>
@@ -18,7 +18,7 @@ REG_NOV05 = globals().get('REG_NOV05', []) + [
             ('పురుషులు వాడవచ్చా?', 'అవును. షేవ్ చేసే ముందు ముఖం కడగడానికి కూడా సరిపోతుంది.')]),
 
   dict(_TEB, slug='glutathione-cream-ela-vadali', en='/how-to-use-glutathione-cream/', pid='cream',
-       seo='How to Use Glutathione Cream in Telugu: గ్లూటాథియోన్ క్రీమ్ ఎలా వాడాలి',
+       seo='How to Use Glutathione Cream in Telugu: క్రీమ్ ఎలా వాడాలి',
        title='గ్లూటాథియోన్ క్రీమ్ ఎలా వాడాలి: రాత్రి దినచర్య',
        desc='How to use glutathione cream in Telugu: రాత్రి రాసే విధానం, ఎంత మోతాదు, వారానికి ఎన్నిసార్లు, సన్‌స్క్రీన్ ఎందుకు ముఖ్యం.',
        body='''<p>గ్లూటాథియోన్ రాత్రి క్రీమ్‌ను <b>శుభ్రమైన, పొడి ముఖానికి రాత్రి</b> రాయండి; ఉదయం సన్‌స్క్రీన్ వాడండి. ఫలితం నెమ్మదిగా, 8 నుండి 12 వారాల్లో కనిపిస్తుంది.</p>
@@ -58,7 +58,7 @@ REG_NOV05 = globals().get('REG_NOV05', []) + [
             ('Glow Trio పెళ్లి బహుమతిగా ఇవ్వవచ్చా?', 'అవును. వాడటానికి సమయం దొరికేలా పెళ్లికి 8 వారాల ముందు పంపండి.')]),
 
   dict(_TEB, slug='body-tan-taggadam', en='/body-tan-removal-routine/', pid='gel',
-       seo='Body Tan Removal in Telugu: చేతులు, మెడ మరియు కాళ్ల టాన్ తగ్గించడం',
+       seo='Body Tan Removal in Telugu: చేతులు, మెడ, కాళ్ల టాన్ తగ్గించడం',
        title='శరీరంపై టాన్ తగ్గించడం: చేతులు, మెడ, వీపు మరియు కాళ్లు',
        desc='Body tan removal in Telugu: శరీర టాన్ ఎందుకు ఎక్కువ రోజులు ఉంటుంది, రోజువారీ సులభమైన దినచర్య మరియు ఎంత సమయం పడుతుంది.',
        body='''<p>శరీరంపై టాన్ <b>కొత్త ఎండ తగలడం ఆగినప్పుడు</b> నెమ్మదిగా తగ్గుతుంది. చేతులు, మెడ, చేతి వెనుక భాగం మరియు కాళ్లకు రోజూ ఎండ తగలడం వల్ల అక్కడ ఎక్కువ టాన్ వస్తుంది.</p>

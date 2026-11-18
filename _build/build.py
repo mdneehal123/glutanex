@@ -933,7 +933,7 @@ for _v in VID.VIDEOS:
          '<h2>More videos</h2><ul>' + _others + '</ul></div></div></section>',
          crumbs=[('Videos', '/videos/'), (_v['name'], _vp)], ogimg='night-shift-banner',
          schema=[VID.video_ld(SITE, _v, SITE + _vp)], main=SITE + _vp + '#video')
-page('/videos/', 'GlutaNex Videos: Night Routine, Texture and Ingredients | GlutaNex',
+page('/videos/', 'GlutaNex Videos: Night Routine, Texture and Ingredients',
      'Short GlutaNex videos: a night routine with the Glutathione Night Cream, the real cream texture from a fresh batch, and the key ingredients explained.',
      top('Videos', 'GlutaNex <span class="gold">videos</span>', 'Short videos on how the Night Cream is used, what is in it and what the real texture looks like.') +
      '<section style="padding-top:20px"><div class="wrap"><div class="vid-row">' +

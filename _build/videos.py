@@ -23,7 +23,7 @@ VIDEOS = [
     dict(slug='glutanex-night-cream-3-key-ingredients', dur='PT22S', secs=22,
          name='3 ingredients to check in a night cream: GlutaNex (22 sec)',
          seo='3 Night Cream Ingredients to Check (Video)',
-         desc='A 22-second video on three ingredient groups to look for in a glutathione night cream: glutathione with vitamin C, niacinamide, and hyaluronic acid with ceramides.',
+         desc='A 22-second video on three ingredient groups to check in a glutathione night cream: glutathione with vitamin C, niacinamide, and hyaluronic acid.',
          ai=True, on=['/glutathione-cream-ingredients/'],
          transcript=['Three things I check in every night cream.', 'One. Glutathione and vitamin C, for a brighter-looking glow.',
                      'Two. Niacinamide, for a more even-looking tone.', 'Three. Hyaluronic acid and ceramides, for soft, hydrated skin.',

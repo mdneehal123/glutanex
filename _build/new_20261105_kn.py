@@ -8,7 +8,7 @@ _KN_UI = dict(by='GlutaNex ತಂಡ · ನವೀಕರಣ: 5 ನವೆಂಬರ
 
 KN05 = [
   dict(lang='kn', code='kn-IN', name='ಕನ್ನಡ', slug='glutathione-face-wash', en='/glutathione-face-wash/', pid='wash',
-       seo='Glutathione Face Wash in Kannada: ಗ್ಲುಟಾಥಿಯೋನ್ ಫೇಸ್ ವಾಶ್ ಪ್ರಯೋಜನಗಳು',
+       seo='Glutathione Face Wash in Kannada: ಫೇಸ್ ವಾಶ್ ಪ್ರಯೋಜನಗಳು',
        title='ಗ್ಲುಟಾಥಿಯೋನ್ ಫೇಸ್ ವಾಶ್: ಪ್ರಯೋಜನಗಳು ಮತ್ತು ಬಳಸುವ ವಿಧಾನ',
        desc='Glutathione face wash in Kannada: ಫೇಸ್ ವಾಶ್ ಏನು ಮಾಡುತ್ತದೆ, ಎಣ್ಣೆಯುಕ್ತ ಚರ್ಮಕ್ಕೆ ಸೂಕ್ತವೇ, ದಿನಕ್ಕೆ ಎಷ್ಟು ಬಾರಿ ಬಳಸಬೇಕು.',
        ui=_KN_UI,
@@ -23,7 +23,7 @@ KN05 = [
             ('ಪುರುಷರು ಬಳಸಬಹುದೇ?', 'ಹೌದು. ಶೇವ್ ಮಾಡುವ ಮೊದಲು ಅಥವಾ ನಂತರ ಮುಖ ತೊಳೆಯಲು ಬಳಸಬಹುದು.')]),
 
   dict(lang='kn', code='kn-IN', name='ಕನ್ನಡ', slug='glutathione-cream-hege-balasuvudu', en='/how-to-use-glutathione-cream/', pid='cream',
-       seo='How to Use Glutathione Cream in Kannada: ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್ ಹೇಗೆ ಬಳಸುವುದು',
+       seo='How to Use Glutathione Cream in Kannada: ಕ್ರೀಮ್ ಹೇಗೆ ಬಳಸುವುದು',
        title='ಗ್ಲುಟಾಥಿಯೋನ್ ಕ್ರೀಮ್ ಹೇಗೆ ಬಳಸುವುದು: ರಾತ್ರಿ ದಿನಚರಿ',
        desc='How to use glutathione cream in Kannada: ರಾತ್ರಿ ಹಚ್ಚುವ ವಿಧಾನ, ಎಷ್ಟು ಪ್ರಮಾಣ, ವಾರಕ್ಕೆ ಎಷ್ಟು ಬಾರಿ ಮತ್ತು ಸನ್‌ಸ್ಕ್ರೀನ್ ಏಕೆ ಮುಖ್ಯ.',
        ui=_KN_UI,
@@ -66,7 +66,7 @@ KN05 = [
             ('Glow Trio ಮದುವೆ ಉಡುಗೊರೆಯಾಗಿ ಕೊಡಬಹುದೇ?', 'ಹೌದು. ಬಳಸಲು ಸಮಯ ಸಿಗುವಂತೆ ಮದುವೆಗೆ 8 ವಾರ ಮೊದಲು ಕಳುಹಿಸಿ.')]),
 
   dict(lang='kn', code='kn-IN', name='ಕನ್ನಡ', slug='body-tan-hogalisuvudu', en='/body-tan-removal-routine/', pid='gel',
-       seo='Body Tan Removal in Kannada: ಕೈ, ಕುತ್ತಿಗೆ ಮತ್ತು ಕಾಲಿನ ಟ್ಯಾನ್ ಕಡಿಮೆ ಮಾಡುವುದು',
+       seo='Body Tan Removal in Kannada: ಟ್ಯಾನ್ ಕಡಿಮೆ ಮಾಡುವುದು',
        title='ಮೈಮೇಲಿನ ಟ್ಯಾನ್ ಕಡಿಮೆ ಮಾಡುವುದು: ಕೈ, ಕುತ್ತಿಗೆ, ಬೆನ್ನು ಮತ್ತು ಕಾಲು',
        desc='Body tan removal in Kannada: ಮೈಮೇಲಿನ ಟ್ಯಾನ್ ಏಕೆ ಹೆಚ್ಚು ದಿನ ಉಳಿಯುತ್ತದೆ, ಪ್ರತಿದಿನದ ಸರಳ ದಿನಚರಿ ಮತ್ತು ಎಷ್ಟು ಸಮಯ ಬೇಕು.',
        ui=_KN_UI,

@@ -18,7 +18,7 @@ REG_NOV05 = globals().get('REG_NOV05', []) + [
             ('पुरुष वापरू शकतात का?', 'हो. दाढी करण्यापूर्वी चेहरा धुण्यासाठीही योग्य आहे.')]),
 
   dict(_MRB, slug='glutathione-cream-kasa-vaparava', en='/how-to-use-glutathione-cream/', pid='cream',
-       seo='How to Use Glutathione Cream in Marathi: ग्लुटाथायोन क्रीम कसे वापरावे',
+       seo='How to Use Glutathione Cream in Marathi: क्रीम कसे वापरावे',
        title='ग्लुटाथायोन क्रीम कसे वापरावे: रात्रीची दिनचर्या',
        desc='How to use glutathione cream in Marathi: रात्री लावण्याची पद्धत, किती प्रमाणात, आठवड्यातून किती वेळा आणि सनस्क्रीन का महत्त्वाचे.',
        body='''<p>ग्लुटाथायोन नाईट क्रीम <b>स्वच्छ, कोरड्या चेहऱ्यावर रात्री</b> लावा आणि सकाळी सनस्क्रीन वापरा. परिणाम हळूहळू, 8 ते 12 आठवड्यांत दिसतो.</p>

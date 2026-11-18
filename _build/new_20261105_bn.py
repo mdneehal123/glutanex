@@ -4,7 +4,7 @@ _BNB = dict(lang='bn', code='bn-IN', name='বাংলা', ui=_BN)
 
 REG_NOV05 = globals().get('REG_NOV05', []) + [
   dict(_BNB, slug='glutathione-face-wash', en='/glutathione-face-wash/', pid='wash',
-       seo='Glutathione Face Wash in Bengali: গ্লুটাথিয়ন ফেস ওয়াশের উপকারিতা',
+       seo='Glutathione Face Wash in Bengali: ফেস ওয়াশের উপকারিতা',
        title='গ্লুটাথিয়ন ফেস ওয়াশ: উপকারিতা ও ব্যবহারের নিয়ম',
        desc='Glutathione face wash in Bengali: ফেস ওয়াশ কী করে, তৈলাক্ত ত্বকের জন্য উপযুক্ত কিনা, দিনে কতবার ব্যবহার করবেন।',
        body='''<p>গ্লুটাথিয়ন ফেস ওয়াশ মুখের তেল, ঘাম ও ধুলো <b>ত্বক শুষ্ক না করে</b> পরিষ্কার করে। এটি এক মিনিটের মধ্যে ধুয়ে ফেলা হয়, তাই এর প্রধান কাজ পরিষ্কার রাখা ও সতেজতা।</p>
@@ -18,7 +18,7 @@ REG_NOV05 = globals().get('REG_NOV05', []) + [
             ('ছেলেরা কি ব্যবহার করতে পারে?', 'হ্যাঁ। শেভ করার আগে মুখ ধোয়ার জন্যও ভালো।')]),
 
   dict(_BNB, slug='glutathione-cream-kivabe-byabohar-korben', en='/how-to-use-glutathione-cream/', pid='cream',
-       seo='How to Use Glutathione Cream in Bengali: গ্লুটাথিয়ন ক্রিম কীভাবে ব্যবহার করবেন',
+       seo='How to Use Glutathione Cream in Bengali: কীভাবে ব্যবহার করবেন',
        title='গ্লুটাথিয়ন ক্রিম কীভাবে ব্যবহার করবেন: রাতের রুটিন',
        desc='How to use glutathione cream in Bengali: রাতে লাগানোর নিয়ম, কতটা পরিমাণ, সপ্তাহে কতবার এবং সানস্ক্রিন কেন জরুরি।',
        body='''<p>গ্লুটাথিয়ন নাইট ক্রিম <b>পরিষ্কার, শুকনো মুখে রাতে</b> লাগান এবং সকালে সানস্ক্রিন ব্যবহার করুন। ফল ধীরে ধীরে, 8 থেকে 12 সপ্তাহে দেখা যায়।</p>
@@ -32,7 +32,7 @@ REG_NOV05 = globals().get('REG_NOV05', []) + [
             ('কতটা ক্রিম লাগাতে হবে?', 'মুখ ও গলার জন্য মটরদানার মতো পরিমাণ যথেষ্ট।')]),
 
   dict(_BNB, slug='glutathione-parshwaprotikriya', en='/glutathione-side-effects/', pid='cream',
-       seo='Glutathione Side Effects in Bengali: গ্লুটাথিয়নের পার্শ্বপ্রতিক্রিয়া',
+       seo='Glutathione Side Effects in Bengali: পার্শ্বপ্রতিক্রিয়া',
        title='গ্লুটাথিয়নের পার্শ্বপ্রতিক্রিয়া: ক্রিম, ট্যাবলেট ও ইনজেকশন',
        desc='Glutathione side effects in Bengali: ক্রিমের সাধারণ পার্শ্বপ্রতিক্রিয়া, কখন বন্ধ করবেন এবং ইনজেকশন কেন নিরাপদ নয়।',
        body='''<p>গ্লুটাথিয়ন <b>ক্রিম ও ফেস ওয়াশ</b> বেশিরভাগ প্রাপ্তবয়স্কের জন্য সাধারণত নিরাপদ। বড় ঝুঁকি আসে ত্বক ফর্সা করার <b>ইনজেকশন</b> থেকে।</p>
