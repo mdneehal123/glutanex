@@ -235,8 +235,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-cream-for-freckles/": {
-  "h": "ebc38ef89ae172e9",
-  "mod": "2026-11-19",
+  "h": "bdba0fe335f30456",
+  "mod": "2026-11-20",
   "pub": "2026-11-19"
  },
  "/glutathione-cream-for-men/": {
@@ -380,8 +380,8 @@
   "pub": "2026-11-01"
  },
  "/glutathione-cream-with-jojoba-oil/": {
-  "h": "0eae88bf890e4eaf",
-  "mod": "2026-11-19",
+  "h": "210400e15b602fc2",
+  "mod": "2026-11-20",
   "pub": "2026-11-19"
  },
  "/glutathione-cream-with-kumkumadi-oil/": {
@@ -393,6 +393,11 @@
   "h": "e7983e3f1f3be4af",
   "mod": "2026-11-05",
   "pub": "2026-10-31"
+ },
+ "/glutathione-cream-with-mulethi/": {
+  "h": "69b17cf5f8b1fccf",
+  "mod": "2026-11-20",
+  "pub": "2026-11-20"
  },
  "/glutathione-cream-with-multani-mitti/": {
   "h": "3cf1ee3c37d627ee",
@@ -443,6 +448,11 @@
   "h": "c037509637733f84",
   "mod": "2026-11-08",
   "pub": "2026-11-07"
+ },
+ "/glutathione-cream-with-sesame-oil/": {
+  "h": "c193cae06b51c1d3",
+  "mod": "2026-11-20",
+  "pub": "2026-11-20"
  },
  "/glutathione-cream-with-sunscreen/": {
   "h": "27ed87e98ebb66fa",
@@ -580,8 +590,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "52d16d8575345083",
-  "mod": "2026-11-19",
+  "h": "64c8a420e0286152",
+  "mod": "2026-11-20",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
