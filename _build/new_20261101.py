@@ -106,7 +106,7 @@ NOV01 = [
 </tbody></table></div>
 
 <h2>A simple shave-day routine</h2>
-<ol><li><b>Prep:</b> wash with lukewarm water and a gentle face wash such as %(wash)s to soften the beard.</li>
+<ol><li><b>Prep:</b> wash with lukewarm water and a gentle face wash such as %(wash)s to soften the beard. Daily routine: <a href="/glutathione-face-wash-for-men/">glutathione face wash for men</a>.</li>
 <li><b>Shave:</b> use shaving gel or foam, a sharp blade, and shave in the direction the hair grows. Fewer passes mean less irritation.</li>
 <li><b>Rinse with cool water</b> and pat dry. Skip alcohol-heavy aftershaves if your skin stings.</li>
 <li><b>Moisturise</b> with a plain, fragrance-free moisturiser, then <b>sunscreen</b> if it is morning.</li>

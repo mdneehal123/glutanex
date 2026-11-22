@@ -31,9 +31,9 @@ GUIDES = [
 <h2>Getting the most from it</h2><ul><li>Use it every night, not occasionally.</li><li>Wear sunscreen every morning; without it, new tan and spots keep forming.</li><li>Pair it with gentle cleansing, such as %(wash)s.</li><li>Choose a leave-on <a href="/">glutathione face cream</a> for the night; wash-off products alone rinse away too quickly.</li></ul>
 <p>Read next: <a href="/glutathione-side-effects/">glutathione side effects</a> · <a href="/glutathione-cream/">how to choose a glutathione cream</a></p>'''),
     dict(slug='glutathione-side-effects', title='Glutathione side effects and safe use', short='Side effects',
-         blurb='Who should be careful, and how to use glutathione creams safely.',
+         blurb='Who should be careful, and how to use glutathione creams safely.', show_faq=True,
          seo='Glutathione Side Effects: Is Glutathione Cream Safe?',
-         desc='Glutathione side effects explained: what is normal with glutathione creams, the risks of injections, who should ask a doctor first, and how to patch test.',
+         desc='Glutathione side effects explained: what is normal with creams, what each symptom means, risks of tablets and injections, and who should ask a doctor first.',
          body='''<p>Glutathione creams and face washes are generally well tolerated, but any skincare product can irritate some skin. The bigger safety concerns are with <b>glutathione injections</b>, not creams.</p>
 <h2>Creams and face washes</h2><ul><li><b>Mild tingling, redness or dryness</b> in the first days can happen with new products and usually settles.</li><li><b>Redness, itching or burning that lasts</b> is a reaction: stop using the product.</li><li><b>Rash or swelling</b>: stop at once and see a doctor.</li></ul><p>In the 10-week study of a 2%% glutathione lotion (%(study)s), one of 30 participants had mild redness for two days, which settled without stopping.</p>
 <h2>Glutathione injections</h2><p>Injections are a medical procedure, not skincare. The %(fda)s said injectable skin-lightening products may be unsafe, may contain unknown substances, and carry risks from unsafe injection practices, and that no injectable skin-lightening drug is approved. Never take glutathione injections from salons or unlicensed sellers.</p>

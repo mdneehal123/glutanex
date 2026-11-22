@@ -277,7 +277,7 @@ OCT20_D = [
 <li><b>Morning: moisturise.</b> A gel for oily skin, a cream for dry skin.</li>
 <li><b>Morning: sunscreen.</b> SPF 30+ with a good PA rating, two finger-lengths for face and neck, every day. See <a href="/glutathione-cream-with-sunscreen/">glutathione cream and sunscreen</a>.</li>
 <li><b>Night: cleanse properly.</b> Remove sunscreen, makeup and city grime; a double cleanse helps after a long commute.</li>
-<li><b>Night: active cream.</b> A pea-sized amount of a glutathione night cream on clean, dry skin. Start 2 to 3 nights a week if it has retinol or acids.</li>
+<li><b>Night: active cream.</b> A pea-sized amount of a glutathione night cream on clean, dry skin. Start 2 to 3 nights a week if it has retinol or acids. How to pick one: <a href="/night-cream-for-glowing-skin/">night cream for glowing skin</a>.</li>
 <li><b>Night: moisturiser</b> on top if your skin feels dry, and on nights off the active cream.</li></ol>
 <p>Skip harsh scrubs, lemon, baking soda and daily face packs with turmeric and gram flour that leave skin tight. Over-scrubbing is one of the most common reasons skin looks dull and irritated rather than fresh.</p>
 <h2>Supporting ingredients in GlutaNex Night Cream</h2><p>%(cream)s pairs glutathione with ingredients that each address a different cause of dullness:</p><ul>

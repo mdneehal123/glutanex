@@ -105,7 +105,7 @@ KW_NOV05 = [
 </tbody></table></div>
 
 <h2>How to choose</h2>
-<ul><li><b>Oily or acne-prone:</b> a gel that foams, with niacinamide or salicylic acid.</li><li><b>Dry:</b> a creamy or low-foam wash with glycerin or panthenol.</li><li><b>Sensitive:</b> fragrance-light, no scrub beads, no high-strength acids.</li><li><b>Following a glutathione routine:</b> a glutathione wash keeps it simple, but it is not required.</li></ul>
+<ul><li><b>Oily or acne-prone:</b> a gel that foams, with niacinamide or salicylic acid (more in <a href="/glutathione-face-wash-for-oily-skin/">glutathione face wash for oily skin</a>).</li><li><b>Dry:</b> a creamy or low-foam wash with glycerin or panthenol.</li><li><b>Sensitive:</b> fragrance-light, no scrub beads, no high-strength acids.</li><li><b>Following a glutathione routine:</b> a glutathione wash keeps it simple, but it is not required.</li></ul>
 <p>%(wash)s is a gel with glutathione, copper peptide and niacinamide; it has no vitamin C, so you can pair it with a vitamin C serum in the morning and %(cream)s at night.</p>
 <p>Read more: <a href="/glutathione-vs-vitamin-c/">glutathione vs vitamin C</a> and <a href="/glutathione-face-wash/">what a glutathione face wash can do</a>.</p>
 ''',
@@ -150,8 +150,9 @@ KW_NOV05 = [
          title='Glutathione face wash for men: oil, sweat, shaving and helmet tan',
          short='Face wash for men',
          blurb='A simple routine for men: how a glutathione face wash fits around shaving, gym sweat and helmet tan, and what actually fades tan.',
-         seo='Glutathione Face Wash for Men: Routine for Oil, Shaving and Tan',
-         desc='A glutathione face wash for men: how to use it around shaving, gym sweat and bike helmet tan, how often to wash, and a 3-step routine that actually works.',
+         seo='Glutathione Face Wash for Men: How to Use It Every Day',
+         desc='Glutathione face wash for men: how to use it daily around shaving, beard, gym sweat and helmet tan, how to pick one by skin type, and what it cannot do.',
+         show_faq=True,
          refs=[],
          qa=[("Is a glutathione face wash good for men?",
               "Yes, if it is a gentle gel. Men's skin is often oilier, so a foaming gel twice a day suits most men, with a light moisturiser and sunscreen.", ''),
@@ -171,6 +172,22 @@ KW_NOV05 = [
 <h2>Around shaving</h2>
 <ul><li>Wash before shaving to soften the beard.</li><li>Shave in the morning and use the night cream at night, not on freshly nicked skin.</li><li>Skip scrubs on shaving days.</li></ul>
 
+<h2>Pick a face wash by skin type</h2>
+<div class="tbl"><table><thead><tr><th>Your skin</th><th>Choose</th><th>Skip</th></tr></thead><tbody>
+<tr><td>Oily, shiny by noon</td><td>A foaming gel, twice a day. See <a href="/glutathione-face-wash-for-oily-skin/">glutathione face wash for oily skin</a></td><td>Scrubs every day, very hot water</td></tr>
+<tr><td>Normal or combination</td><td>A gentle gel or foam</td><td>Washing more than twice</td></tr>
+<tr><td>Dry or tight after shaving</td><td>A mild, non-gritty wash and a moisturiser straight after</td><td>Menthol "cooling" washes if they sting</td></tr>
+</tbody></table></div>
+
+<h2>Beard and moustache</h2>
+<p>Dirt and oil collect under facial hair, which can mean bumps and flakes. Work the foam into the beard with your fingertips for 30 seconds, rinse until no slip is left, and pat dry. Keep leave-on actives such as a retinol night cream off freshly trimmed or nicked skin. For razor bumps and after-shave care, see <a href="/glutathione-cream-after-shaving/">glutathione cream after shaving</a>.</p>
+
+<h2>Men's skin in winter</h2>
+<p>Cold mornings, hot showers and daily shaving together dry the skin. Wash with lukewarm water, shave after the wash, and use a moisturiser every morning before sunscreen. If your cheeks flake, wash once with the face wash at night and just rinse with water in the morning.</p>
+
+<h2>What a face wash can and cannot do</h2>
+<p>It cleans oil, sweat and pollution and leaves skin feeling fresh. It does not change your natural skin colour or make anyone "fair", and on its own it will not remove tan, because it is rinsed off in under a minute. Tan looks lighter over weeks with daily sunscreen and, if you want, a leave-on night cream.</p>
+
 <h2>Helmet and bike tan</h2>
 <p>Tan on the forehead, cheeks and neck builds up from daily rides. Sunscreen under the helmet, reapplied on long rides, does far more than any wash. A night cream helps the tan look lighter over 8 to 12 weeks.</p>
 
@@ -178,7 +195,10 @@ KW_NOV05 = [
 ''',
          faq=[("How many times a day should men wash their face?", "Twice, plus a rinse after the gym. More often can dry the skin and make oiliness worse later."),
               ("Can men use the same face wash as women?", "Yes. Skin type matters, not gender."),
-              ("Does a beard need a different wash?", "No. Massage the wash into the beard and rinse well so no residue stays near the skin.")]),
+              ("Does a beard need a different wash?", "No. Massage the wash into the beard and rinse well so no residue stays near the skin."),
+              ("Can men use a glutathione face wash every day?", "Yes. A gentle glutathione face wash can be used morning and night every day. If your skin feels tight, wash once at night and just rinse with water in the morning."),
+              ("Can a glutathione face wash make men fair?", "No. No face wash changes your natural skin colour. It cleans the skin; with daily sunscreen, tan and dullness can look lighter over a few weeks."),
+              ("Can I use face wash instead of shaving foam?", "For a light trim, a foaming face wash can soften hair, but a proper shaving cream or gel gives more glide and fewer cuts. Wash first, then use your shaving product.")]),
 ]
 
 HI_NOV05 = [

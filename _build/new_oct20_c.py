@@ -334,7 +334,7 @@ OCT20_C = [
 <tr><td>Dryness and build-up</td><td>Dull, rough, patchy look, worse in winter or air conditioning</td><td>Moisturiser, gentle exfoliation, enough water</td></tr>
 <tr><td>Irritation</td><td>Darkening after harsh scrubs, lemon, bleach or strong creams</td><td>Stop the irritant; keep the routine simple</td></tr>
 </tbody></table></div>
-<p>Most people have more than one cause. For a wider overview, see <a href="/glutathione-for-pigmentation/">glutathione for pigmentation</a>.</p>
+<p>Most people have more than one cause. For a wider overview, see <a href="/glutathione-for-pigmentation/">glutathione for pigmentation</a>, and for the night step, <a href="/night-cream-for-pigmentation/">night cream for pigmentation</a>.</p>
 
 <h2>What a glutathione cream can do, and what it cannot</h2>
 <p>Three ingredients often work together in brightening creams:</p>

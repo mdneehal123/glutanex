@@ -159,8 +159,9 @@ PLAN05 = [
          title='Glutathione face wash for oily skin: how to use it in Indian weather',
          short='Face wash for oily skin',
          blurb='What oily skin needs from a face wash, how often to wash in heat and humidity, foam vs gel, and how a glutathione face wash fits a routine.',
-         seo='Glutathione Face Wash for Oily Skin: How to Use It',
-         desc='Is a glutathione face wash good for oily skin? What to look for, how often to wash in Indian heat, mistakes that make oiliness worse, and a simple routine.',
+         seo='Glutathione Face Wash for Oily Skin: How to Choose and Use',
+         desc='Glutathione face wash for oily skin: is it good, how to use it, gel vs foam, how often to wash in Indian heat and winter, and mistakes that add shine.',
+         show_faq=True,
          refs=[],
          qa=[("Is a glutathione face wash good for oily skin?",
               "It can be, if it is a gentle foaming gel. Oily skin likes a wash that clears oil without leaving skin tight. %(wash)s is a foaming gel made for all skin types.", ''),
@@ -181,13 +182,36 @@ PLAN05 = [
 <tr><td>Night</td><td>Face wash, then your night treatment, such as %(cream)s 2 to 3 nights a week at first</td></tr>
 </tbody></table></div>
 
+<h2>How to use it, step by step</h2>
+<ol><li>Wet your face with lukewarm water, not hot.</li>
+<li>Take one pump, foam it between wet palms first.</li>
+<li>Massage gently for 30 to 60 seconds, a little longer on the forehead, nose and chin where oil collects.</li>
+<li>Rinse well along the hairline and jaw, where residue hides.</li>
+<li>Pat dry with a clean towel and apply a light gel moisturiser within a minute or two.</li></ol>
+
+<h2>Gel, foam or cream cleanser?</h2>
+<div class="tbl"><table><thead><tr><th>Type</th><th>Feels like</th><th>Best for</th></tr></thead><tbody>
+<tr><td>Foaming gel</td><td>Lathers, rinses clean</td><td>Oily and combination skin, humid weather</td></tr>
+<tr><td>Foam (pre-foamed)</td><td>Light, airy</td><td>Oily or normal skin that dislikes gels</td></tr>
+<tr><td>Cream cleanser</td><td>Milky, no squeak</td><td>Dry skin, or oily skin that feels tight in winter</td></tr>
+</tbody></table></div>
+
+<h2>Oily skin in winter</h2>
+<p>Oily skin can still feel tight in December and January, especially in north India or with a room heater. Keep the same face wash but use lukewarm water, skip a third wash in the day, and use a slightly richer moisturiser at night. If your T-zone stays oily but cheeks get dry, see <a href="/glutathione-cream-for-combination-skin/">combination skin</a>.</p>
+
+<h2>Oily and acne-prone: what a face wash can and cannot do</h2>
+<p>A face wash is on the skin for under a minute, so it mainly cleans. It helps keep pores clear but does not replace a leave-on product for pimples. If you get painful or frequent breakouts, see a dermatologist. For marks left behind, see <a href="/glutathione-for-acne-marks/">glutathione for acne marks</a>; and if a new product seems to cause bumps, read <a href="/glutathione-face-wash-side-effects/">glutathione face wash side effects</a>.</p>
+
 <h2>Mistakes that make oily skin worse</h2>
 <ul><li>Washing 4 to 5 times a day.</li><li>Skipping moisturiser: dry, tight skin often looks oilier later.</li><li>Hot water and hard rubbing.</li><li>Heavy hair oil running onto the forehead.</li></ul>
 <p>See also <a href="/glutathione-for-oily-skin/">glutathione for oily skin</a> and <a href="/glutathione-face-wash/">what a glutathione face wash can and cannot do</a>.</p>
 ''',
          faq=[("Should oily skin use moisturiser?", "Yes. A light gel moisturiser helps skin stay balanced and comfortable."),
               ("Can men with oily skin use it?", "Yes. It is for anyone."),
-              ("Foam or gel: which is better for oily skin?", "Both work; many people with oily skin prefer a gel that foams, like Gluta Boost.")]),
+              ("Foam or gel: which is better for oily skin?", "Both work; many people with oily skin prefer a gel that foams, like Gluta Boost."),
+              ("Can I use a glutathione face wash twice a day?", "Yes. Morning and night is right for most oily skin. Add a plain water rinse after the gym or a sweaty commute rather than a third wash."),
+              ("Does a glutathione face wash reduce oil?", "It removes oil that is on the skin at the time of washing, so skin looks less shiny for a while. It does not change how much oil your skin makes; a light moisturiser and not over-washing help more over the day."),
+              ("Can I use it with a salicylic acid face wash?", "Use one or the other at each wash. Some people use a salicylic acid wash at night and a gentle wash in the morning. If your night cream already has salicylic acid, like the GlutaNex Night Cream, keep the face wash gentle.")]),
 
     dict(slug='skin-care-before-and-after-holi',
          title='Skin care before and after Holi: protect, play, then clean gently',

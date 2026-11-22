@@ -66,7 +66,7 @@ PREMIUM07 = [
 </tbody></table></div>
 
 <h2>Adapting it for Indian weather</h2>
-<ul><li><b>Humid cities:</b> gel textures, thin layers, and no heavy oils in the day.</li><li><b>Dry winters in the north:</b> add a richer moisturiser at night.</li><li><b>Daily sun:</b> sunscreen is the step that protects your glow; reapply outdoors.</li></ul>
+<ul><li><b>Humid cities:</b> gel textures, thin layers, and no heavy oils in the day.</li><li><b>Dry winters in the north:</b> add a richer moisturiser at night. See <a href="/night-cream-for-glowing-skin/">choosing a night cream for glowing skin</a>.</li><li><b>Daily sun:</b> sunscreen is the step that protects your glow; reapply outdoors.</li></ul>
 
 <h2>What to expect</h2>
 <ul><li><b>Days:</b> plumper, more hydrated feel.</li><li><b>4 to 6 weeks:</b> smoother texture and a fresher look in the morning.</li><li><b>8 to 12 weeks:</b> dullness and uneven tone look better.</li></ul>

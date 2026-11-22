@@ -7,8 +7,9 @@ NIGHT_NOV03 = [
          title='Night cream for glowing skin: how to choose one for Indian skin',
          short='Night cream for glow',
          blurb='What makes a night cream give a glow, which ingredients to look for by skin type, how to apply it, and the claims to ignore. A practical buyer\'s guide for Indian skin and weather.',
-         seo='Night Cream for Glowing Skin: How to Choose One',
-         desc='How to choose a night cream for glowing skin in India: ingredients that work, picks by skin type, how to apply it, timelines and claims to ignore.',
+         seo='Best Night Cream for Glowing Skin in India: How to Choose',
+         desc='Best night cream for glowing skin in India? Pick by skin type and season: ingredients that work, how to apply it, a label check and claims to skip.',
+         show_faq=True,
          refs=[],
          qa=[("Which night cream is best for glowing skin?",
               "The best night cream for glowing skin is one that suits your skin type and has proven brightening ingredients such as niacinamide, vitamin C, glutathione or retinol, plus hydrators like hyaluronic acid and ceramides. Use it nightly and wear sunscreen every morning, or the glow will not last.", ''),
@@ -58,6 +59,23 @@ NIGHT_NOV03 = [
 <li><b>"100%% safe, no side effects"</b>: every active can irritate some people.</li>
 <li><b>No ingredient list or maker address</b> on the pack: skip it. See <a href="/glutathione-side-effects/">glutathione side effects</a>.</li></ul>
 
+<h2>Winter or summer: change the texture, not the routine</h2>
+<div class="tbl"><table><thead><tr><th>Season</th><th>What skin needs at night</th><th>Tip</th></tr></thead><tbody>
+<tr><td>Winter (Nov to Feb, dry north and central India)</td><td>More hydration and barrier care: ceramides, hyaluronic acid, glycerin</td><td>Apply on slightly damp skin; add a plain moisturiser on top if cheeks feel tight. See <a href="/glutathione-cream-in-winter/">glutathione cream in winter</a></td></tr>
+<tr><td>Summer and monsoon (humid coasts)</td><td>A lighter layer that does not feel sticky</td><td>Use a thinner layer and keep the fan or AC on low; skip extra face oils</td></tr>
+<tr><td>Room heater or AC all night</td><td>Extra moisture, because both dry the air</td><td>A bowl of water in the room or a humidifier helps; keep actives at 2 to 3 nights a week if skin gets flaky</td></tr>
+</tbody></table></div>
+
+<h2>Night cream or serum: which gives more glow?</h2>
+<p>They do different jobs. A <b>serum</b> is a thin layer with a few actives; a <b>night cream</b> adds moisture and seals it in, and may carry actives of its own. If you want one product only, a night cream with brightening ingredients is the simpler choice. If you use both, the order is serum first, then cream, and avoid stacking two strong actives (for example a retinol serum under a retinol cream) on the same night. See <a href="/glutathione-cream-with-vitamin-c-serum/">using a vitamin C serum with glutathione cream</a> and <a href="/night-cream-vs-day-cream/">night cream vs day cream</a>.</p>
+
+<h2>A quick label check before you buy</h2>
+<ul><li><b>Full ingredient list</b> printed on the pack, not just "herbal extracts".</li>
+<li><b>Maker's name and address</b>, batch number and expiry date.</li>
+<li><b>Pack size and value:</b> divide the price by the grams to compare jars of different sizes fairly.</li>
+<li><b>Night-only warnings</b> if the cream has retinol or acids. That is a good sign: it means the label is honest about what is inside.</li>
+<li><b>No promises of colour change</b> such as "fair", "white" or "results in 7 days". See <a href="/how-to-spot-fake-glutathione-cream/">how to spot a fake glutathione cream</a>.</li></ul>
+
 <h2>Small habits that add to the glow</h2>
 <ul><li>7 to 8 hours of sleep; the morning puffiness and dullness really are worse without it.</li>
 <li>Change pillow covers twice a week if you are acne-prone.</li>
@@ -65,14 +83,18 @@ NIGHT_NOV03 = [
          faq=[("Is a night cream necessary?", "Not for everyone, but it is the easiest way to add hydration and brightening actives to your routine without worrying about sun exposure."),
               ("Can I use a night cream in the day?", "A plain hydrating one, yes, under sunscreen. Night creams with retinol or acids, like GlutaNex, should stay at night only."),
               ("What is the right age to start a night cream?", "A simple hydrating night cream is fine from the late teens. Retinol night creams are usually started in the 20s or later, slowly."),
-              ("Can men use a night cream for glowing skin?", "Yes. The same ingredients work on all skin. See our guide for men for shaving and beard tips.")]),
+              ("Can men use a night cream for glowing skin?", "Yes. The same ingredients work on all skin. See our guide for men for shaving and beard tips."),
+              ("Which night cream is best for glowing skin in winter?", "In winter, choose a richer night cream with ceramides, hyaluronic acid or glycerin, apply it on slightly damp skin, and add a plain moisturiser on top if your cheeks still feel tight. Keep sunscreen every morning, even on foggy days."),
+              ("Should I apply night cream on a wet or dry face?", "Plain hydrating creams work well on slightly damp skin. With retinol or acid night creams, pat the face dry and wait a minute or two first, as damp skin can make them sting more."),
+              ("Can I use aloe vera gel with a night cream?", "Yes. Apply a thin layer of plain aloe vera gel first, let it dry, then the night cream. Patch test any homemade or fragranced gel first.")]),
 
     dict(slug='night-cream-for-pigmentation',
          title='Night cream for pigmentation: ingredients that help and a routine that works',
          short='Night cream for pigmentation',
          blurb='Which night cream ingredients help pigmentation, dark spots and tan look lighter, a simple routine for Indian skin, realistic timelines, and when pigmentation needs a dermatologist.',
-         seo='Night Cream for Pigmentation: Ingredients and Routine',
-         desc='Night cream for pigmentation: which ingredients help dark spots and tan look lighter, a simple night and morning routine, timelines and when to see a doctor.',
+         seo='Night Cream for Pigmentation: What Helps and How to Use It',
+         desc='Night cream for pigmentation: ingredients that help dark spots and tan look lighter, a night and morning routine, mistakes to avoid and when to see a doctor.',
+         show_faq=True,
          refs=[],
          qa=[("Which night cream is good for pigmentation?",
               "Look for a night cream with niacinamide, plus one or more of glutathione, vitamin C, retinol, alpha arbutin or azelaic acid, and hydrators such as ceramides. Use it consistently at night and wear sunscreen every morning, because sun exposure is the main reason pigmentation returns.", ''),
@@ -107,6 +129,19 @@ NIGHT_NOV03 = [
 </tbody></table></div>
 <p>%(cream)s combines glutathione, niacinamide, vitamin C, retinol and salicylic acid with ceramides and hyaluronic acid in one night cream. Start 2 to 3 nights a week, then build up if your skin is comfortable. It is night only and not for pregnancy or breastfeeding unless your doctor approves. See <a href="/how-to-use-glutathione-cream/">how to use glutathione cream</a>.</p>
 
+<h2>How to apply it on pigmented areas</h2>
+<ol><li><b>Whole face, thin layer.</b> Spread a pea-sized amount over the whole face instead of thick dabs on spots only; spot-only use can leave a lighter ring around a darker patch.</li>
+<li><b>Neck and jawline:</b> use what is left on your fingers. Neck skin is thinner, so go slowly.</li>
+<li><b>Upper lip and around the mouth:</b> keep a small gap from the lip line, which irritates easily.</li>
+<li><b>Under the eyes:</b> skip active night creams here. Dark circles have other causes; see <a href="/glutathione-for-dark-circles/">glutathione for dark circles</a>.</li></ol>
+
+<h2>Pick by skin type</h2>
+<div class="tbl"><table><thead><tr><th>Skin type</th><th>What to look for</th><th>Watch out for</th></tr></thead><tbody>
+<tr><td>Oily or acne-prone</td><td>Light texture; niacinamide, salicylic acid</td><td>Heavy oils that clog pores and cause new marks</td></tr>
+<tr><td>Dry</td><td>Ceramides, hyaluronic acid with the brightening actives</td><td>Flaking from retinol; add a plain moisturiser on top</td></tr>
+<tr><td>Sensitive</td><td>Fewer actives, slower start (2 nights a week)</td><td>Irritation, which itself can leave darker patches. See <a href="/glutathione-cream-for-sensitive-skin/">sensitive skin</a></td></tr>
+</tbody></table></div>
+
 <h2>Mistakes that make pigmentation worse</h2>
 <ul><li><b>Skipping sunscreen</b> on cloudy days, indoors near windows, or on two-wheeler rides.</li>
 <li><b>Lemon, baking soda or bleach</b> on the face. See <a href="/glutathione-cream-with-lemon/">glutathione cream with lemon</a>.</li>
@@ -124,7 +159,10 @@ NIGHT_NOV03 = [
          faq=[("Which is better for pigmentation, day cream or night cream?", "Use both for different jobs: sunscreen in the day to stop new pigmentation, and an active night cream to help existing marks look lighter."),
               ("Can I use a pigmentation night cream every night?", "Plain niacinamide creams, yes. Creams with retinol or acids should start 2 to 3 nights a week and build up."),
               ("Is glutathione good for pigmentation?", "It can be part of the routine for a more even-looking tone, but evidence is modest and sunscreen matters more. Melasma needs a dermatologist."),
-              ("Does pigmentation come back?", "It can, especially with sun exposure or hormonal changes. Daily sunscreen is the best way to keep results.")]),
+              ("Does pigmentation come back?", "It can, especially with sun exposure or hormonal changes. Daily sunscreen is the best way to keep results."),
+              ("Which ingredient is best for pigmentation in a night cream?", "No single ingredient suits everyone. Niacinamide is a gentle, well-studied start; retinol helps renewal but needs a slow start; glutathione, vitamin C and alpha arbutin are other options. A cream that combines a few, used with daily sunscreen, is usually easier than many separate products."),
+              ("Can I use a pigmentation night cream on my neck?", "Yes, a thin layer is fine if your skin tolerates it on the face first. The neck is more sensitive, so start every other night and stop if it stings or peels."),
+              ("Is a night cream enough for melasma?", "Usually not on its own. Melasma is linked to hormones and sun, and needs strict daily sunscreen and a dermatologist's plan. A gentle night cream can support that plan but should not replace it.")]),
 
     dict(slug='night-cream-vs-day-cream',
          title='Night cream vs day cream: what is the difference and do you need both?',
