@@ -16,7 +16,7 @@ SITE = 'https://glutanex.co.in'
 WA = '919980881230'                    # same number as Youth Face and Fair N Pink
 WA_SHOW = '+91 99808 81230'
 OWNER = 'Beauty Mart Pvt Ltd'          # same seller as Fair N Pink
-ADDR = 'Azad Nagar 4th Cross, near Anfa Park, Bhatkal, Uttara Kannada, Karnataka 581320, India'
+ADDR = 'Bhatkal, Karnataka, India'
 TODAY = '2026-10-11'
 INDEXNOW_KEY = 'a7f3c9e15b2d4086b1e8d3f0c62a97e4'
 
@@ -176,8 +176,8 @@ BRAND_DESC = ('GlutaNex is an Indian glutathione skincare brand (Glutathione Nig
 
 
 def graph_base():
-    addr = {'@type': 'PostalAddress', 'streetAddress': 'Azad Nagar 4th Cross, near Anfa Park', 'addressLocality': 'Bhatkal', 'addressRegion': 'Karnataka',
-            'postalCode': '581320', 'addressCountry': 'IN'}
+    addr = {'@type': 'PostalAddress', 'addressLocality': 'Bhatkal', 'addressRegion': 'Karnataka',
+            'addressCountry': 'IN'}
     logo = {'@type': 'ImageObject', '@id': SITE + '/#logo', 'url': SITE + '/assets/img/glutanex-logo-dark.png', 'contentUrl': SITE + '/assets/img/glutanex-logo-dark.png',
             'width': 515, 'height': 150, 'caption': 'GlutaNex'}
     return [{'@type': 'OnlineStore', '@id': SITE + '/#org', 'name': 'GlutaNex', 'alternateName': ['Glutanex', 'GlutaNex India', 'GlutaNex Skincare'],

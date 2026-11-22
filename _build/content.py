@@ -423,7 +423,7 @@ _BRAND_FAQ = [('Is GlutaNex an Indian brand?', 'Yes. GlutaNex is an Indian skinc
               ('Does GlutaNex sell glutathione injections or tablets?', 'No. GlutaNex makes only skincare you apply to the skin: a Night Cream, a Face Wash and a Shower Gel. Glutanex glutathione injections and tablets from Korea, sometimes sold online in India, are made by other companies and are not GlutaNex products.'),
               ('Is GlutaNex the same as the Korean brand Glutanex?', 'GlutaNex (India, glutanex.co.in) makes only skincare you apply to the skin. It does not make or sell glutathione injections, drips or tablets. GlutaNex is an Indian brand. "Glutanex" products from Korea, including glutathione injections, tablets and skincare sold online in India, are made by other companies and are not connected with GlutaNex India.')]
 _bp_rows = ''.join('<tr><td>%s</td><td>%s</td></tr>' % r for r in [
-    ('Brand', 'GlutaNex'), ('Company', OWNER), ('Based in', 'Bhatkal, Uttara Kannada, Karnataka, India'),
+    ('Brand', 'GlutaNex'), ('Company', OWNER), ('Based in', 'Bhatkal, Karnataka, India'),
     ('Products', ', '.join('<a href="%s">%s</a> (%s, %s)' % (url(x), html.escape(x['short']), html.escape(x['size']), rs(x['price'])) for x in PRODUCTS)),
     ('Key ingredient', '<a href="/glutathione/">Glutathione</a>, with niacinamide, vitamin C and hyaluronic acid'),
     ('Official website', '<a href="/">glutanex.co.in</a>'), ('Instagram', '<a href="%s" target="_blank" rel="noopener">@glutanexofficial</a>' % INSTAGRAM),
