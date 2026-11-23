@@ -5,8 +5,8 @@
   "pub": "2026-10-11"
  },
  "/about/": {
-  "h": "7fdd4dc51136ea68",
-  "mod": "2026-11-05",
+  "h": "4e14868da4c1f6e1",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/anti-ageing-night-cream-for-women-over-35/": {
@@ -70,8 +70,8 @@
   "pub": "2026-10-20"
  },
  "/contact/": {
-  "h": "6d4eda0740ea4a13",
-  "mod": "2026-10-12",
+  "h": "5bae1db02dd29ac4",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/corporate-skincare-gifts-india/": {
@@ -135,8 +135,8 @@
   "pub": "2026-11-04"
  },
  "/glutanex/": {
-  "h": "44156348f56abaa0",
-  "mod": "2026-11-05",
+  "h": "691e818a37511325",
+  "mod": "2026-11-23",
   "pub": "2026-10-12"
  },
  "/glutathione-and-aloe-vera/": {
@@ -195,13 +195,18 @@
   "pub": "2026-10-11"
  },
  "/glutathione-cream-after-chemical-peel/": {
-  "h": "b12d6ff612259d17",
-  "mod": "2026-11-22",
+  "h": "a373a49be1a1c459",
+  "mod": "2026-11-23",
   "pub": "2026-11-22"
  },
+ "/glutathione-cream-after-hair-removal-cream/": {
+  "h": "7c7509dcfe304b66",
+  "mod": "2026-11-23",
+  "pub": "2026-11-23"
+ },
  "/glutathione-cream-after-laser-hair-removal/": {
-  "h": "c3897f99fccb7e28",
-  "mod": "2026-11-22",
+  "h": "9cd2e7b07bb286fb",
+  "mod": "2026-11-23",
   "pub": "2026-11-22"
  },
  "/glutathione-cream-after-shaving/": {
@@ -228,6 +233,11 @@
   "h": "08623f72b6716e9c",
   "mod": "2026-11-05",
   "pub": "2026-10-20"
+ },
+ "/glutathione-cream-for-blackheads/": {
+  "h": "fdc6e15dc735e953",
+  "mod": "2026-11-23",
+  "pub": "2026-11-23"
  },
  "/glutathione-cream-for-combination-skin/": {
   "h": "ff77afe37d2fd177",
@@ -610,8 +620,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "9d261576db2e77fb",
-  "mod": "2026-11-22",
+  "h": "742de9dcbc50fe54",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
@@ -1020,13 +1030,13 @@
   "pub": "2026-11-03"
  },
  "/our-standards/": {
-  "h": "9191bd4a6e2fdd0e",
-  "mod": "2026-10-12",
+  "h": "bc7c863d11ec8bb7",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/privacy-policy/": {
-  "h": "d6377bc1dc2c0b6e",
-  "mod": "2026-10-24",
+  "h": "cf01cde065c109dc",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/product/glutanex-aqua-fresh-shower-gel/": {
@@ -1075,8 +1085,8 @@
   "pub": "2026-10-14"
  },
  "/refund-policy/": {
-  "h": "2446e1672ddc9c30",
-  "mod": "2026-10-12",
+  "h": "5b87401ef3516a80",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/retinol-night-cream-for-beginners/": {
@@ -1110,8 +1120,8 @@
   "pub": "2026-11-18"
  },
  "/shipping-policy/": {
-  "h": "d0ca5d0a12ad2591",
-  "mod": "2026-10-12",
+  "h": "f9736977fdccc1a2",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/shop/": {
@@ -1205,8 +1215,8 @@
   "pub": "2026-11-05"
  },
  "/terms/": {
-  "h": "4f30c48e97c6a0b1",
-  "mod": "2026-10-18",
+  "h": "99846949f28bd232",
+  "mod": "2026-11-23",
   "pub": "2026-10-11"
  },
  "/track-order/": {
