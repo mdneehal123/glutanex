@@ -200,9 +200,14 @@
   "pub": "2026-11-22"
  },
  "/glutathione-cream-after-dermaplaning/": {
-  "h": "a87fbdf3b1317d02",
-  "mod": "2026-11-24",
+  "h": "dbdd89602171a9ed",
+  "mod": "2026-11-25",
   "pub": "2026-11-24"
+ },
+ "/glutathione-cream-after-facial/": {
+  "h": "d068ef166378ca74",
+  "mod": "2026-11-25",
+  "pub": "2026-11-25"
  },
  "/glutathione-cream-after-hair-removal-cream/": {
   "h": "2bcc2a24dcffbde9",
@@ -315,8 +320,8 @@
   "pub": "2026-11-04"
  },
  "/glutathione-cream-in-monsoon/": {
-  "h": "e66917af8ef37ac8",
-  "mod": "2026-11-24",
+  "h": "c2bcaeaf5eea3a36",
+  "mod": "2026-11-25",
   "pub": "2026-11-24"
  },
  "/glutathione-cream-in-winter/": {
@@ -363,6 +368,11 @@
   "h": "16f429554c42359a",
   "mod": "2026-11-10",
   "pub": "2026-11-09"
+ },
+ "/glutathione-cream-with-bakuchiol/": {
+  "h": "1f2c7865ff32552e",
+  "mod": "2026-11-25",
+  "pub": "2026-11-25"
  },
  "/glutathione-cream-with-beetroot/": {
   "h": "eb7a293bbb56b9b2",
@@ -630,8 +640,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "76475d997b88af20",
-  "mod": "2026-11-24",
+  "h": "fd91856df9a04005",
+  "mod": "2026-11-25",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
