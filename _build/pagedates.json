@@ -205,8 +205,8 @@
   "pub": "2026-11-24"
  },
  "/glutathione-cream-after-facial/": {
-  "h": "d068ef166378ca74",
-  "mod": "2026-11-25",
+  "h": "73b41ad6c1e2e95f",
+  "mod": "2026-11-26",
   "pub": "2026-11-25"
  },
  "/glutathione-cream-after-hair-removal-cream/": {
@@ -370,8 +370,8 @@
   "pub": "2026-11-09"
  },
  "/glutathione-cream-with-bakuchiol/": {
-  "h": "1f2c7865ff32552e",
-  "mod": "2026-11-25",
+  "h": "a0cbc8c315599b22",
+  "mod": "2026-11-26",
   "pub": "2026-11-25"
  },
  "/glutathione-cream-with-beetroot/": {
@@ -489,6 +489,11 @@
   "mod": "2026-11-11",
   "pub": "2026-11-10"
  },
+ "/glutathione-cream-with-rosehip-oil/": {
+  "h": "ca9d1e7bdcd2681f",
+  "mod": "2026-11-26",
+  "pub": "2026-11-26"
+ },
  "/glutathione-cream-with-saffron/": {
   "h": "077732f40380d1e8",
   "mod": "2026-11-09",
@@ -503,6 +508,11 @@
   "h": "a597088efd4cd6ee",
   "mod": "2026-11-21",
   "pub": "2026-11-20"
+ },
+ "/glutathione-cream-with-shea-butter/": {
+  "h": "dc8782fd89c14efe",
+  "mod": "2026-11-26",
+  "pub": "2026-11-26"
  },
  "/glutathione-cream-with-sunscreen/": {
   "h": "27ed87e98ebb66fa",
@@ -640,8 +650,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "fd91856df9a04005",
-  "mod": "2026-11-25",
+  "h": "46c99a5cea8d93b3",
+  "mod": "2026-11-26",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
