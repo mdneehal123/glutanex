@@ -369,6 +369,11 @@
   "mod": "2026-11-10",
   "pub": "2026-11-09"
  },
+ "/glutathione-cream-with-argan-oil/": {
+  "h": "028e25bfa956d4ac",
+  "mod": "2026-11-27",
+  "pub": "2026-11-27"
+ },
  "/glutathione-cream-with-bakuchiol/": {
   "h": "a0cbc8c315599b22",
   "mod": "2026-11-26",
@@ -459,6 +464,11 @@
   "mod": "2026-11-12",
   "pub": "2026-11-11"
  },
+ "/glutathione-cream-with-oats/": {
+  "h": "bf872ee28da11581",
+  "mod": "2026-11-27",
+  "pub": "2026-11-27"
+ },
  "/glutathione-cream-with-olive-oil/": {
   "h": "226e0ddd5275e8ca",
   "mod": "2026-11-16",
@@ -490,8 +500,8 @@
   "pub": "2026-11-10"
  },
  "/glutathione-cream-with-rosehip-oil/": {
-  "h": "ca9d1e7bdcd2681f",
-  "mod": "2026-11-26",
+  "h": "21aa712424ef9d04",
+  "mod": "2026-11-27",
   "pub": "2026-11-26"
  },
  "/glutathione-cream-with-saffron/": {
@@ -510,8 +520,8 @@
   "pub": "2026-11-20"
  },
  "/glutathione-cream-with-shea-butter/": {
-  "h": "dc8782fd89c14efe",
-  "mod": "2026-11-26",
+  "h": "dafe69eb477fc88a",
+  "mod": "2026-11-27",
   "pub": "2026-11-26"
  },
  "/glutathione-cream-with-sunscreen/": {
@@ -650,8 +660,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "46c99a5cea8d93b3",
-  "mod": "2026-11-26",
+  "h": "3d7bec48a048e45c",
+  "mod": "2026-11-27",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
