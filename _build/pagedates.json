@@ -370,8 +370,8 @@
   "pub": "2026-11-09"
  },
  "/glutathione-cream-with-argan-oil/": {
-  "h": "028e25bfa956d4ac",
-  "mod": "2026-11-27",
+  "h": "fd3349758276553a",
+  "mod": "2026-11-28",
   "pub": "2026-11-27"
  },
  "/glutathione-cream-with-bakuchiol/": {
@@ -393,6 +393,11 @@
   "h": "a9f14bc3128ec196",
   "mod": "2026-11-13",
   "pub": "2026-11-12"
+ },
+ "/glutathione-cream-with-centella/": {
+  "h": "c6c615cd5cdb9633",
+  "mod": "2026-11-28",
+  "pub": "2026-11-28"
  },
  "/glutathione-cream-with-coconut-oil/": {
   "h": "7216ef1f9b60a87f",
@@ -449,6 +454,11 @@
   "mod": "2026-11-05",
   "pub": "2026-10-31"
  },
+ "/glutathione-cream-with-malai/": {
+  "h": "870d4858921e79aa",
+  "mod": "2026-11-28",
+  "pub": "2026-11-28"
+ },
  "/glutathione-cream-with-mulethi/": {
   "h": "447329745d815530",
   "mod": "2026-11-21",
@@ -465,8 +475,8 @@
   "pub": "2026-11-11"
  },
  "/glutathione-cream-with-oats/": {
-  "h": "bf872ee28da11581",
-  "mod": "2026-11-27",
+  "h": "9b2cc35b804b0b53",
+  "mod": "2026-11-28",
   "pub": "2026-11-27"
  },
  "/glutathione-cream-with-olive-oil/": {
@@ -660,8 +670,8 @@
   "pub": "2026-10-20"
  },
  "/glutathione-guides/": {
-  "h": "3d7bec48a048e45c",
-  "mod": "2026-11-27",
+  "h": "1e36d01a9f3d54b4",
+  "mod": "2026-11-28",
   "pub": "2026-10-11"
  },
  "/glutathione-in-pregnancy/": {
